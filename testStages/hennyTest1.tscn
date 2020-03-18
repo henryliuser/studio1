@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://blocks/testPlat.tscn" type="PackedScene" id=1]
+[ext_resource path="res://players/walker.tscn" type="PackedScene" id=2]
+[ext_resource path="res://players/shade.tscn" type="PackedScene" id=3]
+
+[node name="hennyTest1" type="Node2D"]
+
+[node name="walker" parent="." instance=ExtResource( 2 )]
+position = Vector2( 536.53, 565.795 )
+
+[node name="testPlat" parent="." instance=ExtResource( 1 )]
+position = Vector2( 800.633, 750.359 )
+scale = Vector2( 18.7536, 2.66133 )
+velocity = Vector2( 0, 0 )
+
+[node name="shade" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1070.86, 546.056 )
+playerNum = 2
