@@ -9,12 +9,11 @@ func _physics_process(delta):
 		b.scale.y -= 0.03
 	if timer > 0:
 		velocity.y += 40
-	position.x += velocity.x * delta
-	position.y += velocity.y * delta
+	position += velocity * delta
 
 func _on_boostTrigger_body_entered(body):
-	b = body
 	if timer == 0:
+		b = body
 		body.velocity.y = -1580
 		body.position.y -= 20
 		timer = 1

@@ -59,18 +59,18 @@ func movement():
 	else: maxSpeeds = maxAirVelocity
 	
 	if not is_on_floor():
-		acceleration = acc/4
+		acc = acceleration/4
 	else:
-		acceleration = acc
+		acc = acceleration
 		
 	if right && not left:
 		currentDirection = 1
-		velocity.x += acceleration 
+		velocity.x += acc 
 		velocity.x = min(velocity.x, maxSpeeds.x)
-		sprite.flip_h = false #flip the sprite when changing directions
+		sprite.flip_h = false  # flip the sprite when changing directions
 	elif left && not right:
 		currentDirection = -1
-		velocity.x -= acceleration 
+		velocity.x -= acc 
 		velocity.x = max(velocity.x, -maxSpeeds.x)
 		sprite.flip_h = true
 	elif is_on_floor():
