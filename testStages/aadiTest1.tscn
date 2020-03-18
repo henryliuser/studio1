@@ -1,20 +1,27 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://blocks/burnPlat.tscn" type="PackedScene" id=1]
-[ext_resource path="res://blocks/defaultPlat.tscn" type="PackedScene" id=3]
+[ext_resource path="res://blocks/testPlat.tscn" type="PackedScene" id=2]
+[ext_resource path="res://players/shade.tscn" type="PackedScene" id=3]
 [ext_resource path="res://players/walker.tscn" type="PackedScene" id=4]
 
 [node name="AadiTest1" type="Node2D"]
 
-[node name="defaultPlat" parent="." instance=ExtResource( 3 )]
-position = Vector2( 273.098, 288.697 )
-
-[node name="defaultPlat2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1394.02, 283.428 )
-
 [node name="walker" parent="." instance=ExtResource( 4 )]
-position = Vector2( 121.324, 143.753 )
+position = Vector2( 123.72, 155.731 )
 
-[node name="StaticBody2D" parent="." instance=ExtResource( 1 )]
-position = Vector2( 827.115, 285.748 )
-scale = Vector2( 60.093, 15.9232 )
+[node name="testPlat" parent="." instance=ExtResource( 2 )]
+position = Vector2( 190.499, 277.973 )
+scale = Vector2( 7, 2 )
+
+[node name="testPlat2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1505.52, 276.029 )
+scale = Vector2( 7, 2 )
+
+[node name="burnPlat" parent="." instance=ExtResource( 1 )]
+position = Vector2( 829.756, 276.752 )
+scale = Vector2( 55, 15 )
+
+[node name="shade" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1428.97, 140.142 )
+playerNum = 2
