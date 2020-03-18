@@ -1,14 +1,17 @@
 extends KinematicBody2D
 var timer = 0
 var players = {} 
+export var velocity = Vector2(0,75)
 
-func _physics_process(delta): 
+func _physics_process(delta):
+	position.x += velocity.x * delta
+	position.y += velocity.y * delta 
 	if timer > 0:
 		timer += 1
 	for b in players:
 		if timer % 60 == 0:
 			b.modulate = Color.red
-		if timer % 65 == 0:
+		if timer % 75 == 0:
 			b.modulate = Color.white
 
 func _on_Area2D_body_entered(body):
