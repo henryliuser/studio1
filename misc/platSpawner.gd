@@ -6,7 +6,8 @@ var timer = 0
 var L = [
 	"res://Blocks/boostPlat.tscn",
 	"res://Blocks/conveyerPlat.tscn",
-	"res://Blocks/defaultPlat.tscn"
+	"res://Blocks/defaultPlat.tscn",
+	"res://Blocks/burnPlat.tscn"
 		]
 
 func _ready():
@@ -16,7 +17,7 @@ func _physics_process(delta):
 	timer += 1
 	if timer % 200 == 0:
 		var pos = randi()%1720+100
-		var ran = randi()%3
+		var ran = randi()%len(L)
 		var plat = load(L[ran]).instance()
 		plat.position = Vector2(pos, 0)
 		plat.scale.x = 3
