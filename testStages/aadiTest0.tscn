@@ -5,10 +5,10 @@
 [ext_resource path="res://blocks/boostPlat.tscn" type="PackedScene" id=3]
 [ext_resource path="res://blocks/conveyerPlat.tscn" type="PackedScene" id=4]
 
-[node name="hennyTest0" type="Node2D"]
+[node name="aadiTest0" type="Node2D"]
 
 [node name="testPlat" parent="." instance=ExtResource( 2 )]
-position = Vector2( 433.202, 507.943 )
+position = Vector2( 434.257, 507.943 )
 scale = Vector2( 7.07856, 1.51495 )
 
 [node name="testPlat2" parent="." instance=ExtResource( 2 )]

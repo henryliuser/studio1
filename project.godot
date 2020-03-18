@@ -20,7 +20,7 @@ config/icon="res://assets/icon.png"
 
 [autoload]
 
-debug="*res://misc/debug.tscn"
+debug="*res://debug.tscn"
 
 [display]
 
