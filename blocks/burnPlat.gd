@@ -1,10 +1,7 @@
-extends KinematicBody2D
+extends "res://blocks/defaultPlat.gd"
 var players = {} 
-export var velocity = Vector2(0,75)
 
 func _physics_process(delta):
-	position += velocity * delta
-
 	for b in players:
 		players[b] += 1
 		if players[b] % 30 == 0:

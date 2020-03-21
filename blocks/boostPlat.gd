@@ -1,5 +1,4 @@
-extends KinematicBody2D
-export var velocity = Vector2(0,75)
+extends "res://blocks/defaultPlat.gd"
 var timer = 0
 var b = null
 
@@ -9,7 +8,6 @@ func _physics_process(delta):
 		b.scale.y -= 0.03
 	if timer > 0:
 		velocity.y += 40
-	position += velocity * delta
 
 func _on_boostTrigger_body_entered(body):
 	if timer == 0:

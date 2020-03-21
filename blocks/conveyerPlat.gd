@@ -1,5 +1,4 @@
-extends KinematicBody2D
-export var velocity = Vector2(0,50)
+extends "res://blocks/defaultPlat.gd"
 export var direction = 1
 export var speed = 200
 var players = {}
@@ -12,7 +11,6 @@ func _physics_process(delta):
 	if len(players) > 0:
 		for b in players:
 			b.velocity.x = direction * speed
-	position += velocity * delta
 
 func _on_trigger_body_entered(body):
 	players[body] = true
