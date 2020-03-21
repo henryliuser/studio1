@@ -1,6 +1,6 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=32 format=2]
 
-[ext_resource path="res://players/walker2.gd" type="Script" id=1]
+[ext_resource path="res://players/walker.gd" type="Script" id=1]
 [ext_resource path="res://assets/Char1/Char1Idle/Sprite1-0003.png" type="Texture" id=2]
 [ext_resource path="res://assets/Char1/Char1Forward/Sprite1-0050.png" type="Texture" id=3]
 [ext_resource path="res://assets/Char1/Char1Idle/Sprite1-0002.png" type="Texture" id=4]
@@ -23,6 +23,12 @@
 [ext_resource path="res://assets/Char1/Char1Forward/Sprite1-0045.png" type="Texture" id=21]
 [ext_resource path="res://assets/Char1/Char1Forward/Sprite1-0046.png" type="Texture" id=22]
 [ext_resource path="res://assets/Char1/Char1Forward/Sprite1-0047.png" type="Texture" id=23]
+[ext_resource path="res://assets/Char1/Char1Death/Sprite1-0074.png" type="Texture" id=24]
+[ext_resource path="res://assets/Char1/Char1Death/Sprite1-0077.png" type="Texture" id=25]
+[ext_resource path="res://assets/Char1/Char1Death/Sprite1-0076.png" type="Texture" id=26]
+[ext_resource path="res://assets/Char1/Char1Death/Sprite1-0075.png" type="Texture" id=27]
+[ext_resource path="res://assets/Char1/Char1Death/Sprite1-0078.png" type="Texture" id=28]
+[ext_resource path="res://assets/Char1/Char1Death/Sprite1-0073.png" type="Texture" id=29]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 11, 12 )
@@ -33,6 +39,11 @@ animations = [ {
 "loop": true,
 "name": "idle",
 "speed": 2.0
+}, {
+"frames": [ ExtResource( 29 ), ExtResource( 24 ), ExtResource( 27 ), ExtResource( 26 ), ExtResource( 25 ), ExtResource( 28 ) ],
+"loop": false,
+"name": "death",
+"speed": 8.0
 }, {
 "frames": [ ExtResource( 19 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 10 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 17 ), ExtResource( 17 ), ExtResource( 20 ), ExtResource( 18 ) ],
 "loop": true,
@@ -57,5 +68,5 @@ shape = SubResource( 1 )
 [node name="sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "idle"
-frame = 3
+frame = 1
 playing = true

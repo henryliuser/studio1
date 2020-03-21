@@ -19,6 +19,11 @@ var jump
 var hit
 var taunt
 
+#health
+var hp = 100
+var modTimer = Vector2(0,5)
+var stunTimer = Vector2(0,10)
+
 #movement variables
 export var maxAirVelocity = Vector2(450,1500)
 export var maxGroundVelocity = Vector2(400,1500)
@@ -40,14 +45,18 @@ func _ready():
 		sprite.modulate = Color.peru
 
 func _physics_process(delta):
-	_on_physics_process(delta)
+	calcHitstun()
+	if hp > 0:
+		_on_physics_process(delta)
+	velocity = move_and_slide(velocity,Vector2(0,-1))
 
 func _on_physics_process(delta):
-	parseInputs()
-	calculateJump()
-	movement()
 	imposeGravity()
-	velocity = move_and_slide(velocity,Vector2(0,-1))
+	if stunTimer.x == 0:
+		parseInputs()
+		calculateJump()
+		movement()
+
 
 func imposeGravity():
 	velocity.y += gravity
@@ -107,3 +116,32 @@ func calculateJump():
 			velocity.y = -jumpSpeed 
 		elif grounded:
 			velocity.y = -jumpSpeed
+
+func calcHitstun():
+	print(modTimer)
+	if modTimer.x > 0:
+		modTimer.x += 1
+		if modTimer.x >= modTimer.y:
+			modTimer.x = 0
+			modulate = Color.white
+	#calc stun
+	if stunTimer.x > 0:
+		stunTimer.x += 1
+		if stunTimer.x >= stunTimer.y:
+			stunTimer.x = 0
+
+func getHurt(dmg, stun:int=5, kb:Vector2=Vector2(), pos:Vector2=Vector2() ):
+	stunTimer.x = 1
+	stunTimer.y = stun
+	modTimer.x = 1
+	modulate = Color.red
+	var t = position.x-pos.x  #knocks back horizontally based on x position 
+	var q = position.y-pos.y
+	velocity = Vector2(t/abs(t)*kb.x, q/abs(q)*kb.y) 
+	hp -= dmg
+	if hp <= 0:
+		$hitbox.queue_free()
+		velocity = Vector2()
+		sprite.play("death")
+	
+	
