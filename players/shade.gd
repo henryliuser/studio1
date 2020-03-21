@@ -48,7 +48,7 @@ func _ready():
 		sprite.flip_h = true
 		sprite.modulate = Color.peru
 
-func _physics_process(delta):
+func _on_physics_process(delta):
 	parseInputs()
 	calcDash()
 	if not dashing and not predash:

@@ -16,6 +16,7 @@ var down
 var skill
 #var jump
 var hit
+var taunt
 
 #movement variables
 var acc = 40
@@ -51,6 +52,7 @@ func parseInputs():
 	hit = Input.is_action_just_pressed(n+"hit")
 	down = Input.is_action_just_pressed(n+"down")
 	skill = Input.is_action_pressed(n+"skill")  # hold down
+	taunt = Input.is_action_pressed(n+"taunt")
 #	jump = Input.is_action_just_pressed(n+"jump")  # dude got no hops
 
 func movement():
@@ -62,19 +64,23 @@ func movement():
 		acc = acceleration/4
 	else:
 		acc = acceleration
-		
+	
 	if right && not left:
 		currentDirection = 1
 		velocity.x += acc 
 		velocity.x = min(velocity.x, maxSpeeds.x)
 		sprite.flip_h = false  # flip the sprite when changing directions
+		sprite.play("forward")
 	elif left && not right:
 		currentDirection = -1
 		velocity.x -= acc 
 		velocity.x = max(velocity.x, -maxSpeeds.x)
 		sprite.flip_h = true
+		sprite.play("forward")
 	elif is_on_floor():
 		velocity.x = lerp(velocity.x, 0, lerpWeight)
+		sprite.play("idle")
+	
 	if velocity.y >= 0:
 		velocity.y = min(velocity.y, maxSpeeds.y)
 	else:
@@ -89,3 +95,4 @@ func movement():
 func calcJet():
 	if skill:
 		velocity.y -= 65
+		

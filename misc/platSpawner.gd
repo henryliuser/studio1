@@ -19,11 +19,11 @@ func _physics_process(delta):
 		var pos = randi()%1720+100
 		var ran = randi()%len(L)
 		var plat = load(L[ran]).instance()
-		plat.position = Vector2(pos, 0)
+		plat.position = Vector2(pos, -40)
 		plat.scale.x = 3
 		add_child(plat)
 		plat = load(L[ran]).instance()
-		plat.position = Vector2(1920-pos, 0)  # this shit is huge brain
+		plat.position = Vector2(1920-pos, -40)  # this shit is huge brain
 		if ran == 1:      # automatically randomizes conveyer directions
 			plat.direction = -1
 		plat.scale.x = 3
