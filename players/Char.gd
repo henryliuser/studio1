@@ -7,6 +7,7 @@ export var playerNum = 1
 
 #animation variables
 onready var sprite = $sprite
+onready var hitbox = $hitbox
 
 #input variables
 var left
@@ -14,10 +15,13 @@ var right
 var fire
 var down
 var skill
-var holdSkill
 var jump
 var hit
 var taunt
+
+var holdSkill
+var justLeft
+var justRight
 
 #health
 var hp = 100
@@ -41,7 +45,7 @@ func _ready():
 	if playerNum == 2:  # turn them around if they're player 2
 		currentDirection = 1
 		storedDirection = 1
-		sprite.flip_h = true
+		hitbox.scale.x = -1
 		sprite.modulate = Color.peru
 
 func _physics_process(delta):
@@ -73,6 +77,9 @@ func parseInputs():
 	jump = Input.is_action_just_pressed(n+"jump")
 	taunt = Input.is_action_just_pressed(n+"taunt")
 	
+	justLeft = Input.is_action_just_pressed(n+"left")
+	justRight = Input.is_action_just_pressed(n+"right")
+	
 func movement():
 	var maxSpeeds
 	if grounded: maxSpeeds = maxGroundVelocity
@@ -82,12 +89,14 @@ func movement():
 		currentDirection = 1
 		velocity.x += acceleration 
 		velocity.x = min(velocity.x, maxSpeeds.x)
-		sprite.flip_h = false #flip the sprite when changing directions
+		hitbox.scale.x = 1  # flip the hitbox when changing directions
+		sprite.flip_h = false  # flip the sprite when changing directions
 		sprite.play("forward")
 	elif left && not right:
 		currentDirection = -1
 		velocity.x -= acceleration 
 		velocity.x = max(velocity.x, -maxSpeeds.x)
+		hitbox.scale.x = -1
 		sprite.flip_h = true
 		sprite.play("forward")
 	else:
@@ -114,11 +123,10 @@ func calculateJump():
 		if midairJumpsLeft > 0 && not grounded:
 			midairJumpsLeft -= 1
 			velocity.y = -jumpSpeed 
-		elif grounded:
+		elif totalJumps > 0 && grounded:
 			velocity.y = -jumpSpeed
 
 func calcHitstun():
-	print(modTimer)
 	if modTimer.x > 0:
 		modTimer.x += 1
 		if modTimer.x >= modTimer.y:
@@ -130,7 +138,7 @@ func calcHitstun():
 		if stunTimer.x >= stunTimer.y:
 			stunTimer.x = 0
 
-func getHurt(dmg, stun:int=5, kb:Vector2=Vector2(), pos:Vector2=Vector2() ):
+func getHurt(dmg, stun:int=10, kb:Vector2=Vector2(), pos:Vector2=Vector2() ):
 	stunTimer.x = 1
 	stunTimer.y = stun
 	modTimer.x = 1
@@ -140,8 +148,9 @@ func getHurt(dmg, stun:int=5, kb:Vector2=Vector2(), pos:Vector2=Vector2() ):
 	velocity = Vector2(t/abs(t)*kb.x, q/abs(q)*kb.y) 
 	hp -= dmg
 	if hp <= 0:
-		$hitbox.queue_free()
-		velocity = Vector2()
-		sprite.play("death")
+		die()
 	
-	
+func die():
+	$hitbox.queue_free()
+	velocity = Vector2()
+	sprite.play("death")

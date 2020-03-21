@@ -2,6 +2,8 @@ extends "res://players/Char.gd"
 
 var acc
 var jetSpeed = 65
+onready var jetflame = $sprite/jetflame
+onready var flamePos = jetflame.position
 
 func _ready(): 
 	totalJumps = 0
@@ -25,17 +27,26 @@ func movement():
 		currentDirection = 1
 		velocity.x += acc 
 		velocity.x = min(velocity.x, maxSpeeds.x)
-		sprite.flip_h = false  # flip the sprite when changing directions
+		hitbox.scale.x = 1  # flip the sprite when changing directions
+		sprite.flip_h = false
 		sprite.play("forward")
 	elif left && not right:
 		currentDirection = -1
 		velocity.x -= acc 
 		velocity.x = max(velocity.x, -maxSpeeds.x)
+		hitbox.scale.x = -1
 		sprite.flip_h = true
 		sprite.play("forward")
 	elif is_on_floor():
 		velocity.x = lerp(velocity.x, 0, lerpWeight)
 		sprite.play("idle")
+		
+	if justRight and not justRight:
+		jetflame.position.x = flamePos.x
+	elif justLeft and not justLeft:
+		jetflame.position.x = -flamePos.x 
+	else:
+		jetflame.position.x = flamePos.x * currentDirection
 	
 	if velocity.y >= 0:
 		velocity.y = min(velocity.y, maxSpeeds.y)
@@ -50,5 +61,11 @@ func movement():
 		
 func calcJet():
 	if holdSkill:
+		jetflame.visible = true
 		velocity.y -= jetSpeed
-		
+	else:
+		jetflame.visible = false
+
+func die():
+	.die()
+	jetflame.visible = false

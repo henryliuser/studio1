@@ -28,7 +28,7 @@ func calcDash():
 		predash = true
 		storedDirection = currentDirection
 		
-	if grounded and not dashing: #as it is, as long as you start a dash on the ground, 
+	if grounded and not dashing: #if you start a dash on the ground, 
 		dashAvailable = true     #you'll have one in mid-air as well
 	
 	if predash:
