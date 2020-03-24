@@ -4,6 +4,7 @@ export var gravity = 50
 var currentDirection = 1
 var storedDirection = 1
 export var playerNum = 1
+var tauntTimer = Vector2(0,10)
 
 #animation variables
 onready var sprite = $sprite
@@ -109,7 +110,11 @@ func movement():
 		velocity.x = 0
 	if abs(velocity.y) <= 1:
 		velocity.y = 0
-		
+
+func calcTaunt():
+	if taunt:
+		pass
+
 func calculateJump():
 	if is_on_floor():
 		grounded = true

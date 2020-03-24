@@ -8,7 +8,7 @@
 extents = Vector2( 32, 32 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 32, 32 )
+extents = Vector2( 32, 2 )
 
 [node name="conveyerPlat" type="KinematicBody2D"]
 collision_layer = 6
@@ -24,9 +24,9 @@ texture = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="trigger" type="Area2D" parent="."]
-position = Vector2( 0, -2 )
 
 [node name="triggerHitbox" type="CollisionShape2D" parent="trigger"]
+position = Vector2( 0, -34 )
 shape = SubResource( 2 )
 
 [node name="icon" type="Sprite" parent="."]
