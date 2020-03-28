@@ -9,6 +9,7 @@ var tauntTimer = Vector2(0,10)
 #animation variables
 onready var sprite = $sprite
 onready var hitbox = $hitbox
+var label
 
 #input variables
 var left
@@ -53,7 +54,7 @@ func _physics_process(delta):
 	calcHitstun()
 	if hp > 0:
 		_on_physics_process(delta)
-	velocity = move_and_slide(velocity,Vector2(0,-1))
+	velocity = move_and_slide(velocity, Vector2(0,-1))
 
 func _on_physics_process(delta):
 	imposeGravity()

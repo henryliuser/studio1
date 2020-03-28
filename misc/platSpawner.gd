@@ -15,7 +15,7 @@ func _ready():
 
 func _physics_process(delta):
 	timer += 1
-	if timer % 200 == 0:
+	if timer % 150 == 0:
 		var pos = randi()%1720+100
 		var ran = randi()%len(L)
 		var plat = load(L[ran]).instance()

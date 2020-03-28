@@ -2,6 +2,8 @@ extends "res://players/Char.gd"
 
 var acc
 var jetSpeed = 65
+var fuel = 150
+var maxFuel = 150
 onready var jetflame = $sprite/jetflame
 onready var flamePos = jetflame.position
 
@@ -59,13 +61,26 @@ func movement():
 	if abs(velocity.y) <= 1:
 		velocity.y = 0
 		
+func jet():
+	jetflame.visible = true
+	velocity.y -= jetSpeed
+	fuel -= 2
+	fuel = max(0,fuel)
+
 func calcJet():
-	if holdSkill:
-		jetflame.visible = true
-		velocity.y -= jetSpeed
-	else:
-		jetflame.visible = false
+	jetflame.visible = false
+	if is_on_floor():
+		fuel += 3
+		fuel = min(fuel, maxFuel)
+		if fuel >= 30 and holdSkill:
+			jet()
+		
+	elif holdSkill and fuel > 0:
+		jet()
 
 func die():
 	.die()
 	jetflame.visible = false
+
+func _on_jetpack_body_entered(body):
+	fuel = max(0, fuel-50)
