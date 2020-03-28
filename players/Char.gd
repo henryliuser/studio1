@@ -10,6 +10,7 @@ var tauntTimer = Vector2(0,10)
 onready var sprite = $sprite
 onready var hitbox = $hitbox
 var label
+var children = []
 
 #input variables
 var left
@@ -45,10 +46,14 @@ var midairJumpsLeft = totalJumps - 1
 
 func _ready(): 
 	if playerNum == 2:  # turn them around if they're player 2
-		currentDirection = 1
-		storedDirection = 1
+		currentDirection = -1
+		storedDirection = -1
+		sprite.flip_h = true
 		hitbox.scale.x = -1
 		sprite.modulate = Color.peru
+	for c in get_children():
+		children.append(c.position)
+
 
 func _physics_process(delta):
 	calcHitstun()
@@ -105,6 +110,11 @@ func movement():
 		velocity.x = lerp(velocity.x, 0, lerpWeight)
 		sprite.play("idle")
 	velocity.y = min(velocity.y, maxSpeeds.y)
+	
+	var a = 0
+	for c in get_children():
+		c.position.x = children[a].x * currentDirection
+		a += 1
 	
 	#check if |sub-1| movement speed then just stop
 	if abs(velocity.x) <= 1:

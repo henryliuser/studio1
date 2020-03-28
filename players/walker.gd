@@ -4,7 +4,7 @@ var acc
 var jetSpeed = 65
 var fuel = 150
 var maxFuel = 150
-onready var jetflame = $sprite/jetflame
+onready var jetflame = $jetflame
 onready var flamePos = jetflame.position
 
 func _ready(): 
@@ -43,12 +43,17 @@ func movement():
 		velocity.x = lerp(velocity.x, 0, lerpWeight)
 		sprite.play("idle")
 		
-	if justRight and not justRight:
-		jetflame.position.x = flamePos.x
-	elif justLeft and not justLeft:
-		jetflame.position.x = -flamePos.x 
-	else:
-		jetflame.position.x = flamePos.x * currentDirection
+#	if justRight and not justRight:
+#		jetflame.position.x = flamePos.x
+#	elif justLeft and not justLeft:
+#		jetflame.position.x = -flamePos.x 
+#	else:
+#		jetflame.position.x = flamePos.x * currentDirection
+
+	var a = 0
+	for c in get_children():
+		c.position.x = children[a].x * currentDirection
+		a += 1
 	
 	if velocity.y >= 0:
 		velocity.y = min(velocity.y, maxSpeeds.y)
