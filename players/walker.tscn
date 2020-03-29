@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://players/walker.gd" type="Script" id=1]
 [ext_resource path="res://assets/Char1/Char1Idle/Sprite1-0003.png" type="Texture" id=2]
@@ -31,11 +31,15 @@
 [ext_resource path="res://assets/Char1/Char1Death/Sprite1-0073.png" type="Texture" id=29]
 [ext_resource path="res://assets/Char1/Char1Jetflame/Sprite1-0012.png" type="Texture" id=30]
 [ext_resource path="res://assets/Char1/Char1Jetflame/Sprite1-0011.png" type="Texture" id=31]
-[ext_resource path="res://assets/joystix monospace copy.ttf" type="DynamicFontData" id=32]
-[ext_resource path="res://players/stats.gd" type="Script" id=33]
+[ext_resource path="res://players/HPBar.tscn" type="PackedScene" id=34]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 5, 4.5 )
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 31 ), ExtResource( 30 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -60,61 +64,45 @@ animations = [ {
 "speed": 6.0
 } ]
 
-[sub_resource type="SpriteFrames" id=3]
-animations = [ {
-"frames": [ ExtResource( 31 ), ExtResource( 30 ) ],
-"loop": true,
-"name": "default",
-"speed": 10.0
-} ]
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 5, 4.5 )
 
-[sub_resource type="DynamicFont" id=4]
-outline_size = 1
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 32 )
+[node name="walker" type="Node2D"]
 
-[node name="Player" type="Node2D"]
-
-[node name="walker" type="KinematicBody2D" parent="."]
+[node name="player" type="KinematicBody2D" parent="."]
 scale = Vector2( 4, 4 )
 collision_mask = 5
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_vertical_guides_": [  ]
+}
 
-[node name="jetpack" type="Area2D" parent="walker"]
+[node name="jetflame" type="AnimatedSprite" parent="player"]
+position = Vector2( -8.86257, -1.99328 )
+scale = Vector2( 0.7, 1 )
+frames = SubResource( 1 )
+frame = 1
+playing = true
+
+[node name="sprite" type="AnimatedSprite" parent="player"]
+frames = SubResource( 2 )
+animation = "idle"
+frame = 4
+playing = true
+
+[node name="hitbox" type="CollisionPolygon2D" parent="player"]
+polygon = PoolVector2Array( -0.078373, 5.96251, -5.76543, 1.91047, -5.9787, -2.07047, -3.13517, -11.0276, -0.078373, -17.5677, 4.82672, -17.5677, 5.82195, -16.7146, 5.96413, -8.11297, 10.1583, -7.97079, 10.0162, 5.96251 )
+
+[node name="jetpack" type="Area2D" parent="player"]
 position = Vector2( -6, -6.5 )
 collision_layer = 8
 collision_mask = 8
 
-[node name="jetpack" type="CollisionShape2D" parent="walker/jetpack"]
-shape = SubResource( 1 )
+[node name="jetpack" type="CollisionShape2D" parent="player/jetpack"]
+position = Vector2( -0.00249481, -0.06177 )
+shape = SubResource( 3 )
 
-[node name="hitbox" type="CollisionPolygon2D" parent="walker"]
-polygon = PoolVector2Array( -0.078373, 5.96251, -5.76543, 1.91047, -5.9787, -2.07047, -3.13517, -11.0276, -0.078373, -17.5677, 4.82672, -17.5677, 5.82195, -16.7146, 5.96413, -8.11297, 10.1583, -7.97079, 10.0162, 5.96251 )
-
-[node name="sprite" type="AnimatedSprite" parent="walker"]
-frames = SubResource( 2 )
-animation = "idle"
-playing = true
-
-[node name="jetflame" type="AnimatedSprite" parent="walker"]
-visible = false
-position = Vector2( -8.89827, -0.977558 )
-scale = Vector2( 0.7, 1 )
-frames = SubResource( 3 )
-frame = 1
-playing = true
-
-[node name="stats" type="Label" parent="."]
-margin_left = -25.0
-margin_top = -100.0
-margin_right = 40.0
-margin_bottom = -80.0
-custom_fonts/font = SubResource( 4 )
-text = "99/99"
-align = 1
-valign = 1
-script = ExtResource( 33 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-[connection signal="body_entered" from="walker/jetpack" to="walker" method="_on_jetpack_body_entered"]
+[node name="HPBar" parent="." instance=ExtResource( 34 )]
+position = Vector2( 10, -100 )
+scale = Vector2( 1.3, 1.3 )
+[connection signal="body_entered" from="player/jetpack" to="player" method="_on_jetpack_body_entered"]

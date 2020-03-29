@@ -43,18 +43,11 @@ func movement():
 		velocity.x = lerp(velocity.x, 0, lerpWeight)
 		sprite.play("idle")
 		
-#	if justRight and not justRight:
-#		jetflame.position.x = flamePos.x
-#	elif justLeft and not justLeft:
-#		jetflame.position.x = -flamePos.x 
-#	else:
-#		jetflame.position.x = flamePos.x * currentDirection
-
 	var a = 0
 	for c in get_children():
 		c.position.x = children[a].x * currentDirection
 		a += 1
-	
+
 	if velocity.y >= 0:
 		velocity.y = min(velocity.y, maxSpeeds.y)
 	else:
@@ -85,6 +78,7 @@ func calcJet():
 
 func die():
 	.die()
+	#jetpack hitbox
 	jetflame.visible = false
 
 func _on_jetpack_body_entered(body):

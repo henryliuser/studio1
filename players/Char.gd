@@ -9,6 +9,7 @@ var tauntTimer = Vector2(0,10)
 #animation variables
 onready var sprite = $sprite
 onready var hitbox = $hitbox
+var hpbar
 var label
 var children = []
 
@@ -45,6 +46,7 @@ var grounded = true
 var midairJumpsLeft = totalJumps - 1
 
 func _ready(): 
+	hpbar = get_node("../HPBar")
 	if playerNum == 2:  # turn them around if they're player 2
 		currentDirection = -1
 		storedDirection = -1
@@ -53,7 +55,6 @@ func _ready():
 		sprite.modulate = Color.peru
 	for c in get_children():
 		children.append(c.position)
-
 
 func _physics_process(delta):
 	calcHitstun()
@@ -163,6 +164,7 @@ func getHurt(dmg, stun:int=10, kb:Vector2=Vector2(), pos:Vector2=Vector2() ):
 	var q = position.y-pos.y
 	velocity = Vector2(t/abs(t)*kb.x, q/abs(q)*kb.y) 
 	hp -= dmg
+	hpbar.updateBar(hp)
 	if hp <= 0:
 		die()
 	

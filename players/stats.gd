@@ -5,4 +5,3 @@ func _ready():
 
 func _process(delta):
 	rect_position = chara.position + Vector2(-32.5,-100)
-	print(rect_position)
