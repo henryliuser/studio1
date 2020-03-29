@@ -6,7 +6,7 @@
 [ext_resource path="res://assets/hpbar/hpbar_1.png" type="Texture" id=4]
 
 [node name="HPBar" type="Node2D"]
-scale = Vector2( 0.4, 0.4 )
+scale = Vector2( 1.3, 1.3 )
 script = ExtResource( 3 )
 
 [node name="polish" type="TextureProgress" parent="."]
@@ -16,7 +16,7 @@ margin_right = 32.0
 margin_bottom = 24.0
 texture_under = ExtResource( 1 )
 texture_progress = ExtResource( 4 )
-tint_under = Color( 0.27451, 0.956863, 0.890196, 1 )
+tint_under = Color( 0.588235, 0.627451, 0.623529, 1 )
 tint_progress = Color( 0.956863, 0.262745, 0.262745, 1 )
 __meta__ = {
 "_edit_use_anchors_": false

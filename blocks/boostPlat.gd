@@ -10,6 +10,8 @@ func _physics_process(delta):
 		velocity.y += 40
 
 func _on_boostTrigger_body_entered(body):
+	if body.has_method("jet"):
+		body.fuel = 100
 	if timer == 0:
 		b = body
 		body.velocity.y = -1580

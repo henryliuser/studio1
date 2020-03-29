@@ -11,9 +11,6 @@ var dashing = false
 var predash = false
 var dashTimer = 0
 
-func _ready():
-	totalJumps = 2
-
 func _on_physics_process(delta):
 	parseInputs()
 	calcDash()

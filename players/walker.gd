@@ -2,20 +2,24 @@ extends "res://players/Char.gd"
 
 var acc
 var jetSpeed = 65
-var fuel = 150
-var maxFuel = 150
+var fuel = 100
+var maxFuel = 100
+var fuelbar
+
 onready var jetflame = $jetflame
 onready var flamePos = jetflame.position
 
 func _ready(): 
-	totalJumps = 0
 	acceleration = 80
+	fuelbar = get_node("../FuelBar")
 
 func _on_physics_process(delta):
 	._on_physics_process(delta)
 	calcJet()
 
 func movement():
+	
+	print(playerNum)
 	var maxSpeeds
 	if grounded: maxSpeeds = maxGroundVelocity
 	else: maxSpeeds = maxAirVelocity
@@ -62,14 +66,17 @@ func movement():
 func jet():
 	jetflame.visible = true
 	velocity.y -= jetSpeed
-	fuel -= 2
-	fuel = max(0,fuel)
+	updateFuel(-1)
+
+func updateFuel(x):
+	fuel += x
+	fuel = clamp(fuel, 0, 100)
+	fuelbar.updateBar(fuel)
 
 func calcJet():
 	jetflame.visible = false
 	if is_on_floor():
-		fuel += 3
-		fuel = min(fuel, maxFuel)
+		updateFuel(2)
 		if fuel >= 30 and holdSkill:
 			jet()
 		

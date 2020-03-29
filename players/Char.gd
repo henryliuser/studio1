@@ -47,14 +47,9 @@ var midairJumpsLeft = totalJumps - 1
 
 func _ready(): 
 	hpbar = get_node("../HPBar")
-	if playerNum == 2:  # turn them around if they're player 2
-		currentDirection = -1
-		storedDirection = -1
-		sprite.flip_h = true
-		hitbox.scale.x = -1
-		sprite.modulate = Color.peru
 	for c in get_children():
 		children.append(c.position)
+	
 
 func _physics_process(delta):
 	calcHitstun()
