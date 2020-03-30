@@ -1,4 +1,4 @@
-extends "res://players/Char.gd"
+extends "res://players/tools/Char.gd"
 
 #dash variables
 export var dashLock = 12
@@ -10,12 +10,22 @@ var dashAvailable = true
 var dashing = false
 var predash = false
 var dashTimer = 0
+var dashInd
+var jumpInd
+
+func _ready():
+	dashInd = get_node("../Gauges/DashIndic")
+	jumpInd = get_node("../Gauges/JumpIndic")
 
 func _on_physics_process(delta):
 	parseInputs()
 	calcDash()
 	if not dashing and not predash:
 		calculateJump()
+		if jump and midairJumpsLeft == 0:
+			jumpInd.updateBar(0)
+		elif is_on_floor():
+			jumpInd.updateBar(100)
 		movement()
 		imposeGravity()
 
@@ -24,9 +34,12 @@ func calcDash():
 		dashAvailable = false
 		predash = true
 		storedDirection = currentDirection
+		dashInd.updateBar(0)
 		
 	if grounded and not dashing: #if you start a dash on the ground, 
 		dashAvailable = true     #you'll have one in mid-air as well
+		if dashTimer == 0 && not predash:
+			dashInd.updateBar(100)
 	
 	if predash:
 		if left and not right:
@@ -43,6 +56,8 @@ func calcDash():
 		if dashTimer == dashLock + dashCD:
 			noDash = false
 			dashTimer = 0
+			if dashAvailable:
+				dashInd.updateBar(100)
 	
 	if dashing:
 		modulate = Color.paleturquoise
@@ -54,3 +69,4 @@ func calcDash():
 			dashTimer = 0
 			dashing = false
 			noDash = true # this places dash on an x frame cooldown cuz spamming it is kinda fast
+			

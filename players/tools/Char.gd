@@ -46,7 +46,7 @@ var grounded = true
 var midairJumpsLeft = totalJumps - 1
 
 func _ready(): 
-	hpbar = get_node("../HPBar")
+	hpbar = get_node("../Gauges/HPBar")
 	for c in get_children():
 		children.append(c.position)
 	

@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://players/shade.gd" type="Script" id=1]
 [ext_resource path="res://assets/shade.png" type="Texture" id=2]
-[ext_resource path="res://players/HPBar.tscn" type="PackedScene" id=3]
-[ext_resource path="res://players/RootPlayer.gd" type="Script" id=4]
+[ext_resource path="res://players/tools/HPBar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://players/tools/RootPlayer.gd" type="Script" id=4]
+[ext_resource path="res://Gauges.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 14.5 )
@@ -34,7 +35,31 @@ position = Vector2( 0, -0.5 )
 frames = SubResource( 2 )
 animation = "idle"
 
-[node name="HPBar" parent="." instance=ExtResource( 3 )]
-position = Vector2( 3, -65 )
-hoverPos = Vector2( 0, -65 )
-lerpWeight = 0.4
+[node name="Gauges" parent="." instance=ExtResource( 5 )]
+position = Vector2( 3, -62 )
+hoverPos = Vector2( 3, -62 )
+
+[node name="JumpIndic" parent="Gauges" instance=ExtResource( 3 )]
+position = Vector2( -19.5, 8 )
+scale = Vector2( 0.65, 0.65 )
+
+[node name="polish" parent="Gauges/JumpIndic" index="0"]
+fill_mode = 1
+
+[node name="texture" parent="Gauges/JumpIndic" index="1"]
+fill_mode = 1
+tint_progress = Color( 0.898039, 0.933333, 0.25098, 1 )
+
+[node name="DashIndic" parent="Gauges" instance=ExtResource( 3 )]
+position = Vector2( 19.5, 8 )
+scale = Vector2( 0.65, 0.65 )
+
+[node name="texture" parent="Gauges/DashIndic" index="1"]
+tint_progress = Color( 0.113725, 0.858824, 0.956863, 1 )
+
+[node name="HPBar" parent="Gauges" instance=ExtResource( 3 )]
+position = Vector2( 0, -2 )
+
+[editable path="Gauges/JumpIndic"]
+
+[editable path="Gauges/DashIndic"]

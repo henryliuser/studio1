@@ -1,4 +1,4 @@
-extends "res://players/Char.gd"
+extends "res://players/tools/Char.gd"
 
 var acc
 var jetSpeed = 65
@@ -11,15 +11,13 @@ onready var flamePos = jetflame.position
 
 func _ready(): 
 	acceleration = 80
-	fuelbar = get_node("../FuelBar")
+	fuelbar = get_node("../Gauges/FuelBar")
 
 func _on_physics_process(delta):
 	._on_physics_process(delta)
 	calcJet()
 
 func movement():
-	
-	print(playerNum)
 	var maxSpeeds
 	if grounded: maxSpeeds = maxGroundVelocity
 	else: maxSpeeds = maxAirVelocity
