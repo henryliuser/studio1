@@ -8,4 +8,4 @@ func _ready():
 		p.storedDirection = -1
 		p.sprite.flip_h = true
 		p.hitbox.scale.x = -1
-		p.sprite.modulate = Color.peru
+#		p.sprite.modulate = Color.peru
