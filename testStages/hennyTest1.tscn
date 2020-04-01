@@ -8,25 +8,19 @@
 [ext_resource path="res://blocks/burnPlat.tscn" type="PackedScene" id=6]
 
 [node name="hennyTest1" type="Node2D"]
+position = Vector2( 1.38477, -1.3847 )
 
 [node name="defaultPlat" parent="." instance=ExtResource( 1 )]
-position = Vector2( 960, 800 )
-scale = Vector2( 25, 3.5 )
-velocity = Vector2( 0, 0 )
-
-[node name="boostPlat" parent="." instance=ExtResource( 5 )]
-position = Vector2( 616.449, 602.592 )
-scale = Vector2( 3.97978, 1 )
+position = Vector2( 960, 861.092 )
+scale = Vector2( 25, 25 )
 velocity = Vector2( 0, 0 )
 
 [node name="burnPlat" parent="." instance=ExtResource( 6 )]
 position = Vector2( 943.063, 620.122 )
-scale = Vector2( 4.39573, 1.62481 )
 velocity = Vector2( 0, 0 )
 
 [node name="conveyerPlat" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1286.9, 628.888 )
-scale = Vector2( 4, 1.3 )
 velocity = Vector2( 0, 0 )
 
 [node name="walker" parent="." instance=ExtResource( 2 )]
@@ -35,3 +29,7 @@ position = Vector2( 330.77, 582.508 )
 [node name="shade" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1575.05, 552.206 )
 playerNum = 2
+
+[node name="boostPlat" parent="." instance=ExtResource( 5 )]
+position = Vector2( 565.175, 587.143 )
+velocity = Vector2( 0, 0 )

@@ -10,7 +10,6 @@
 
 [node name="defaultPlat" parent="." instance=ExtResource( 2 )]
 position = Vector2( 960, 900 )
-scale = Vector2( 5, 1 )
 velocity = Vector2( 0, 0 )
 
 [node name="walker" parent="." instance=ExtResource( 3 )]

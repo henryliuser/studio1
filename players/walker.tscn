@@ -32,8 +32,10 @@
 [ext_resource path="res://assets/Char1/Char1Jetflame/Sprite1-0012.png" type="Texture" id=30]
 [ext_resource path="res://assets/Char1/Char1Jetflame/Sprite1-0011.png" type="Texture" id=31]
 [ext_resource path="res://players/tools/RootPlayer.gd" type="Script" id=32]
-[ext_resource path="res://Gauges.tscn" type="PackedScene" id=33]
+[ext_resource path="res://players/tools/Gauges.tscn" type="PackedScene" id=33]
 [ext_resource path="res://players/tools/HPBar.tscn" type="PackedScene" id=34]
+
+
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -93,7 +95,7 @@ playing = true
 [node name="sprite" type="AnimatedSprite" parent="player"]
 frames = SubResource( 2 )
 animation = "idle"
-frame = 1
+frame = 3
 playing = true
 
 [node name="hitbox" type="CollisionPolygon2D" parent="player"]

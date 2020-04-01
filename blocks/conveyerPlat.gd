@@ -5,7 +5,7 @@ var players = {}
 onready var ic = $icon
 
 func _ready():
-	ic.rotation_degrees = direction * 90
+	scale.x *= -direction
 
 func _physics_process(delta):
 	if len(players) > 0:
