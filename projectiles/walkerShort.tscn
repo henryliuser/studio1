@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://projectiles/projectile.gd" type="Script" id=1]
+
+[sub_resource type="CapsuleShape2D" id=1]
+height = 10.0
+
+[node name="projectile" type="Area2D"]
+script = ExtResource( 1 )
+damage = 15
+knockback = Vector2( 500, -600 )
+
+[node name="hitbox" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource( 1 )
+[connection signal="body_entered" from="." to="." method="_on_projectile_body_entered"]

@@ -16,6 +16,7 @@ func _ready():
 func _on_physics_process(delta):
 	._on_physics_process(delta)
 	calcJet()
+	calcHit()
 
 func movement():
 	var maxSpeeds
@@ -31,14 +32,14 @@ func movement():
 		currentDirection = 1
 		velocity.x += acc 
 		velocity.x = min(velocity.x, maxSpeeds.x)
-		hitbox.scale.x = 1  # flip the sprite when changing directions
+		hurtbox.scale.x = 1  # flip the sprite when changing directions
 		sprite.flip_h = false
 		sprite.play("forward")
 	elif left && not right:
 		currentDirection = -1
 		velocity.x -= acc 
 		velocity.x = max(velocity.x, -maxSpeeds.x)
-		hitbox.scale.x = -1
+		hurtbox.scale.x = -1
 		sprite.flip_h = true
 		sprite.play("forward")
 	elif is_on_floor():
@@ -80,6 +81,10 @@ func calcJet():
 		
 	elif holdSkill and fuel > 0:
 		jet()
+
+func calcHit():
+	if hit:
+		hit("res://projectiles/walkerShort.tscn")
 
 func die():
 	.die()

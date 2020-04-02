@@ -19,15 +19,16 @@ func _ready():
 
 func _on_physics_process(delta):
 	parseInputs()
-	calcDash()
-	if not dashing and not predash:
-		calculateJump()
-		if jump and midairJumpsLeft == 0:
-			jumpInd.updateBar(0)
-		elif is_on_floor():
-			jumpInd.updateBar(100)
-		movement()
-		imposeGravity()
+	if stunTimer.x == 0:
+		calcDash()
+		if not dashing and not predash:
+			calculateJump()
+			if jump and midairJumpsLeft == 0:
+				jumpInd.updateBar(0)
+			elif is_on_floor():
+				jumpInd.updateBar(100)
+			movement()
+			imposeGravity()
 
 func calcDash():
 	if skill and dashAvailable and not dashing and not predash and not noDash:

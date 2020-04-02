@@ -8,7 +8,7 @@ var tauntTimer = Vector2(0,10)
 
 #animation variables
 onready var sprite = $sprite
-onready var hitbox = $hitbox
+onready var hurtbox = $hurtbox
 var hpbar
 var label
 var children = []
@@ -85,26 +85,28 @@ func parseInputs():
 	
 func movement():
 	var maxSpeeds
+	var lerq = lerpWeight
+	if not is_on_floor(): lerq = lerpWeight/3
 	if grounded: maxSpeeds = maxGroundVelocity
 	else: maxSpeeds = maxAirVelocity
-	
+
 	if right && not left:
 		currentDirection = 1
 		velocity.x += acceleration 
 		velocity.x = min(velocity.x, maxSpeeds.x)
-		hitbox.scale.x = 1  # flip the hitbox when changing directions
+		hurtbox.scale.x = 1  # flip the hurtbox when changing directions
 		sprite.flip_h = false  # flip the sprite when changing directions
 		sprite.play("forward")
 	elif left && not right:
 		currentDirection = -1
 		velocity.x -= acceleration 
 		velocity.x = max(velocity.x, -maxSpeeds.x)
-		hitbox.scale.x = -1
+		hurtbox.scale.x = -1
 		sprite.flip_h = true
 		sprite.play("forward")
 	else:
-		velocity.x = lerp(velocity.x, 0, lerpWeight)
 		sprite.play("idle")
+		velocity.x = lerp(velocity.x, 0, lerq)
 	velocity.y = min(velocity.y, maxSpeeds.y)
 	
 	var a = 0
@@ -155,15 +157,21 @@ func getHurt(dmg, stun:int=10, kb:Vector2=Vector2(), pos:Vector2=Vector2() ):
 	stunTimer.y = stun
 	modTimer.x = 1
 	modulate = Color.red
-	var t = position.x-pos.x  #knocks back horizontally based on x position 
-	var q = position.y-pos.y
-	velocity = Vector2(t/abs(t)*kb.x, q/abs(q)*kb.y) 
+	var t = global_position.x-pos.x  #knocks back horizontally based on x position 
+	velocity = Vector2(t/abs(t)*kb.x, kb.y) 
 	hp -= dmg
 	hpbar.updateBar(hp)
 	if hp <= 0:
 		die()
 	
 func die():
-	$hitbox.queue_free()
+	$hurtbox.queue_free()
 	velocity = Vector2()
 	sprite.play("death")
+	
+func hit(projPath):
+	var x = load(projPath).instance()
+	x.pos = global_position
+	x.position = position + Vector2(currentDirection*80, -40)
+	get_parent().add_child(x)
+
