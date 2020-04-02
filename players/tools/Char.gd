@@ -52,6 +52,7 @@ func _ready():
 	
 
 func _physics_process(delta):
+	if not is_on_floor(): print(get_parent().name + ": " + str(velocity))
 	calcHitstun()
 	if hp > 0:
 		_on_physics_process(delta)
