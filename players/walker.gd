@@ -12,11 +12,12 @@ onready var flamePos = jetflame.position
 func _ready(): 
 	acceleration = 80
 	fuelbar = get_node("../Gauges/FuelBar")
+	shortPath = "res://projectiles/walkerShort.tscn"
+	longPath = ""
 
 func _on_physics_process(delta):
 	._on_physics_process(delta)
 	calcJet()
-	calcHit()
 
 func movement():
 	var maxSpeeds
@@ -81,10 +82,6 @@ func calcJet():
 		
 	elif holdSkill and fuel > 0:
 		jet()
-
-func calcHit():
-	if hit:
-		hit("res://projectiles/walkerShort.tscn")
 
 func die():
 	.die()

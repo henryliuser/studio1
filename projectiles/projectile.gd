@@ -14,3 +14,4 @@ func _physics_process(delta):
 
 func _on_projectile_body_entered(body):
 	body.getHurt(damage, stun, knockback, pos)
+

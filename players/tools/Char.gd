@@ -13,6 +13,10 @@ var hpbar
 var label
 var children = []
 
+#attackVars
+var shortPath = ""
+var longPath = ""
+
 #input variables
 var left
 var right
@@ -52,7 +56,6 @@ func _ready():
 	
 
 func _physics_process(delta):
-	if not is_on_floor(): print(get_parent().name + ": " + str(velocity))
 	calcHitstun()
 	if hp > 0:
 		_on_physics_process(delta)
@@ -64,6 +67,7 @@ func _on_physics_process(delta):
 		parseInputs()
 		calculateJump()
 		movement()
+		calcHit()
 
 
 func imposeGravity():
@@ -170,9 +174,16 @@ func die():
 	velocity = Vector2()
 	sprite.play("death")
 	
-func hit(projPath):
-	var x = load(projPath).instance()
+func calcHit():
+	if hit:
+		hit(shortPath)
+	if fire:
+		hit(longPath)
+
+func hit(path):
+	var x = load(path).instance()
 	x.pos = global_position
 	x.position = position + Vector2(currentDirection*80, -40)
+	x.scale.x = currentDirection
 	get_parent().add_child(x)
 

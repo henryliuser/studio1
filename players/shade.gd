@@ -16,6 +16,7 @@ var jumpInd
 func _ready():
 	dashInd = get_node("../Gauges/DashIndic")
 	jumpInd = get_node("../Gauges/JumpIndic")
+	shortPath = "res://projectiles/shadeShort.tscn"
 
 func _on_physics_process(delta):
 	parseInputs()
@@ -29,6 +30,7 @@ func _on_physics_process(delta):
 			elif is_on_floor():
 				jumpInd.updateBar(100)
 			movement()
+			calcHit()
 			
 
 func calcDash():
