@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/joystix monospace copy.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://networking/httpButton.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 1 )
+
+[node name="httpTest" type="Node2D"]
+
+[node name="Button" type="Button" parent="."]
+margin_left = 450.55
+margin_top = 84.2269
+margin_right = 1381.55
+margin_bottom = 294.227
+custom_fonts/font = SubResource( 1 )
+text = "GET DATA FROM SERVER"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HTTPRequest" type="HTTPRequest" parent="Button"]
+
+[node name="Label" type="Label" parent="."]
+margin_left = 540.622
+margin_top = 508.849
+margin_right = 1348.62
+margin_bottom = 947.849
+custom_fonts/font = SubResource( 2 )
+text = "sampletext"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Button" to="Button" method="_on_Button_pressed"]
