@@ -11,8 +11,9 @@ var L = [
 		]
 
 func _ready():
-	randomize()
-
+#	randomize()
+	pass
+	
 func _physics_process(delta):
 	timer += 1
 	if timer % 150 == 0:
