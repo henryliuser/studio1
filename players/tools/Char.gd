@@ -54,12 +54,17 @@ func _ready():
 	for c in get_children():
 		children.append(c.position)
 	
+puppet func setPosition(pos):
+	position = pos
 
 func _physics_process(delta):
-	calcHitstun()
-	if hp > 0:
-		_on_physics_process(delta)
-	velocity = move_and_slide(velocity, Vector2(0,-1))
+	if is_network_master():
+		calcHitstun()
+		if hp > 0:
+			_on_physics_process(delta)
+		velocity = move_and_slide(velocity, Vector2(0,-1))
+		rpc_unreliable("setPosition", position)
+	
 
 func _on_physics_process(delta):
 	imposeGravity()

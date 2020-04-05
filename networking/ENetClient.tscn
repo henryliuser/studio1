@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/joystix monospace copy.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://networking/ENetClient.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 1 )
+
+[node name="ENetClient" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="buttDisconnect" type="Button" parent="."]
+margin_left = 70.1047
+margin_top = 67.8434
+margin_right = 492.105
+margin_bottom = 133.843
+custom_fonts/font = SubResource( 1 )
+text = "Disconnect"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="buttConnect" type="Button" parent="."]
+margin_left = 1508.38
+margin_top = 70.1048
+margin_right = 1807.38
+margin_bottom = 136.105
+custom_fonts/font = SubResource( 1 )
+text = "Connect"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="labelServerData" type="Label" parent="."]
+margin_left = 259.705
+margin_top = 260.033
+margin_right = 1629.7
+margin_bottom = 1047.03
+custom_fonts/font = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="buttDisconnect" to="." method="_on_buttDisconnect_pressed"]
+[connection signal="pressed" from="buttConnect" to="." method="_on_buttConnect_pressed"]
