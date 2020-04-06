@@ -51,19 +51,21 @@ var midairJumpsLeft = totalJumps - 1
 
 func _ready(): 
 	hpbar = get_node("../Gauges/HPBar")
+#	set_network_master(get_tree().get_network_unique_id())
 	for c in get_children():
 		children.append(c.position)
 	
-puppet func setPosition(pos):
+puppet func setEverything(vel, pos):
 	position = pos
+	velocity = vel
 
 func _physics_process(delta):
 	if is_network_master():
 		calcHitstun()
 		if hp > 0:
 			_on_physics_process(delta)
-		velocity = move_and_slide(velocity, Vector2(0,-1))
-		rpc_unreliable("setPosition", position)
+		rpc_unreliable("setEverything", velocity,position)
+	velocity = move_and_slide(velocity, Vector2(0,-1))
 	
 
 func _on_physics_process(delta):
