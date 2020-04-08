@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://players/walker.gd" type="Script" id=1]
 [ext_resource path="res://assets/Char1/Char1Idle/Sprite1-0003.png" type="Texture" id=2]
@@ -30,13 +30,14 @@
 [ext_resource path="res://assets/Char1/Char1Death/Sprite1-0078.png" type="Texture" id=28]
 [ext_resource path="res://assets/Char1/Char1Death/Sprite1-0073.png" type="Texture" id=29]
 [ext_resource path="res://assets/Char1/Char1Jetflame/Sprite1-0012.png" type="Texture" id=30]
+[ext_resource path="res://assets/Char1/Char1Jetflame/Sprite1-0011.png" type="Texture" id=31]
 [ext_resource path="res://players/tools/RootPlayer.gd" type="Script" id=32]
 [ext_resource path="res://players/tools/Gauges.tscn" type="PackedScene" id=33]
 [ext_resource path="res://players/tools/HPBar.tscn" type="PackedScene" id=34]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 30 ) ],
+"frames": [ ExtResource( 30 ), ExtResource( 31 ) ],
 "loop": true,
 "name": "default",
 "speed": 10.0
@@ -87,7 +88,7 @@ totalJumps = 0
 position = Vector2( -8.86257, -1.99328 )
 scale = Vector2( 0.7, 1 )
 frames = SubResource( 1 )
-playing = true
+frame = 1
 
 [node name="sprite" type="AnimatedSprite" parent="player"]
 frames = SubResource( 2 )

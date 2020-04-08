@@ -55,16 +55,16 @@ func _ready():
 	for c in get_children():
 		children.append(c.position)
 	
-puppet func setEverything(vel, pos, sprFlip, scl, mod):
-	position = pos; velocity = vel; scale = scl; modulate = mod;
-	sprite.flip_h = sprFlip
+puppet func setEverything(vel, pos, sprFlip, scl, mod, currDirec):
+	position = pos; velocity = vel; scale = scl; modulate = mod; 
+	sprite.flip_h = sprFlip; currentDirection = currDirec
 
 func _physics_process(delta):
 	if is_network_master():
 		calcHitstun()
 		if hp > 0:
 			_on_physics_process(delta)
-#		rpc_unreliable("setEverything", velocity,position,sprite.flip_h,scale,modulate)
+		rpc_unreliable("setEverything", velocity,position,sprite.flip_h,scale,modulate,currentDirection)
 	fixFlip()
 	velocity = move_and_slide(velocity, Vector2(0,-1))
 	
@@ -72,6 +72,7 @@ func fixFlip():
 	var a = 0
 	for c in get_children():
 		c.position.x = children[a].x * currentDirection
+		hurtbox.scale.x = currentDirection
 		a += 1
 
 func _on_physics_process(delta):

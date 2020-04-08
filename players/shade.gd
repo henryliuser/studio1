@@ -18,6 +18,11 @@ func _ready():
 	jumpInd = get_node("../Gauges/JumpIndic")
 	shortPath = "res://projectiles/shadeShort.tscn"
 
+puppet func syncDash(d):
+	dashInd.updateBar(d)
+puppet func syncJump(d):
+	jumpInd.updateBar(d)
+
 func _on_physics_process(delta):
 	parseInputs()
 	imposeGravity()
@@ -27,8 +32,10 @@ func _on_physics_process(delta):
 			calculateJump()
 			if jump and midairJumpsLeft == 0:
 				jumpInd.updateBar(0)
+				rpc_unreliable("syncJump", 0)
 			elif is_on_floor():
 				jumpInd.updateBar(100)
+				rpc_unreliable("syncJump", 100)
 			movement()
 			calcHit()
 			
@@ -39,12 +46,13 @@ func calcDash():
 		predash = true
 		storedDirection = currentDirection
 		dashInd.updateBar(0)
+		rpc_unreliable("syncDash", 0)
 		
 	if grounded and not dashing: #if you start a dash on the ground, 
 		dashAvailable = true     #you'll have one in mid-air as well
 		if dashTimer == 0 && not predash:
 			dashInd.updateBar(100)
-	
+			rpc_unreliable("syncDash", 100)
 	if predash:
 		if left and not right:
 			currentDirection = -1
@@ -62,6 +70,7 @@ func calcDash():
 			dashTimer = 0
 			if dashAvailable:
 				dashInd.updateBar(100)
+				rpc_unreliable("syncDash", 100)
 	
 	if dashing:
 		modulate = Color.paleturquoise

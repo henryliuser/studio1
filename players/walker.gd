@@ -11,6 +11,7 @@ onready var flamePos = jetflame.position
 
 func _ready(): 
 	acceleration = 80
+	jetflame.playing = true
 	fuelbar = get_node("../Gauges/FuelBar")
 	shortPath = "res://projectiles/walkerShort.tscn"
 	longPath = ""
@@ -46,11 +47,6 @@ func movement():
 	elif is_on_floor():
 		velocity.x = lerp(velocity.x, 0, lerpWeight)
 		sprite.play("idle")
-		
-	var a = 0
-	for c in get_children():
-		c.position.x = children[a].x * currentDirection
-		a += 1
 
 	if velocity.y >= 0:
 		velocity.y = min(velocity.y, maxSpeeds.y)
@@ -62,19 +58,29 @@ func movement():
 		velocity.x = 0
 	if abs(velocity.y) <= 1:
 		velocity.y = 0
-		
+
+
+puppet func syncJet(d):
+	jetflame.visible = d
 func jet():
 	jetflame.visible = true
+	rpc_unreliable("syncJet", true) #clean this shit
 	velocity.y -= jetSpeed
 	updateFuel(-1)
+	
 
+puppet func syncFuel(d):
+	fuelbar.updateBar(d)
+	
 func updateFuel(x):
 	fuel += x
 	fuel = clamp(fuel, 0, 100)
 	fuelbar.updateBar(fuel)
+	rpc_unreliable("syncFuel", fuel)
 
 func calcJet():
 	jetflame.visible = false
+	rpc_unreliable("syncJet", false)
 	if is_on_floor():
 		updateFuel(2)
 		if fuel >= 30 and holdSkill:
@@ -87,6 +93,7 @@ func die():
 	.die()
 	#jetpack hitbox
 	jetflame.visible = false
+	rpc_unreliable("syncJet", false)
 
 func _on_jetpack_body_entered(body):
 	fuel = max(0, fuel-50)
