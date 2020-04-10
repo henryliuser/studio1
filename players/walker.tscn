@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://players/walker.gd" type="Script" id=1]
 [ext_resource path="res://assets/Char1/Char1Idle/Sprite1-0003.png" type="Texture" id=2]
@@ -34,6 +34,7 @@
 [ext_resource path="res://players/tools/RootPlayer.gd" type="Script" id=32]
 [ext_resource path="res://players/tools/Gauges.tscn" type="PackedScene" id=33]
 [ext_resource path="res://players/tools/HPBar.tscn" type="PackedScene" id=34]
+[ext_resource path="res://players/tools/FuelBar.gd" type="Script" id=35]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -102,7 +103,7 @@ polygon = PoolVector2Array( -0.078373, 5.96251, -5.76543, 1.91047, -5.9787, -2.0
 [node name="jetpack" type="Area2D" parent="player"]
 position = Vector2( -6, -6.5 )
 collision_layer = 8
-collision_mask = 8
+collision_mask = 0
 
 [node name="jetpack" type="CollisionShape2D" parent="player/jetpack"]
 position = Vector2( -0.00249481, -0.06177 )
@@ -114,16 +115,19 @@ hoverPos = Vector2( 10, -100 )
 
 [node name="FuelBar" parent="Gauges" instance=ExtResource( 34 )]
 position = Vector2( 0, 5.00001 )
+script = ExtResource( 35 )
+lerpWeight = 0.2
 
 [node name="polish" parent="Gauges/FuelBar" index="0"]
-tint_under = Color( 0.878431, 0.462745, 0.560784, 1 )
-tint_progress = Color( 0.243137, 0.243137, 0.243137, 1 )
+tint_progress = Color( 1, 0, 0, 1 )
 
 [node name="texture" parent="Gauges/FuelBar" index="1"]
 tint_progress = Color( 0.85098, 0.564706, 0.0117647, 1 )
 
 [node name="HPBar" parent="Gauges" instance=ExtResource( 34 )]
 position = Vector2( 0, 7.62939e-06 )
-[connection signal="body_entered" from="player/jetpack" to="player" method="_on_jetpack_body_entered"]
+[connection signal="area_entered" from="player/jetpack" to="player" method="_on_jetpack_area_entered"]
 
 [editable path="Gauges/FuelBar"]
+
+[editable path="Gauges/HPBar"]

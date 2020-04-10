@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://blocks/defaultPlat.tscn" type="PackedScene" id=1]
 [ext_resource path="res://players/walker.tscn" type="PackedScene" id=2]
 [ext_resource path="res://blocks/conveyerPlat.tscn" type="PackedScene" id=3]
+[ext_resource path="res://players/shade.tscn" type="PackedScene" id=4]
 [ext_resource path="res://blocks/boostPlat.tscn" type="PackedScene" id=5]
 [ext_resource path="res://blocks/burnPlat.tscn" type="PackedScene" id=6]
 
@@ -45,3 +46,6 @@ position = Vector2( 1600, 600 )
 
 [node name="p2" type="Node2D" parent="spawns"]
 position = Vector2( 300, 600 )
+
+[node name="shade" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1253.89, 469.524 )

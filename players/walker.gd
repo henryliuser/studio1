@@ -59,16 +59,15 @@ func movement():
 	if abs(velocity.y) <= 1:
 		velocity.y = 0
 
-
 puppet func syncJet(d):
 	jetflame.visible = d
+
 func jet():
 	jetflame.visible = true
 	rpc_unreliable("syncJet", true) #clean this shit
 	velocity.y -= jetSpeed
 	updateFuel(-1)
 	
-
 puppet func syncFuel(d):
 	fuelbar.updateBar(d)
 	
@@ -93,7 +92,9 @@ func die():
 	.die()
 	#jetpack hitbox
 	jetflame.visible = false
+	$jetpack.queue_free()
 	rpc_unreliable("syncJet", false)
 
-func _on_jetpack_body_entered(body):
-	fuel = max(0, fuel-50)
+func _on_jetpack_area_entered(area):
+	updateFuel(-50)
+#	area.queue_free()

@@ -6,16 +6,16 @@
 [ext_resource path="res://players/tools/RootPlayer.gd" type="Script" id=4]
 [ext_resource path="res://players/tools/Gauges.tscn" type="PackedScene" id=5]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 8, 14.5 )
-
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
 } ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 14.5 )
 
 [node name="shade" type="Node2D"]
 script = ExtResource( 4 )
@@ -26,14 +26,14 @@ collision_mask = 5
 script = ExtResource( 1 )
 totalJumps = 2
 
-[node name="hurtbox" type="CollisionShape2D" parent="player"]
-position = Vector2( 1, 0 )
-shape = SubResource( 1 )
-
 [node name="sprite" type="AnimatedSprite" parent="player"]
 position = Vector2( 0, -0.5 )
-frames = SubResource( 2 )
+frames = SubResource( 1 )
 animation = "idle"
+
+[node name="hurtbox" type="CollisionShape2D" parent="player"]
+position = Vector2( 1, 0 )
+shape = SubResource( 2 )
 
 [node name="Gauges" parent="." instance=ExtResource( 5 )]
 position = Vector2( 3, -62 )

@@ -5,6 +5,8 @@
 [sub_resource type="CircleShape2D" id=1]
 
 [node name="projectile" type="Area2D"]
+collision_layer = 9
+collision_mask = 9
 script = ExtResource( 1 )
 damage = 20
 knockback = Vector2( 200, -1500 )

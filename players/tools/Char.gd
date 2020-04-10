@@ -50,6 +50,7 @@ var grounded = true
 var midairJumpsLeft = totalJumps - 1
 
 func _ready(): 
+	set_network_master(0)
 	hpbar = get_node("../Gauges/HPBar")
 #	set_network_master(get_tree().get_network_unique_id())
 	for c in get_children():
@@ -65,8 +66,9 @@ func _physics_process(delta):
 		if hp > 0:
 			_on_physics_process(delta)
 		rpc_unreliable("setEverything", velocity,position,sprite.flip_h,scale,modulate,currentDirection)
-	fixFlip()
-	velocity = move_and_slide(velocity, Vector2(0,-1))
+	if hp > 0:
+		fixFlip()
+		velocity = move_and_slide(velocity, Vector2(0,-1))
 	
 func fixFlip():
 	var a = 0
@@ -181,6 +183,8 @@ func die():
 	$hurtbox.queue_free()
 	velocity = Vector2()
 	sprite.play("death")
+	for x in get_node("../Gauges").get_children():
+		x.die()
 	
 func calcHit():
 	if hit:
