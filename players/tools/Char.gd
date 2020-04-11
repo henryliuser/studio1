@@ -3,7 +3,8 @@ extends KinematicBody2D
 export var gravity = 50
 var currentDirection = 1
 var storedDirection = 1
-export var playerNum = 1
+
+export var localNum = 1
 var tauntTimer = Vector2(0,10)
 
 #animation variables
@@ -89,7 +90,7 @@ func imposeGravity():
 	velocity.y += gravity
 
 func parseInputs():
-	var n = "p" + str(playerNum) + "_"
+	var n = "p" + str(localNum) + "_"
 	left = Input.is_action_pressed(n+"left");
 	right = Input.is_action_pressed(n+"right");
 	fire = Input.is_action_just_pressed(n+"fire")

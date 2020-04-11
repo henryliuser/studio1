@@ -10,6 +10,5 @@ func _process(delta):
 		if p.value < t.value: p.value = t.value
 		p.value = lerp(p.value, t.value, lerpWeight)
 		var diff = p.value-t.value
-		print(diff)
 		if abs(diff) <= 1:
 			p.value = t.value

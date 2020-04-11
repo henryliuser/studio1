@@ -5,7 +5,7 @@ func _ready():
 
 func _player_connected(id):
 	print("Player connected to server!")
-	ENetGlobal.otherPlayers.push_back(id)
+	
 	var game = preload("res://testStages/hennyTest2.tscn").instance()
 #	get_tree().change_scene("res://testStages/hennyTest2.tscn")
 	get_tree().get_root().add_child(game)
@@ -13,6 +13,7 @@ func _player_connected(id):
 
 func _on_buttonHost_pressed():
 	print("Hosting network")
+	ENetGlobal.addPlayer(get_tree().get_network_unique_id(),1)
 	var host = NetworkedMultiplayerENet.new()
 	var res = host.create_server(6969,2)
 	if res != OK:

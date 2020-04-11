@@ -1,11 +1,12 @@
 extends Node2D
 export var playerNum = 1
+export var localNum = 1
 onready var p = $player
 func _ready():
-	if playerNum == 2:  # turn them around if they're player 2
-		p.playerNum = playerNum
+	if playerNum % 2 == 0: #turn them around if they're globally player 2
 		p.currentDirection = -1
 		p.storedDirection = -1
 		p.sprite.flip_h = true
 		p.hurtbox.scale.x = -1
-#		p.sprite.modulate = Color.peru
+	if localNum == 2:  # set p2 controls if they're loccally player 2
+		p.localNum = localNum
