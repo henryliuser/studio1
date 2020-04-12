@@ -1,11 +1,13 @@
 extends Node2D
+onready var locals = $locals
 
 func _ready():
 	get_tree().connect("network_peer_connected", self, "_player_connected")
 
 func _player_connected(id):
 	print("Player connected to server!")
-	
+	for x in locals:
+		pass #START HERE
 	var game = preload("res://testStages/hennyTest2.tscn").instance()
 #	get_tree().change_scene("res://testStages/hennyTest2.tscn")
 	get_tree().get_root().add_child(game)
