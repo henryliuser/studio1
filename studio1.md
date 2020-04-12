@@ -18,6 +18,8 @@ fix with    if velocity.y > 0 && is_on_floor():
 
 players have localNumber, globalNumber: _LOCALNUMBER determines controls_
 figure out good interface for connecting multiple machines with varying numbers of players, i.e. Machine A (host) has P1, Machine B has P2 & P3, Machine C has P4.
+:::: **ENetGlobal.machines **contains all the connected machines, with each machine have a list its players??? 
+
 
 
 hitstop
