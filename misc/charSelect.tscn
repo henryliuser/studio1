@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://misc/charSelect.gd" type="Script" id=1]
+[ext_resource path="res://players/tools/walkerSprite.tres" type="SpriteFrames" id=2]
+
+[node name="local1" type="AnimatedSprite"]
+position = Vector2( 300, 300 )
+scale = Vector2( 10, 10 )
+frames = ExtResource( 2 )
+animation = "idle"
+frame = 2
+playing = true
+script = ExtResource( 1 )

@@ -1,0 +1,53 @@
+[gd_resource type="SpriteFrames" load_steps=29 format=2]
+
+[ext_resource path="res://assets/Char1/Char1Celeb/Sprite1-0066.png" type="Texture" id=1]
+[ext_resource path="res://assets/Char1/Char1Celeb/Sprite1-0068.png" type="Texture" id=2]
+[ext_resource path="res://assets/Char1/Char1Celeb/Sprite1-0069.png" type="Texture" id=3]
+[ext_resource path="res://assets/Char1/Char1Forward/Sprite1-0048.png" type="Texture" id=4]
+[ext_resource path="res://assets/Char1/Char1Idle/Sprite1-0005.png" type="Texture" id=5]
+[ext_resource path="res://assets/Char1/Char1Celeb/Sprite1-0062.png" type="Texture" id=6]
+[ext_resource path="res://assets/Char1/Char1Celeb/Sprite1-0067.png" type="Texture" id=7]
+[ext_resource path="res://assets/Char1/Char1Celeb/Sprite1-0065.png" type="Texture" id=8]
+[ext_resource path="res://assets/Char1/Char1Forward/Sprite1-0049.png" type="Texture" id=9]
+[ext_resource path="res://assets/Char1/Char1Idle/Sprite1-0003.png" type="Texture" id=10]
+[ext_resource path="res://assets/Char1/Char1Idle/Sprite1-0002.png" type="Texture" id=11]
+[ext_resource path="res://assets/Char1/Char1Celeb/Sprite1-0063.png" type="Texture" id=12]
+[ext_resource path="res://assets/Char1/Char1Celeb/Sprite1-0064.png" type="Texture" id=13]
+[ext_resource path="res://assets/Char1/Char1Celeb/Sprite1-0072.png" type="Texture" id=14]
+[ext_resource path="res://assets/Char1/Char1Idle/Sprite1-0004.png" type="Texture" id=15]
+[ext_resource path="res://assets/Char1/Char1Forward/Sprite1-0050.png" type="Texture" id=16]
+[ext_resource path="res://assets/Char1/Char1Idle/Sprite1-0001.png" type="Texture" id=17]
+[ext_resource path="res://assets/Char1/Char1Celeb/Sprite1-0071.png" type="Texture" id=18]
+[ext_resource path="res://assets/Char1/Char1Forward/Sprite1-0045.png" type="Texture" id=19]
+[ext_resource path="res://assets/Char1/Char1Forward/Sprite1-0046.png" type="Texture" id=20]
+[ext_resource path="res://assets/Char1/Char1Forward/Sprite1-0047.png" type="Texture" id=21]
+[ext_resource path="res://assets/Char1/Char1Death/Sprite1-0074.png" type="Texture" id=22]
+[ext_resource path="res://assets/Char1/Char1Death/Sprite1-0077.png" type="Texture" id=23]
+[ext_resource path="res://assets/Char1/Char1Death/Sprite1-0076.png" type="Texture" id=24]
+[ext_resource path="res://assets/Char1/Char1Death/Sprite1-0075.png" type="Texture" id=25]
+[ext_resource path="res://assets/Char1/Char1Death/Sprite1-0078.png" type="Texture" id=26]
+[ext_resource path="res://assets/Char1/Char1Death/Sprite1-0073.png" type="Texture" id=27]
+[ext_resource path="res://assets/Char1/Char1Celeb/Sprite1-0061.png" type="Texture" id=28]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 17 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 15 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "idle",
+"speed": 2.0
+}, {
+"frames": [ ExtResource( 28 ), ExtResource( 6 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 8 ), ExtResource( 1 ), ExtResource( 7 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 18 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "taunt",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 4 ), ExtResource( 9 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "forward",
+"speed": 11.0
+}, {
+"frames": [ ExtResource( 27 ), ExtResource( 22 ), ExtResource( 25 ), ExtResource( 24 ), ExtResource( 23 ), ExtResource( 26 ) ],
+"loop": false,
+"name": "death",
+"speed": 8.0
+} ]

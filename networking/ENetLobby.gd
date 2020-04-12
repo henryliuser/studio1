@@ -13,7 +13,7 @@ func _player_connected(id):
 
 func _on_buttonHost_pressed():
 	print("Hosting network")
-	ENetGlobal.addPlayer(get_tree().get_network_unique_id(),1)
+#	ENetGlobal.addPlayer(get_tree().get_network_unique_id(), )
 	var host = NetworkedMultiplayerENet.new()
 	var res = host.create_server(6969,2)
 	if res != OK:
@@ -23,7 +23,6 @@ func _on_buttonHost_pressed():
 	$buttonJoin.hide()
 	$buttonHost.disabled = true
 	get_tree().set_network_peer(host)
-
 
 func _on_buttonJoin_pressed():
 	print("Joining network")

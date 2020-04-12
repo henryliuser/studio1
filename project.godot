@@ -23,6 +23,7 @@ config/icon="res://assets/icon.png"
 
 debug="*res://misc/debug.tscn"
 ENetGlobal="*res://networking/ENetGlobal.gd"
+Global="*res://Global.gd"
 
 [display]
 
