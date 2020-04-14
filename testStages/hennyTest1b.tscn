@@ -38,7 +38,7 @@ velocity = Vector2( 0, 0 )
 [node name="spawns" type="Node2D" parent="."]
 
 [node name="p1" type="Node2D" parent="spawns"]
-position = Vector2( 1600, 600 )
+position = Vector2( 300, 600 )
 
 [node name="p2" type="Node2D" parent="spawns"]
-position = Vector2( 300, 600 )
+position = Vector2( 1600, 600 )

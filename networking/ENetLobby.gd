@@ -7,7 +7,8 @@ func _ready():
 func _player_connected(id):
 	print("Player connected to server!")
 	for x in locals.get_children():
-		x.pushGlobal()
+		if x.visible:
+			x.pushGlobal()
 	var game = preload("res://testStages/hennyTest1b.tscn").instance()
 #	get_tree().change_scene("res://testStages/hennyTest2.tscn")
 	get_tree().get_root().add_child(game)
