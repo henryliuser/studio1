@@ -1,14 +1,14 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://blocks/defaultPlat.tscn" type="PackedScene" id=1]
-[ext_resource path="res://players/walker.tscn" type="PackedScene" id=2]
 [ext_resource path="res://blocks/conveyerPlat.tscn" type="PackedScene" id=3]
-[ext_resource path="res://players/shade.tscn" type="PackedScene" id=4]
 [ext_resource path="res://blocks/boostPlat.tscn" type="PackedScene" id=5]
 [ext_resource path="res://blocks/burnPlat.tscn" type="PackedScene" id=6]
+[ext_resource path="res://misc/Level.gd" type="Script" id=7]
 
 [node name="hennyTest1" type="Node2D"]
 position = Vector2( 1.38477, -1.3847 )
+script = ExtResource( 7 )
 
 [node name="defaultPlat" parent="." instance=ExtResource( 1 )]
 position = Vector2( 960, 861.092 )
@@ -31,10 +31,6 @@ velocity = Vector2( 0, 0 )
 position = Vector2( 715.654, 314.543 )
 velocity = Vector2( 0, 0 )
 
-[node name="walker2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1409.06, 224.231 )
-playerNum = 2
-
 [node name="boostPlat" parent="." instance=ExtResource( 5 )]
 position = Vector2( 823.672, 193.015 )
 velocity = Vector2( 0, 0 )
@@ -46,6 +42,3 @@ position = Vector2( 1600, 600 )
 
 [node name="p2" type="Node2D" parent="spawns"]
 position = Vector2( 300, 600 )
-
-[node name="shade" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1253.89, 469.524 )

@@ -20,3 +20,7 @@ func pEdit(direction):
 	scale = Vector2(x,x)
 	if (num+1) % 2 == 0: scale.x = -x  #even number players face other way
 	position += Global.yOffset[pnum]
+
+func pushGlobal():
+	var id = get_tree().get_network_unique_id()
+	ENetGlobal.addPlayer(id, num, pnum)

@@ -8,6 +8,6 @@ position = Vector2( 300, 300 )
 scale = Vector2( 10, 10 )
 frames = ExtResource( 2 )
 animation = "idle"
-frame = 2
+frame = 4
 playing = true
 script = ExtResource( 1 )

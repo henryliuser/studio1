@@ -4,7 +4,6 @@ export var gravity = 50
 var currentDirection = 1
 var storedDirection = 1
 
-export var globalNum = 1
 export var localNum = 1
 var tauntTimer = Vector2(0,10)
 

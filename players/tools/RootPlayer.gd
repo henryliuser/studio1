@@ -1,9 +1,10 @@
 extends Node2D
-export var playerNum = 1
+export var globalNum = 1
 export var localNum = 1
+export var netID = 0
 onready var p = $player
 func _ready():
-	if playerNum % 2 == 0: #turn them around if they're globally player 2
+	if globalNum % 2 == 0: #turn them around if they're globally player 2/4
 		p.currentDirection = -1
 		p.storedDirection = -1
 		p.sprite.flip_h = true

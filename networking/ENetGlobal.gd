@@ -14,10 +14,10 @@ var numPlayers = 0
 var players = []
 var machines = []
 
-func addPlayer(id, localNum, chara):
-	machines.push_back(id)
+func addPlayer(id, localNum, charNum):
 	numPlayers += 1
-	var temp = load(chara).instance()
+	var temp = load(Global.chars[charNum]).instance()
+	temp.netID = id
 	temp.globalNum = numPlayers
 	temp.localNum = localNum
 	players.push_back(temp)
