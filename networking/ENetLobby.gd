@@ -4,11 +4,17 @@ onready var locals = $locals
 func _ready():
 	get_tree().connect("network_peer_connected", self, "_player_connected")
 
-func _player_connected(id):
-	print("Player connected to server!")
+puppet func pushPlayers():
 	for x in locals.get_children():
 		if x.visible:
 			x.pushGlobal()
+
+func _player_connected(id):
+	print("Player connected to server!")
+	pushPlayers()
+	if is_network_master():
+		print("SGTKUFBSFD")
+		rpc("pushPlayers")
 	var game = preload("res://testStages/hennyTest1b.tscn").instance()
 #	get_tree().change_scene("res://testStages/hennyTest2.tscn")
 	get_tree().get_root().add_child(game)

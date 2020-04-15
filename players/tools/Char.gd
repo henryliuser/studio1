@@ -51,7 +51,7 @@ var grounded = true
 var midairJumpsLeft = totalJumps - 1
 
 func _ready(): 
-	set_network_master(0)
+#	set_network_master(0)
 	hpbar = get_node("../Gauges/HPBar")
 #	set_network_master(get_tree().get_network_unique_id())
 	for c in get_children():
