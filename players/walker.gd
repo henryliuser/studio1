@@ -95,6 +95,6 @@ func die():
 	$jetpack.queue_free()
 	rpc_unreliable("syncJet", false)
 
-func _on_jetpack_area_entered(area):
+func _on_jetpack_area_entered(_area):
 	updateFuel(-50)
 #	area.queue_free()

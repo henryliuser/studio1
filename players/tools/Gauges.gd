@@ -6,7 +6,7 @@ var player
 func _ready():
 	player = get_node("../player")
 
-func _process(delta):
+func _process(_delta):
 	var temp = hoverPos.x * player.currentDirection
 	var pos = player.position + Vector2(temp, hoverPos.y)
 	position = lerp(position, pos, lerpWeight)

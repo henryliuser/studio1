@@ -2,7 +2,7 @@ extends "res://blocks/defaultPlat.gd"
 var timer = 0
 var b = null
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if timer > 0 and timer <= 50:
 		timer += 1
 		b.scale.y -= 0.03

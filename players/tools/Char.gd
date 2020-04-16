@@ -78,7 +78,7 @@ func fixFlip():
 		hurtbox.scale.x = currentDirection
 		a += 1
 
-func _on_physics_process(delta):
+func _on_physics_process(_delta):
 	imposeGravity()
 	if stunTimer.x == 0:
 		parseInputs()

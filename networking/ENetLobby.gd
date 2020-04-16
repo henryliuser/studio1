@@ -1,25 +1,28 @@
 extends Node2D
 onready var locals = $locals
-
+var testCount = 0
 func _ready():
 	get_tree().connect("network_peer_connected", self, "_player_connected")
 
-puppet func pushPlayersToNetwork(localP):
-	pushPlayers(localP)
-
+	
 func pushPlayers(localP):
 	for x in localP.get_children():
 		if x.visible:
 			x.pushGlobal()
 
+func pushNetwork(localP,id):
+	for x in localP.get_children():
+		if x.visible:
+			rpc("pushPlayer", id, x.localNum, x.charNum)
+
+remote func pushPlayer(id, localNum,charNum):
+	ENetGlobal.addPlayer(id, localNum, charNum)
+	start()
+
 func _player_connected(id):
 	print("Player connected to server!")
 	pushPlayers(locals)
-	rpc("pushPlayersToNetwork", locals)
-	var game = preload("res://testStages/hennyTest1b.tscn").instance()
-#	get_tree().change_scene("res://testStages/hennyTest2.tscn")
-	get_tree().get_root().add_child(game)
-	hide()
+	pushNetwork(locals,id)
 
 func _on_buttonHost_pressed():
 	print("Hosting network")
@@ -41,3 +44,9 @@ func _on_buttonJoin_pressed():
 	get_tree().set_network_peer(host)
 	$buttonHost.hide()
 	$buttonJoin.disabled = true
+
+func start():
+	var game = preload("res://testStages/hennyTest1b.tscn").instance()
+#	get_tree().change_scene("res://testStages/hennyTest2.tscn")
+	get_tree().get_root().add_child(game)
+	hide()

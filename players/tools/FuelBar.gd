@@ -5,7 +5,7 @@ func updateBar(f):
 	if p.value-t.value <= 1:
 		p.value = t.value
 
-func _process(delta):
+func _process(_delta):
 	if tweening:
 		if p.value < t.value: p.value = t.value
 		p.value = lerp(p.value, t.value, lerpWeight)

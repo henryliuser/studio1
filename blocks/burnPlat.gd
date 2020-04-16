@@ -1,7 +1,7 @@
 extends "res://blocks/defaultPlat.gd"
 var players = {} 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	for b in players:
 		players[b] += 1
 		if players[b] % 30 == 0:

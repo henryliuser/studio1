@@ -7,7 +7,7 @@ onready var ic = $icon
 func _ready():
 	scale.x *= -direction
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if len(players) > 0:
 		for b in players:
 			b.velocity.x = direction * speed

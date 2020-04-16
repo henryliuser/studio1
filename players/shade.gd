@@ -23,7 +23,7 @@ puppet func syncDash(d):
 puppet func syncJump(d):
 	jumpInd.updateBar(d)
 
-func _on_physics_process(delta):
+func _on_physics_process(_delta):
 	parseInputs()
 	imposeGravity()
 	if stunTimer.x == 0:

@@ -1,11 +1,13 @@
 extends AnimatedSprite
 export var localNum = 1
 var charNum = 0
+var id = 0
 
 func _ready():
 	visible = false
+	id = get_tree().get_network_unique_id()
 
-func _process(delta): #refactor this to handle inputs neater
+func _process(_delta): #refactor this to handle inputs neater
 	var n = "p" + str(localNum) + "_"
 	if Input.is_action_just_pressed(n+"skill"): visible = true
 	if Input.is_action_just_pressed(n+"fire"): visible = false
@@ -18,9 +20,9 @@ func pEdit(direction):
 	set_sprite_frames(load(Global.charSprites[charNum]) )
 	var x = Global.charSizeRatio[charNum]*2
 	scale = Vector2(x,x)
-	if (localNum) % 2 == 0: scale.x = -x  #even number players face other way
+	if (localNum) % 2 == 0: 
+		scale.x = -x  #even number players face other way
 	position += Global.yOffset[charNum]
 
 func pushGlobal():
-	var id = get_tree().get_network_unique_id()
 	ENetGlobal.addPlayer(id, localNum, charNum)
