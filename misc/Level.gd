@@ -7,5 +7,5 @@ func _ready():
 	for p in ENetGlobal.players:
 		var s = spawns.get_child(counter)
 		p.position = s.position
-		get_tree().get_root().add_child(p)
+		add_child(p)
 		counter += 1

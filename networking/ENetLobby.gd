@@ -46,7 +46,7 @@ func _on_buttonJoin_pressed():
 	$buttonJoin.disabled = true
 
 func start():
-	var game = preload("res://testStages/hennyTest1b.tscn").instance()
-#	get_tree().change_scene("res://testStages/hennyTest2.tscn")
-	get_tree().get_root().add_child(game)
+#	var game = preload("res://testStages/hennyTest1b.tscn").instance
+#	get_tree().get_root().add_child(game)
+	get_tree().change_scene("res://testStages/hennyTest1b.tscn")
 	hide()
