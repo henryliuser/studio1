@@ -21,6 +21,7 @@ figure out good interface for connecting multiple machines with varying numbers 
 :::: **ENetGlobal.machines **contains all the connected machines, with each machine have a list its players??? 
 
 sync hit() fire() on multiplayer
+can’t pass objects over RPC.
 
 
 hitstop

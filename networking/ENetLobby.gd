@@ -5,7 +5,7 @@ func _ready():
 	get_tree().connect("network_peer_connected", self, "_player_connected")
 
 	
-func pushPlayers(localP):
+func pushPlayers(localP):  #fix formatting
 	for x in localP.get_children():
 		if x.visible:
 			x.pushGlobal()
