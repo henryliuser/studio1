@@ -1,6 +1,7 @@
 extends Node2D
 onready var locals = $locals
 var testCount = 0
+#put networking on hold
 func _ready():
 	get_tree().connect("network_peer_connected", self, "_player_connected")
 
