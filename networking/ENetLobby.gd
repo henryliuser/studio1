@@ -5,12 +5,10 @@ var testCount = 0
 func _ready():
 	get_tree().connect("network_peer_connected", self, "_player_connected")
 
-	
 func pushPlayers(localP):  #fix formatting
 	for x in localP.get_children():
 		if x.visible:
 			x.pushGlobal()
-
 func pushNetwork(localP,id):
 	for x in localP.get_children():
 		if x.visible:
@@ -18,7 +16,7 @@ func pushNetwork(localP,id):
 
 remote func pushPlayer(id, localNum,charNum):
 	ENetGlobal.addPlayer(id, localNum, charNum)
-	start()
+#	start()
 
 func _player_connected(id):
 	print("Player connected to server!")
@@ -46,8 +44,16 @@ func _on_buttonJoin_pressed():
 	$buttonHost.hide()
 	$buttonJoin.disabled = true
 
+remote func remote_start():
+	start()
+
 func start():
 #	var game = preload("res://testStages/hennyTest1b.tscn").instance
 #	get_tree().get_root().add_child(game)
 	get_tree().change_scene("res://testStages/hennyTest1b.tscn")
 	hide()
+
+
+func _on_buttonHost2_pressed():
+	start()
+	rpc("remote_start")

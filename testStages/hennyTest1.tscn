@@ -36,11 +36,9 @@ position = Vector2( 1276.87, 222.839 )
 
 [node name="walker2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1409.06, 224.231 )
-playerNum = 2
 
 [node name="shade" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1706.94, 243.933 )
-playerNum = 2
 
 [node name="boostPlat" parent="." instance=ExtResource( 5 )]
 position = Vector2( 823.672, 193.015 )

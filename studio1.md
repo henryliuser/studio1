@@ -12,6 +12,10 @@ basic symmetrical platform procedural generation X
 inheritance X
 walker separate jet hurtbox X
 
+
+separate weapons now. sorry artist but also this will make the game way better trust me.
+
+
 when descending platform, trigger shape moves ahead of body shape and sprite
 fix with    if velocity.y > 0 && is_on_floor(): 
 					position += funcOfVelocity()
