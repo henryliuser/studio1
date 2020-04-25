@@ -12,8 +12,12 @@ basic symmetrical platform procedural generation X
 inheritance X
 walker separate jet hurtbox X
 
+————————————————————
+                             [WEAPONS]
+————————————————————
+Jesus Cannon - 
 
-separate weapons now. sorry artist but also this will make the game way better trust me.
+
 
 
 when descending platform, trigger shape moves ahead of body shape and sprite

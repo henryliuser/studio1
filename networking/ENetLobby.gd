@@ -48,9 +48,9 @@ remote func remote_start():
 	start()
 
 func start():
-#	var game = preload("res://testStages/hennyTest1b.tscn").instance
-#	get_tree().get_root().add_child(game)
-	get_tree().change_scene("res://testStages/hennyTest1b.tscn")
+	var game = preload("res://testStages/hennyTest1b.tscn").instance()
+	get_tree().get_root().add_child(game)
+#	get_tree().change_scene("res://testStages/hennyTest1b.tscn")
 	hide()
 
 

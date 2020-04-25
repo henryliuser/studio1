@@ -4,6 +4,7 @@ export var gravity = 50
 var currentDirection = 1
 var storedDirection = 1
 
+var netID = 0
 export var localNum = 1
 var tauntTimer = Vector2(0,10)
 
@@ -53,7 +54,7 @@ var midairJumpsLeft = totalJumps - 1
 func _ready(): 
 #	set_network_master(0)
 	hpbar = get_node("../Gauges/HPBar")
-#	set_network_master(get_tree().get_network_unique_id())
+	set_network_master(netID)
 	for c in get_children():
 		children.append(c.position)
 	

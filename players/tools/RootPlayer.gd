@@ -5,6 +5,7 @@ export var netID = 0
 onready var p = $player
 
 func _ready():
+	p.netID = netID
 	if globalNum % 2 == 0: #turn them around if they're globally player 2/4
 		p.currentDirection = -1
 		p.storedDirection = -1
