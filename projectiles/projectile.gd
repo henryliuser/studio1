@@ -9,7 +9,7 @@ export var stun = 15
 func _physics_process(delta):
 	position += velocity
 	duration -= 1
-	if duration <= 0:
+	if duration == 0:
 		queue_free()
 
 func _on_projectile_body_entered(body):

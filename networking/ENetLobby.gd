@@ -1,6 +1,7 @@
 extends Node2D
 onready var locals = $locals
 var testCount = 0
+var host = false
 #put networking on hold
 func _ready():
 	get_tree().connect("network_peer_connected", self, "_player_connected")
@@ -20,10 +21,17 @@ remote func pushPlayer(id, localNum,charNum):
 
 func _player_connected(id):
 	print("Player connected to server!")
-	pushPlayers(locals)
+	if host:
+		rpc_id(id, "syncList", ENetGlobal.players)
 	pushNetwork(locals,id)
+	if host: 
+		rpc_id(id, "syncList", ENetGlobal.players)
+
+remote func syncList(hostList):
+	ENetGlobal.players = hostList.duplicate()
 
 func _on_buttonHost_pressed():
+	host = true
 	print("Hosting network")
 #	ENetGlobal.addPlayer(get_tree().get_network_unique_id(), )
 	var host = NetworkedMultiplayerENet.new()
@@ -35,6 +43,7 @@ func _on_buttonHost_pressed():
 	$buttonJoin.hide()
 	$buttonHost.disabled = true
 	get_tree().set_network_peer(host)
+	pushPlayers(locals)
 
 func _on_buttonJoin_pressed():
 	print("Joining network")

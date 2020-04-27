@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://players/walker.gd" type="Script" id=1]
 [ext_resource path="res://players/tools/walkerSprite.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://weapons/Tembo.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/Char1/Char1Jetflame/Sprite1-0012.png" type="Texture" id=30]
 [ext_resource path="res://assets/Char1/Char1Jetflame/Sprite1-0011.png" type="Texture" id=31]
 [ext_resource path="res://players/tools/RootPlayer.gd" type="Script" id=32]
@@ -38,6 +39,10 @@ maxGroundVelocity = Vector2( 500, 1500 )
 lerpWeight = 0.25
 totalJumps = 0
 
+[node name="Tembo" parent="player" instance=ExtResource( 3 )]
+position = Vector2( 8.34297, -4.1224 )
+scale = Vector2( 0.25, 0.25 )
+
 [node name="jetflame" type="AnimatedSprite" parent="player"]
 visible = false
 position = Vector2( -8.86257, -1.99328 )
@@ -48,7 +53,6 @@ frame = 1
 [node name="sprite" type="AnimatedSprite" parent="player"]
 frames = ExtResource( 2 )
 animation = "idle"
-frame = 3
 playing = true
 
 [node name="hurtbox" type="CollisionPolygon2D" parent="player"]

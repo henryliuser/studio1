@@ -52,9 +52,8 @@ var grounded = true
 var midairJumpsLeft = totalJumps - 1
 
 func _ready(): 
-#	set_network_master(0)
+	set_network_master(0)
 	hpbar = get_node("../Gauges/HPBar")
-	set_network_master(netID)
 	for c in get_children():
 		children.append(c.position)
 	
@@ -195,9 +194,10 @@ func calcHit():
 		hit(longPath)
 
 func hit(path):
-	var x = load(path).instance()
-	x.pos = global_position
-	x.position = position + Vector2(currentDirection*80, -40)
-	x.scale.x = currentDirection
-	get_parent().add_child(x)
+	pass
+#	var x = load(path).instance()
+#	x.pos = global_position
+#	x.position = position + Vector2(currentDirection*80, -40)
+#	x.scale.x = currentDirection
+#	get_parent().add_child(x)
 

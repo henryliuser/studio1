@@ -3,6 +3,9 @@ var numPlayers = 0
 
 var players = []
 
+func _ready():
+	players.resize(4)
+
 func addPlayer(id, localNum, charNum):
 	numPlayers += 1
 	var temp = load(Global.chars[charNum]).instance()
@@ -10,7 +13,7 @@ func addPlayer(id, localNum, charNum):
 	temp.set_name(str(localNum) + "-" + str(id) )
 	temp.globalNum = numPlayers
 	temp.localNum = localNum
-	players.push_back(temp)
+	players[temp.globalNum-1] = temp
 
 func editPlayer():
 	pass
