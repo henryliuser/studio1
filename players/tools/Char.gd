@@ -72,10 +72,12 @@ func _physics_process(delta):
 		velocity = move_and_slide(velocity, Vector2(0,-1))
 	
 func fixFlip():
+	
+	
 	var a = 0
+	hurtbox.scale.x = currentDirection
 	for c in get_children():
 		c.position.x = children[a].x * currentDirection
-		hurtbox.scale.x = currentDirection
 		a += 1
 
 func _on_physics_process(_delta):

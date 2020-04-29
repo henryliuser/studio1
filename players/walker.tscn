@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://players/walker.gd" type="Script" id=1]
 [ext_resource path="res://players/tools/walkerSprite.tres" type="SpriteFrames" id=2]
 [ext_resource path="res://weapons/Tembo.tscn" type="PackedScene" id=3]
+[ext_resource path="res://players/tools/Gauges.gd" type="Script" id=4]
 [ext_resource path="res://assets/Char1/Char1Jetflame/Sprite1-0012.png" type="Texture" id=30]
 [ext_resource path="res://assets/Char1/Char1Jetflame/Sprite1-0011.png" type="Texture" id=31]
 [ext_resource path="res://players/tools/RootPlayer.gd" type="Script" id=32]
@@ -27,6 +28,32 @@ __meta__ = {
 "_edit_group_": true
 }
 
+[node name="Gauges" parent="." instance=ExtResource( 33 )]
+position = Vector2( 10, -100 )
+hoverPos = Vector2( 10, -100 )
+
+[node name="FuelBar" parent="Gauges" instance=ExtResource( 34 )]
+position = Vector2( 0, 5.00001 )
+script = ExtResource( 35 )
+lerpWeight = 0.2
+
+[node name="polish" parent="Gauges/FuelBar" index="0"]
+tint_progress = Color( 1, 0, 0, 1 )
+
+[node name="texture" parent="Gauges/FuelBar" index="1"]
+tint_progress = Color( 0.85098, 0.564706, 0.0117647, 1 )
+
+[node name="HPBar" parent="Gauges" instance=ExtResource( 34 )]
+position = Vector2( 0, 7.62939e-06 )
+
+[node name="Weapons" type="Node2D" parent="."]
+position = Vector2( 30, 0 )
+script = ExtResource( 4 )
+hoverPos = Vector2( 30, 0 )
+lerpWeight = 0.6
+
+[node name="Tembo" parent="Weapons" instance=ExtResource( 3 )]
+
 [node name="player" type="KinematicBody2D" parent="."]
 scale = Vector2( 4, 4 )
 collision_mask = 5
@@ -38,10 +65,6 @@ maxAirVelocity = Vector2( 400, 1500 )
 maxGroundVelocity = Vector2( 500, 1500 )
 lerpWeight = 0.25
 totalJumps = 0
-
-[node name="Tembo" parent="player" instance=ExtResource( 3 )]
-position = Vector2( 8.34297, -4.1224 )
-scale = Vector2( 0.25, 0.25 )
 
 [node name="jetflame" type="AnimatedSprite" parent="player"]
 visible = false
@@ -66,24 +89,6 @@ collision_mask = 0
 [node name="jetpack" type="CollisionShape2D" parent="player/jetpack"]
 position = Vector2( -0.00249481, -0.06177 )
 shape = SubResource( 2 )
-
-[node name="Gauges" parent="." instance=ExtResource( 33 )]
-position = Vector2( 10, -100 )
-hoverPos = Vector2( 10, -100 )
-
-[node name="FuelBar" parent="Gauges" instance=ExtResource( 34 )]
-position = Vector2( 0, 5.00001 )
-script = ExtResource( 35 )
-lerpWeight = 0.2
-
-[node name="polish" parent="Gauges/FuelBar" index="0"]
-tint_progress = Color( 1, 0, 0, 1 )
-
-[node name="texture" parent="Gauges/FuelBar" index="1"]
-tint_progress = Color( 0.85098, 0.564706, 0.0117647, 1 )
-
-[node name="HPBar" parent="Gauges" instance=ExtResource( 34 )]
-position = Vector2( 0, 7.62939e-06 )
 [connection signal="area_entered" from="player/jetpack" to="player" method="_on_jetpack_area_entered"]
 
 [editable path="Gauges/FuelBar"]

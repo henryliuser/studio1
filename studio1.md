@@ -15,8 +15,14 @@ walker separate jet hurtbox X
 ————————————————————
                              [WEAPONS]
 ————————————————————
-Jesus Cannon - 
+thousand island (flamethrower)
+tembo (gravity hammer) G
+radiant apple (glowing apple that burns nearby enemies. light centered, throwable. when on the ground doesn’t burn or shine)
+ruler/meterstick with tipper
+banana peel (mine)
 
+some short hits can deflect projectiles
+can angle long upward on the ground and downward in the air 
 
 
 
@@ -30,6 +36,8 @@ figure out good interface for connecting multiple machines with varying numbers 
 
 sync hit() fire() on multiplayer
 can’t pass objects over RPC.
+
+
 
 
 hitstop
