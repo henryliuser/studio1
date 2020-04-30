@@ -20,6 +20,7 @@ tembo (gravity hammer) G
 radiant apple (glowing apple that burns nearby enemies. light centered, throwable. when on the ground doesn’t burn or shine)
 ruler/meterstick with tipper
 banana peel (mine)
+boomerang sniper
 
 some short hits can deflect projectiles
 can angle long upward on the ground and downward in the air 
