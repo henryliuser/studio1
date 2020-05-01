@@ -3,7 +3,7 @@
 [ext_resource path="res://blocks/defaultPlat.tscn" type="PackedScene" id=1]
 [ext_resource path="res://players/walker.tscn" type="PackedScene" id=2]
 [ext_resource path="res://blocks/conveyerPlat.tscn" type="PackedScene" id=3]
-[ext_resource path="res://weapons/boomerangSniper.tscn" type="PackedScene" id=4]
+[ext_resource path="res://players/shade.tscn" type="PackedScene" id=4]
 [ext_resource path="res://blocks/boostPlat.tscn" type="PackedScene" id=5]
 [ext_resource path="res://blocks/burnPlat.tscn" type="PackedScene" id=6]
 
@@ -35,8 +35,14 @@ velocity = Vector2( 0, 0 )
 position = Vector2( 823.672, 193.015 )
 velocity = Vector2( 0, 0 )
 
-[node name="sniper" parent="." instance=ExtResource( 4 )]
-position = Vector2( 770.161, 500.367 )
-
 [node name="walker" parent="." instance=ExtResource( 2 )]
-position = Vector2( 287.961, 471.089 )
+position = Vector2( 395.449, 500.283 )
+
+[node name="sprite" parent="walker/player" index="1"]
+frame = 4
+
+[node name="shade" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1138.02, 489.397 )
+localNum = 2
+
+[editable path="walker"]

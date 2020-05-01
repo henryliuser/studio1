@@ -15,10 +15,6 @@ var hpbar
 var label
 var children = []
 
-#attackVars
-var shortPath = ""
-var longPath = ""
-
 #input variables
 var left
 var right
@@ -53,9 +49,9 @@ var midairJumpsLeft = totalJumps - 1
 
 func _ready(): 
 	set_network_master(0)
-	hpbar = get_node("../Gauges/HPBar")
 	for c in get_children():
 		children.append(c.position)
+	hpbar = get_node("../Gauges/HPBar")
 	
 puppet func setEverything(vel, pos, sprFlip, scl, mod, currDirec):
 	position = pos; velocity = vel; scale = scl; modulate = mod; 
@@ -68,16 +64,15 @@ func _physics_process(delta):
 			_on_physics_process(delta)
 		rpc_unreliable("setEverything", velocity,position,sprite.flip_h,scale,modulate,currentDirection)
 	if hp > 0:
-		fixFlip()
 		velocity = move_and_slide(velocity, Vector2(0,-1))
 	
-func fixFlip():
-	
-	
+func fixFlip(dir):
+	currentDirection = dir
 	var a = 0
 	hurtbox.scale.x = currentDirection
 	for c in get_children():
 		c.position.x = children[a].x * currentDirection
+		c.scale.x = abs(c.scale.x) * currentDirection
 		a += 1
 
 func _on_physics_process(_delta):
@@ -86,7 +81,6 @@ func _on_physics_process(_delta):
 		parseInputs()
 		calculateJump()
 		movement()
-		calcHit()
 
 func imposeGravity():
 	velocity.y += gravity
@@ -112,20 +106,15 @@ func movement():
 	if not is_on_floor(): lerq = lerpWeight/3
 	if grounded: maxSpeeds = maxGroundVelocity
 	else: maxSpeeds = maxAirVelocity
-
 	if right && not left:
-		currentDirection = 1
+		fixFlip(1)
 		velocity.x += acceleration 
 		velocity.x = min(velocity.x, maxSpeeds.x)
-		hurtbox.scale.x = 1  # flip the hurtbox when changing directions
-		sprite.flip_h = false  # flip the sprite when changing directions
 		sprite.play("forward")
 	elif left && not right:
-		currentDirection = -1
+		fixFlip(-1)
 		velocity.x -= acceleration 
 		velocity.x = max(velocity.x, -maxSpeeds.x)
-		hurtbox.scale.x = -1
-		sprite.flip_h = true
 		sprite.play("forward")
 	else:
 		sprite.play("idle")
@@ -137,10 +126,6 @@ func movement():
 		velocity.x = 0
 	if abs(velocity.y) <= 1:
 		velocity.y = 0
-
-func calcTaunt():
-	if taunt:
-		pass
 
 func calculateJump():
 	if is_on_floor():
@@ -176,6 +161,9 @@ func getHurt(dmg, stun:int=10, kb:Vector2=Vector2(), pos:Vector2=Vector2() ):
 	modTimer.x = 1
 	modulate = Color.red
 	var t = global_position.x-pos.x  #knocks back horizontally based on x position 
+	if kb != Vector2():
+		if t < 0: fixFlip(1)
+		else: fixFlip(-1)
 	velocity = Vector2(t/abs(t)*kb.x, kb.y) 
 	hp -= dmg
 	hpbar.updateBar(hp)
@@ -188,18 +176,5 @@ func die():
 	sprite.play("death")
 	for x in get_node("../Gauges").get_children():
 		x.die()
-	
-func calcHit():
-	if hit:
-		hit(shortPath)
-	if fire:
-		hit(longPath)
 
-func hit(path):
-	pass
-#	var x = load(path).instance()
-#	x.pos = global_position
-#	x.position = position + Vector2(currentDirection*80, -40)
-#	x.scale.x = currentDirection
-#	get_parent().add_child(x)
 

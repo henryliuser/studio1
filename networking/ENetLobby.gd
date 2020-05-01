@@ -62,7 +62,6 @@ func start():
 #	get_tree().change_scene("res://testStages/hennyTest1b.tscn")
 	hide()
 
-
 func _on_buttonHost2_pressed():
 	start()
 	rpc("remote_start")

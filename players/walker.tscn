@@ -2,8 +2,8 @@
 
 [ext_resource path="res://players/walker.gd" type="Script" id=1]
 [ext_resource path="res://players/tools/walkerSprite.tres" type="SpriteFrames" id=2]
-[ext_resource path="res://weapons/Tembo.tscn" type="PackedScene" id=3]
-[ext_resource path="res://players/tools/Gauges.gd" type="Script" id=4]
+[ext_resource path="res://weapons/boomerangSniper.tscn" type="PackedScene" id=3]
+[ext_resource path="res://players/tools/Weapons.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/Char1/Char1Jetflame/Sprite1-0012.png" type="Texture" id=30]
 [ext_resource path="res://assets/Char1/Char1Jetflame/Sprite1-0011.png" type="Texture" id=31]
 [ext_resource path="res://players/tools/RootPlayer.gd" type="Script" id=32]
@@ -46,13 +46,11 @@ tint_progress = Color( 0.85098, 0.564706, 0.0117647, 1 )
 [node name="HPBar" parent="Gauges" instance=ExtResource( 34 )]
 position = Vector2( 0, 7.62939e-06 )
 
-[node name="Weapons" type="Node2D" parent="."]
-position = Vector2( 30, 0 )
-script = ExtResource( 4 )
-hoverPos = Vector2( 30, 0 )
-lerpWeight = 0.6
+[node name="Weapons" parent="." instance=ExtResource( 4 )]
 
-[node name="Tembo" parent="Weapons" instance=ExtResource( 3 )]
+[node name="sniper" parent="Weapons" instance=ExtResource( 3 )]
+position = Vector2( 32.152, -30.9124 )
+scale = Vector2( 0.5, 0.5 )
 
 [node name="player" type="KinematicBody2D" parent="."]
 scale = Vector2( 4, 4 )
@@ -76,6 +74,7 @@ frame = 1
 [node name="sprite" type="AnimatedSprite" parent="player"]
 frames = ExtResource( 2 )
 animation = "idle"
+frame = 2
 playing = true
 
 [node name="hurtbox" type="CollisionPolygon2D" parent="player"]

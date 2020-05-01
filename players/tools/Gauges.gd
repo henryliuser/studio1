@@ -8,6 +8,7 @@ func _ready():
 
 func _process(_delta):
 	var temp = hoverPos.x * player.currentDirection
+	scale.x = player.currentDirection
 	var pos = player.position + Vector2(temp, hoverPos.y)
 	position = lerp(position, pos, lerpWeight)
 	

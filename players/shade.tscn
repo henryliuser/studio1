@@ -1,12 +1,14 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://players/shade.gd" type="Script" id=1]
 [ext_resource path="res://players/tools/shadeSprite.tres" type="SpriteFrames" id=2]
 [ext_resource path="res://players/tools/HPBar.tscn" type="PackedScene" id=3]
 [ext_resource path="res://players/tools/RootPlayer.gd" type="Script" id=4]
 [ext_resource path="res://players/tools/Gauges.tscn" type="PackedScene" id=5]
+[ext_resource path="res://players/tools/Weapons.tscn" type="PackedScene" id=6]
+[ext_resource path="res://weapons/Tembo.tscn" type="PackedScene" id=7]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 14.5 )
 
 [node name="shade" type="Node2D"]
@@ -15,20 +17,11 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="player" type="KinematicBody2D" parent="."]
-scale = Vector2( 3, 3 )
-collision_mask = 5
-script = ExtResource( 1 )
-totalJumps = 2
+[node name="Weapons" parent="." instance=ExtResource( 6 )]
 
-[node name="sprite" type="AnimatedSprite" parent="player"]
-position = Vector2( 0, -0.5 )
-frames = ExtResource( 2 )
-animation = "idle"
-
-[node name="hurtbox" type="CollisionShape2D" parent="player"]
-position = Vector2( 1, 0 )
-shape = SubResource( 2 )
+[node name="Tembo" parent="Weapons" instance=ExtResource( 7 )]
+position = Vector2( -8.77475, 15.8512 )
+pnum = 2
 
 [node name="Gauges" parent="." instance=ExtResource( 5 )]
 position = Vector2( 3, -62 )
@@ -54,6 +47,21 @@ tint_progress = Color( 0.113725, 0.858824, 0.956863, 1 )
 
 [node name="HPBar" parent="Gauges" instance=ExtResource( 3 )]
 position = Vector2( 0, -2 )
+
+[node name="player" type="KinematicBody2D" parent="."]
+scale = Vector2( 3, 3 )
+collision_mask = 5
+script = ExtResource( 1 )
+totalJumps = 2
+
+[node name="sprite" type="AnimatedSprite" parent="player"]
+position = Vector2( 0, -0.5 )
+frames = ExtResource( 2 )
+animation = "idle"
+
+[node name="hurtbox" type="CollisionShape2D" parent="player"]
+position = Vector2( 1, 0 )
+shape = SubResource( 1 )
 
 [editable path="Gauges/JumpIndic"]
 

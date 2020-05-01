@@ -16,7 +16,6 @@ var jumpInd
 func _ready():
 	dashInd = get_node("../Gauges/DashIndic")
 	jumpInd = get_node("../Gauges/JumpIndic")
-	shortPath = "res://projectiles/shadeShort.tscn"
 
 puppet func syncDash(d):
 	dashInd.updateBar(d)
@@ -37,7 +36,7 @@ func _on_physics_process(_delta):
 				jumpInd.updateBar(100)
 				rpc_unreliable("syncJump", 100)
 			movement()
-			calcHit()
+
 			
 
 func calcDash():

@@ -1,16 +1,11 @@
-fix double jump on descending platform X
-fix walker unable to move on conveyerPlat X
-fix dash hovering on descending platform
-fix walker boostPlat not boosting much, make it refuel instead
-fix platforms spawning in the middle, overlapping on symmetrical gen
+————————————————————
+						     [TODO]
+————————————————————
+boomerangSniper doesn’t work to the left
+knockback and stuff doesn’t match up with position
+networking sync playerlists
+clean up Everything
 
-3 basic platforms X
-local multiplayer X
-attacking X
-getting hurt function X
-basic symmetrical platform procedural generation X
-inheritance X
-walker separate jet hurtbox X
 
 ————————————————————
                              [WEAPONS]
@@ -39,9 +34,8 @@ sync hit() fire() on multiplayer
 can’t pass objects over RPC.
 
 
-
-
 hitstop
+smashbros camera balancing
 healthbar crashing into ground and breaking anim 
 melee attacks
 platform length standardization? 
@@ -50,16 +44,21 @@ create kill plane for falling platforms, and hurts players and tosses em back up
 in-game console 
 shade trail
 —————————————————————————————————
-walker:
-	make the wheel spin more noticeable for running	missing short
-char2:
-	walking
-char3:
-	split flame on short
-	make long range a seperate projectile
-
-
-
 plat variants
 char variants
 
+—————————————— -DONE- ———————————————
+
+fix double jump on descending platform X
+fix walker unable to move on conveyerPlat X
+fix dash hovering on descending platform
+fix walker boostPlat not boosting much, make it refuel instead
+fix platforms spawning in the middle, overlapping on symmetrical gen
+
+3 basic platforms X
+local multiplayer X
+attacking X
+getting hurt function X
+basic symmetrical platform procedural generation X
+inheritance X
+walker separate jet hurtbox X
