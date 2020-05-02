@@ -1,16 +1,15 @@
-————————————————————
-						     [TODO]
-————————————————————
-boomerangSniper doesn’t work to the left
+# ————————————————————
+# [TODO]
+# ————————————————————
 knockback and stuff doesn’t match up with position
 networking sync playerlists
-clean up Everything
 
 
-————————————————————
-                             [WEAPONS]
-————————————————————
-thousand island (flamethrower)
+
+# ————————————————————
+# [WEAPONS]
+# ————————————————————
+thousand island (flamethrower) G
 tembo (gravity hammer) G
 radiant apple (glowing apple that burns nearby enemies. light centered, throwable. when on the ground doesn’t burn or shine)
 ruler/meterstick with tipper
@@ -21,6 +20,8 @@ some short hits can deflect projectiles
 can angle long upward on the ground and downward in the air 
 
 
+if u hold some button then all boomerangs in play become spectral tears 
+	go thru obstacles also enemies, gotta time it to do cool stuff? 
 
 when descending platform, trigger shape moves ahead of body shape and sprite
 fix with    if velocity.y > 0 && is_on_floor(): 
@@ -33,7 +34,7 @@ figure out good interface for connecting multiple machines with varying numbers 
 sync hit() fire() on multiplayer
 can’t pass objects over RPC.
 
-
+clean up Everything
 hitstop
 smashbros camera balancing
 healthbar crashing into ground and breaking anim 
@@ -47,7 +48,7 @@ shade trail
 plat variants
 char variants
 
-—————————————— -DONE- ———————————————
+# ———————— -DONE- ————————
 
 fix double jump on descending platform X
 fix walker unable to move on conveyerPlat X
@@ -56,6 +57,7 @@ fix walker boostPlat not boosting much, make it refuel instead
 fix platforms spawning in the middle, overlapping on symmetrical gen
 
 3 basic platforms X
+boomerangSniper works to the left X
 local multiplayer X
 attacking X
 getting hurt function X

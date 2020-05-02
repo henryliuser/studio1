@@ -35,14 +35,9 @@ velocity = Vector2( 0, 0 )
 position = Vector2( 823.672, 193.015 )
 velocity = Vector2( 0, 0 )
 
-[node name="walker" parent="." instance=ExtResource( 2 )]
-position = Vector2( 395.449, 500.283 )
-
-[node name="sprite" parent="walker/player" index="1"]
-frame = 4
-
 [node name="shade" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1138.02, 489.397 )
 localNum = 2
 
-[editable path="walker"]
+[node name="walker" parent="." instance=ExtResource( 2 )]
+position = Vector2( 431.596, 587.299 )

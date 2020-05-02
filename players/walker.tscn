@@ -47,6 +47,7 @@ tint_progress = Color( 0.85098, 0.564706, 0.0117647, 1 )
 position = Vector2( 0, 7.62939e-06 )
 
 [node name="Weapons" parent="." instance=ExtResource( 4 )]
+hoverPos = Vector2( 30, 0 )
 
 [node name="sniper" parent="Weapons" instance=ExtResource( 3 )]
 position = Vector2( 32.152, -30.9124 )
@@ -74,7 +75,7 @@ frame = 1
 [node name="sprite" type="AnimatedSprite" parent="player"]
 frames = ExtResource( 2 )
 animation = "idle"
-frame = 2
+frame = 1
 playing = true
 
 [node name="hurtbox" type="CollisionPolygon2D" parent="player"]

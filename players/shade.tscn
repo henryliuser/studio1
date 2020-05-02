@@ -18,6 +18,7 @@ __meta__ = {
 }
 
 [node name="Weapons" parent="." instance=ExtResource( 6 )]
+hoverPos = Vector2( 30, 0 )
 
 [node name="Tembo" parent="Weapons" instance=ExtResource( 7 )]
 position = Vector2( -8.77475, 15.8512 )
