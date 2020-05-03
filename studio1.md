@@ -1,9 +1,34 @@
 # ————————————————————
 # [TODO]
 # ————————————————————
-knockback and stuff doesn’t match up with position
-networking sync playerlists
+_**Content**_
+-fix weird splitting bug on boomerang sniper + clipping at high speeds
+-implement art for tembo, boomer, characters
+-boomerang collisionshape constantly spinning for nice bounces
+	rotation angle of AnimatedSprite is just pointing in movement direc
+-state while attacking melee that means u can’t turn move (only some ig)
+-decide whether 
+…
+-clean up player code
 
+_**Networking**_
+-networking sync playerlists
+-spectators
+-lobbies / dbfz round robin thing?
+-don’t call RPCs if it’s a local game
+
+_**Interface**_
+-main menu
+-character select
+-multiplayer lobby (waiting room?)
+-audio/video options
+-controls
+
+_**Polish**_
+-hitstop
+-hit effects (rivals, slo-mo)
+-screenshake
+-camera balancing (smash)
 
 
 # ————————————————————
@@ -53,6 +78,7 @@ char variants
 fix double jump on descending platform X
 fix walker unable to move on conveyerPlat X
 fix dash hovering on descending platform
+knockback and stuff doesn’t match up with position X
 fix walker boostPlat not boosting much, make it refuel instead
 fix platforms spawning in the middle, overlapping on symmetrical gen
 

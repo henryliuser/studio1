@@ -16,14 +16,8 @@ var label
 var children = []
 
 #input variables
-var left
-var right
-var fire
-var down
-var skill
-var jump
-var hit
-var taunt
+var left; var right; var down; var jump
+var fire; var skill; var hit; var taunt
 
 var holdSkill
 var justLeft
@@ -155,16 +149,19 @@ func calcHitstun():
 		if stunTimer.x >= stunTimer.y:
 			stunTimer.x = 0
 
+# take 'dmg' damage, get stunned for 'stun' frames, get knocked back by
+# absolute Vector2(kb), in the direction based on Vector2(pos)
 func getHurt(dmg, stun:int=10, kb:Vector2=Vector2(), pos:Vector2=Vector2() ):
 	stunTimer.x = 1
-	stunTimer.y = stun
-	modTimer.x = 1
-	modulate = Color.red
-	var t = global_position.x-pos.x  #knocks back horizontally based on x position 
+	stunTimer.y = stun  # set up the hitstun
+	modTimer.x = 1  
+	modulate = Color.red  # set up red modulation flash
+	var t = global_position.x-pos.x  #knocks back horizontally based on x pos
 	if kb != Vector2():
 		if t < 0: fixFlip(1)
 		else: fixFlip(-1)
 	velocity = Vector2(t/abs(t)*kb.x, kb.y) 
+	position += velocity/30
 	hp -= dmg
 	hpbar.updateBar(hp)
 	if hp <= 0:

@@ -13,19 +13,22 @@ func _ready():
 	target += global_position
 
 func _physics_process(delta):
+	var final = false
 	speed /= guesSpeed
 	time += 1
 	rotation_degrees += 500*delta
 	var gap = target - global_position
-	
 	if speed < 0.5:
-		print(speed)
 		reached = true
+		time = 0
 	if reached:
 		speed *= guesSpeed*guesSpeed
 		gap = ogPos - global_position
-		if (global_position-ogPos).abs() <= Vector2(10,10): queue_free()
-	global_position += unit(gap)*speed
+		if gap.abs() <= Vector2(100,100): final = true
+		if gap.abs() <= Vector2(20,20): queue_free()
+	if final:
+		global_position = lerp(global_position, ogPos, 0.3)
+	else: global_position += unit(gap)*speed
 
 #	if abs(gap.x) < 5: 
 #		reached = true

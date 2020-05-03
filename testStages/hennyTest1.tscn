@@ -24,7 +24,7 @@ position = Vector2( 1675.11, 344.787 )
 velocity = Vector2( 0, 0 )
 
 [node name="burnPlat" parent="." instance=ExtResource( 6 )]
-position = Vector2( 706.59, 655.947 )
+position = Vector2( 1628.51, 602.68 )
 velocity = Vector2( 0, 0 )
 
 [node name="conveyerPlat" parent="." instance=ExtResource( 3 )]
@@ -32,12 +32,12 @@ position = Vector2( 715.654, 314.543 )
 velocity = Vector2( 0, 0 )
 
 [node name="boostPlat" parent="." instance=ExtResource( 5 )]
-position = Vector2( 823.672, 193.015 )
+position = Vector2( 1200.73, 600.856 )
 velocity = Vector2( 0, 0 )
 
 [node name="shade" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1138.02, 489.397 )
+position = Vector2( 300, 635.539 )
 localNum = 2
 
 [node name="walker" parent="." instance=ExtResource( 2 )]
-position = Vector2( 431.596, 587.299 )
+position = Vector2( 400, 644.663 )
