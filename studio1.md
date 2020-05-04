@@ -7,7 +7,10 @@ _**Content**_
 -boomerang collisionshape constantly spinning for nice bounces
 	rotation angle of AnimatedSprite is just pointing in movement direc
 -state while attacking melee that means u can’t turn move (only some ig)
--decide whether 
+-decide whether u can pass through enemies or not
+-getting hit interrupts attacks? super armor?
+-ruler implementation
+-italicize character when moving
 …
 -clean up player code
 
