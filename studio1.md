@@ -10,7 +10,8 @@ _**Content**_
 -decide whether u can pass through enemies or not
 -getting hit interrupts attacks? super armor?
 -ruler implementation
--italicize character when moving
+-weapons flip with storedDirection instead of currentDirection
+-clean up projectile code
 …
 -clean up player code
 
@@ -28,6 +29,9 @@ _**Interface**_
 -controls
 
 _**Polish**_
+-italicize character when moving
+-floating damage text (scale in and out)
+-floating item pickup text 
 -hitstop
 -hit effects (rivals, slo-mo)
 -screenshake
@@ -40,9 +44,31 @@ _**Polish**_
 thousand island (flamethrower) G
 tembo (gravity hammer) G
 radiant apple (glowing apple that burns nearby enemies. light centered, throwable. when on the ground doesn’t burn or shine)
+
+thousand island flamethrower
+gravity hammer thing
+torch ( DoT around it)
 ruler/meterstick with tipper
-banana peel (mine)
+grenade launcher banana peel (mine)
 boomerang sniper
+
+clock / time 
+pets / turrets
+stuns, other traps
+boots with trails / effects
+shield reflects projectiles
+darts with status effects
+slingshot - basic ranged
+boxing gloves - basic melee
+knockback with no damage
+reroll platform grenade launcher
+pickups like cures 
+shoot a projectile that drills through platforms it touches 
+portal gun 
+grappling hook  ( also vertical platforms? )
+
+
+clone powerup
 
 some short hits can deflect projectiles
 can angle long upward on the ground and downward in the air 

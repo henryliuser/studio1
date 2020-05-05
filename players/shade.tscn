@@ -22,7 +22,6 @@ hoverPos = Vector2( 30, 0 )
 
 [node name="Tembo" parent="Weapons" instance=ExtResource( 7 )]
 position = Vector2( -8.77475, 15.8512 )
-pnum = 2
 
 [node name="Gauges" parent="." instance=ExtResource( 5 )]
 position = Vector2( 3, -62 )

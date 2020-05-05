@@ -75,7 +75,7 @@ frame = 1
 [node name="sprite" type="AnimatedSprite" parent="player"]
 frames = ExtResource( 2 )
 animation = "idle"
-frame = 1
+frame = 2
 playing = true
 
 [node name="hurtbox" type="CollisionPolygon2D" parent="player"]

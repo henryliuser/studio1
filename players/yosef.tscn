@@ -39,10 +39,10 @@ __meta__ = {
 }
 
 [node name="Weapons" parent="." instance=ExtResource( 6 )]
+position = Vector2( 7.47205, 8.79065 )
 hoverPos = Vector2( 30, 0 )
 
 [node name="meterstick" parent="Weapons" instance=ExtResource( 7 )]
-position = Vector2( -33.3484, 11.0082 )
 
 [node name="Gauges" parent="." instance=ExtResource( 5 )]
 position = Vector2( 3, -62 )
@@ -79,7 +79,7 @@ totalJumps = 2
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 8
+frame = 4
 playing = true
 
 [node name="hurtbox" type="CollisionShape2D" parent="player"]
