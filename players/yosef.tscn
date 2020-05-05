@@ -79,7 +79,7 @@ totalJumps = 2
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 4
+frame = 12
 playing = true
 
 [node name="hurtbox" type="CollisionShape2D" parent="player"]

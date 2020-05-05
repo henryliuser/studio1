@@ -1,6 +1,14 @@
 # ————————————————————
 # [TODO]
 # ————————————————————
+
+_**Learn**_
+Noise texture
+Noise randomization for uneven surfaces/walls 
+Light
+Particle effects
+shaders (dissolve)
+
 _**Content**_
 -fix weird splitting bug on boomerang sniper + clipping at high speeds
 -implement art for tembo, boomer, characters
@@ -45,12 +53,12 @@ thousand island (flamethrower) G
 tembo (gravity hammer) G
 radiant apple (glowing apple that burns nearby enemies. light centered, throwable. when on the ground doesn’t burn or shine)
 
-thousand island flamethrower
+boomerang sniper
 gravity hammer thing
-torch ( DoT around it)
 ruler/meterstick with tipper
 grenade launcher banana peel (mine)
-boomerang sniper
+thousand island flamethrower
+torch ( DoT around it)
 
 clock / time 
 pets / turrets
