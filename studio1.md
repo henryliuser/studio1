@@ -5,18 +5,26 @@
 _**Content**_
 -floating damage text
 -potassium cannon
+-pickup / switch weapons. generic player
 …
+-figure out incentive to make players fight for positioning more fiercely
+		maybe just hella health pickups to make lives longer
+		don’t want down time, no respawn / rounds stuff. non-stop
 -clean up player code
 -death gravity/ragdoll
 -clean up projectile code
 
 _**Details**_
+-big damage gets shader effect yo
 -boomerang sniper can only have X number out at a time
 -state while attacking melee that means u can’t turn move (only some ig)
 -decide whether u can pass through enemies or not
 -weapons flip with storedDirection instead of currentDirection
 -animate weapon idle bobbing through script, leave idle effects to kethan
 -getting hit interrupts attacks? super armor?
+-damagetext outline color corresponds with GlobalNum
+…
+REFACTOR EVERYTHING WITH SIGNALS LOL
 
 
 _**Networking**_
@@ -33,6 +41,7 @@ _**Interface**_
 -controls
 
 _**Polish**_
+-chain damage text pops with each chain (Use Separate Tween EZ)
 -italicize character when moving
 -floating damage text (scale in and out)
 -floating item pickup text 

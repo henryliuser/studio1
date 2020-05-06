@@ -8,6 +8,8 @@ var netID = 0
 export var localNum = 1
 var tauntTimer = Vector2(0,10)
 
+signal hurt(player, dmg)
+
 #animation variables
 onready var sprite = $sprite
 onready var hurtbox = $hurtbox
@@ -152,6 +154,8 @@ func calcHitstun():
 # take 'dmg' damage, get stunned for 'stun' frames, get knocked back by
 # absolute Vector2(kb), in the direction based on Vector2(pos)
 func getHurt(dmg, stun:int=10, kb:Vector2=Vector2(), pos:Vector2=Vector2() ):
+	emit_signal("hurt", self, dmg)
+	
 	stunTimer.x = 1
 	stunTimer.y = stun  # set up the hitstun
 	modTimer.x = 1  

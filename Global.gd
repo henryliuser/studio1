@@ -1,5 +1,12 @@
 extends Node
 
+var frameCount = 0
+var timeCount = 0
+
+func _process(delta):
+	frameCount += 1
+	timeCount += delta
+
 var chars = ["res://players/walker.tscn",
 			 "res://players/shade.tscn"]
 

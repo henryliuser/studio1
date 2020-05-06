@@ -14,7 +14,6 @@ func _physics_process(delta):
 		if is_instance_valid(q) and q.has_method("unit"): # lmfao godot pls
 			q.ogPos = $point.global_position
 
-
 func _on_sprite_animation_finished():
 	if $sprite.animation == "fire":
 		$sprite.play("idle")
