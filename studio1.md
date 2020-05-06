@@ -2,26 +2,22 @@
 # [TODO]
 # ————————————————————
 
-_**Learn**_
-Noise texture
-Noise randomization for uneven surfaces/walls 
-Light
-Particle effects
-shaders (dissolve)
-
 _**Content**_
--fix weird splitting bug on boomerang sniper + clipping at high speeds
--implement art for tembo, boomer, characters
--boomerang collisionshape constantly spinning for nice bounces
-	rotation angle of AnimatedSprite is just pointing in movement direc
--state while attacking melee that means u can’t turn move (only some ig)
--decide whether u can pass through enemies or not
--getting hit interrupts attacks? super armor?
--ruler implementation
--weapons flip with storedDirection instead of currentDirection
--clean up projectile code
+-floating damage text
+-potassium cannon
 …
 -clean up player code
+-death gravity/ragdoll
+-clean up projectile code
+
+_**Details**_
+-boomerang sniper can only have X number out at a time
+-state while attacking melee that means u can’t turn move (only some ig)
+-decide whether u can pass through enemies or not
+-weapons flip with storedDirection instead of currentDirection
+-animate weapon idle bobbing through script, leave idle effects to kethan
+-getting hit interrupts attacks? super armor?
+
 
 _**Networking**_
 -networking sync playerlists
@@ -45,6 +41,22 @@ _**Polish**_
 -screenshake
 -camera balancing (smash)
 
+
+_**Art**_
+increase framerate on a lot of stuff (enerang)
+…
+boomer looks weird zoomed out
+
+
+_**Learn**_
+coroutines
+Noise texture
+Noise randomization for uneven surfaces/walls 
+Light
+Particle effects
+shaders (dissolve)
+Inverse Kinematics
+Separately animated limbs
 
 # ————————————————————
 # [WEAPONS]
@@ -110,6 +122,12 @@ shade trail
 plat variants
 char variants
 
+# —————————  -CUT-  —————————
+
+-boomerang collisionshape constantly spinning for nice bounces
+	rotation angle of AnimatedSprite is just pointing in movement direc
+
+
 # ———————— -DONE- ————————
 
 fix double jump on descending platform X
@@ -118,7 +136,8 @@ fix dash hovering on descending platform
 knockback and stuff doesn’t match up with position X
 fix walker boostPlat not boosting much, make it refuel instead
 fix platforms spawning in the middle, overlapping on symmetrical gen
-
+-fix weird splitting bug on boomerang sniper + clipping at high speeds 
+-ruler implementation
 3 basic platforms X
 boomerangSniper works to the left X
 local multiplayer X
@@ -127,3 +146,4 @@ getting hurt function X
 basic symmetrical platform procedural generation X
 inheritance X
 walker separate jet hurtbox X
+

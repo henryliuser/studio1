@@ -10,13 +10,15 @@ const guesSpeed = 1.0498
 var reached = false
 
 func _ready():
+	$sprite.play("start")
 	target += global_position
 
 func _physics_process(delta):
-	var final = false
+	var final = false  # this is to make sure it actually reaches end
+	var end = false  # this is to tell AnimatedSprite to play end anim
 	speed /= guesSpeed
 	time += 1
-	rotation_degrees += 500*delta
+	rotation_degrees += 200*delta
 	var gap = target - global_position
 	if speed < 0.5:
 		reached = true
@@ -24,8 +26,10 @@ func _physics_process(delta):
 	if reached:
 		speed *= guesSpeed*guesSpeed
 		gap = ogPos - global_position
+		if gap.abs() <= Vector2(300,300): $sprite.play("end")
 		if gap.abs() <= Vector2(100,100): final = true
 		if gap.abs() <= Vector2(20,20): queue_free()
+		
 	if final:
 		global_position = lerp(global_position, ogPos, 0.3)
 	else: global_position += unit(gap)*speed
@@ -42,3 +46,8 @@ func _physics_process(delta):
 	
 func unit(v2):
 	return v2 / sqrt(v2.x*v2.x + v2.y*v2.y)
+
+
+func _on_sprite_animation_finished():
+	if $sprite.animation == "start":
+		$sprite.play("loop")

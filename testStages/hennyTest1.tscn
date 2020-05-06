@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://blocks/defaultPlat.tscn" type="PackedScene" id=1]
 [ext_resource path="res://players/walker.tscn" type="PackedScene" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://players/shade.tscn" type="PackedScene" id=4]
 [ext_resource path="res://blocks/boostPlat.tscn" type="PackedScene" id=5]
 [ext_resource path="res://blocks/burnPlat.tscn" type="PackedScene" id=6]
-[ext_resource path="res://players/yosef.tscn" type="PackedScene" id=7]
 
 [node name="hennyTest1" type="Node2D"]
 position = Vector2( 1.38477, -1.3847 )
@@ -37,11 +36,9 @@ position = Vector2( 1200.73, 600.856 )
 velocity = Vector2( 0, 0 )
 
 [node name="shade" parent="." instance=ExtResource( 4 )]
-position = Vector2( 300, 635.539 )
+position = Vector2( 942.967, 232.894 )
 localNum = 2
 
 [node name="walker" parent="." instance=ExtResource( 2 )]
 position = Vector2( 400, 644.663 )
-
-[node name="yosef" parent="." instance=ExtResource( 7 )]
-position = Vector2( 535.629, 520.215 )
+scale = Vector2( 1.1, 1.1 )
