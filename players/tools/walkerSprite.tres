@@ -29,7 +29,6 @@
 [ext_resource path="res://assets/Characters/Char1/Char1Death/Sprite1-0073.png" type="Texture" id=27]
 [ext_resource path="res://assets/Characters/Char1/Char1Celeb/Sprite1-0061.png" type="Texture" id=28]
 
-
 [resource]
 animations = [ {
 "frames": [ ExtResource( 17 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 15 ), ExtResource( 5 ) ],
