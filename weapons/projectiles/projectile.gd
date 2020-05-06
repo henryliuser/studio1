@@ -1,4 +1,5 @@
 extends Area2D
+var keeper
 export var independent = true
 export var damage = 10
 export var duration = 1

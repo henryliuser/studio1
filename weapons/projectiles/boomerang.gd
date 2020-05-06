@@ -18,7 +18,7 @@ func _physics_process(delta):
 	var end = false  # this is to tell AnimatedSprite to play end anim
 	speed /= guesSpeed
 	time += 1
-	rotation_degrees += 200*delta
+#	rotation_degrees += 200*delta
 	var gap = target - global_position
 	if speed < 0.5:
 		reached = true

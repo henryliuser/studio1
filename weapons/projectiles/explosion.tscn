@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/testExpl1.png" type="Texture" id=1]
+[ext_resource path="res://weapons/projectiles/projectile.gd" type="Script" id=2]
+[ext_resource path="res://assets/testExpl0.png" type="Texture" id=3]
+[ext_resource path="res://weapons/projectiles/explosion.gd" type="Script" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 1 ) ],
+"loop": false,
+"name": "default",
+"speed": 15.0
+} ]
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 35.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 75.0
+
+[node name="explosion" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="sprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 5, 5 )
+frames = SubResource( 1 )
+
+[node name="hitboxes" type="Node2D" parent="."]
+
+[node name="projectile" type="Area2D" parent="hitboxes"]
+collision_layer = 9
+collision_mask = 9
+script = ExtResource( 2 )
+damage = 20
+duration = 5
+knockback = Vector2( 0, 0 )
+stun = 35
+
+[node name="hitbox" type="CollisionShape2D" parent="hitboxes/projectile"]
+rotation = 1.5708
+shape = SubResource( 3 )
+
+[node name="projectile2" type="Area2D" parent="hitboxes"]
+collision_layer = 9
+collision_mask = 9
+script = ExtResource( 2 )
+damage = 20
+duration = 5
+knockback = Vector2( 900, -900 )
+stun = 25
+
+[node name="hitbox" type="CollisionShape2D" parent="hitboxes/projectile2"]
+rotation = 1.5708
+shape = SubResource( 2 )
+[connection signal="body_entered" from="hitboxes/projectile" to="hitboxes/projectile" method="_on_projectile_body_entered"]
+[connection signal="body_entered" from="hitboxes/projectile2" to="hitboxes/projectile2" method="_on_projectile_body_entered"]

@@ -1,23 +1,23 @@
 [gd_scene load_steps=20 format=2]
 
-[ext_resource path="res://assets/SniperBoomerang/SniperIdle/Sprite10-0001.png" type="Texture" id=1]
+[ext_resource path="res://assets/Weapons/SniperBoomerang/SniperIdle/Sprite10-0001.png" type="Texture" id=1]
 [ext_resource path="res://weapons/boomerangSniper.gd" type="Script" id=2]
-[ext_resource path="res://assets/SniperBoomerang/SniperIdle/Sprite10-0002.png" type="Texture" id=3]
-[ext_resource path="res://assets/SniperBoomerang/SniperIdle/Sprite10-0003.png" type="Texture" id=4]
-[ext_resource path="res://assets/SniperBoomerang/SniperShot:Reload/Sprite10-0013.png" type="Texture" id=5]
-[ext_resource path="res://assets/SniperBoomerang/SniperShot:Reload/Sprite10-0015.png" type="Texture" id=6]
-[ext_resource path="res://assets/SniperBoomerang/SniperShot:Reload/Sprite10-0005.png" type="Texture" id=7]
-[ext_resource path="res://assets/SniperBoomerang/SniperShot:Reload/Sprite10-0007.png" type="Texture" id=8]
-[ext_resource path="res://assets/SniperBoomerang/SniperShot:Reload/Sprite10-0008.png" type="Texture" id=9]
-[ext_resource path="res://assets/SniperBoomerang/SniperShot:Reload/Sprite10-0009.png" type="Texture" id=10]
-[ext_resource path="res://assets/SniperBoomerang/SniperShot:Reload/Sprite10-0010.png" type="Texture" id=11]
-[ext_resource path="res://assets/SniperBoomerang/SniperShot:Reload/Sprite10-0012.png" type="Texture" id=12]
-[ext_resource path="res://assets/SniperBoomerang/SniperShot:Reload/Sprite10-0014.png" type="Texture" id=13]
-[ext_resource path="res://assets/SniperBoomerang/SniperShot:Reload/Sprite10-0016.png" type="Texture" id=14]
-[ext_resource path="res://assets/SniperBoomerang/SniperShot:Reload/Sprite10-0017.png" type="Texture" id=15]
-[ext_resource path="res://assets/SniperBoomerang/SniperShot:Reload/Sprite10-0004.png" type="Texture" id=16]
-[ext_resource path="res://assets/SniperBoomerang/SniperShot:Reload/Sprite10-0006.png" type="Texture" id=17]
-[ext_resource path="res://assets/SniperBoomerang/SniperShot:Reload/Sprite10-0011.png" type="Texture" id=18]
+[ext_resource path="res://assets/Weapons/SniperBoomerang/SniperIdle/Sprite10-0002.png" type="Texture" id=3]
+[ext_resource path="res://assets/Weapons/SniperBoomerang/SniperIdle/Sprite10-0003.png" type="Texture" id=4]
+[ext_resource path="res://assets/Weapons/SniperBoomerang/SniperShot:Reload/Sprite10-0013.png" type="Texture" id=5]
+[ext_resource path="res://assets/Weapons/SniperBoomerang/SniperShot:Reload/Sprite10-0015.png" type="Texture" id=6]
+[ext_resource path="res://assets/Weapons/SniperBoomerang/SniperShot:Reload/Sprite10-0005.png" type="Texture" id=7]
+[ext_resource path="res://assets/Weapons/SniperBoomerang/SniperShot:Reload/Sprite10-0007.png" type="Texture" id=8]
+[ext_resource path="res://assets/Weapons/SniperBoomerang/SniperShot:Reload/Sprite10-0008.png" type="Texture" id=9]
+[ext_resource path="res://assets/Weapons/SniperBoomerang/SniperShot:Reload/Sprite10-0009.png" type="Texture" id=10]
+[ext_resource path="res://assets/Weapons/SniperBoomerang/SniperShot:Reload/Sprite10-0010.png" type="Texture" id=11]
+[ext_resource path="res://assets/Weapons/SniperBoomerang/SniperShot:Reload/Sprite10-0012.png" type="Texture" id=12]
+[ext_resource path="res://assets/Weapons/SniperBoomerang/SniperShot:Reload/Sprite10-0014.png" type="Texture" id=13]
+[ext_resource path="res://assets/Weapons/SniperBoomerang/SniperShot:Reload/Sprite10-0016.png" type="Texture" id=14]
+[ext_resource path="res://assets/Weapons/SniperBoomerang/SniperShot:Reload/Sprite10-0017.png" type="Texture" id=15]
+[ext_resource path="res://assets/Weapons/SniperBoomerang/SniperShot:Reload/Sprite10-0004.png" type="Texture" id=16]
+[ext_resource path="res://assets/Weapons/SniperBoomerang/SniperShot:Reload/Sprite10-0006.png" type="Texture" id=17]
+[ext_resource path="res://assets/Weapons/SniperBoomerang/SniperShot:Reload/Sprite10-0011.png" type="Texture" id=18]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -39,6 +39,7 @@ script = ExtResource( 2 )
 [node name="sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "idle"
+frame = 2
 playing = true
 
 [node name="point" type="Position2D" parent="."]

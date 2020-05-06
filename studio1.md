@@ -3,7 +3,6 @@
 # ————————————————————
 
 _**Content**_
--floating damage text
 -potassium cannon
 -pickup / switch weapons. generic player
 …
@@ -15,7 +14,7 @@ _**Content**_
 -clean up projectile code
 
 _**Details**_
--big damage gets shader effect yo
+boomerang angles the correct way, disappears on hitting owner
 -boomerang sniper can only have X number out at a time
 -state while attacking melee that means u can’t turn move (only some ig)
 -decide whether u can pass through enemies or not
@@ -155,4 +154,5 @@ getting hurt function X
 basic symmetrical platform procedural generation X
 inheritance X
 walker separate jet hurtbox X
-
+-big damage gets shader effect yo
+-floating damage text

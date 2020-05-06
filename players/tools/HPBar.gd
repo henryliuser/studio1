@@ -22,7 +22,6 @@ var chainFrames = -1
 func _process(delta):
 	if chainFrames > 0: chainFrames -= 1
 	if chainFrames == 0 and is_for_hp:
-		print(Global.frameCount)
 		showText()
 		damaga = 0
 		chainFrames = -1

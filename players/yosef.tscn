@@ -1,25 +1,26 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://players/shade.gd" type="Script" id=1]
-[ext_resource path="res://assets/Char3/Char3Idle/Sprite6-0007.png" type="Texture" id=2]
+[ext_resource path="res://assets/Characters/Char3/Char3Idle/Sprite6-0007.png" type="Texture" id=2]
 [ext_resource path="res://players/tools/HPBar.tscn" type="PackedScene" id=3]
 [ext_resource path="res://players/tools/RootPlayer.gd" type="Script" id=4]
 [ext_resource path="res://players/tools/Gauges.tscn" type="PackedScene" id=5]
 [ext_resource path="res://players/tools/Weapons.tscn" type="PackedScene" id=6]
 [ext_resource path="res://weapons/meterstick.tscn" type="PackedScene" id=7]
-[ext_resource path="res://assets/Char3/Char3Idle/Sprite6-0003.png" type="Texture" id=8]
-[ext_resource path="res://assets/Char3/Char3Idle/Sprite6-0008.png" type="Texture" id=9]
-[ext_resource path="res://assets/Char3/Char3Idle/Sprite6-0005.png" type="Texture" id=10]
-[ext_resource path="res://assets/Char3/Char3Idle/Sprite6-0001.png" type="Texture" id=11]
-[ext_resource path="res://assets/Char3/Char3Idle/Sprite6-0002.png" type="Texture" id=12]
-[ext_resource path="res://assets/Char3/Char3Idle/Sprite6-0004.png" type="Texture" id=13]
-[ext_resource path="res://assets/Char3/Char3Idle/Sprite6-0010.png" type="Texture" id=14]
-[ext_resource path="res://assets/Char3/Char3Idle/Sprite6-0011.png" type="Texture" id=15]
-[ext_resource path="res://assets/Char3/Char3Idle/Sprite6-0013.png" type="Texture" id=16]
-[ext_resource path="res://assets/Char3/Char3Idle/Sprite6-0012.png" type="Texture" id=17]
-[ext_resource path="res://assets/Char3/Char3Idle/Sprite6-0009.png" type="Texture" id=18]
-[ext_resource path="res://assets/Char3/Char3Idle/Sprite6-0014.png" type="Texture" id=19]
-[ext_resource path="res://assets/Char3/Char3Idle/Sprite6-0006.png" type="Texture" id=20]
+[ext_resource path="res://assets/Characters/Char3/Char3Idle/Sprite6-0003.png" type="Texture" id=8]
+[ext_resource path="res://assets/Characters/Char3/Char3Idle/Sprite6-0008.png" type="Texture" id=9]
+[ext_resource path="res://assets/Characters/Char3/Char3Idle/Sprite6-0005.png" type="Texture" id=10]
+[ext_resource path="res://assets/Characters/Char3/Char3Idle/Sprite6-0001.png" type="Texture" id=11]
+[ext_resource path="res://assets/Characters/Char3/Char3Idle/Sprite6-0002.png" type="Texture" id=12]
+[ext_resource path="res://assets/Characters/Char3/Char3Idle/Sprite6-0004.png" type="Texture" id=13]
+[ext_resource path="res://assets/Characters/Char3/Char3Idle/Sprite6-0010.png" type="Texture" id=14]
+[ext_resource path="res://assets/Characters/Char3/Char3Idle/Sprite6-0011.png" type="Texture" id=15]
+[ext_resource path="res://assets/Characters/Char3/Char3Idle/Sprite6-0013.png" type="Texture" id=16]
+[ext_resource path="res://assets/Characters/Char3/Char3Idle/Sprite6-0012.png" type="Texture" id=17]
+[ext_resource path="res://assets/Characters/Char3/Char3Idle/Sprite6-0009.png" type="Texture" id=18]
+[ext_resource path="res://assets/Characters/Char3/Char3Idle/Sprite6-0014.png" type="Texture" id=19]
+[ext_resource path="res://assets/Characters/Char3/Char3Idle/Sprite6-0006.png" type="Texture" id=20]
+[ext_resource path="res://weapons/potassiumCannon.tscn" type="PackedScene" id=21]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -43,6 +44,10 @@ position = Vector2( 7.47205, 8.79065 )
 hoverPos = Vector2( 30, 0 )
 
 [node name="meterstick" parent="Weapons" instance=ExtResource( 7 )]
+visible = false
+
+[node name="BananaLauncher" parent="Weapons" instance=ExtResource( 21 )]
+position = Vector2( 9.31488, -2.19174 )
 
 [node name="Gauges" parent="." instance=ExtResource( 5 )]
 position = Vector2( 3, -62 )
@@ -51,6 +56,7 @@ hoverPos = Vector2( 3, -62 )
 [node name="JumpIndic" parent="Gauges" instance=ExtResource( 3 )]
 position = Vector2( -19.5, 8 )
 scale = Vector2( 0.65, 0.65 )
+is_for_hp = false
 
 [node name="polish" parent="Gauges/JumpIndic" index="0"]
 fill_mode = 1
@@ -62,6 +68,7 @@ tint_progress = Color( 0.898039, 0.933333, 0.25098, 1 )
 [node name="DashIndic" parent="Gauges" instance=ExtResource( 3 )]
 position = Vector2( 19.5, 8 )
 scale = Vector2( 0.65, 0.65 )
+is_for_hp = false
 
 [node name="texture" parent="Gauges/DashIndic" index="1"]
 tint_progress = Color( 0.113725, 0.858824, 0.956863, 1 )
@@ -79,7 +86,6 @@ totalJumps = 2
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 12
 playing = true
 
 [node name="hurtbox" type="CollisionShape2D" parent="player"]
