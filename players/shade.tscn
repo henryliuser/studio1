@@ -22,6 +22,7 @@ hoverPos = Vector2( 30, 0 )
 
 [node name="Tembo" parent="Weapons" instance=ExtResource( 7 )]
 position = Vector2( -8.77475, 15.8512 )
+pnum = 1
 
 [node name="Gauges" parent="." instance=ExtResource( 5 )]
 position = Vector2( 3, -62 )
@@ -57,9 +58,10 @@ script = ExtResource( 1 )
 totalJumps = 2
 
 [node name="sprite" type="AnimatedSprite" parent="player"]
-position = Vector2( 0, -0.5 )
+position = Vector2( -9.56196, 54.9107 )
 frames = ExtResource( 2 )
-animation = "idle"
+animation = "forward"
+offset = Vector2( 9.56196, -55.4107 )
 
 [node name="hurtbox" type="CollisionShape2D" parent="player"]
 position = Vector2( 1, 0 )

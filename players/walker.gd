@@ -23,7 +23,7 @@ puppet func syncJet(d):
 
 func jet():
 	jetflame.visible = true
-	rpc_unreliable("syncJet", true) #clean this shit
+#	rpc_unreliable("syncJet", true) #clean this shit
 	velocity.y -= jetSpeed
 	updateFuel(-1)
 	
@@ -34,11 +34,11 @@ func updateFuel(x):
 	fuel += x
 	fuel = clamp(fuel, 0, 100)
 	fuelbar.updateBar(fuel)
-	rpc_unreliable("syncFuel", fuel)
+#	rpc_unreliable("syncFuel", fuel)
 
 func calcJet():
 	jetflame.visible = false
-	rpc_unreliable("syncJet", false)
+#	rpc_unreliable("syncJet", false)
 	if is_on_floor():
 		updateFuel(2)
 		if fuel >= 30 and holdSkill:
@@ -52,7 +52,7 @@ func die():
 	#jetpack hitbox
 	jetflame.visible = false
 	$jetpack.queue_free()
-	rpc_unreliable("syncJet", false)
+#	rpc_unreliable("syncJet", false)
 
 func _on_jetpack_area_entered(_area):
 	updateFuel(-50)

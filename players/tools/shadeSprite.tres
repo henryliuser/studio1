@@ -2,11 +2,15 @@
 
 [ext_resource path="res://assets/Characters/shade.png" type="Texture" id=1]
 
-
 [resource]
 animations = [ {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "forward",
 "speed": 5.0
 } ]

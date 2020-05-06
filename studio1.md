@@ -3,8 +3,9 @@
 # ————————————————————
 
 _**Content**_
--potassium cannon
--pickup / switch weapons. generic player
+-weapon pickup / ownership system
+-double damage explosion bug (2 people right next to each other)
+	keep log of players per explosion? 
 …
 -figure out incentive to make players fight for positioning more fiercely
 		maybe just hella health pickups to make lives longer
@@ -73,16 +74,17 @@ thousand island (flamethrower) G
 tembo (gravity hammer) G
 radiant apple (glowing apple that burns nearby enemies. light centered, throwable. when on the ground doesn’t burn or shine)
 
-boomerang sniper
-gravity hammer thing
-ruler/meterstick with tipper
-grenade launcher banana peel (mine)
+boomerang sniper XX
+gravity hammer thing X
+ruler/meterstick with tipper P
+grenade launcher banana peel (mine)  X
 thousand island flamethrower
 torch ( DoT around it)
 
 clock / time 
 pets / turrets
 stuns, other traps
+some disarm shit
 boots with trails / effects
 shield reflects projectiles
 darts with status effects
@@ -156,3 +158,4 @@ inheritance X
 walker separate jet hurtbox X
 -big damage gets shader effect yo
 -floating damage text
+-potassium cannon

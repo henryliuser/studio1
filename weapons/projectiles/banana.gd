@@ -11,11 +11,13 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity, Vector2(0,-1))
 
 func _on_trigger_body_entered(body):
-	var x = load("res://Weapons/Projectiles/explosion.tscn").instance()
+	var x = load("res://weapons/projectiles/explosion.tscn").instance()
 	x.global_position = global_position
+	call_deferred("yuh", x, body)
+	queue_free()
+
+func yuh(x, body):  #dumb godot
 	get_tree().get_root().add_child(x)
 	if keeper == body:
 		for h in x.hitboxes:
 			h.damage /= 2
-	yield(get_tree().create_timer(0.2), "timeout")
-	queue_free()

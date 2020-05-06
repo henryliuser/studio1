@@ -13,9 +13,8 @@ func _ready():
 	$sprite.play("start")
 	target += global_position
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var final = false  # this is to make sure it actually reaches end
-	var end = false  # this is to tell AnimatedSprite to play end anim
 	speed /= guesSpeed
 	time += 1
 #	rotation_degrees += 200*delta

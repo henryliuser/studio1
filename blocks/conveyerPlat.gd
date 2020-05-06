@@ -2,7 +2,6 @@ extends "res://blocks/defaultPlat.gd"
 export var direction = 1
 export var speed = 200
 var players = {}
-onready var ic = $icon
 
 func _ready():
 	scale.x *= -direction

@@ -1,14 +1,14 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://blocks/defaultPlat.tscn" type="PackedScene" id=1]
 [ext_resource path="res://blocks/conveyerPlat.tscn" type="PackedScene" id=3]
+[ext_resource path="res://players/dummy0.tscn" type="PackedScene" id=4]
 [ext_resource path="res://blocks/boostPlat.tscn" type="PackedScene" id=5]
 [ext_resource path="res://blocks/burnPlat.tscn" type="PackedScene" id=6]
-[ext_resource path="res://misc/Level.gd" type="Script" id=7]
+[ext_resource path="res://players/yosef.tscn" type="PackedScene" id=7]
 
 [node name="hennyTest1" type="Node2D"]
 position = Vector2( 1.38477, -1.3847 )
-script = ExtResource( 7 )
 
 [node name="defaultPlat" parent="." instance=ExtResource( 1 )]
 position = Vector2( 960, 861.092 )
@@ -16,15 +16,29 @@ scale = Vector2( 25, 25 )
 velocity = Vector2( 0, 0 )
 
 [node name="defaultPlat2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 982.913, 319.194 )
+position = Vector2( 986.484, 319.194 )
+velocity = Vector2( 0, 0 )
+
+[node name="defaultPlat6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1173.96, 319.194 )
+velocity = Vector2( 0, 0 )
+
+[node name="defaultPlat4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 865.071, 220.992 )
+rotation = -1.55347
+velocity = Vector2( 0, 0 )
+
+[node name="defaultPlat5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1286.45, 224.563 )
+rotation = -1.55347
 velocity = Vector2( 0, 0 )
 
 [node name="defaultPlat3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1675.11, 344.787 )
+position = Vector2( 1675.11, 346.572 )
 velocity = Vector2( 0, 0 )
 
 [node name="burnPlat" parent="." instance=ExtResource( 6 )]
-position = Vector2( 706.59, 655.947 )
+position = Vector2( 1628.51, 602.68 )
 velocity = Vector2( 0, 0 )
 
 [node name="conveyerPlat" parent="." instance=ExtResource( 3 )]
@@ -32,13 +46,16 @@ position = Vector2( 715.654, 314.543 )
 velocity = Vector2( 0, 0 )
 
 [node name="boostPlat" parent="." instance=ExtResource( 5 )]
-position = Vector2( 823.672, 193.015 )
+position = Vector2( 1395.35, 568.717 )
 velocity = Vector2( 0, 0 )
 
-[node name="spawns" type="Node2D" parent="."]
+[node name="yosef" parent="." instance=ExtResource( 7 )]
+position = Vector2( 350.941, 582.548 )
 
-[node name="p1" type="Node2D" parent="spawns"]
-position = Vector2( 300, 600 )
+[node name="dummy" parent="." instance=ExtResource( 4 )]
+position = Vector2( 808.057, 580.508 )
+localNum = 2
 
-[node name="p2" type="Node2D" parent="spawns"]
-position = Vector2( 1600, 600 )
+[node name="dummy2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1052.41, 218.499 )
+localNum = 2

@@ -10,7 +10,7 @@ func _ready():
 		position.y-50, 0.2, Tween.TRANS_CUBIC)
 	tween.start()
 
-func _on_Tween_tween_completed(object, key):
+func _on_Tween_tween_completed(_object, _key):
 	if halfWay == false:
 		yield(get_tree().create_timer(haltDuration), "timeout") 
 		tween.interpolate_property(self, "scale", scale,

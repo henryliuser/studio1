@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/Weapons/SniperBoomerang/SniperIdle/Sprite10-0001.png" type="Texture" id=1]
+[ext_resource path="res://testStages/henryTestSelect.gd" type="Script" id=4]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="boomer" type="Button" parent="."]
+margin_left = 211.417
+margin_top = 541.822
+margin_right = 399.417
+margin_bottom = 623.822
+rect_scale = Vector2( 1.67362, 1.40413 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite10-0001" type="Sprite" parent="boomer"]
+position = Vector2( 247.193, 822.904 )
+scale = Vector2( 2.39003, 2.84874 )
+texture = ExtResource( 1 )
+offset = Vector2( -63.3212, -276.117 )
+
+[node name="potassiumCannon" type="Button" parent="."]
+margin_left = 626.814
+margin_top = 543.947
+margin_right = 814.814
+margin_bottom = 625.947
+rect_scale = Vector2( 1.67362, 1.40413 )
+text = "banana launcher"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tembo" type="Button" parent="."]
+margin_left = 1150.9
+margin_top = 550.023
+margin_right = 1338.9
+margin_bottom = 632.023
+rect_scale = Vector2( 1.67362, 1.40413 )
+text = "hammer"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="boomer" to="." method="_on_boomer_pressed"]
+[connection signal="pressed" from="potassiumCannon" to="." method="_on_potassiumCannon_pressed"]
+[connection signal="pressed" from="tembo" to="." method="_on_tembo_pressed"]

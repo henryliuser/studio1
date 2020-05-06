@@ -32,12 +32,12 @@ func updateBar(value):
 		tween.start()
 	t.value = value
 
-func _on_player_hurt(player, dmg):
+func _on_player_hurt(_player, dmg):
 	damaga += dmg
 	chainFrames = 2
 
 func showText():
-	var txt = load("res://Players/Tools/DamageText.tscn").instance()
+	var txt = load("res://players/tools/DamageText.tscn").instance()
 	txt.set_text(str(damaga))
 	txt.global_position = global_position
 	get_tree().get_root().add_child(txt)
