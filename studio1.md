@@ -10,6 +10,7 @@ _**Content**_
 -figure out incentive to make players fight for positioning more fiercely
 		maybe just hella health pickups to make lives longer
 		don’t want down time, no respawn / rounds stuff. non-stop
+-use coroutine to do cooldowns
 -clean up player code
 -death gravity/ragdoll
 -clean up projectile code
