@@ -7,7 +7,9 @@
 scale = Vector2( 3, 3 )
 collision_layer = 6
 collision_mask = 2
+motion/sync_to_physics = true
 script = ExtResource( 2 )
+velocity = Vector2( 0, 65 )
 
 [node name="Sprite7-0013" type="Sprite" parent="."]
 position = Vector2( -3, -5 )

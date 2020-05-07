@@ -47,23 +47,22 @@ __meta__ = {
 [node name="locals" type="Node2D" parent="."]
 
 [node name="local1" parent="locals" instance=ExtResource( 3 )]
-frame = 3
+frame = 4
 
 [node name="local2" parent="locals" instance=ExtResource( 3 )]
 position = Vector2( 1620, 300 )
 scale = Vector2( -10, 10 )
-frame = 3
+frame = 4
 localNum = 2
 
 [node name="local3" parent="locals" instance=ExtResource( 3 )]
 position = Vector2( 300, 800 )
-frame = 3
+frame = 4
 localNum = 3
 
 [node name="local4" parent="locals" instance=ExtResource( 3 )]
 position = Vector2( 1620, 800 )
 scale = Vector2( -10, 10 )
-frame = 1
 localNum = 4
 [connection signal="pressed" from="buttonHost" to="." method="_on_buttonHost_pressed"]
 [connection signal="pressed" from="buttonHost2" to="." method="_on_buttonHost2_pressed"]

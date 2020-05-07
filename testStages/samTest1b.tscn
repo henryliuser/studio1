@@ -24,7 +24,7 @@ position = Vector2( 1173.96, 319.194 )
 velocity = Vector2( 0, 0 )
 
 [node name="defaultPlat4" parent="." instance=ExtResource( 1 )]
-position = Vector2( 808.954, 508.589 )
+position = Vector2( 865.071, 220.992 )
 rotation = -1.55347
 velocity = Vector2( 0, 0 )
 
@@ -42,7 +42,7 @@ position = Vector2( 1628.51, 602.68 )
 velocity = Vector2( 0, 0 )
 
 [node name="conveyerPlat" parent="." instance=ExtResource( 3 )]
-position = Vector2( 761.249, 55.0038 )
+position = Vector2( 715.654, 314.543 )
 velocity = Vector2( 0, 0 )
 
 [node name="boostPlat" parent="." instance=ExtResource( 5 )]
@@ -53,9 +53,9 @@ velocity = Vector2( 0, 0 )
 position = Vector2( 350.941, 582.548 )
 
 [node name="dummy" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1172.81, 152.619 )
+position = Vector2( 1170.61, 209.849 )
 localNum = 2
 
 [node name="dummy2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1052.41, 218.499 )
+position = Vector2( 1017.98, 236.728 )
 localNum = 2
