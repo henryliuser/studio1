@@ -13,10 +13,10 @@ animations = [ {
 "speed": 15.0
 } ]
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=2]
 radius = 35.0
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=3]
 radius = 75.0
 
 [node name="explosion" type="Node2D"]
@@ -39,7 +39,7 @@ stun = 35
 
 [node name="hitbox" type="CollisionShape2D" parent="hitboxes/projectile"]
 rotation = 1.5708
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="projectile2" type="Area2D" parent="hitboxes"]
 collision_layer = 9
@@ -52,6 +52,6 @@ stun = 25
 
 [node name="hitbox" type="CollisionShape2D" parent="hitboxes/projectile2"]
 rotation = 1.5708
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 [connection signal="body_entered" from="hitboxes/projectile" to="hitboxes/projectile" method="_on_projectile_body_entered"]
 [connection signal="body_entered" from="hitboxes/projectile2" to="hitboxes/projectile2" method="_on_projectile_body_entered"]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://players/tools/Char.gd" type="Script" id=1]
 [ext_resource path="res://players/tools/shadeSprite.tres" type="SpriteFrames" id=2]
 [ext_resource path="res://players/tools/HPBar.tscn" type="PackedScene" id=3]
 [ext_resource path="res://players/tools/RootPlayer.gd" type="Script" id=4]
 [ext_resource path="res://players/tools/Gauges.tscn" type="PackedScene" id=5]
+[ext_resource path="res://players/tools/Weapons.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 16 )
@@ -40,6 +41,8 @@ tint_progress = Color( 0.113725, 0.858824, 0.956863, 1 )
 
 [node name="HPBar" parent="Gauges" instance=ExtResource( 3 )]
 position = Vector2( 0, -2 )
+
+[node name="Weapons" parent="." instance=ExtResource( 6 )]
 
 [node name="player" type="KinematicBody2D" parent="."]
 scale = Vector2( 3, 3 )

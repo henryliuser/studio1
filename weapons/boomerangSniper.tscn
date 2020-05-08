@@ -19,6 +19,9 @@
 [ext_resource path="res://assets/Weapons/SniperBoomerang/SniperShot:Reload/Sprite10-0006.png" type="Texture" id=17]
 [ext_resource path="res://assets/Weapons/SniperBoomerang/SniperShot:Reload/Sprite10-0011.png" type="Texture" id=18]
 
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 32, 10 )
+
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ) ],
@@ -32,13 +35,16 @@ animations = [ {
 "speed": 20.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 32, 10 )
-
 [node name="boomerangSniper" type="Node2D"]
 scale = Vector2( 2, 2 )
 script = ExtResource( 2 )
 cdSeconds = 0.5
+
+[node name="equipRadius" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="equipRadius"]
+position = Vector2( 0, 1 )
+shape = SubResource( 2 )
 
 [node name="sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
@@ -50,12 +56,6 @@ playing = true
 position = Vector2( 30, 0 )
 
 [node name="Timer" type="Timer" parent="."]
-
-[node name="equipRadius" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="equipRadius"]
-position = Vector2( 0, 1 )
-shape = SubResource( 2 )
 
 [node name="sprites" type="Node2D" parent="."]
 [connection signal="animation_finished" from="sprite" to="." method="_on_sprite_animation_finished"]

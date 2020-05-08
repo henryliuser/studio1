@@ -8,6 +8,9 @@
 [ext_resource path="res://players/tools/Weapons.tscn" type="PackedScene" id=6]
 [ext_resource path="res://players/PickUpRadius.tscn" type="PackedScene" id=7]
 
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 14.5 )
+
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
@@ -21,9 +24,6 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 8, 14.5 )
-
 [node name="shade" type="Node2D"]
 script = ExtResource( 4 )
 __meta__ = {
@@ -35,7 +35,7 @@ posList = {
 "boomerangSniper": Vector2( 34, -11 ),
 "meterstick": Vector2( 0, 0 ),
 "potassiumCannon": Vector2( 0, 0 ),
-"tembo": Vector2( -9, 16 )
+"tembo": Vector2( -9, 15 )
 }
 
 [node name="Gauges" parent="." instance=ExtResource( 5 )]
@@ -70,18 +70,19 @@ collision_mask = 5
 script = ExtResource( 1 )
 totalJumps = 2
 
-[node name="sprite" type="AnimatedSprite" parent="player"]
-position = Vector2( -9.56196, 54.9107 )
-frames = SubResource( 1 )
-animation = "forward"
-offset = Vector2( 9.56196, -55.4107 )
+[node name="PickUpRadius" parent="player" instance=ExtResource( 7 )]
+position = Vector2( 1.50868, -2.19444 )
+scale = Vector2( 0.333333, 0.333333 )
 
 [node name="hurtbox" type="CollisionShape2D" parent="player"]
 position = Vector2( 1, 0 )
 shape = SubResource( 2 )
 
-[node name="PickUpRadius" parent="." instance=ExtResource( 7 )]
-position = Vector2( 4.52603, -6.58333 )
+[node name="sprite" type="AnimatedSprite" parent="player"]
+position = Vector2( -9.56196, 54.9107 )
+frames = SubResource( 1 )
+animation = "forward"
+offset = Vector2( 9.56196, -55.4107 )
 
 [editable path="Gauges/JumpIndic"]
 

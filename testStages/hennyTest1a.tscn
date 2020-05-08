@@ -1,8 +1,7 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://blocks/defaultPlat.tscn" type="PackedScene" id=1]
-[ext_resource path="res://players/walker.tscn" type="PackedScene" id=2]
-[ext_resource path="res://blocks/conveyerPlat.tscn" type="PackedScene" id=3]
+[ext_resource path="res://players/shade.tscn" type="PackedScene" id=2]
 [ext_resource path="res://players/dummy0.tscn" type="PackedScene" id=4]
 [ext_resource path="res://blocks/boostPlat.tscn" type="PackedScene" id=5]
 [ext_resource path="res://blocks/burnPlat.tscn" type="PackedScene" id=6]
@@ -20,54 +19,48 @@ scale = Vector2( 25, 25 )
 velocity = Vector2( 0, 0 )
 
 [node name="defaultPlat2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 986.484, 319.194 )
+position = Vector2( 989.618, 284.712 )
+velocity = Vector2( 0, 0 )
+
+[node name="defaultPlat7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 792.131, 290.981 )
+velocity = Vector2( 0, 0 )
+
+[node name="defaultPlat8" parent="." instance=ExtResource( 1 )]
+position = Vector2( 475.523, 427.342 )
 velocity = Vector2( 0, 0 )
 
 [node name="defaultPlat6" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1173.96, 319.194 )
+position = Vector2( 1178.66, 284.712 )
 velocity = Vector2( 0, 0 )
 
-[node name="defaultPlat4" parent="." instance=ExtResource( 1 )]
-position = Vector2( 865.071, 220.992 )
-rotation = -1.55347
-velocity = Vector2( 0, 0 )
-
-[node name="defaultPlat5" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1286.45, 224.563 )
-rotation = -1.55347
-velocity = Vector2( 0, 0 )
-
-[node name="defaultPlat3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1675.11, 346.572 )
+[node name="defaultPlat9" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1380.85, 283.145 )
 velocity = Vector2( 0, 0 )
 
 [node name="burnPlat" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1628.51, 602.68 )
-velocity = Vector2( 0, 0 )
-
-[node name="conveyerPlat" parent="." instance=ExtResource( 3 )]
-position = Vector2( 715.654, 314.543 )
+position = Vector2( 1749.2, 311.15 )
 velocity = Vector2( 0, 0 )
 
 [node name="boostPlat" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1437.82, 470.371 )
+position = Vector2( 135.341, 620.838 )
 velocity = Vector2( 0, 0 )
 
-[node name="walker" parent="." instance=ExtResource( 2 )]
-position = Vector2( 250.763, 527.779 )
-
-[node name="boomerangSniper" parent="." instance=ExtResource( 8 )]
-position = Vector2( 388.039, 640.458 )
+[node name="tembo" parent="." instance=ExtResource( 10 )]
+position = Vector2( 991.658, 221.966 )
 
 [node name="dummy" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1195.45, 582.744 )
 localNum = 2
 
-[node name="tembo" parent="." instance=ExtResource( 10 )]
-position = Vector2( 595.439, 652.742 )
+[node name="shade" parent="." instance=ExtResource( 2 )]
+position = Vector2( 484.878, 258.607 )
+
+[node name="boomerangSniper" parent="." instance=ExtResource( 8 )]
+position = Vector2( 732.731, 209.274 )
 
 [node name="potassiumCannon" parent="." instance=ExtResource( 9 )]
-position = Vector2( 739.288, 657.212 )
+position = Vector2( 1113.31, 216.128 )
 
 [node name="meterstick" parent="." instance=ExtResource( 11 )]
-position = Vector2( 925.77, 631.865 )
+position = Vector2( 1282.1, 216.297 )
