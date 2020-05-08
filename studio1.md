@@ -161,3 +161,5 @@ walker separate jet hurtbox X
 -potassium cannon
 -death gravity/ragdoll
 -shade getting hit resets dash
+-shade only gets one midair dashreset from getHurt
+-added cd on potassium cannon

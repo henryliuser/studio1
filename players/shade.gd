@@ -50,7 +50,7 @@ func calcDash():
 		
 	if grounded and not dashing: #if you start a dash on the ground, 
 		dashAvailable = true     #you'll have one in mid-air as well
-		var oneMidAirDashReset = true
+		oneMidAirDashReset = true
 		if dashTimer == 0 && not predash:
 			grant_dash()
 #			rpc_unreliable("syncDash", 100)
