@@ -53,10 +53,6 @@ velocity = Vector2( 0, 0 )
 position = Vector2( 1437.82, 470.371 )
 velocity = Vector2( 0, 0 )
 
-[node name="shade" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1175.42, 559.224 )
-localNum = 2
-
 [node name="walker" parent="." instance=ExtResource( 2 )]
 position = Vector2( 250.763, 527.779 )
 
@@ -71,3 +67,7 @@ position = Vector2( 764.292, 640.957 )
 
 [node name="tembo" parent="." instance=ExtResource( 10 )]
 position = Vector2( 587.278, 663.963 )
+
+[node name="dummy" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1195.45, 582.744 )
+localNum = 2

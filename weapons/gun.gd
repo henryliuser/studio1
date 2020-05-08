@@ -1,5 +1,6 @@
 extends "res://weapons/equippable.gd"
 export var cdSeconds = 1.0
+export var recoil = 300
 var available = true  # can shoot
 
 func _ready():

@@ -14,8 +14,6 @@ func _process(_delta):
 		else: closestPickup.equipped = false
 	if lowestDist != 99999:
 		closestPickup.activate(player)
-		
-	
 
 func _on_PickUpRadius_area_entered(area):
 	var equippable = area.get_parent()

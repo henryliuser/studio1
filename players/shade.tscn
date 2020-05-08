@@ -6,7 +6,7 @@
 [ext_resource path="res://players/tools/RootPlayer.gd" type="Script" id=4]
 [ext_resource path="res://players/tools/Gauges.tscn" type="PackedScene" id=5]
 [ext_resource path="res://players/tools/Weapons.tscn" type="PackedScene" id=6]
-[ext_resource path="res://weapons/tembo.tscn" type="PackedScene" id=7]
+[ext_resource path="res://players/PickUpRadius.tscn" type="PackedScene" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -31,10 +31,12 @@ __meta__ = {
 }
 
 [node name="Weapons" parent="." instance=ExtResource( 6 )]
-
-[node name="Tembo" parent="Weapons" instance=ExtResource( 7 )]
-position = Vector2( -8.77475, 15.8512 )
-pnum = 1
+posList = {
+"boomerangSniper": Vector2( 34, -11 ),
+"meterstick": Vector2( 0, 0 ),
+"potassiumCannon": Vector2( 0, 0 ),
+"tembo": Vector2( -9, 16 )
+}
 
 [node name="Gauges" parent="." instance=ExtResource( 5 )]
 position = Vector2( 3, -62 )
@@ -77,6 +79,9 @@ offset = Vector2( 9.56196, -55.4107 )
 [node name="hurtbox" type="CollisionShape2D" parent="player"]
 position = Vector2( 1, 0 )
 shape = SubResource( 2 )
+
+[node name="PickUpRadius" parent="." instance=ExtResource( 7 )]
+position = Vector2( 4.52603, -6.58333 )
 
 [editable path="Gauges/JumpIndic"]
 

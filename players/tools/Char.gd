@@ -158,12 +158,13 @@ func calcHitstun():
 # take 'dmg' damage, get stunned for 'stun' frames, get knocked back by
 # absolute Vector2(kb), in the direction based on Vector2(pos)
 func getHurt(dmg, stun:int=10, kb:Vector2=Vector2(), pos:Vector2=Vector2() ):
-	emit_signal("hurt", self, dmg)
 	
 	stunTimer.x = 1
 	stunTimer.y = stun  # set up the hitstun
-	modTimer.x = 1  
-	modulate = Color.red  # set up red modulation flash
+	if dmg > 0:
+		emit_signal("hurt", self, dmg)
+		modTimer.x = 1  
+		modulate = Color.red  # set up red modulation flash
 	var t = global_position.x-pos.x  #knocks back horizontally based on x pos
 	if kb != Vector2():
 		if t < 0: fixFlip(1)

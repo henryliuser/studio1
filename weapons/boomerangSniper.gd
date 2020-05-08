@@ -6,6 +6,7 @@ func shoot():
 	$sprite.play("fire")
 	yield(get_tree().create_timer(.3), "timeout")  # lined this shit first try
 	var q = load("res://weapons/projectiles/boomerang.tscn").instance()
+	player.velocity.x -= player.currentDirection * recoil  # kick player back
 	q.global_position = $point.global_position
 	q.dontTouch = player
 	bulletList.push_back(q)
