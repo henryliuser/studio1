@@ -4,13 +4,14 @@
 
 _**Content**_
 -weapon pickup / ownership system
+-wall jump / hang
 -double damage explosion bug (2 people right next to each other)
 	keep log of players per explosion? 
 …
 -figure out incentive to make players fight for positioning more fiercely
 		maybe just hella health pickups to make lives longer
 		don’t want down time, no respawn / rounds stuff. non-stop
--use coroutine to do cooldowns
+
 -clean up player code
 -clean up projectile code
 
@@ -136,7 +137,7 @@ char variants
 
 -boomerang collisionshape constantly spinning for nice bounces
 	rotation angle of AnimatedSprite is just pointing in movement direc
-
+-use coroutine to do cooldowns
 
 # ———————— -DONE- ————————
 
