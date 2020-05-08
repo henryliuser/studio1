@@ -12,7 +12,11 @@ func shoot():
 	rotation_degrees = -30
 
 func _physics_process(_delta):
-	rotation_degrees = lerp(rotation_degrees, 0, 0.03)
+	rotation_degrees = lerp(rotation_degrees, 0, 0.035)
+
+func _on_Timer_timeout():
+	._on_Timer_timeout()
+	rotation_degrees = 0
 
 
 

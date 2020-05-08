@@ -40,7 +40,7 @@ cdSeconds = 0.75
 [node name="sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "idle"
-frame = 2
+frame = 1
 playing = true
 
 [node name="point" type="Position2D" parent="."]

@@ -10,8 +10,10 @@ func shoot():
 	bulletList.push_back(q)
 	q.target *= get_parent().scale.x
 	get_tree().get_root().add_child(q)
+	rotation_degrees = -30
 	
 func _physics_process(delta):
+	rotation_degrees = lerp(rotation_degrees, 0, 0.1)
 	for q in bulletList:
 		if is_instance_valid(q) and q.has_method("unit"): # lmfao godot pls
 			q.ogPos = $point.global_position
