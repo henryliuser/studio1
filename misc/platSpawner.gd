@@ -12,7 +12,6 @@ var L = [
 
 func _ready():
 	randomize()
-	pass
 	
 func _physics_process(delta):
 	timer += 1

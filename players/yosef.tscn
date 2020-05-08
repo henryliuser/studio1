@@ -53,7 +53,7 @@ hoverPos = Vector2( 30, 0 )
 position = Vector2( -4.38347, 8.21899 )
 
 [node name="BananaLauncher" parent="Weapons" instance=ExtResource( 21 )]
-position = Vector2( 5.47934, -4.38347 )
+position = Vector2( 3.95869, 0.2751 )
 
 [node name="Gauges" parent="." instance=ExtResource( 5 )]
 position = Vector2( 3, -62 )
