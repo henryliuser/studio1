@@ -20,8 +20,8 @@ func _physics_process(delta):  # don't even fking ask me..
 	if is_on_floor() or is_on_wall(): velocity = Vector2()
 	
 	if !plantedFloor and !plantedWall:
-		velocity.y += gravity
-		rotation_degrees += gravity*3 * delta
+		velocity.y += gravity 
+		rotation_degrees += gravity*3 * delta * direction
 		if rotation_degrees >= 360: rotation_degrees -= 360
 	velocity = move_and_slide(velocity, Vector2(0,-1))
 
