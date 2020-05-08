@@ -1,5 +1,5 @@
 extends Node2D
-export var hoverPos = Vector2(0,-60)
+onready var hoverPos = position
 export var lerpWeight = 0.5
 var player
 

@@ -22,33 +22,11 @@ scale = Vector2( 2.39003, 2.84874 )
 texture = ExtResource( 1 )
 offset = Vector2( -63.3212, -276.117 )
 
-[node name="potassiumCannon" type="Button" parent="."]
-margin_left = 626.814
-margin_top = 543.947
-margin_right = 814.814
-margin_bottom = 625.947
-rect_scale = Vector2( 1.67362, 1.40413 )
-text = "banana launcher"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="tembo" type="Button" parent="."]
-margin_left = 1150.9
-margin_top = 550.023
-margin_right = 1338.9
-margin_bottom = 632.023
-rect_scale = Vector2( 1.67362, 1.40413 )
-text = "hammer"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="random" type="Button" parent="."]
-margin_left = 217.562
-margin_top = 738.338
-margin_right = 405.562
-margin_bottom = 820.338
+margin_left = 739.365
+margin_top = 423.417
+margin_right = 927.365
+margin_bottom = 505.417
 rect_scale = Vector2( 1.67362, 1.40413 )
 text = "random"
 __meta__ = {
@@ -56,17 +34,15 @@ __meta__ = {
 }
 
 [node name="random2" type="Button" parent="."]
-margin_left = 637.74
-margin_top = 741.869
-margin_right = 825.74
-margin_bottom = 823.869
+margin_left = 1331.94
+margin_top = 557.974
+margin_right = 1519.94
+margin_bottom = 639.974
 rect_scale = Vector2( 1.67362, 1.40413 )
 text = "random2"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="pressed" from="boomer" to="." method="_on_boomer_pressed"]
-[connection signal="pressed" from="potassiumCannon" to="." method="_on_potassiumCannon_pressed"]
-[connection signal="pressed" from="tembo" to="." method="_on_tembo_pressed"]
 [connection signal="pressed" from="random" to="." method="_on_random_pressed"]
 [connection signal="pressed" from="random2" to="." method="_on_random2_pressed"]

@@ -4,6 +4,8 @@
 
 _**Content**_
 -weapon pickup / ownership system
+	neutral items exchange with last used item
+		pressing button will still “use” the item even without ammo
 -wall jump / hang
 -double damage explosion bug (2 people right next to each other)
 	keep log of players per explosion? 
@@ -11,11 +13,12 @@ _**Content**_
 -figure out incentive to make players fight for positioning more fiercely
 		maybe just hella health pickups to make lives longer
 		don’t want down time, no respawn / rounds stuff. non-stop
-
+-
 -clean up player code
 -clean up projectile code
 
 _**Details**_
+boomerang disappears on contact with self
 reduce boomerang end animation radius
 boomerang angles the correct way, disappears on hitting owner
 -boomerang sniper can only have X number out at a time
@@ -75,10 +78,10 @@ thousand island (flamethrower) G
 tembo (gravity hammer) G
 radiant apple (glowing apple that burns nearby enemies. light centered, throwable. when on the ground doesn’t burn or shine)
 
-boomerang sniper XX
-gravity hammer thing X
-ruler/meterstick with tipper P
-grenade launcher banana peel (mine)  X
+0 gravity hammer thing X
+1 boomerang sniper XX
+2 ruler/meterstick with tipper P
+3 grenade launcher banana peel (mine)  X
 thousand island flamethrower
 torch ( DoT around it)
 
@@ -164,3 +167,5 @@ walker separate jet hurtbox X
 -shade getting hit resets dash
 -shade only gets one midair dashreset from getHurt
 -added cd on potassium cannon
+-instant damage on burnPlat
+-bananas stick to surfaces and move with moving platforms

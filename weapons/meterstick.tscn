@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://weapons/projectiles/walkerShort.tscn" type="PackedScene" id=2]
-[ext_resource path="res://weapons/Tembo.gd" type="Script" id=3]
+[ext_resource path="res://weapons/tembo.gd" type="Script" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "hit"
@@ -63,11 +63,16 @@ height = 120.0
 radius = 4.0
 height = 1.0
 
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 64, 5 )
+
 [node name="meterstick" type="Node2D"]
 scale = Vector2( 0.75, 1 )
 script = ExtResource( 3 )
 
-[node name="icon" type="Sprite" parent="."]
+[node name="sprites" type="Node2D" parent="."]
+
+[node name="sprite" type="Sprite" parent="sprites"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 60, 0 )
 scale = Vector2( 2, 0.1 )
@@ -102,6 +107,12 @@ stun = 5
 
 [node name="hitbox" parent="hitboxes/tipper" index="0"]
 shape = SubResource( 3 )
+
+[node name="equipRadius" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="equipRadius"]
+position = Vector2( 60, 0 )
+shape = SubResource( 4 )
 
 [editable path="hitboxes/projectile2"]
 

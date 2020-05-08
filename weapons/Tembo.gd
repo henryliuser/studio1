@@ -1,8 +1,8 @@
-extends Node2D
+extends "res://weapons/equippable.gd"
 onready var anim = $AnimationPlayer
-export var pnum = 1
 
 func _physics_process(delta):
 	var playin = anim.is_playing()
-	if Input.is_action_just_pressed("p" + str(pnum) + "_hit") and not anim.is_playing():
-		anim.play("hit")
+	if equipped and not playin:
+		if Input.is_action_just_pressed("p" + str(pnum) + "_hit"):
+			anim.play("hit")

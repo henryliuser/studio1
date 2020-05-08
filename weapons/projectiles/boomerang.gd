@@ -50,3 +50,10 @@ func unit(v2):
 func _on_sprite_animation_finished():
 	if $sprite.animation == "start":
 		$sprite.play("loop")
+
+func _on_projectile_body_entered(body):
+	._on_projectile_body_entered(body)
+	if body == player:
+		queue_free()
+		
+	

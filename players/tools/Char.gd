@@ -43,6 +43,10 @@ export var totalJumps = 1
 var grounded = true
 var midairJumpsLeft = totalJumps - 1
 
+#siblings
+onready var Gauges = get_node("../Gauges")
+onready var Weapons = get_node("../Weapons")
+
 func _ready(): 
 	set_network_master(0)
 	for c in get_children():

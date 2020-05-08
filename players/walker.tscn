@@ -2,8 +2,8 @@
 
 [ext_resource path="res://players/walker.gd" type="Script" id=1]
 [ext_resource path="res://players/tools/walkerSprite.tres" type="SpriteFrames" id=2]
-[ext_resource path="res://weapons/boomerangSniper.tscn" type="PackedScene" id=3]
 [ext_resource path="res://players/tools/Weapons.tscn" type="PackedScene" id=4]
+[ext_resource path="res://players/PickUpRadius.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/Characters/Char1/Char1Jetflame/Sprite1-0012.png" type="Texture" id=30]
 [ext_resource path="res://assets/Characters/Char1/Char1Jetflame/Sprite1-0011.png" type="Texture" id=31]
 [ext_resource path="res://players/tools/RootPlayer.gd" type="Script" id=32]
@@ -30,7 +30,6 @@ __meta__ = {
 
 [node name="Gauges" parent="." instance=ExtResource( 33 )]
 position = Vector2( 10, -100 )
-hoverPos = Vector2( 10, -100 )
 
 [node name="FuelBar" parent="Gauges" instance=ExtResource( 34 )]
 position = Vector2( 0, 5.00001 )
@@ -48,11 +47,13 @@ tint_progress = Color( 0.85098, 0.564706, 0.0117647, 1 )
 position = Vector2( 0, 7.62939e-06 )
 
 [node name="Weapons" parent="." instance=ExtResource( 4 )]
-position = Vector2( 31.5263, -3.35799 )
-hoverPos = Vector2( 30, 0 )
-
-[node name="sniper" parent="Weapons" instance=ExtResource( 3 )]
-position = Vector2( 42.738, -32.0535 )
+position = Vector2( 27.1454, -26.1384 )
+posList = {
+"boomerangSniper": Vector2( 40, -6 ),
+"meterstick": Vector2( 0, 0 ),
+"potassiumCannon": Vector2( 0, 0 ),
+"tembo": Vector2( 0, 0 )
+}
 
 [node name="player" type="KinematicBody2D" parent="."]
 scale = Vector2( 4, 4 )
@@ -66,6 +67,10 @@ maxGroundVelocity = Vector2( 500, 1500 )
 lerpWeight = 0.25
 totalJumps = 0
 
+[node name="PickUpRadius" parent="player" instance=ExtResource( 5 )]
+position = Vector2( 2.89005, -7.11653 )
+scale = Vector2( 0.25, 0.25 )
+
 [node name="jetflame" type="AnimatedSprite" parent="player"]
 visible = false
 position = Vector2( -8.86257, -1.99328 )
@@ -76,7 +81,6 @@ frame = 1
 [node name="sprite" type="AnimatedSprite" parent="player"]
 frames = ExtResource( 2 )
 animation = "idle"
-frame = 4
 playing = true
 
 [node name="hurtbox" type="CollisionPolygon2D" parent="player"]
