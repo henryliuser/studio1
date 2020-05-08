@@ -13,6 +13,8 @@ var dashTimer = 0
 var dashInd
 var jumpInd
 
+var oneMidAirDashReset = true
+
 func _ready():
 	dashInd = get_node("../Gauges/DashIndic")
 	jumpInd = get_node("../Gauges/JumpIndic")
@@ -48,6 +50,7 @@ func calcDash():
 		
 	if grounded and not dashing: #if you start a dash on the ground, 
 		dashAvailable = true     #you'll have one in mid-air as well
+		var oneMidAirDashReset = true
 		if dashTimer == 0 && not predash:
 			grant_dash()
 #			rpc_unreliable("syncDash", 100)
@@ -86,7 +89,9 @@ func getHurt(dmg, stun:int=10, kb:Vector2=Vector2(), pos:Vector2=Vector2() ):
 	dashTimer = 0
 	dashing = false
 	predash = false
-	grant_dash()
+	if oneMidAirDashReset: 
+		grant_dash()
+		oneMidAirDashReset = false
 	
 func grant_dash():
 	noDash = false
