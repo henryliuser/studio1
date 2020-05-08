@@ -24,7 +24,6 @@ puppet func syncJump(d):
 
 func _on_physics_process(_delta):
 	parseInputs()
-	imposeGravity()
 	if stunTimer.x == 0:
 		calcDash()
 		if not dashing and not predash:
@@ -50,7 +49,7 @@ func calcDash():
 	if grounded and not dashing: #if you start a dash on the ground, 
 		dashAvailable = true     #you'll have one in mid-air as well
 		if dashTimer == 0 && not predash:
-			dashInd.updateBar(100)
+			grant_dash()
 #			rpc_unreliable("syncDash", 100)
 	if predash:
 		if left and not right:
@@ -72,9 +71,9 @@ func calcDash():
 #				rpc_unreliable("syncDash", 100)
 	
 	if dashing:
+		dashTimer += 1
 		modulate = Color.paleturquoise
 		velocity = Vector2(currentDirection*dashSpeed,0)
-		dashTimer = dashTimer + 1
 		if dashTimer == dashLock: #at the end of the dash, 
 			currentDirection = storedDirection
 			modulate = Color.white
@@ -82,3 +81,14 @@ func calcDash():
 			dashing = false
 			noDash = true # this places dash on an x frame cooldown cuz spamming it is kinda fast
 			
+func getHurt(dmg, stun:int=10, kb:Vector2=Vector2(), pos:Vector2=Vector2() ):
+	.getHurt(dmg,stun,kb,pos)
+	dashTimer = 0
+	dashing = false
+	predash = false
+	grant_dash()
+	
+func grant_dash():
+	noDash = false
+	dashAvailable = true
+	dashInd.updateBar(100)

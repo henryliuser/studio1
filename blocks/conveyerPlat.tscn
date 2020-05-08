@@ -28,10 +28,11 @@ script = ExtResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( -3, -3 )
 frames = SubResource( 1 )
-frame = 2
+frame = 4
 playing = true
 
 [node name="trigger" type="Area2D" parent="."]
+collision_layer = 17
 
 [node name="triggerHitbox" type="CollisionShape2D" parent="trigger"]
 position = Vector2( 0, -8 )

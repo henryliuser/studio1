@@ -43,6 +43,30 @@ text = "hammer"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="random" type="Button" parent="."]
+margin_left = 217.562
+margin_top = 738.338
+margin_right = 405.562
+margin_bottom = 820.338
+rect_scale = Vector2( 1.67362, 1.40413 )
+text = "random"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="random2" type="Button" parent="."]
+margin_left = 637.74
+margin_top = 741.869
+margin_right = 825.74
+margin_bottom = 823.869
+rect_scale = Vector2( 1.67362, 1.40413 )
+text = "random"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="boomer" to="." method="_on_boomer_pressed"]
 [connection signal="pressed" from="potassiumCannon" to="." method="_on_potassiumCannon_pressed"]
 [connection signal="pressed" from="tembo" to="." method="_on_tembo_pressed"]
+[connection signal="pressed" from="random" to="." method="_on_random_pressed"]
+[connection signal="pressed" from="random2" to="." method="_on_random2_pressed"]

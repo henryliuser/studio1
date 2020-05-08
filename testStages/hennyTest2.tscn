@@ -20,6 +20,6 @@ velocity = Vector2( 0, 0 )
 [node name="walker" parent="." instance=ExtResource( 3 )]
 position = Vector2( 288.296, 745.167 )
 
-[node name="shade" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1593.29, 669.092 )
+[node name="dummy" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1615.39, 796.708 )
 localNum = 2

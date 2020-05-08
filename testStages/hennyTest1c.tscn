@@ -51,7 +51,12 @@ velocity = Vector2( 0, 0 )
 
 [node name="shade" parent="." instance=ExtResource( 2 )]
 position = Vector2( 459.145, 609.097 )
+globalNum = null
+localNum = null
+netID = null
 
 [node name="dummy" parent="." instance=ExtResource( 4 )]
 position = Vector2( 930.234, 574.595 )
+globalNum = null
 localNum = 2
+netID = null

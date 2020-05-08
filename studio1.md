@@ -12,10 +12,10 @@ _**Content**_
 		don’t want down time, no respawn / rounds stuff. non-stop
 -use coroutine to do cooldowns
 -clean up player code
--death gravity/ragdoll
 -clean up projectile code
 
 _**Details**_
+reduce boomerang end animation radius
 boomerang angles the correct way, disappears on hitting owner
 -boomerang sniper can only have X number out at a time
 -state while attacking melee that means u can’t turn move (only some ig)
@@ -26,7 +26,6 @@ boomerang angles the correct way, disappears on hitting owner
 -damagetext outline color corresponds with GlobalNum
 …
 REFACTOR EVERYTHING WITH SIGNALS LOL
-
 
 _**Networking**_
 -networking sync playerlists
@@ -160,3 +159,5 @@ walker separate jet hurtbox X
 -big damage gets shader effect yo
 -floating damage text
 -potassium cannon
+-death gravity/ragdoll
+-shade getting hit resets dash

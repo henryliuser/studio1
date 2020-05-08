@@ -4,14 +4,14 @@ export var symmetrical = true
 var timer = 0
 
 var L = [
-	"res://Blocks/boostPlat.tscn",
-	"res://Blocks/conveyerPlat.tscn",
-	"res://Blocks/defaultPlat.tscn",
-	"res://Blocks/burnPlat.tscn"
+	"res://blocks/boostPlat.tscn",
+	"res://blocks/conveyerPlat.tscn",
+	"res://blocks/defaultPlat.tscn",
+	"res://blocks/burnPlat.tscn"
 		]
 
 func _ready():
-#	randomize()
+	randomize()
 	pass
 	
 func _physics_process(delta):

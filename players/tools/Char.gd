@@ -56,11 +56,11 @@ puppet func setEverything(vel, pos, sprFlip, scl, mod, currDirec):
 func _physics_process(delta):
 #	if is_network_master():
 	calcHitstun()
-	if hp > 0:
-		_on_physics_process(delta)
-#		rpc_unreliable("setEverything", velocity,position,sprite.flip_h,scale,modulate,currentDirection)
-	if hp > 0:
-		velocity = move_and_slide(velocity, Vector2(0,-1))
+	imposeGravity()
+	if hp > 0: _on_physics_process(delta)
+	elif stunTimer.x == 0: lerp0(lerpWeight/3)
+#	rpc_unreliable("setEverything", velocity,position,sprite.flip_h,scale,modulate,currentDirection)
+	velocity = move_and_slide(velocity, Vector2(0,-1))
 	
 func fixFlip(dir):
 	currentDirection = dir
@@ -72,11 +72,9 @@ func fixFlip(dir):
 		a += 1
 
 func _on_physics_process(_delta):
-	imposeGravity()
-	if stunTimer.x == 0:
-		parseInputs()
-		calculateJump()
-		movement()
+	parseInputs()
+	calculateJump()
+	movement()
 
 func imposeGravity():
 	velocity.y += gravity
@@ -114,9 +112,11 @@ func movement():
 		sprite.play("forward")
 	else:
 		sprite.play("idle")
-		velocity.x = lerp(velocity.x, 0, lerq)
+		lerp0(lerq)
 	velocity.y = min(velocity.y, maxSpeeds.y)
-	
+		
+func lerp0(l):
+	velocity.x = lerp(velocity.x, 0, l)
 	#check if |sub-1| movement speed then just stop
 	if abs(velocity.x) <= 1:
 		velocity.x = 0
@@ -172,10 +172,14 @@ func getHurt(dmg, stun:int=10, kb:Vector2=Vector2(), pos:Vector2=Vector2() ):
 		die()
 	
 func die():
-	$hurtbox.queue_free()
-	velocity = Vector2()
 	sprite.play("death")
 	for x in get_node("../Gauges").get_children():
 		x.die()
+	set_collision_mask(18)
+	set_collision_layer(0)
+	yield(get_tree().create_timer(2),"timeout")
+	pass
+	get_parent().queue_free()
+	
 
 
