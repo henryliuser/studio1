@@ -51,7 +51,7 @@ func calcDash():
 	if grounded and not dashing: #if you start a dash on the ground, 
 		dashAvailable = true     #you'll have one in mid-air as well
 		oneMidAirDashReset = true
-		if dashTimer == 0 && not predash:
+		if dashTimer == 0 && not predash and hp > 0:
 			grant_dash()
 #			rpc_unreliable("syncDash", 100)
 	if predash:
@@ -89,7 +89,7 @@ func getHurt(dmg, stun:int=10, kb:Vector2=Vector2(), pos:Vector2=Vector2() ):
 	dashTimer = 0
 	dashing = false
 	predash = false
-	if oneMidAirDashReset: 
+	if oneMidAirDashReset and hp > 0 and !is_on_floor(): 
 		grant_dash()
 		oneMidAirDashReset = false
 	
@@ -97,3 +97,4 @@ func grant_dash():
 	noDash = false
 	dashAvailable = true
 	dashInd.updateBar(100)
+	
