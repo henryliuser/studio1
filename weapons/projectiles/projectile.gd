@@ -12,7 +12,7 @@ func _ready():
 	if !independent: 
 		player = get_parent().get_parent().get_parent().get_node("../player")
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	position += velocity
 	duration -= 1
 	if duration == 0:

@@ -19,7 +19,7 @@ func die():
 	updateBar(0)
 
 var chainFrames = -1
-func _process(delta):
+func _process(_delta):
 	if chainFrames > 0: chainFrames -= 1
 	if chainFrames == 0 and is_for_hp:
 		showText()
@@ -40,4 +40,4 @@ func showText():
 	var txt = load("res://players/tools/DamageText.tscn").instance()
 	txt.set_text(str(damaga))
 	txt.global_position = global_position
-	get_tree().get_root().add_child(txt)
+	get_tree().current_scene.add_child(txt)

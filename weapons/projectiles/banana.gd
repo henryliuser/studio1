@@ -3,7 +3,7 @@ var direction = 1
 var keeper
 onready var velocity = Vector2(direction*600,-600)
 var planted = false
-func _physics_process(delta):
+func _physics_process(_delta):
 	velocity.y += 40
 	if is_on_floor() or is_on_wall(): 
 		planted = true
@@ -17,7 +17,7 @@ func _on_trigger_body_entered(body):
 	queue_free()
 
 func yuh(x, body):  #dumb godot
-	get_tree().get_root().add_child(x)
+	get_tree().current_scene.add_child(x)
 	if keeper == body:
 		for h in x.hitboxes:
 			h.damage /= 2

@@ -6,7 +6,7 @@ func _ready():
 	$Timer.connect("timeout", self, "_on_Timer_timeout")
 	$Timer.wait_time = cdSeconds
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("p" + str(pnum) + "_fire") and available:
 		shoot()
 		

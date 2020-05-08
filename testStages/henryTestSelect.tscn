@@ -61,7 +61,7 @@ margin_top = 741.869
 margin_right = 825.74
 margin_bottom = 823.869
 rect_scale = Vector2( 1.67362, 1.40413 )
-text = "random"
+text = "random2"
 __meta__ = {
 "_edit_use_anchors_": false
 }
