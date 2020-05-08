@@ -33,7 +33,7 @@ scale = Vector2( 2, 2 )
 frames = SubResource( 2 )
 
 [node name="Muzzle" type="Position2D" parent="."]
-position = Vector2( 103.263, -36.7898 )
+position = Vector2( 57.3848, -29.677 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 1.5

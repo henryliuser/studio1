@@ -19,11 +19,11 @@ scale = Vector2( 25, 25 )
 velocity = Vector2( 0, 0 )
 
 [node name="defaultPlat2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 989.618, 284.712 )
+position = Vector2( 989.618, 290 )
 velocity = Vector2( 0, 0 )
 
 [node name="defaultPlat7" parent="." instance=ExtResource( 1 )]
-position = Vector2( 792.131, 290.981 )
+position = Vector2( 792.131, 290 )
 velocity = Vector2( 0, 0 )
 
 [node name="defaultPlat8" parent="." instance=ExtResource( 1 )]
@@ -31,11 +31,11 @@ position = Vector2( 475.523, 427.342 )
 velocity = Vector2( 0, 0 )
 
 [node name="defaultPlat6" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1178.66, 284.712 )
+position = Vector2( 1178.66, 290 )
 velocity = Vector2( 0, 0 )
 
 [node name="defaultPlat9" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1380.85, 283.145 )
+position = Vector2( 1380.85, 290 )
 velocity = Vector2( 0, 0 )
 
 [node name="burnPlat" parent="." instance=ExtResource( 6 )]
