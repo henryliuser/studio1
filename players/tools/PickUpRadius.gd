@@ -18,7 +18,9 @@ func _process(_delta):
 	
 
 func _on_PickUpRadius_area_entered(area):
-	inRange[area.get_parent()] = true
+	var equippable = area.get_parent()
+	if !equippable.equipped:
+		inRange[equippable] = true
 	
 func _on_PickUpRadius_area_exited(area):
 	inRange.erase(area.get_parent())

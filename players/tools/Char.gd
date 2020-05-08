@@ -61,8 +61,8 @@ func _physics_process(delta):
 #	if is_network_master():
 	calcHitstun()
 	imposeGravity()
-	if hp > 0: _on_physics_process(delta)
-	elif stunTimer.x == 0: lerp0(lerpWeight/3)
+	if hp > 0 and stunTimer.x == 0: _on_physics_process(delta)
+	if hp <= 0 and stunTimer.x == 0: lerp0(lerpWeight/3)
 #	rpc_unreliable("setEverything", velocity,position,sprite.flip_h,scale,modulate,currentDirection)
 	velocity = move_and_slide(velocity, Vector2(0,-1))
 	

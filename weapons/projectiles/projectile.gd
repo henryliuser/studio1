@@ -8,10 +8,6 @@ export var knockback = Vector2(10,10)
 export var stun = 15
 var player
 
-func _ready():
-	if !independent: 
-		player = get_parent().get_parent().get_parent().get_node("../player")
-
 func _physics_process(_delta):
 	position += velocity
 	duration -= 1
@@ -22,4 +18,5 @@ func _on_projectile_body_entered(body):
 	var pos = global_position
 	if !independent: pos = player.global_position
 	body.getHurt(damage, stun, knockback, pos)
+	
 

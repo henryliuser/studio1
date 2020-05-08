@@ -50,11 +50,11 @@ position = Vector2( 715.654, 314.543 )
 velocity = Vector2( 0, 0 )
 
 [node name="boostPlat" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1395.35, 568.717 )
+position = Vector2( 1437.82, 470.371 )
 velocity = Vector2( 0, 0 )
 
 [node name="shade" parent="." instance=ExtResource( 4 )]
-position = Vector2( 942.967, 232.894 )
+position = Vector2( 1175.42, 559.224 )
 localNum = 2
 
 [node name="walker" parent="." instance=ExtResource( 2 )]

@@ -3,7 +3,7 @@ export var lerpWeight = 0.94
 
 var target = Vector2(1000,0)
 var ogPos
-
+var dontTouch  # the player/owner, will be set on creation
 var time = 0
 var speed = 50.0
 const guesSpeed = 1.0498
@@ -53,7 +53,7 @@ func _on_sprite_animation_finished():
 
 func _on_projectile_body_entered(body):
 	._on_projectile_body_entered(body)
-	if body == player:
+	if body == dontTouch:
 		queue_free()
 		
 	

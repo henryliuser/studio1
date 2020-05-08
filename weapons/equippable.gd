@@ -1,10 +1,12 @@
 extends Node2D
 export var pnum = 1
 onready var itemName = name
+signal picked_up
 var equipped = false
 var player
 func _ready():
 	$equipRadius.set_collision_layer(32)
+	self.connect("picked_up", self, "_on_picked_up")
 
 func _physics_process(_delta):  # needs to be physics process cuz order
 	if name == "boomerangSniper": $sprite.material = null
@@ -22,4 +24,7 @@ func activate(p):  # is within range to be picked up by a player
 			get_parent().remove_child(self)
 			p.Weapons.add_child(self)
 			global_position = x
-	
+			emit_signal("picked_up")
+
+func _on_picked_up():
+	pass
