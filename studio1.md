@@ -7,18 +7,23 @@ _**Content**_
 	neutral items exchange with last used item
 		pressing button will still “use” the item even without ammo
 -wall jump / hang
--double damage explosion bug (2 people right next to each other)
-	keep log of players per explosion? 
+-grappling hook 
+-movement core
+-stage patterns 
+-POLISH
+-content
 …
 -figure out incentive to make players fight for positioning more fiercely
 		maybe just hella health pickups to make lives longer
 		don’t want down time, no respawn / rounds stuff. non-stop
--
+-make render order consistent
 -clean up player code
 -clean up projectile code
 
 _**Details**_
-boomerang disappears on contact with self
+-double damage explosion bug (2 people right next to each other)
+	keep log of players per explosion? 
+
 reduce boomerang end animation radius
 boomerang angles the correct way, disappears on hitting owner
 -boomerang sniper can only have X number out at a time
@@ -168,4 +173,5 @@ walker separate jet hurtbox X
 -shade only gets one midair dashreset from getHurt
 -added cd on potassium cannon
 -instant damage on burnPlat
--bananas stick to surfaces and move with moving platforms
+-bananas stick to surfaces and move with moving platform
+boomerang disappears on contact with self

@@ -17,6 +17,7 @@ func _on_Timer_timeout():
 	
 func shoot():
 	available = false
+	get_parent().update_active(type)  # updates which slot is currently being used 
 	$Timer.start()
 	
 

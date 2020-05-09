@@ -58,7 +58,6 @@ puppet func setEverything(vel, pos, sprFlip, scl, mod, currDirec):
 	sprite.flip_h = sprFlip; currentDirection = currDirec
 
 func _physics_process(delta):
-#	if get_parent().name == "dummy": print(velocity)
 #	if is_network_master():
 	calcHitstun()
 	imposeGravity()
@@ -171,7 +170,6 @@ func getHurt(dmg, stun:int=10, kb:Vector2=Vector2(), pos:Vector2=Vector2() ):
 		if t < 0: fixFlip(1)
 		else: fixFlip(-1)
 	velocity = Vector2(t/abs(t)*kb.x, kb.y) 
-	print(velocity)
 	position += velocity/30
 	hp -= dmg
 	hpbar.updateBar(hp)

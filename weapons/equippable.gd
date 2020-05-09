@@ -1,5 +1,6 @@
 extends Node2D
 export var pnum = 1
+export var type = 0 
 onready var itemName = name
 signal picked_up
 var equipped = false
@@ -22,9 +23,14 @@ func activate(p):  # is within range to be picked up by a player
 			var x = global_position
 			$sprite.material = null
 			get_parent().remove_child(self)
-			p.Weapons.add_child(self)
+			p.Weapons.swap(self)
 			global_position = x
-			emit_signal("picked_up")
+			_on_picked_up()
 
 func _on_picked_up():
 	pass
+
+func _on_dropped():
+	visible = true
+	equipped = false
+	
