@@ -6,12 +6,13 @@ func _process(_delta):
 	var lowestDist = 99999
 	var closestPickup
 	for z in inRange.keys():  # pick the closest weapon in range to display
-		var x = z.position - player.position
+		var x = z.global_position - player.global_position
 		var dist = sqrt(x.x*x.x + x.y*x.y)
 		if dist < lowestDist: 
 			closestPickup = z
 			lowestDist = dist
 		else: closestPickup.equipped = false
+	print(lowestDist)
 	if lowestDist != 99999:
 		closestPickup.activate(player)
 

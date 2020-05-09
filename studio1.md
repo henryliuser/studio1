@@ -3,11 +3,9 @@
 # ————————————————————
 
 _**Content**_
--weapon pickup / ownership system
-	neutral items exchange with last used item
-		pressing button will still “use” the item even without ammo
 -wall jump / hang
 -grappling hook 
+-display other weapon (so it doesn’t ‘disappear’ )
 -movement core
 -stage patterns 
 -POLISH
@@ -175,3 +173,6 @@ walker separate jet hurtbox X
 -instant damage on burnPlat
 -bananas stick to surfaces and move with moving platform
 boomerang disappears on contact with self
+-weapon pickup / ownership system
+	neutral items exchange with last used item
+		pressing button will still “use” the item even without ammo
