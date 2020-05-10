@@ -15,8 +15,9 @@ func _physics_process(_delta):
 		queue_free()
 
 func _on_projectile_body_entered(body):
-	var pos = global_position
-	if !independent: pos = player.global_position
-	body.getHurt(damage, stun, knockback, pos)
+	if body.has_method("getHurt"):
+		var pos = global_position
+		if !independent: pos = player.global_position
+		body.getHurt(damage, stun, knockback, pos)
 	
 

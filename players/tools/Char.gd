@@ -89,7 +89,7 @@ func parseInputs():
 	right = Input.is_action_pressed(n+"right");
 	fire = Input.is_action_just_pressed(n+"fire")
 	hit = Input.is_action_just_pressed(n+"hit")
-	down = Input.is_action_just_pressed(n+"down")
+	down = Input.is_action_pressed(n+"down")
 	skill = Input.is_action_just_pressed(n+"skill")
 	holdSkill = Input.is_action_pressed(n+"skill")
 	jump = Input.is_action_just_pressed(n+"jump")

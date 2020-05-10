@@ -32,7 +32,6 @@ func _on_physics_process(_delta):
 			movement()
 			calcWalls()
 			calculateJump()
-			print(velocity)
 			if jump and midairJumpsLeft == 0:
 				jumpInd.updateBar(0)
 #				rpc_unreliable("syncJump", 0)
@@ -40,7 +39,9 @@ func _on_physics_process(_delta):
 				jumpInd.updateBar(100)
 #				rpc_unreliable("syncJump", 100)
 	
-		
+func imposeGravity():
+	if not (L or R):
+		.imposeGravity()
 
 func fixFlip(dir):
 	currentDirection = dir
@@ -56,12 +57,15 @@ func fixFlip(dir):
 
 var L; var R
 func calcWalls():
+	var leftRelease = true if Input.is_action_just_released("p" + str(localNum) + "_left") else false
+	var rightRelease = true if Input.is_action_just_released("p" + str(localNum) + "_right") else false
 	var LColl = $leftWall.get_collider()
 	var RColl = $rightWall.get_collider()
 	var coll
 	L = left and $leftWall.is_colliding() and LColl.is_wall 
+	leftRelease = leftRelease and $leftWall.is_colliding() and LColl.is_wall
 	R = right and $rightWall.is_colliding() and RColl.is_wall
-	
+	rightRelease = rightRelease and $rightWall.is_colliding() and RColl.is_wall
 	if L: 
 		fixFlip(1)
 		coll = LColl
@@ -69,7 +73,12 @@ func calcWalls():
 		fixFlip(-1)
 		coll = RColl
 	if L or R:
-		velocity.y = 10 + coll.velocity.y
+		velocity.y = lerp(velocity.y, coll.velocity.y + 20, 0.5)
+	if rightRelease: velocity.x = -250
+	if leftRelease: velocity.x = 250
+	if (L or R) and down:
+		velocity.y = 300
+	
 		
 func calculateJump():
 	if is_on_floor():
@@ -80,7 +89,7 @@ func calculateJump():
 	if is_on_ceiling():
 		velocity.y = 10
 	if (L or R) and jump:  # walljump
-		velocity.y = -jumpSpeed / 1.5
+		velocity.y += -jumpSpeed / 1.4
 		velocity.x = currentDirection * 800
 	elif jump:
 		if midairJumpsLeft > 0 && not grounded:

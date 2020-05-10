@@ -70,6 +70,7 @@ totalJumps = 0
 [node name="PickUpRadius" parent="player" instance=ExtResource( 5 )]
 position = Vector2( 2.89005, -7.11653 )
 scale = Vector2( 0.25, 0.25 )
+collision_layer = 8
 
 [node name="jetflame" type="AnimatedSprite" parent="player"]
 visible = false
@@ -81,14 +82,17 @@ frame = 1
 [node name="sprite" type="AnimatedSprite" parent="player"]
 frames = ExtResource( 2 )
 animation = "idle"
-frame = 4
+frame = 2
 playing = true
 
 [node name="hurtbox" type="CollisionPolygon2D" parent="player"]
 polygon = PoolVector2Array( -0.078373, 5.96251, -5.76543, 1.91047, -5.9787, -2.07047, -3.13517, -11.0276, -0.078373, -17.5677, 4.82672, -17.5677, 5.82195, -16.7146, 5.96413, -8.11297, 10.1583, -7.97079, 10.0162, 5.96251 )
 
 [node name="jetpack" type="Area2D" parent="player"]
+visible = false
 position = Vector2( -6, -6.5 )
+monitoring = false
+monitorable = false
 collision_layer = 8
 collision_mask = 0
 

@@ -3,12 +3,12 @@
 # ————————————————————
 
 _**Content**_
--wall jump / hang
 -grappling hook 
 -display other weapon (so it doesn’t ‘disappear’ )
 -movement core
 -drop items on death
 -stage patterns 
+weapon angling
 -POLISH
 -content
 …
@@ -22,7 +22,7 @@ _**Content**_
 _**Details**_
 -double damage explosion bug (2 people right next to each other)
 	keep log of players per explosion? 
-
+wallRelease should push u away
 reduce boomerang end animation radius 
 		also while moving backwards u can lock it cuz lerp is slow
 				nvm this is only without fixFlip on turn around LOL
@@ -30,6 +30,7 @@ boomerang angles the correct way, disappears on hitting owner
 -boomerang sniper can only have X number out at a time
 -state while attacking melee that means u can’t turn move (only some ig)
 -decide whether u can pass through enemies or not
+-dedicated flip for weapons to make it smoother
 -weapons flip with storedDirection instead of currentDirection
 -animate weapon idle bobbing through script, leave idle effects to kethan
 -getting hit interrupts attacks? super armor?
@@ -179,3 +180,4 @@ boomerang disappears on contact with self
 -weapon pickup / ownership system
 	neutral items exchange with last used item
 		pressing button will still “use” the item even without ammo
+-wall jump / hang
