@@ -12,7 +12,6 @@ func _process(_delta):
 			closestPickup = z
 			lowestDist = dist
 		else: closestPickup.equipped = false
-	print(lowestDist)
 	if lowestDist != 99999:
 		closestPickup.activate(player)
 

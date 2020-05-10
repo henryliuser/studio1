@@ -7,6 +7,7 @@ _**Content**_
 -grappling hook 
 -display other weapon (so it doesn’t ‘disappear’ )
 -movement core
+-drop items on death
 -stage patterns 
 -POLISH
 -content
@@ -22,7 +23,9 @@ _**Details**_
 -double damage explosion bug (2 people right next to each other)
 	keep log of players per explosion? 
 
-reduce boomerang end animation radius
+reduce boomerang end animation radius 
+		also while moving backwards u can lock it cuz lerp is slow
+				nvm this is only without fixFlip on turn around LOL
 boomerang angles the correct way, disappears on hitting owner
 -boomerang sniper can only have X number out at a time
 -state while attacking melee that means u can’t turn move (only some ig)

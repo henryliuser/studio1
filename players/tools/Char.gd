@@ -69,11 +69,11 @@ func _physics_process(delta):
 func fixFlip(dir):
 	currentDirection = dir
 	var a = 0
-	hurtbox.scale.x = currentDirection
 	for c in get_children():
 		c.position.x = children[a].x * currentDirection
 		c.scale.x = abs(c.scale.x) * currentDirection
 		a += 1
+
 
 func _on_physics_process(_delta):
 	parseInputs()
@@ -104,6 +104,8 @@ func movement():
 	if not is_on_floor(): lerq = lerpWeight/3
 	if grounded: maxSpeeds = maxGroundVelocity
 	else: maxSpeeds = maxAirVelocity
+#	if justRight: fixFlip(1) can't do this Trust me
+#	if justLeft: fixFlip(-1)
 	if right && not left:
 		fixFlip(1)
 		velocity.x += acceleration 
@@ -135,7 +137,7 @@ func calculateJump():
 		grounded = false
 	if is_on_ceiling():
 		velocity.y = 10
-		
+	
 	if jump:
 		if midairJumpsLeft > 0 && not grounded:
 			midairJumpsLeft -= 1
@@ -183,7 +185,6 @@ func die():
 	set_collision_mask(18)
 	set_collision_layer(0)
 	yield(get_tree().create_timer(2),"timeout")
-	pass
 	get_parent().queue_free()
 	
 

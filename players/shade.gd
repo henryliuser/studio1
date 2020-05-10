@@ -29,16 +29,65 @@ func _on_physics_process(_delta):
 	if stunTimer.x == 0:
 		calcDash()
 		if not dashing and not predash:
+			movement()
+			calcWalls()
 			calculateJump()
+			print(velocity)
 			if jump and midairJumpsLeft == 0:
 				jumpInd.updateBar(0)
 #				rpc_unreliable("syncJump", 0)
 			elif is_on_floor():
 				jumpInd.updateBar(100)
 #				rpc_unreliable("syncJump", 100)
-			movement()
+	
+		
 
-			
+func fixFlip(dir):
+	currentDirection = dir
+	var a = 0
+	hurtbox.scale.x = currentDirection
+	for c in get_children():
+		if c.name == "rightWall" or c.name == "leftWall":
+			a+=1
+			continue
+		c.position.x = children[a].x * currentDirection
+		c.scale.x = abs(c.scale.x) * currentDirection
+		a += 1
+
+var L; var R
+func calcWalls():
+	var LColl = $leftWall.get_collider()
+	var RColl = $rightWall.get_collider()
+	var coll
+	L = left and $leftWall.is_colliding() and LColl.is_wall 
+	R = right and $rightWall.is_colliding() and RColl.is_wall
+	
+	if L: 
+		fixFlip(1)
+		coll = LColl
+	elif R: 
+		fixFlip(-1)
+		coll = RColl
+	if L or R:
+		velocity.y = 10 + coll.velocity.y
+		
+func calculateJump():
+	if is_on_floor():
+		grounded = true
+		midairJumpsLeft = totalJumps-1
+	else: 
+		grounded = false
+	if is_on_ceiling():
+		velocity.y = 10
+	if (L or R) and jump:  # walljump
+		velocity.y = -jumpSpeed / 1.5
+		velocity.x = currentDirection * 800
+	elif jump:
+		if midairJumpsLeft > 0 && not grounded:
+			midairJumpsLeft -= 1
+			velocity.y = -jumpSpeed
+		elif totalJumps > 0 && grounded:
+			velocity.y = -jumpSpeed
 
 func calcDash():
 	if skill and dashAvailable and not dashing and not predash and not noDash:

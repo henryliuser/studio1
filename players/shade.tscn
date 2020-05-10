@@ -8,10 +8,10 @@
 [ext_resource path="res://players/tools/Weapons.tscn" type="PackedScene" id=6]
 [ext_resource path="res://players/PickUpRadius.tscn" type="PackedScene" id=7]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 14.5 )
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
@@ -76,13 +76,25 @@ scale = Vector2( 0.333333, 0.333333 )
 
 [node name="hurtbox" type="CollisionShape2D" parent="player"]
 position = Vector2( 1, 0 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="sprite" type="AnimatedSprite" parent="player"]
 position = Vector2( -9.56196, 54.9107 )
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 animation = "forward"
 offset = Vector2( 9.56196, -55.4107 )
+
+[node name="rightWall" type="RayCast2D" parent="player"]
+scale = Vector2( 0.333333, 0.333333 )
+enabled = true
+cast_to = Vector2( 30, 0 )
+collision_mask = 2
+
+[node name="leftWall" type="RayCast2D" parent="player"]
+scale = Vector2( 0.333333, 0.333333 )
+enabled = true
+cast_to = Vector2( -30, 0 )
+collision_mask = 2
 
 [editable path="Gauges/JumpIndic"]
 
