@@ -22,7 +22,6 @@ weapon angling
 _**Details**_
 -double damage explosion bug (2 people right next to each other)
 	keep log of players per explosion? 
-wallRelease should push u away
 reduce boomerang end animation radius 
 		also while moving backwards u can lock it cuz lerp is slow
 				nvm this is only without fixFlip on turn around LOL
@@ -181,3 +180,4 @@ boomerang disappears on contact with self
 	neutral items exchange with last used item
 		pressing button will still “use” the item even without ammo
 -wall jump / hang
+wallRelease should push u away

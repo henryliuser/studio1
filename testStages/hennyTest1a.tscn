@@ -58,7 +58,7 @@ velocity = Vector2( 0, -30 )
 is_wall = true
 
 [node name="defaultPlat11" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1005.22, 700.179 )
+position = Vector2( 927.88, 633.58 )
 rotation = 1.5708
 velocity = Vector2( 0, -30 )
 is_wall = true

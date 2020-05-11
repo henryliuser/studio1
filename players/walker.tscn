@@ -70,7 +70,6 @@ totalJumps = 0
 [node name="PickUpRadius" parent="player" instance=ExtResource( 5 )]
 position = Vector2( 2.89005, -7.11653 )
 scale = Vector2( 0.25, 0.25 )
-collision_layer = 8
 
 [node name="jetflame" type="AnimatedSprite" parent="player"]
 visible = false
@@ -82,7 +81,7 @@ frame = 1
 [node name="sprite" type="AnimatedSprite" parent="player"]
 frames = ExtResource( 2 )
 animation = "idle"
-frame = 2
+frame = 3
 playing = true
 
 [node name="hurtbox" type="CollisionPolygon2D" parent="player"]

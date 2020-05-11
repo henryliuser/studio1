@@ -7,6 +7,7 @@ var equipped = false
 var player
 func _ready():
 	$equipRadius.set_collision_layer(32)
+	$equipRadius.set_collision_mask(32)
 	self.connect("picked_up", self, "_on_picked_up")
 
 func _physics_process(_delta):  # needs to be physics process cuz order
