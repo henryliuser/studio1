@@ -15,7 +15,7 @@
 position = Vector2( 1.38477, -1.3847 )
 
 [node name="defaultPlat" parent="." instance=ExtResource( 1 )]
-position = Vector2( 954.395, 981.592 )
+position = Vector2( 881.351, 1112.64 )
 scale = Vector2( 25, 25 )
 velocity = Vector2( 0, 0 )
 
@@ -44,8 +44,15 @@ scale = Vector2( 4, 4 )
 velocity = Vector2( 0, 0 )
 is_wall = true
 
+[node name="defaultPlat15" parent="." instance=ExtResource( 1 )]
+position = Vector2( 203.238, 789.86 )
+rotation = 1.5708
+scale = Vector2( 4, 4 )
+velocity = Vector2( 0, 0 )
+is_wall = true
+
 [node name="defaultPlat14" parent="." instance=ExtResource( 1 )]
-position = Vector2( 130.836, 603.889 )
+position = Vector2( 81.424, 666.191 )
 rotation = 1.39626
 scale = Vector2( 4, 4 )
 velocity = Vector2( 0, 0 )
