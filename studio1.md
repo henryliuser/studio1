@@ -8,13 +8,13 @@ _**Content**_
 -movement core
 -drop items on death
 -stage patterns 
-weapon angling
 -POLISH
 -content
 …
 -figure out incentive to make players fight for positioning more fiercely
 		maybe just hella health pickups to make lives longer
 		don’t want down time, no respawn / rounds stuff. non-stop
+		add catherine style shit for the climbing part :ok_hand:
 -make render order consistent
 -clean up player code
 -clean up projectile code
@@ -26,8 +26,7 @@ _**Details**_
 -outline weapons, hover them
 -melee weapon movement
 boomerang angles the correct way, disappears on hitting owner
--angle ranged weapons
-	have a position2d at the target that rotates with the
+-bounce boomerang off walls
 -boomerang sniper can only have X number out at a time
 -state while attacking melee that means u can’t turn move (only some ig)
 -decide whether u can pass through enemies or not
@@ -68,6 +67,8 @@ increase framerate on a lot of stuff (enerang)
 …
 boomer looks weird zoomed out
 
+_**Audio**_
+lol
 
 _**Learn**_
 coroutines
@@ -187,3 +188,5 @@ reduce boomerang end animation radius
 		also while moving backwards u can lock it cuz lerp is slow
 				nvm this is only without fixFlip on turn around LOL
 -rotate walker about wheels on shoot
+-angle ranged weapons
+	have a position2d at the target that rotates with the

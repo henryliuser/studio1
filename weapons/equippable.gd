@@ -6,10 +6,14 @@ signal picked_up
 var equipped = false
 var player
 onready var s = "p" + str(pnum) + "_"
+onready var hoverTween = $Tween
+onready var oPos = $sprite.position
+
 func _ready():
 	$equipRadius.set_collision_layer(32)
 	$equipRadius.set_collision_mask(32)
 	self.connect("picked_up", self, "_on_picked_up")
+	hover()
 
 func _physics_process(_delta):  # needs to be physics process cuz order
 	$sprite.material = null
@@ -30,8 +34,18 @@ func _on_picked_up(p):
 	get_parent().remove_child(self)
 	p.Weapons.swap(self)
 	global_position = x
+	hoverTween.start()
 
 func _on_dropped():
 	visible = true
 	equipped = false
 	
+func hover():
+	randomize()
+	hoverTween.repeat = true  # make the weapon hover 
+	var r = randi()%7 + 5
+	hoverTween.interpolate_property($sprite, "position:y", oPos.y + r, oPos.y - r,
+		1, Tween.TRANS_SINE, 2)
+	hoverTween.interpolate_property($sprite, "position:y", oPos.y - r, oPos.y + r,
+		1, Tween.TRANS_SINE, 2, 1)
+	hoverTween.start()

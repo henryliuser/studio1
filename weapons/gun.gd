@@ -18,8 +18,16 @@ func _process(_delta):
 	if equipped and available:
 		if Input.is_action_just_pressed(s+"fire"):
 			shoot()
-	if equipped and visible and down and player.is_on_floor():
-		rotation_degrees = lerp(currRot, -scale.x * 15, 0.1)
+	if equipped and visible and down:
+		var pRot = player.rotation_degrees
+		var pDirec = player.currentDirection
+		if player.is_on_floor():
+			player.rotation_degrees = lerp(pRot, -pDirec*20, 0.1)
+			rotation_degrees = lerp(currRot, -scale.x * 20, 0.1)
+		else:
+			player.rotation_degrees = lerp(pRot, -pDirec*-15, 0.1)
+			rotation_degrees = lerp(currRot, -scale.x * -20, 0.1)
+	
 
 func _on_Timer_timeout():
 	available = true

@@ -1,9 +1,7 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://assets/Weapons/SniperBoomerang/SniperIdle/Sprite10-0001.png" type="Texture" id=1]
 [ext_resource path="res://weapons/boomerangSniper.gd" type="Script" id=2]
-[ext_resource path="res://assets/Weapons/SniperBoomerang/SniperIdle/Sprite10-0002.png" type="Texture" id=3]
-[ext_resource path="res://assets/Weapons/SniperBoomerang/SniperIdle/Sprite10-0003.png" type="Texture" id=4]
 [ext_resource path="res://assets/Weapons/SniperBoomerang/SniperShot:Reload/Sprite10-0013.png" type="Texture" id=5]
 [ext_resource path="res://assets/Weapons/SniperBoomerang/SniperShot:Reload/Sprite10-0015.png" type="Texture" id=6]
 [ext_resource path="res://assets/Weapons/SniperBoomerang/SniperShot:Reload/Sprite10-0005.png" type="Texture" id=7]
@@ -24,7 +22,7 @@ extents = Vector2( 32, 10 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "idle",
 "speed": 2.0
@@ -36,13 +34,13 @@ animations = [ {
 } ]
 
 [node name="boomerangSniper" type="Node2D"]
-scale = Vector2( 2, 2 )
 script = ExtResource( 2 )
 type = 1
 cdSeconds = 0.5
 
 [node name="equipRadius" type="Area2D" parent="."]
-position = Vector2( 18.5166, -3.613 )
+position = Vector2( 41.844, -3.90099 )
+scale = Vector2( 2, 2 )
 collision_layer = 32
 collision_mask = 0
 
@@ -51,19 +49,19 @@ position = Vector2( 0, 1 )
 shape = SubResource( 1 )
 
 [node name="sprite" type="AnimatedSprite" parent="."]
-position = Vector2( 18.5166, -3.613 )
+position = Vector2( 41.844, -3.90099 )
+scale = Vector2( 2, 2 )
 frames = SubResource( 2 )
 animation = "idle"
-frame = 1
 playing = true
 
 [node name="point" type="Position2D" parent="."]
-position = Vector2( 49.4199, -2.25813 )
+position = Vector2( 100, 0 )
 
 [node name="target" type="Position2D" parent="."]
-position = Vector2( 600, -2.258 )
+position = Vector2( 1100, 0 )
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="sprites" type="Node2D" parent="."]
+[node name="Tween" type="Tween" parent="."]
 [connection signal="animation_finished" from="sprite" to="." method="_on_sprite_animation_finished"]
