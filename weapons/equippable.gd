@@ -5,6 +5,7 @@ onready var itemName = name
 signal picked_up
 var equipped = false
 var player
+onready var s = "p" + str(pnum) + "_"
 func _ready():
 	$equipRadius.set_collision_layer(32)
 	$equipRadius.set_collision_mask(32)
@@ -18,18 +19,17 @@ func activate(p):  # is within range to be picked up by a player
 	if not equipped:
 		$sprite.material = load("res://assets/Shaders/Outline.tres")
 		if Input.is_action_just_pressed("p" + str(p.localNum) + "_equip"):
-			player = p
-			equipped = true
-			pnum = p.localNum
-			var x = global_position
-			$sprite.material = null
-			get_parent().remove_child(self)
-			p.Weapons.swap(self)
-			global_position = x
-			_on_picked_up()
+			_on_picked_up(p)
 
-func _on_picked_up():
-	pass
+func _on_picked_up(p):
+	player = p
+	equipped = true
+	pnum = p.localNum
+	var x = global_position
+	$sprite.material = null
+	get_parent().remove_child(self)
+	p.Weapons.swap(self)
+	global_position = x
 
 func _on_dropped():
 	visible = true

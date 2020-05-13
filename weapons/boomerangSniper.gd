@@ -11,12 +11,12 @@ func shoot():
 	q.global_position = $point.global_position
 	q.dontTouch = player  # give it player who produced banana so it knows when to deal half damage
 	bulletList.push_back(q)
-	q.target *= get_parent().scale.x
+
+	q.target = $target.global_position
 	get_tree().current_scene.add_child(q)
-	rotation_degrees = -30
+	rotation_degrees -= 30
 	
 func _process(_delta):
-	rotation_degrees = lerp(rotation_degrees, 0, 0.1)
 	for q in bulletList:
 		if is_instance_valid(q) and q.has_method("unit"): # lmfao godot pls
 			q.ogPos = $point.global_position

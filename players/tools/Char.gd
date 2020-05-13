@@ -59,6 +59,7 @@ puppet func setEverything(vel, pos, sprFlip, scl, mod, currDirec):
 
 func _physics_process(delta):
 #	if is_network_master():
+	rotation_degrees = lerp(rotation_degrees, 0, 0.2)
 	calcHitstun()
 	imposeGravity()
 	if hp > 0 and stunTimer.x == 0: _on_physics_process(delta)
@@ -124,7 +125,6 @@ func movement():
 func lerp0(l):
 	velocity.x = lerp(velocity.x, 0, l)
 	#check if |sub-1| movement speed then just stop
-	rotation_degrees = lerp(rotation_degrees, 0, l/2)
 	if abs(velocity.x) <= 1:
 		velocity.x = 0
 	if abs(velocity.y) <= 1:

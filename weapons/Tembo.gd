@@ -10,7 +10,8 @@ func _physics_process(delta):
 			get_parent().update_active(type)
 			anim.play("hit")
 			
-func _on_picked_up():
+func _on_picked_up(p):
+	._on_picked_up(p)
 	for x in $hitboxes.get_children():
 		x.player = player
 
