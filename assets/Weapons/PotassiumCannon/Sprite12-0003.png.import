@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Sprite10-0020.png-c4c25f003e8decee81087d0cf097104c.stex"
+path="res://.import/Sprite12-0003.png-9fd4c7d30931cafacf95998d4ba88373.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Weapons/SniperBoomerang/Enerang/Sprite10-0020.png"
-dest_files=[ "res://.import/Sprite10-0020.png-c4c25f003e8decee81087d0cf097104c.stex" ]
+source_file="res://assets/Weapons/PotassiumCannon/Sprite12-0003.png"
+dest_files=[ "res://.import/Sprite12-0003.png-9fd4c7d30931cafacf95998d4ba88373.stex" ]
 
 [params]
 

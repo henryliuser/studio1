@@ -40,6 +40,7 @@ func _on_picked_up(p):
 func _on_dropped():
 	visible = true
 	equipped = false
+	hover()
 	
 func hover():
 	hoverTween.remove_all()

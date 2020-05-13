@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Sprite10-0023.png-d0f862d77dbaac6719ad7c238cb535f6.stex"
+path="res://.import/Sprite12-0006.png-d3bb12e35f5da3471d9f0172637e0fae.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Weapons/SniperBoomerang/Enerang/Sprite10-0023.png"
-dest_files=[ "res://.import/Sprite10-0023.png-d0f862d77dbaac6719ad7c238cb535f6.stex" ]
+source_file="res://assets/Projectiles/Banana/Sprite12-0006.png"
+dest_files=[ "res://.import/Sprite12-0006.png-d3bb12e35f5da3471d9f0172637e0fae.stex" ]
 
 [params]
 

@@ -8,12 +8,13 @@ export var is_for_hp = true
 
 var damaga = 0 # this is to see if two player_hurt calls happen simultaneously
 
-var player
+
 func _ready():
 	t.value = 100
 	p.value = 100
 	var x = get_parent().get_node("../player")
 	x.connect("hurt", self, "_on_player_hurt")
+	x.connect("die", self, "die")
 	
 func die():
 	updateBar(0)

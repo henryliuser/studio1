@@ -12,12 +12,10 @@ func _ready():
 func _physics_process(delta):  # don't even fking ask me..
 	if plantedFloor < 6 and plantedFloor > 0: 
 		plantedFloor += 1
-		fix_rotation()
 		velocity.x = 0
 		velocity.y += 100
 	elif plantedWall < 6 and plantedWall > 0:
 		plantedWall += 1
-		fix_rotation()
 		velocity.y = 0
 		velocity.x += 100*direction
 	elif plantedWall > 0 or plantedFloor > 0: velocity = Vector2()
@@ -25,8 +23,7 @@ func _physics_process(delta):  # don't even fking ask me..
 	
 	if !plantedFloor and !plantedWall:
 		velocity.y += gravity 
-		rotation_degrees += gravity*3 * delta * direction
-		if rotation_degrees >= 360: rotation_degrees -= 360
+		rotation_degrees += 600 * delta * direction
 	velocity = move_and_slide(velocity, Vector2(0,-1))
 
 var bods = {}
@@ -38,9 +35,13 @@ func _on_trigger_body_entered(body):
 		queue_free()
 	elif !bods.has(body):
 #		add_collision_exception_with(body)
-		if is_on_floor(): plantedFloor = 1
-		if is_on_wall(): plantedWall = 1
-		bods[body] = 1
+		if is_on_floor(): 
+			plantedFloor = 1
+			rotation_degrees = 0
+		if is_on_wall(): 
+			plantedWall = 1
+			rotation_degrees = -direction * 90
+		bods[body] = $sprite.play("planted")
 		call_deferred("stick", body)
 		
 
@@ -50,14 +51,6 @@ func yuh(x, body):  #dumb godot
 		for h in x.hitboxes:
 			h.damage /= 2
 			
-func fix_rotation():
-	var x = rotation_degrees
-	if x >= 315 or x < 45: rotation_degrees = 0
-	elif x >= 45 and x < 135: rotation_degrees = 90
-	elif x >= 135 and x < 225: rotation_degrees = 180
-	elif x >= 225 and x < 315: rotation_degrees = 270
-	else: rotation_degrees = 0
-
 func stick(body):
 	var x = global_position
 	var y = global_rotation_degrees
@@ -65,5 +58,5 @@ func stick(body):
 	body.add_child(self)
 	global_rotation_degrees = y
 	global_position = x
-	global_scale = Vector2(0.75,0.75)
+	global_scale = Vector2(1, 1)
 	velocity = Vector2()

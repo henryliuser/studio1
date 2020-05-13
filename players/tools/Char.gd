@@ -9,6 +9,7 @@ export var localNum = 1
 var tauntTimer = Vector2(0,10)
 
 signal hurt(player, dmg)
+signal die
 
 #animation variables
 onready var sprite = $sprite
@@ -181,10 +182,11 @@ func getHurt(dmg, stun:int=10, kb:Vector2=Vector2(), pos:Vector2=Vector2() ):
 	
 func die():
 	sprite.play("death")
-	for x in get_node("../Gauges").get_children():
-		x.die()
+#	for x in get_node("../Gauges").get_children():
+#		x.die()
 	set_collision_mask(18)
 	set_collision_layer(0)
+	emit_signal("die")
 	yield(get_tree().create_timer(2),"timeout")
 	get_parent().queue_free()
 	
