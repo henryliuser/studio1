@@ -124,6 +124,7 @@ func movement():
 func lerp0(l):
 	velocity.x = lerp(velocity.x, 0, l)
 	#check if |sub-1| movement speed then just stop
+	rotation_degrees = lerp(rotation_degrees, 0, l/2)
 	if abs(velocity.x) <= 1:
 		velocity.x = 0
 	if abs(velocity.y) <= 1:
@@ -187,5 +188,5 @@ func die():
 	yield(get_tree().create_timer(2),"timeout")
 	get_parent().queue_free()
 	
-
-
+func _on_shoot():
+	pass

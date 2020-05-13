@@ -18,14 +18,16 @@ weapon angling
 -make render order consistent
 -clean up player code
 -clean up projectile code
+-endless singleplayer/coop survival 
 
 _**Details**_
 -double damage explosion bug (2 people right next to each other)
 	keep log of players per explosion? 
-reduce boomerang end animation radius 
-		also while moving backwards u can lock it cuz lerp is slow
-				nvm this is only without fixFlip on turn around LOL
+-outline weapons, hover them
+-melee weapon movement
 boomerang angles the correct way, disappears on hitting owner
+-angle ranged weapons
+	have a position2d at the target that rotates with the
 -boomerang sniper can only have X number out at a time
 -state while attacking melee that means u can’t turn move (only some ig)
 -decide whether u can pass through enemies or not
@@ -86,7 +88,7 @@ radiant apple (glowing apple that burns nearby enemies. light centered, throwabl
 
 0 gravity hammer thing X
 1 boomerang sniper XX
-2 ruler/meterstick with tipper P
+2 ruler/meterstick with tipper P LEVITATE
 3 grenade launcher banana peel (mine)  X
 thousand island flamethrower
 torch ( DoT around it)
@@ -181,3 +183,7 @@ boomerang disappears on contact with self
 		pressing button will still “use” the item even without ammo
 -wall jump / hang
 wallRelease should push u away
+reduce boomerang end animation radius 
+		also while moving backwards u can lock it cuz lerp is slow
+				nvm this is only without fixFlip on turn around LOL
+-rotate walker about wheels on shoot

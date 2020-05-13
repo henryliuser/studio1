@@ -2,13 +2,14 @@ extends "res://weapons/gun.gd"
 var bulletList = []
 
 func shoot():
-	.shoot()
+	available = false  # this is a bugfix, trust
 	$sprite.play("fire")
 	yield(get_tree().create_timer(.3), "timeout")  # lined this shit first try
+	.shoot()
 	var q = load("res://weapons/projectiles/boomerang.tscn").instance()
 	player.velocity.x -= player.currentDirection * recoil  # kick player back
 	q.global_position = $point.global_position
-	q.dontTouch = player
+	q.dontTouch = player  # give it player who produced banana so it knows when to deal half damage
 	bulletList.push_back(q)
 	q.target *= get_parent().scale.x
 	get_tree().current_scene.add_child(q)

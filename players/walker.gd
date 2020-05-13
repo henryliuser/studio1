@@ -57,3 +57,6 @@ func die():
 func _on_jetpack_area_entered(_area):
 	updateFuel(-50)
 #	area.queue_free()
+
+func _on_shoot():
+	rotation_degrees -= currentDirection * 20
