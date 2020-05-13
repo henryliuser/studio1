@@ -25,3 +25,6 @@ func wrap(curr,theArray,direction):
 	elif curr >= theArray.size():
 		curr = 0
 	return curr
+
+func _ready():
+	randomize()

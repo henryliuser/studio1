@@ -7,7 +7,7 @@ var equipped = false
 var player
 onready var s = "p" + str(pnum) + "_"
 onready var hoverTween = $Tween
-onready var oPos = $sprite.position
+var oPos
 
 func _ready():
 	$equipRadius.set_collision_layer(32)
@@ -17,7 +17,8 @@ func _ready():
 
 func _physics_process(_delta):  # needs to be physics process cuz order
 	$sprite.material = null
-	if equipped: position = lerp(position,player.Weapons.posList[itemName], 0.3)
+	if equipped: 
+		position = lerp(position, player.Weapons.posList[itemName], 0.3)
 
 func activate(p):  # is within range to be picked up by a player
 	if not equipped:
@@ -34,16 +35,18 @@ func _on_picked_up(p):
 	get_parent().remove_child(self)
 	p.Weapons.swap(self)
 	global_position = x
-	hoverTween.start()
+	hover()
 
 func _on_dropped():
 	visible = true
 	equipped = false
 	
 func hover():
-	randomize()
+	hoverTween.remove_all()
+	oPos = $sprite.position
 	hoverTween.repeat = true  # make the weapon hover 
 	var r = randi()%7 + 5
+	if equipped: r = 4
 	hoverTween.interpolate_property($sprite, "position:y", oPos.y + r, oPos.y - r,
 		1, Tween.TRANS_SINE, 2)
 	hoverTween.interpolate_property($sprite, "position:y", oPos.y - r, oPos.y + r,
