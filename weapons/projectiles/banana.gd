@@ -1,10 +1,14 @@
 extends KinematicBody2D
 var direction = 1
 var keeper
-onready var velocity = Vector2(direction*600,-600)
+var velocity = Vector2(direction*600,-600)
 var gravity = 40
 var plantedFloor = 0
 var plantedWall = 0
+
+func _ready():
+	velocity.x *= direction
+
 func _physics_process(delta):  # don't even fking ask me..
 	if plantedFloor < 6 and plantedFloor > 0: 
 		plantedFloor += 1

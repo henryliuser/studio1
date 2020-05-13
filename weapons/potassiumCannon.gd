@@ -7,6 +7,8 @@ func shoot():
 	q.keeper = player
 	q.global_position = $Muzzle.global_position
 	q.direction = player.currentDirection
+	if Input.is_action_pressed(s+"down"):
+		q.velocity /= 1.3
 	get_tree().current_scene.add_child(q)
 	rotation_degrees = -30
 
