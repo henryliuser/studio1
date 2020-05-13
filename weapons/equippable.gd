@@ -1,11 +1,11 @@
 extends Node2D
-export var pnum = 1
+var pnum = 1
 export var type = 0 
 onready var itemName = name
 signal picked_up
 var equipped = false
 var player
-onready var s = "p" + str(pnum) + "_"
+var s
 onready var hoverTween = $Tween
 var oPos
 
@@ -30,6 +30,7 @@ func _on_picked_up(p):
 	player = p
 	equipped = true
 	pnum = p.localNum
+	s = "p" + str(pnum) + "_"
 	var x = global_position
 	$sprite.material = null
 	get_parent().remove_child(self)

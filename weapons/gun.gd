@@ -14,8 +14,9 @@ func _process(_delta):
 #	else: modulate = Color.red
 	var currRot = rotation_degrees
 	rotation_degrees = lerp(currRot, 0, 0.1)
-	var down = Input.is_action_pressed(s+"down")
+	var down
 	if equipped and available:
+		down = Input.is_action_pressed(s+"down")
 		if Input.is_action_just_pressed(s+"fire"):
 			shoot()
 	if equipped and visible and down:

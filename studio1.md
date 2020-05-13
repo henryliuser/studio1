@@ -23,7 +23,7 @@ _**Content**_
 _**Details**_
 -double damage explosion bug (2 people right next to each other)
 	keep log of players per explosion? 
--outline weapons, hover them
+-outline weapons black ??
 -melee weapon movement
 boomerang angles the correct way, disappears on hitting owner
 -bounce boomerang off walls
@@ -190,3 +190,4 @@ reduce boomerang end animation radius
 -rotate walker about wheels on shoot
 -angle ranged weapons
 	have a position2d at the target that rotates with the
+-tween hover weapons

@@ -1,54 +1,152 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=7 format=2]
 
+[ext_resource path="res://assets/tempText.tres" type="DynamicFont" id=1]
+[ext_resource path="res://players/tools/walkerSprite.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://assets/Characters/shade.png" type="Texture" id=3]
 [ext_resource path="res://testStages/henryTestSelect.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFontData" id=1]
+antialiased = false
+font_path = "res://assets/joystix monospace copy.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 1 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 4 )
 
-[node name="boomer" type="Button" parent="."]
-margin_left = 319.456
-margin_top = 387.81
-margin_right = 507.456
-margin_bottom = 469.81
+[node name="walkerTest" type="Button" parent="."]
+margin_left = 100.0
+margin_top = 377.946
+margin_right = 310.0
+margin_bottom = 459.946
 rect_scale = Vector2( 1.67362, 1.40413 )
-text = "WALKER TEST"
+custom_fonts/font = ExtResource( 1 )
+text = "walker"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="boomer2" type="Button" parent="."]
-margin_left = 314.858
-margin_top = 580.9
-margin_right = 502.858
-margin_bottom = 662.9
-rect_scale = Vector2( 1.67362, 1.40413 )
-text = "SHADE TEST"
+[node name="walker" type="AnimatedSprite" parent="walkerTest"]
+position = Vector2( 254.779, 59.3672 )
+scale = Vector2( 2.98754, 3.56092 )
+frames = ExtResource( 2 )
+animation = "idle"
+frame = 3
+playing = true
+
+[node name="walkerDesc" type="Label" parent="walkerTest"]
+margin_left = 60.9897
+margin_top = -49.3739
+margin_right = 229.99
+margin_bottom = -29.3739
+custom_fonts/font = ExtResource( 1 )
+text = "x - jetpack"
 __meta__ = {
 "_edit_use_anchors_": false
+}
+
+[node name="shadeTest" type="Button" parent="."]
+margin_left = 100.0
+margin_top = 571.036
+margin_right = 310.0
+margin_bottom = 653.036
+rect_scale = Vector2( 1.67362, 1.40413 )
+custom_fonts/font = ExtResource( 1 )
+text = "shade"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="shade" type="Sprite" parent="shadeTest"]
+position = Vector2( 256.431, 39.6917 )
+scale = Vector2( 2.39003, 2.84874 )
+texture = ExtResource( 3 )
+
+[node name="shadeDesc" type="Label" parent="shadeTest"]
+margin_left = 16.2307
+margin_top = 110.738
+margin_right = 406.231
+margin_bottom = 176.738
+custom_fonts/font = ExtResource( 1 )
+text = "x - dash
+hold against wall to hang
+jump while hanging to walljump"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="p1controls" type="Label" parent="."]
+margin_left = 838.795
+margin_top = 46.308
+margin_right = 1351.79
+margin_bottom = 505.308
+custom_fonts/font = SubResource( 2 )
+text = "    PLAYER 1
+W - jump
+A/D - left/right
+S - angle gun
+
+x - ability
+c - melee
+v - ranged
+e - equip weapon
+
+"
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="p2controls" type="Label" parent="."]
+margin_left = 853.966
+margin_top = 578.693
+margin_right = 1366.97
+margin_bottom = 1037.69
+custom_fonts/font = SubResource( 2 )
+text = "    PLAYER 2
+i - jump
+j/l - left/right
+k - angle gun
+
+, - ability
+. - melee
+/ - ranged
+o - equip weapon
+
+"
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
 }
 
 [node name="random" type="Button" parent="."]
-margin_left = 1325.53
-margin_top = 398.131
-margin_right = 1513.53
-margin_bottom = 480.131
+margin_left = 1531.66
+margin_top = 393.199
+margin_right = 1719.66
+margin_bottom = 475.199
 rect_scale = Vector2( 1.67362, 1.40413 )
+custom_fonts/font = ExtResource( 1 )
 text = "random"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="random2" type="Button" parent="."]
-margin_left = 1331.94
-margin_top = 557.974
-margin_right = 1519.94
-margin_bottom = 639.974
+margin_left = 1525.94
+margin_top = 553.042
+margin_right = 1713.94
+margin_bottom = 635.042
 rect_scale = Vector2( 1.67362, 1.40413 )
+custom_fonts/font = ExtResource( 1 )
 text = "random2"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="boomer" to="." method="_on_boomer_pressed"]
-[connection signal="pressed" from="boomer2" to="." method="_on_boomer2_pressed"]
+[connection signal="pressed" from="walkerTest" to="." method="_on_boomer_pressed"]
+[connection signal="pressed" from="shadeTest" to="." method="_on_boomer2_pressed"]
 [connection signal="pressed" from="random" to="." method="_on_random_pressed"]
 [connection signal="pressed" from="random2" to="." method="_on_random2_pressed"]

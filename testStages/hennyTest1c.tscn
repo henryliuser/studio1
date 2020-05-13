@@ -51,7 +51,6 @@ position = Vector2( 991.658, 221.966 )
 
 [node name="dummy" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1195.45, 582.744 )
-localNum = 2
 
 [node name="boomerangSniper" parent="." instance=ExtResource( 8 )]
 position = Vector2( 732.731, 209.274 )
