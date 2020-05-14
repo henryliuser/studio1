@@ -2,6 +2,7 @@ extends "res://weapons/gun.gd"
 var bulletList = []
 
 func shoot():
+	print(rotation_degrees)
 	available = false  # this is a bugfix, trust
 	$sprite.play("fire")
 	yield(get_tree().create_timer(.3), "timeout")  # lined this shit first try

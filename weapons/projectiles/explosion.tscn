@@ -23,10 +23,11 @@ radius = 75.0
 script = ExtResource( 4 )
 
 [node name="sprite" type="AnimatedSprite" parent="."]
-scale = Vector2( 5, 5 )
+scale = Vector2( 7.5, 7.5 )
 frames = SubResource( 1 )
 
 [node name="hitboxes" type="Node2D" parent="."]
+scale = Vector2( 1.5, 1.5 )
 
 [node name="projectile" type="Area2D" parent="hitboxes"]
 collision_layer = 9

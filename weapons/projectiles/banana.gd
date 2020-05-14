@@ -43,10 +43,10 @@ func _on_trigger_body_entered(body):
 			rotation_degrees = -direction * 90
 		bods[body] = $sprite.play("planted")
 		call_deferred("stick", body)
-		
 
 func yuh(x, body):  #dumb godot
 	get_tree().current_scene.add_child(x)
+	print(keeper.get_parent().name + " " + body.get_parent().name)
 	if keeper == body:
 		for h in x.hitboxes:
 			h.damage /= 2

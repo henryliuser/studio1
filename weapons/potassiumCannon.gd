@@ -4,7 +4,7 @@ export var projectilePath = ""
 func shoot():
 	.shoot()
 	var q = load(projectilePath).instance()
-	q.keeper = player
+	q.keeper = player  # does half damage if triggered by self
 	q.global_position = $Muzzle.global_position
 	q.direction = player.currentDirection
 	if Input.is_action_pressed(s+"down"):

@@ -6,7 +6,6 @@ _**Content**_
 -grappling hook 
 -display other weapon (so it doesn’t ‘disappear’ )
 -movement core
--drop items on death
 -stage patterns 
 -POLISH
 -content
@@ -24,7 +23,10 @@ _**Details**_
 -double damage explosion bug (2 people right next to each other)
 	keep log of players per explosion? 
 -outline weapons black ??
+-weapons pick up at different heights !!!
+
 -melee weapon movement
+-make gauges stay still on death
 boomerang angles the correct way, disappears on hitting owner
 -bounce boomerang off walls
 -boomerang sniper can only have X number out at a time
@@ -191,3 +193,4 @@ reduce boomerang end animation radius
 -angle ranged weapons
 	have a position2d at the target that rotates with the
 -tween hover weapons
+-drop items on death

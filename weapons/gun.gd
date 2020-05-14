@@ -14,20 +14,21 @@ func _process(_delta):
 #	else: modulate = Color.red
 	var currRot = rotation_degrees
 	rotation_degrees = lerp(currRot, 0, 0.1)
-	var down
-	if equipped and available:
-		down = Input.is_action_pressed(s+"down")
-		if Input.is_action_just_pressed(s+"fire"):
-			shoot()
-	if equipped and visible and down:
-		var pRot = player.rotation_degrees
-		var pDirec = player.currentDirection
-		if player.is_on_floor():
-			player.rotation_degrees = lerp(pRot, -pDirec*20, 0.1)
-			rotation_degrees = lerp(currRot, -scale.x * 20, 0.1)
-		else:
-			player.rotation_degrees = lerp(pRot, -pDirec*-15, 0.1)
-			rotation_degrees = lerp(currRot, -scale.x * -20, 0.1)
+	if equipped: 
+		var down = Input.is_action_pressed(s + "down")
+		if available:
+			down = Input.is_action_pressed(s+"down")
+			if Input.is_action_just_pressed(s+"fire"):
+				shoot()
+		if visible and down:
+			var pRot = player.rotation_degrees
+			var pDirec = player.currentDirection
+			if player.is_on_floor():
+				player.rotation_degrees = lerp(pRot, -pDirec*20, 0.1)
+				rotation_degrees = lerp(currRot, -scale.x * 20, 0.1)
+			else:
+				player.rotation_degrees = lerp(pRot, -pDirec*-15, 0.1)
+				rotation_degrees = lerp(currRot, -scale.x * -20, 0.1)
 	
 
 func _on_Timer_timeout():
