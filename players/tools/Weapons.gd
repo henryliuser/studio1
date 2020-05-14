@@ -31,7 +31,6 @@ func swap(weapon):  # for use outside of this node, by weapons
 
 func drop(x, pos:Vector2=Vector2(9999,9999)):
 	if x != null:
-		print(x.name)
 		if pos == Vector2(9999,9999): pos = x.global_position
 		remove_child(x)
 		get_tree().current_scene.add_child(x)

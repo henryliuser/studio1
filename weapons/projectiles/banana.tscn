@@ -36,7 +36,6 @@ modulate = Color( 1, 0.960784, 0, 1 )
 position = Vector2( -3.72147, 5.09252 )
 scale = Vector2( 1.75, 1.75 )
 frames = SubResource( 2 )
-animation = "planted"
 playing = true
 
 [node name="trigger" type="Area2D" parent="."]

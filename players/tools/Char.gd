@@ -187,6 +187,7 @@ func die():
 	set_collision_mask(18)
 	set_collision_layer(0)
 	emit_signal("die")
+	$PickUpRadius.queue_free()
 	yield(get_tree().create_timer(2),"timeout")
 	get_parent().queue_free()
 	

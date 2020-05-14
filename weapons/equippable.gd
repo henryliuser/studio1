@@ -27,6 +27,7 @@ func activate(p):  # is within range to be picked up by a player
 			_on_picked_up(p)
 
 func _on_picked_up(p):
+#	$sprite.position.y = 0  # this works for guns.. idk gotta investigate more
 	player = p
 	equipped = true
 	pnum = p.localNum
@@ -47,10 +48,10 @@ func hover():
 	hoverTween.remove_all()
 	oPos = $sprite.position
 	hoverTween.repeat = true  # make the weapon hover 
-	var r = randi()%7 + 5
-	if equipped: r = 4
+	var r = randi()%7 + 5 if !equipped else 4
+	var duration = randf()+0.5 if !equipped else 0.8
 	hoverTween.interpolate_property($sprite, "position:y", oPos.y + r, oPos.y - r,
-		1, Tween.TRANS_SINE, 2)
+		duration, Tween.TRANS_SINE, 2)
 	hoverTween.interpolate_property($sprite, "position:y", oPos.y - r, oPos.y + r,
-		1, Tween.TRANS_SINE, 2, 1)
+		duration, Tween.TRANS_SINE, 2, duration)
 	hoverTween.start()

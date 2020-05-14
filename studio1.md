@@ -24,7 +24,7 @@ _**Details**_
 	keep log of players per explosion? 
 -outline weapons black ??
 -weapons pick up at different heights !!!
-
+-pcannon jitters randomly
 -melee weapon movement
 -make gauges stay still on death
 boomerang angles the correct way, disappears on hitting owner

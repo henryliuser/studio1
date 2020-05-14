@@ -5,6 +5,7 @@ var velocity = Vector2(direction*600,-600)
 var gravity = 40
 var plantedFloor = 0
 var plantedWall = 0
+const spinSpeed = 700
 
 func _ready():
 	velocity.x *= direction
@@ -23,7 +24,7 @@ func _physics_process(delta):  # don't even fking ask me..
 	
 	if !plantedFloor and !plantedWall:
 		velocity.y += gravity 
-		rotation_degrees += 600 * delta * direction
+		rotation_degrees += spinSpeed * delta * direction
 	velocity = move_and_slide(velocity, Vector2(0,-1))
 
 var bods = {}
@@ -46,7 +47,6 @@ func _on_trigger_body_entered(body):
 
 func yuh(x, body):  #dumb godot
 	get_tree().current_scene.add_child(x)
-	print(keeper.get_parent().name + " " + body.get_parent().name)
 	if keeper == body:
 		for h in x.hitboxes:
 			h.damage /= 2

@@ -10,7 +10,7 @@ func shoot():
 	if Input.is_action_pressed(s+"down"):
 		q.velocity /= 1.3
 	get_tree().current_scene.add_child(q)
-	rotation_degrees = -30
+	rotation_degrees -= 30
 
 func _physics_process(_delta):
 	rotation_degrees = lerp(rotation_degrees, 0, 0.035)
