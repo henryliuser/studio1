@@ -1,7 +1,7 @@
 extends Node2D
 var pnum = 1
 export var type = 0 
-onready var itemName = name
+export var itemName = ""
 signal picked_up
 var equipped = false
 var player

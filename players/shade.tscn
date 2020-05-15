@@ -70,6 +70,7 @@ position = Vector2( 0.718964, -15.8174 )
 scale = Vector2( 3, 3 )
 collision_mask = 5
 script = ExtResource( 1 )
+name_id = "shade"
 totalJumps = 2
 
 [node name="PickUpRadius" parent="player" instance=ExtResource( 7 )]

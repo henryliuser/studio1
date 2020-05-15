@@ -3,6 +3,7 @@ extends KinematicBody2D
 export var gravity = 50
 var currentDirection = 1
 var storedDirection = 1
+export var name_id = ""
 
 var netID = 0
 export var localNum = 1

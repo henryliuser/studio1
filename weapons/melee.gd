@@ -1,6 +1,7 @@
 extends "res://weapons/equippable.gd"
 onready var anim = $AnimationPlayer
 
+var k = 0
 func _physics_process(delta):
 	var playin = anim.is_playing()
 	if not equipped:
@@ -9,7 +10,11 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("p" + str(pnum) + "_hit"):
 			hit()
 			
-	if playin: hoverTween.stop_all()
+	
+	if playin: 
+		hoverTween.stop_all()
+		k+=1
+		print(k)
 	else: hoverTween.resume_all()
 
 func _on_picked_up(p):

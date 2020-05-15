@@ -62,6 +62,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_vertical_guides_": [  ]
 }
+name_id = "walker"
 maxAirVelocity = Vector2( 400, 1500 )
 maxGroundVelocity = Vector2( 500, 1500 )
 lerpWeight = 0.25
@@ -81,7 +82,7 @@ frame = 1
 [node name="sprite" type="AnimatedSprite" parent="player"]
 frames = ExtResource( 2 )
 animation = "idle"
-frame = 2
+frame = 1
 playing = true
 
 [node name="hurtbox" type="CollisionPolygon2D" parent="player"]

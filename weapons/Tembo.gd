@@ -1,9 +1,9 @@
 extends "res://weapons/melee.gd"
 onready var player_tween = $PlayerTween
+
 func _physics_process(delta):
 	if anim.is_playing() and player.is_on_floor(): player.melee_velo = Vector2()
 	._physics_process(delta)
-	
 
 func hit():
 	.hit()
