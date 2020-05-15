@@ -18,13 +18,23 @@ _**Content**_
 -clean up player code
 -clean up projectile code
 -endless singleplayer/coop survival 
+-get to choose a song that plays while u have the lead. 
+	record scratch when lead changes
 
 _**Details**_
+-melee weapon movement
+		regular hit and holding down hit 
+		Char.gd unactionable state, super_armor boolean
+				no other inputs during this time will register, maybe Not dash
+						clear inputs function
+				upwards melee movement costs fuel for walker
+		stop idle hover when attacking
+		
+
 -double damage explosion bug (2 people right next to each other)
 	keep log of players per explosion? 
 -outline weapons black ??
 -pcannon jitters randomly
--melee weapon movement
 -make gauges stay still on death
 boomerang angles the correct way, disappears on hitting owner
 -bounce boomerang off walls

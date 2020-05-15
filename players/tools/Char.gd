@@ -44,6 +44,10 @@ export var totalJumps = 1
 var grounded = true
 var midairJumpsLeft = totalJumps - 1
 
+#melee weapon movement
+var unactionable = Vector2()
+var super_armor = false
+
 #siblings
 onready var Gauges = get_node("../Gauges")
 onready var Weapons = get_node("../Weapons")
@@ -60,10 +64,14 @@ puppet func setEverything(vel, pos, sprFlip, scl, mod, currDirec):
 
 func _physics_process(delta):
 #	if is_network_master():
+#	if unactionable.x == 0:
 	rotation_degrees = lerp(rotation_degrees, 0, 0.2)
 	calcHitstun()
 	imposeGravity()
-	if hp > 0 and stunTimer.x == 0: _on_physics_process(delta)
+	if hp > 0 and stunTimer.x == 0: 
+		if unactionable.x == 0: parseInputs()
+		_on_physics_process(delta)
+		
 	if hp <= 0 and stunTimer.x == 0: lerp0(lerpWeight/3)
 #	rpc_unreliable("setEverything", velocity,position,sprite.flip_h,scale,modulate,currentDirection)
 	velocity = move_and_slide(velocity, Vector2(0,-1))
@@ -99,7 +107,12 @@ func parseInputs():
 	
 	justLeft = Input.is_action_just_pressed(n+"left")
 	justRight = Input.is_action_just_pressed(n+"right")
-	
+
+func clearInputs():
+	left = false; right = false; fire = false; hit = false; down = false;
+	skill = false; holdSkill = false; jump = false; taunt = false;
+	justLeft = false; justRight = false;
+
 func movement():
 	var maxSpeeds
 	var lerq = lerpWeight
@@ -162,7 +175,6 @@ func calcHitstun():
 # take 'dmg' damage, get stunned for 'stun' frames, get knocked back by
 # absolute Vector2(kb), in the direction based on Vector2(pos)
 func getHurt(dmg, stun:int=10, kb:Vector2=Vector2(), pos:Vector2=Vector2() ):
-	
 	stunTimer.x = 1
 	stunTimer.y = stun  # set up the hitstun
 	if dmg > 0:
@@ -175,6 +187,7 @@ func getHurt(dmg, stun:int=10, kb:Vector2=Vector2(), pos:Vector2=Vector2() ):
 		else: fixFlip(-1)
 	velocity = Vector2(t/abs(t)*kb.x, kb.y) 
 	position += velocity/30
+	rotation_degrees = -currentDirection*50
 	hp -= dmg
 	hpbar.updateBar(hp)
 	if hp <= 0:
@@ -193,3 +206,28 @@ func die():
 	
 func _on_shoot():
 	pass
+
+func melee_movement(length_frames, super_armor:bool=false):
+	unactionable.x = 1;
+	unactionable.y = length_frames
+#	stunTimer.x = 1;
+#	stunTimer.y = length_frames
+	self.super_armor = super_armor
+	clearInputs()
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

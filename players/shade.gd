@@ -25,7 +25,6 @@ puppet func syncJump(d):
 	jumpInd.updateBar(d)
 
 func _on_physics_process(_delta):
-	parseInputs()
 	if stunTimer.x == 0:
 		calcDash()
 		if not dashing and not predash:
