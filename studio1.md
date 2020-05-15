@@ -32,6 +32,7 @@ _**Details**_
 		stop idle hover when attacking
 		inheritance/generalize for melee weapons
 		2 different animations for tembo
+only lerp back rotation when not in hitstun
 		
 -deal with boomerang shoot then switch weapons
 -double damage explosion bug (2 people right next to each other)

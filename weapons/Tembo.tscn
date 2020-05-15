@@ -110,6 +110,8 @@ texture = ExtResource( 1 )
 
 [node name="Tween" type="Tween" parent="."]
 
+[node name="PlayerTween" type="Tween" parent="."]
+
 [editable path="hitboxes/projectile"]
 
 [editable path="hitboxes/projectile2"]

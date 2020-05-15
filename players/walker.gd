@@ -27,7 +27,7 @@ func jet():
 	velocity.y -= jetSpeed
 #	if velocity.y < 0: velocity.y = max(velocity.y, -500)
 	updateFuel(-1.3)
-	print(velocity.y)
+
 	
 puppet func syncFuel(d):
 	fuelbar.updateBar(d)

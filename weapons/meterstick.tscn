@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/stick.png" type="Texture" id=1]
 [ext_resource path="res://weapons/projectiles/walkerShort.tscn" type="PackedScene" id=2]
-[ext_resource path="res://weapons/tembo.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 64, 5 )
@@ -66,7 +65,6 @@ radius = 4.0
 height = 1.0
 
 [node name="meterstick" type="Node2D"]
-script = ExtResource( 3 )
 
 [node name="equipRadius" type="Area2D" parent="."]
 
