@@ -11,10 +11,7 @@ func _physics_process(delta):
 			hit()
 			
 	
-	if playin: 
-		hoverTween.stop_all()
-		k+=1
-		print(k)
+	if playin: hoverTween.stop_all()
 	else: hoverTween.resume_all()
 
 func _on_picked_up(p):

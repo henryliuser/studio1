@@ -29,6 +29,7 @@ position = Vector2( 0, -70 )
 scale = Vector2( 3, 3 )
 collision_mask = 5
 script = ExtResource( 1 )
+name_id = "dummy"
 
 [node name="sprite" type="AnimatedSprite" parent="player"]
 position = Vector2( 0, -0.5 )

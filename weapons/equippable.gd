@@ -23,13 +23,9 @@ func _physics_process(_delta):  # needs to be physics process cuz order
 	if equipped: 
 		position = lerp(position, player.Weapons.posList[itemName], 0.3)
 	sprite.material.set_shader_param("width", 0.0)
-	if name == "boomerangSniper":
-		print(sprite.material.get_shader_param("width"))
-		
 
 func activate(p):  # is within range to be picked up by a player
 	if not equipped:
-		print(name)
 		sprite.material.set_shader_param("width", 1.5)
 		if Input.is_action_just_pressed("p" + str(p.localNum) + "_equip"):
 			_on_picked_up(p)

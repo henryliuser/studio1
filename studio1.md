@@ -28,12 +28,12 @@ _**Details**_
 				no other inputs during this time will register, maybe Not dash
 						clear inputs function
 				upwards melee movement costs fuel for walker?
-		can reverse before a certain point
+		can reverse before a certain point?
 		stop idle hover when attacking
 		inheritance/generalize for melee weapons
 		2 different animations for tembo
 
--fix tembo hitboxes lmfao
+-fix tembo hitboxes lmfao. can do no knockback (fhit against dummy)
 -deal with boomerang shoot then switch weapons
 -double damage explosion bug (2 people right next to each other)
 	keep log of players per explosion? 
