@@ -34,7 +34,7 @@ posList = {
 "boomerangSniper": Vector2( 2, -7 ),
 "meterstick": Vector2( 0, 4 ),
 "potassiumCannon": Vector2( 13, -5 ),
-"tembo": Vector2( 3, 18 )
+"tembo": Vector2( 3, 16 )
 }
 
 [node name="Gauges" parent="." instance=ExtResource( 33 )]
@@ -81,7 +81,7 @@ frame = 1
 [node name="sprite" type="AnimatedSprite" parent="player"]
 frames = ExtResource( 2 )
 animation = "idle"
-frame = 4
+frame = 3
 playing = true
 
 [node name="hurtbox" type="CollisionPolygon2D" parent="player"]

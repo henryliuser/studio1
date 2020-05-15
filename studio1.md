@@ -22,22 +22,27 @@ _**Content**_
 	record scratch when lead changes
 
 _**Details**_
--melee weapon movement
+-melee weapon movement — 5/15
 		regular hit and holding down hit 
 		Char.gd unactionable state, super_armor boolean
 				no other inputs during this time will register, maybe Not dash
 						clear inputs function
-				upwards melee movement costs fuel for walker
+				upwards melee movement costs fuel for walker?
+		can reverse before a certain point
 		stop idle hover when attacking
+		inheritance/generalize for melee weapons
+		2 different animations for tembo
 		
-
+-deal with boomerang shoot then switch weapons
 -double damage explosion bug (2 people right next to each other)
 	keep log of players per explosion? 
 -outline weapons black ??
 -pcannon jitters randomly
 -make gauges stay still on death
+-sometimes hammer goes into ground, not a huge deal
 boomerang angles the correct way, disappears on hitting owner
 -bounce boomerang off walls
+-buffering (especially on walljumps)
 -boomerang sniper can only have X number out at a time
 -state while attacking melee that means u can’t turn move (only some ig)
 -decide whether u can pass through enemies or not

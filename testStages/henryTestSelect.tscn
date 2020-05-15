@@ -35,7 +35,7 @@ position = Vector2( 254.779, 59.3672 )
 scale = Vector2( 2.98754, 3.56092 )
 frames = ExtResource( 2 )
 animation = "idle"
-frame = 2
+frame = 3
 playing = true
 
 [node name="walkerDesc" type="Label" parent="walkerTest"]
@@ -45,6 +45,18 @@ margin_right = 229.99
 margin_bottom = -29.3739
 custom_fonts/font = ExtResource( 1 )
 text = "x - jetpack"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bug" type="Button" parent="."]
+margin_left = 106.395
+margin_top = 117.89
+margin_right = 316.395
+margin_bottom = 199.89
+rect_scale = Vector2( 1.67362, 1.40413 )
+custom_fonts/font = ExtResource( 1 )
+text = "bug test"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -147,6 +159,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="pressed" from="walkerTest" to="." method="_on_boomer_pressed"]
+[connection signal="pressed" from="bug" to="." method="_on_bug_pressed"]
 [connection signal="pressed" from="shadeTest" to="." method="_on_boomer2_pressed"]
 [connection signal="pressed" from="random" to="." method="_on_random_pressed"]
 [connection signal="pressed" from="random2" to="." method="_on_random2_pressed"]

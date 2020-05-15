@@ -47,6 +47,8 @@ var midairJumpsLeft = totalJumps - 1
 #melee weapon movement
 var unactionable = Vector2()
 var super_armor = false
+var zero_grav = false
+var melee_velo = Vector2()
 
 #siblings
 onready var Gauges = get_node("../Gauges")
@@ -64,12 +66,13 @@ puppet func setEverything(vel, pos, sprFlip, scl, mod, currDirec):
 
 func _physics_process(delta):
 #	if is_network_master():
-#	if unactionable.x == 0:
+	
 	rotation_degrees = lerp(rotation_degrees, 0, 0.2)
 	calcHitstun()
-	imposeGravity()
+	if not zero_grav: imposeGravity() 
 	if hp > 0 and stunTimer.x == 0: 
-		if unactionable.x == 0: parseInputs()
+		if unactionable.x == 0: 
+			parseInputs()
 		_on_physics_process(delta)
 		
 	if hp <= 0 and stunTimer.x == 0: lerp0(lerpWeight/3)
@@ -86,7 +89,6 @@ func fixFlip(dir):
 
 
 func _on_physics_process(_delta):
-	parseInputs()
 	calculateJump()
 	movement()
 
@@ -160,17 +162,20 @@ func calculateJump():
 		elif totalJumps > 0 && grounded:
 			velocity.y = -jumpSpeed
 
-func calcHitstun():
+func calcHitstun():  #AND UNACTIONABLE
 	if modTimer.x > 0:
 		modTimer.x += 1
 		if modTimer.x >= modTimer.y:
 			modTimer.x = 0
 			modulate = Color.white
 	#calc stun
-	if stunTimer.x > 0:
-		stunTimer.x += 1
-		if stunTimer.x >= stunTimer.y:
-			stunTimer.x = 0
+	if stunTimer.x > 0: stunTimer.x += 1
+	if stunTimer.x > 0 and stunTimer.x >= stunTimer.y: stunTimer.x = 0
+	#calc unactionable
+	if unactionable.x > 0: 
+		unactionable.x += 1
+		velocity += melee_velo
+	if unactionable.x > 0 and unactionable.x >= unactionable.y: reset_unactionable()
 
 # take 'dmg' damage, get stunned for 'stun' frames, get knocked back by
 # absolute Vector2(kb), in the direction based on Vector2(pos)
@@ -187,7 +192,7 @@ func getHurt(dmg, stun:int=10, kb:Vector2=Vector2(), pos:Vector2=Vector2() ):
 		else: fixFlip(-1)
 	velocity = Vector2(t/abs(t)*kb.x, kb.y) 
 	position += velocity/30
-	rotation_degrees = -currentDirection*50
+	rotation_degrees = -currentDirection*50 if kb != Vector2() else -currentDirection*10
 	hp -= dmg
 	hpbar.updateBar(hp)
 	if hp <= 0:
@@ -207,14 +212,21 @@ func die():
 func _on_shoot():
 	pass
 
-func melee_movement(length_frames, super_armor:bool=false):
+func melee_movement(length_frames, super_armor:bool=false, zero_grav:bool=true, velo:Vector2=Vector2()):
 	unactionable.x = 1;
 	unactionable.y = length_frames
 #	stunTimer.x = 1;
 #	stunTimer.y = length_frames
 	self.super_armor = super_armor
+	self.zero_grav = zero_grav
+	self.melee_velo = velo
 	clearInputs()
-	
+
+func reset_unactionable():
+	unactionable.x = 0
+	super_armor = false
+	zero_grav = false
+	melee_velo = Vector2()
 
 
 

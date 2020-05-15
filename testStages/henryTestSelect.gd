@@ -11,3 +11,6 @@ func _on_random2_pressed():
 
 func _on_boomer2_pressed():
 	get_tree().change_scene("res://testStages/hennyTest1a.tscn")
+
+func _on_bug_pressed():
+	get_tree().change_scene("res://testStages/hennyTest1BUG.tscn")

@@ -25,7 +25,9 @@ func jet():
 	jetflame.visible = true
 #	rpc_unreliable("syncJet", true) #clean this shit
 	velocity.y -= jetSpeed
-	updateFuel(-1)
+#	if velocity.y < 0: velocity.y = max(velocity.y, -500)
+	updateFuel(-1.3)
+	print(velocity.y)
 	
 puppet func syncFuel(d):
 	fuelbar.updateBar(d)
