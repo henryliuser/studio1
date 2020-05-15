@@ -11,7 +11,10 @@ func _process(_delta):
 		if dist < lowestDist: 
 			closestPickup = z
 			lowestDist = dist
-		else: closestPickup.equipped = false
+		else: 
+			closestPickup.equipped = false
+	for z in inRange.keys():
+		if not z.highlighted: z.sprite.material = null
 	if lowestDist != 99999:
 		closestPickup.activate(player)
 
@@ -21,4 +24,5 @@ func _on_PickUpRadius_area_entered(area):
 		inRange[equippable] = true
 	
 func _on_PickUpRadius_area_exited(area):
+	area.get_parent().sprite.material = null
 	inRange.erase(area.get_parent())

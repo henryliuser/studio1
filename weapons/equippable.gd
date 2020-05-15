@@ -6,6 +6,8 @@ signal picked_up
 var equipped = false
 var player
 var s
+var highlighted = false
+onready var sprite = $sprite
 onready var hoverTween = $Tween
 onready var spriteInitPos = $sprite.position
 
@@ -16,14 +18,15 @@ func _ready():
 	hover()
 
 func _physics_process(_delta):  # needs to be physics process cuz order
-	$sprite.material = null
+	highlighted = false
 	if equipped: 
 		position = lerp(position, player.Weapons.posList[itemName], 0.3)
 
 func activate(p):  # is within range to be picked up by a player
+	highlighted = true
 	if not equipped:
-		if $sprite.material != null:
-			$sprite.material = load("res://assets/Shaders/Outline.tres")
+		if sprite.material == null:
+			sprite.material = load("res://assets/Shaders/Outline.tres")
 		if Input.is_action_just_pressed("p" + str(p.localNum) + "_equip"):
 			_on_picked_up(p)
 

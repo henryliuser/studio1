@@ -58,7 +58,7 @@ tracks/3/keys = {
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 7.78675
-height = 25.2963
+height = 29.955
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 28.3495, 27.2034 )
