@@ -197,6 +197,7 @@ walker separate jet hurtbox X
 -shade only gets one midair dashreset from getHurt
 -added cd on potassium cannon
 -instant damage on burnPlat
+-sometimes boomerang still doesn’t flip u, prolly RNG on the speed gap
 -bananas stick to surfaces and move with moving platform
 boomerang disappears on contact with self
 -weapon pickup / ownership system

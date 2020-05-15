@@ -59,7 +59,7 @@ position = Vector2( 1113.31, 216.128 )
 position = Vector2( 1282.1, 216.297 )
 
 [node name="walker" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1455.84, 189.518 )
+position = Vector2( 1484.2, 193.572 )
 localNum = 2
 
 [node name="shade" parent="." instance=ExtResource( 3 )]

@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=2]
 
-[sub_resource type="Shader" id=3]
+[sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
 render_mode unshaded;
  
@@ -28,6 +28,6 @@ void fragment()
 }"
 
 [resource]
-shader = SubResource( 3 )
+shader = SubResource( 1 )
 shader_param/width = 1.5
 shader_param/outline_color = Color( 0.0627451, 0.643137, 0.607843, 1 )

@@ -32,7 +32,7 @@ func hit():
 		
 	elif player.left or player.right:  # i guess if face right, press left on same frame as hit u 
 		player.velocity.y = -750       # might be able to go right depending on order
-		player.velocity.x = 2200 * player.currentDirection
+		player.velocity.x = 2500 * player.currentDirection
 		player.melee_movement(50, true, false)
 	else:
 		player.melee_movement(50, true, false)
