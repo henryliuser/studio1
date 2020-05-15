@@ -22,7 +22,8 @@ func _physics_process(_delta):  # needs to be physics process cuz order
 
 func activate(p):  # is within range to be picked up by a player
 	if not equipped:
-		$sprite.material = load("res://assets/Shaders/Outline.tres")
+		if $sprite.material != null:
+			$sprite.material = load("res://assets/Shaders/Outline.tres")
 		if Input.is_action_just_pressed("p" + str(p.localNum) + "_equip"):
 			_on_picked_up(p)
 

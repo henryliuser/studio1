@@ -54,6 +54,7 @@ boomerang angles the correct way, disappears on hitting owner
 -getting hit interrupts attacks? super armor?
 -damagetext outline color corresponds with GlobalNum
 …
+-can’t reach next level without moving onto burning plat or tembo move
 REFACTOR EVERYTHING WITH SIGNALS LOL
 
 _**Networking**_
@@ -213,3 +214,4 @@ reduce boomerang end animation radius
 -drop items on death
 -spam E bug
 -weapons pick up at different heights !!!
+-mega optimized PickUpRange
