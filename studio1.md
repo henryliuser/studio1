@@ -48,6 +48,7 @@ boomerang angles the correct way, disappears on hitting owner
 -state while attacking melee that means u can’t turn move (only some ig)
 -decide whether u can pass through enemies or not
 -dedicated flip for weapons to make it smoother
+-sometimes boomerang when going fast doesn’t flip the player
 -weapons flip with storedDirection instead of currentDirection
 -animate weapon idle bobbing through script, leave idle effects to kethan
 -getting hit interrupts attacks? super armor?

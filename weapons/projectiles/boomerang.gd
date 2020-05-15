@@ -23,14 +23,16 @@ func _physics_process(_delta):
 		time = 0
 	if reached:
 		speed *= guesSpeed*guesSpeed
+		speed = min(speed, 50)
 		gap = ogPos - global_position
 		if gap.abs() <= Vector2(300,300): $sprite.play("end")
 		if gap.abs() <= Vector2(100,100): final = true
 		if gap.abs() <= Vector2(20,20): queue_free()
 		
 	if final:
-		global_position = lerp(global_position, ogPos, 0.3)
+		global_position = lerp(global_position, ogPos, 0.2)
 	else: global_position += unit(gap)*speed
+	
 
 #	if abs(gap.x) < 5: 
 #		reached = true
