@@ -9,12 +9,11 @@ func hit():
 	.hit()
 #	player.getHurt(0, 40, Vector2(600, -700), 
 #		player.global_position-Vector2(player.currentDirection,0))  #send
-
 	player_tween.interpolate_property(player.sprite,"rotation_degrees",
 		player.rotation_degrees, -player.currentDirection*30, 0.4, 
 		Tween.TRANS_CUBIC,Tween.EASE_OUT)
 	player_tween.interpolate_property(player.sprite,"rotation_degrees",
-		-player.currentDirection*30, player.currentDirection*20, 0.1, 
+		-player.currentDirection*30, player.currentDirection*10, 0.1, 
 		Tween.TRANS_CUBIC,Tween.EASE_OUT, 0.4)
 	player_tween.start()
 

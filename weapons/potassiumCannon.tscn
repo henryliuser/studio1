@@ -36,7 +36,7 @@ shape = SubResource( 1 )
 position = Vector2( 15.6066, -11.4556 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 2 )
-frame = 17
+frame = 11
 playing = true
 
 [node name="Muzzle" type="Position2D" parent="."]

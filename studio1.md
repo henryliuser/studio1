@@ -32,8 +32,8 @@ _**Details**_
 		stop idle hover when attacking
 		inheritance/generalize for melee weapons
 		2 different animations for tembo
-only lerp back rotation when not in hitstun
-		
+
+-fix tembo hitboxes lmfao
 -deal with boomerang shoot then switch weapons
 -double damage explosion bug (2 people right next to each other)
 	keep log of players per explosion? 
@@ -167,6 +167,7 @@ char variants
 -boomerang collisionshape constantly spinning for nice bounces
 	rotation angle of AnimatedSprite is just pointing in movement direc
 -use coroutine to do cooldowns
+only lerp back rotation when not in hitstun
 
 # ———————— -DONE- ————————
 

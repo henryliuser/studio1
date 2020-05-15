@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://blocks/defaultPlat.tscn" type="PackedScene" id=1]
 [ext_resource path="res://players/walker.tscn" type="PackedScene" id=2]
+[ext_resource path="res://players/shade.tscn" type="PackedScene" id=3]
 [ext_resource path="res://blocks/boostPlat.tscn" type="PackedScene" id=5]
 [ext_resource path="res://blocks/burnPlat.tscn" type="PackedScene" id=6]
 [ext_resource path="res://weapons/boomerangSniper.tscn" type="PackedScene" id=8]
@@ -58,4 +59,8 @@ position = Vector2( 1113.31, 216.128 )
 position = Vector2( 1282.1, 216.297 )
 
 [node name="walker" parent="." instance=ExtResource( 2 )]
-position = Vector2( 460.472, 305.212 )
+position = Vector2( 1455.84, 189.518 )
+localNum = 2
+
+[node name="shade" parent="." instance=ExtResource( 3 )]
+position = Vector2( 404.93, 261.309 )

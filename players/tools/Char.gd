@@ -66,9 +66,8 @@ puppet func setEverything(vel, pos, sprFlip, scl, mod, currDirec):
 
 func _physics_process(delta):
 #	if is_network_master():
-	if stunTimer.x == 0 and unactionable.x == 0: 
-		rotation_degrees = lerp(rotation_degrees, 0, 0.2)
-		sprite.rotation_degrees = lerp(sprite.rotation_degrees, 0, 0.2)
+	rotation_degrees = lerp(rotation_degrees, 0, 0.2)
+	if unactionable.x == 0: sprite.rotation_degrees = lerp(sprite.rotation_degrees, 0, 0.2)
 	calcHitstun()
 	if not zero_grav: imposeGravity() 
 	if hp > 0 and stunTimer.x == 0: 
