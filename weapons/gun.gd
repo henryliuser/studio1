@@ -21,6 +21,7 @@ func _process(_delta):
 			if Input.is_action_just_pressed(s+"fire"):
 				shoot()
 		if visible and down:
+			hoverTween.stop_all()
 			var pRot = player.rotation_degrees
 			var pDirec = player.currentDirection
 			if player.is_on_floor():
@@ -29,6 +30,7 @@ func _process(_delta):
 			else:
 				player.rotation_degrees = lerp(pRot, -pDirec*-15, 0.1)
 				rotation_degrees = lerp(currRot, -scale.x * -20, 0.1)
+		if Input.is_action_just_released(s+"down"): hoverTween.resume_all()
 	
 
 func _on_Timer_timeout():

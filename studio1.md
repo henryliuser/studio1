@@ -23,7 +23,6 @@ _**Details**_
 -double damage explosion bug (2 people right next to each other)
 	keep log of players per explosion? 
 -outline weapons black ??
--weapons pick up at different heights !!!
 -pcannon jitters randomly
 -melee weapon movement
 -make gauges stay still on death
@@ -194,3 +193,5 @@ reduce boomerang end animation radius
 	have a position2d at the target that rotates with the
 -tween hover weapons
 -drop items on death
+-spam E bug
+-weapons pick up at different heights !!!

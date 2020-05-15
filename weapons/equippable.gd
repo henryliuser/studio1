@@ -7,7 +7,7 @@ var equipped = false
 var player
 var s
 onready var hoverTween = $Tween
-var oPos
+onready var spriteInitPos = $sprite.position
 
 func _ready():
 	$equipRadius.set_collision_layer(32)
@@ -42,11 +42,12 @@ func _on_picked_up(p):
 func _on_dropped():
 	visible = true
 	equipped = false
+	$sprite.position = spriteInitPos
 	hover()
 	
 func hover():
 	hoverTween.remove_all()
-	oPos = $sprite.position
+	var oPos = spriteInitPos
 	hoverTween.repeat = true  # make the weapon hover 
 	var r = randi()%7 + 5 if !equipped else 4
 	var duration = randf()+0.5 if !equipped else 0.8
