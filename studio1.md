@@ -22,22 +22,11 @@ _**Content**_
 	record scratch when lead changes
 
 _**Details**_
--melee weapon movement — 5/15
-		regular hit and holding down hit 
-		Char.gd unactionable state, super_armor boolean
-				no other inputs during this time will register, maybe Not dash
-						clear inputs function
-				upwards melee movement costs fuel for walker?
-		can reverse before a certain point?
-		stop idle hover when attacking
-		inheritance/generalize for melee weapons
-		2 different animations for tembo
-
+-super armor
 -fix tembo hitboxes lmfao. can do no knockback (fhit against dummy)
 -deal with boomerang shoot then switch weapons
 -double damage explosion bug (2 people right next to each other)
 	keep log of players per explosion? 
--outline weapons black ??
 -pcannon jitters randomly
 -make gauges stay still on death
 -sometimes hammer goes into ground, not a huge deal
@@ -52,6 +41,8 @@ boomerang angles the correct way, disappears on hitting owner
 -weapons flip with storedDirection instead of currentDirection
 -animate weapon idle bobbing through script, leave idle effects to kethan
 -getting hit interrupts attacks? super armor?
+-boomerang comes back to sniper when not visible
+-health tween when taking multiple damage instances per frame only 	shows last instance
 -damagetext outline color corresponds with GlobalNum
 …
 -can’t reach next level without moving onto burning plat or tembo move
@@ -82,6 +73,7 @@ _**Polish**_
 
 
 _**Art**_
+stanley parable narration
 increase framerate on a lot of stuff (enerang)
 …
 boomer looks weird zoomed out
@@ -170,6 +162,7 @@ char variants
 	rotation angle of AnimatedSprite is just pointing in movement direc
 -use coroutine to do cooldowns
 only lerp back rotation when not in hitstun
+-outline weapons black ??
 
 # ———————— -DONE- ————————
 
@@ -216,3 +209,13 @@ reduce boomerang end animation radius
 -spam E bug
 -weapons pick up at different heights !!!
 -mega optimized PickUpRange
+-melee weapon movement — 5/15
+		regular hit and holding down hit 
+		Char.gd unactionable state
+				no other inputs during this time will register, maybe Not dash
+						clear inputs function
+				upwards melee movement costs fuel for walker?
+		can reverse before a certain point?
+		stop idle hover when attacking
+		inheritance/generalize for melee weapons
+		2 different animations for tembo

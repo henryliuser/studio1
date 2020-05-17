@@ -53,8 +53,13 @@ func _on_sprite_animation_finished():
 		$sprite.play("loop")
 
 func _on_projectile_body_entered(body):
-	._on_projectile_body_entered(body)
 	if body == dontTouch:
+		damage += 10
+		._on_projectile_body_entered(body)
 		queue_free()
+	else: ._on_projectile_body_entered(body)
+		
+		
+
 		
 	
