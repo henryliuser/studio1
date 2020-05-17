@@ -1,11 +1,12 @@
 extends Node2D
 onready var tween = $Tween
+var real_scale = Vector2(1,1)
 var halfWay = false
 var haltDuration = 0.2
 
 func _ready():
 	tween.interpolate_property(self, "scale", scale, 
-		Vector2(1,1), 0.2, Tween.TRANS_SINE)
+		real_scale, 0.2, Tween.TRANS_SINE)
 	tween.interpolate_property(self, "position:y", position.y,
 		position.y-50, 0.2, Tween.TRANS_CUBIC)
 	tween.start()

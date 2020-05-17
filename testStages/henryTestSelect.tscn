@@ -157,8 +157,21 @@ text = "random2"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="enemyTest" type="Button" parent="."]
+margin_left = 1525.94
+margin_top = 717.372
+margin_right = 1713.94
+margin_bottom = 799.372
+rect_scale = Vector2( 1.67362, 1.40413 )
+custom_fonts/font = ExtResource( 1 )
+text = "Enemy Test"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="walkerTest" to="." method="_on_boomer_pressed"]
 [connection signal="pressed" from="bug" to="." method="_on_bug_pressed"]
 [connection signal="pressed" from="shadeTest" to="." method="_on_boomer2_pressed"]
 [connection signal="pressed" from="random" to="." method="_on_random_pressed"]
 [connection signal="pressed" from="random2" to="." method="_on_random2_pressed"]
+[connection signal="pressed" from="enemyTest" to="." method="_on_enemyTest_pressed"]

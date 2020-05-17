@@ -22,6 +22,7 @@ _**Content**_
 	record scratch when lead changes
 
 _**Details**_
+-invincible after hit?
 -super armor
 -fix tembo hitboxes lmfao. can do no knockback (fhit against dummy)
 -deal with boomerang shoot then switch weapons

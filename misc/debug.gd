@@ -15,6 +15,8 @@ func _process(_delta):
 			clear()
 			get_tree().change_scene("res://testStages/henryTestSelect.tscn")
 	else: heldR = 0
+	if Input.is_action_just_pressed("debug_menu"):
+		get_tree().change_scene("res://testStages/henryTestSelect.tscn")
 
 func clear():
 	for x in get_tree().current_scene.get_children():

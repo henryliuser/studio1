@@ -1,7 +1,6 @@
-extends KinematicBody2D
+extends "res://Being.gd"
 #misc
 export var gravity = 50
-var currentDirection = 1
 var storedDirection = 1
 export var name_id = ""
 
@@ -13,8 +12,6 @@ signal hurt(player, dmg)
 signal die
 
 #animation variables
-onready var sprite = $sprite
-onready var hurtbox = $hurtbox
 var hpbar
 var label
 var children = []
@@ -28,8 +25,6 @@ var justLeft
 var justRight
 
 #health
-var hp = 100
-var modTimer = Vector2(0,5)
 var stunTimer = Vector2(0,10)
 
 #movement variables
@@ -37,7 +32,6 @@ export var maxAirVelocity = Vector2(450,1500)
 export var maxGroundVelocity = Vector2(400,1500)
 export var acceleration = 80
 export var lerpWeight = 0.3
-var velocity = Vector2()
 
 #jump variables
 export var jumpSpeed = 1000
@@ -164,6 +158,7 @@ func calculateJump():
 			velocity.y = -jumpSpeed
 
 func calcHitstun():  #AND UNACTIONABLE
+	#calc mod
 	if modTimer.x > 0:
 		modTimer.x += 1
 		if modTimer.x >= modTimer.y:

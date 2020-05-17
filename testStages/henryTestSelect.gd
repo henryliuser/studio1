@@ -14,3 +14,7 @@ func _on_boomer2_pressed():
 
 func _on_bug_pressed():
 	get_tree().change_scene("res://testStages/hennyTest1BUG.tscn")
+
+func _on_enemyTest_pressed():
+	get_tree().change_scene("res://testStages/hennyTest1b.tscn")
+	
