@@ -1,64 +1,76 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://blocks/defaultPlat.tscn" type="PackedScene" id=1]
-[ext_resource path="res://enemies/TestEnemy.tscn" type="PackedScene" id=2]
-[ext_resource path="res://blocks/conveyerPlat.tscn" type="PackedScene" id=3]
+[ext_resource path="res://players/shade.tscn" type="PackedScene" id=2]
 [ext_resource path="res://weapons/tembo.tscn" type="PackedScene" id=4]
-[ext_resource path="res://blocks/boostPlat.tscn" type="PackedScene" id=5]
-[ext_resource path="res://blocks/burnPlat.tscn" type="PackedScene" id=6]
-[ext_resource path="res://players/walker.tscn" type="PackedScene" id=7]
+[ext_resource path="res://weapons/meterstick.tscn" type="PackedScene" id=5]
+[ext_resource path="res://weapons/potassiumCannon.tscn" type="PackedScene" id=6]
+[ext_resource path="res://enemies/Spawner.tscn" type="PackedScene" id=7]
 [ext_resource path="res://weapons/boomerangSniper.tscn" type="PackedScene" id=8]
 
 [node name="hennyTest1" type="Node2D"]
 position = Vector2( 1.38477, -1.3847 )
 
 [node name="defaultPlat" parent="." instance=ExtResource( 1 )]
-position = Vector2( 960, 861.092 )
-scale = Vector2( 25, 25 )
+position = Vector2( 924.293, 1142.56 )
+scale = Vector2( 31.0203, 19.0346 )
 velocity = Vector2( 0, 0 )
 
 [node name="defaultPlat2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1055.68, 236.159 )
-rotation = 1.5708
-velocity = Vector2( 0, 0 )
-
-[node name="defaultPlat6" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1173.96, 319.194 )
-velocity = Vector2( 0, 0 )
-
-[node name="defaultPlat5" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1286.45, 224.563 )
-rotation = -1.55347
+position = Vector2( 923.112, 212.252 )
+scale = Vector2( 15.0367, 4.98888 )
 velocity = Vector2( 0, 0 )
 
 [node name="defaultPlat3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1675.11, 346.572 )
+position = Vector2( 257.634, 492.804 )
+scale = Vector2( 12.6611, 4.30955 )
 velocity = Vector2( 0, 0 )
 
 [node name="defaultPlat4" parent="." instance=ExtResource( 1 )]
-position = Vector2( 611.744, 359.948 )
+position = Vector2( 1634.8, 492.804 )
+scale = Vector2( 12.6611, 4.30955 )
 velocity = Vector2( 0, 0 )
 
-[node name="burnPlat" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1628.51, 602.68 )
+[node name="defaultPlat9" parent="." instance=ExtResource( 1 )]
+position = Vector2( 948.478, 804.686 )
+scale = Vector2( 15.0367, 4.98888 )
 velocity = Vector2( 0, 0 )
 
-[node name="conveyerPlat" parent="." instance=ExtResource( 3 )]
-position = Vector2( 761.249, 55.0038 )
+[node name="defaultPlat6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 257.634, 492.804 )
+scale = Vector2( 12.6611, 4.30955 )
 velocity = Vector2( 0, 0 )
 
-[node name="boostPlat" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1395.35, 568.717 )
+[node name="defaultPlat5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1634.8, 492.804 )
+scale = Vector2( 12.6611, 4.30955 )
 velocity = Vector2( 0, 0 )
 
-[node name="TestEnemy" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1127.89, 223.733 )
+[node name="defaultPlat7" parent="." instance=ExtResource( 1 )]
+position = Vector2( -71.4337, 660.372 )
+rotation = 1.5708
+scale = Vector2( 31.0203, 19.0346 )
+velocity = Vector2( 0, 0 )
 
-[node name="walker" parent="." instance=ExtResource( 7 )]
-position = Vector2( 561.016, 251.565 )
+[node name="defaultPlat8" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1980.46, 549.459 )
+rotation = 1.5708
+scale = Vector2( 31.0203, 19.0346 )
+velocity = Vector2( 0, 0 )
 
-[node name="tembo" parent="." instance=ExtResource( 4 )]
-position = Vector2( 585.858, 648.134 )
+[node name="shade" parent="." instance=ExtResource( 2 )]
+position = Vector2( 263.98, 851.709 )
 
 [node name="boomerangSniper" parent="." instance=ExtResource( 8 )]
-position = Vector2( 606.627, 256.432 )
+position = Vector2( 550.601, 912.425 )
+
+[node name="potassiumCannon" parent="." instance=ExtResource( 6 )]
+position = Vector2( 791.817, 959.62 )
+
+[node name="tembo" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1166.75, 991.083 )
+
+[node name="meterstick" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1308.33, 901.938 )
+
+[node name="Spawner" parent="." instance=ExtResource( 7 )]

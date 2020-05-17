@@ -39,7 +39,8 @@ func _on_Timer_timeout():
 func shoot():
 	available = false
 	emit_signal("shoot")
-	get_parent().update_active(type)  # updates which slot is currently being used 
+	if equipped:  # BUGFIX FOR IF YOU SHOOT ON THE SAME FRAME THAT YOU DIE
+		get_parent().update_active(type)  # updates which slot is currently being used 
 	$Timer.start()
 	
 func _on_picked_up(p):  # connect to player when picked up so we can polish stuff like kickback and rotate

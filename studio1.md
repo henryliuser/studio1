@@ -34,6 +34,7 @@ _**Details**_
 boomerang angles the correct way, disappears on hitting owner
 -bounce boomerang off walls
 -buffering (especially on walljumps)
+-bananas scale wrong on hitting ceilings
 -boomerang sniper can only have X number out at a time
 -state while attacking melee that means u can’t turn move (only some ig)
 -decide whether u can pass through enemies or not
