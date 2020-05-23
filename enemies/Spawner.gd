@@ -1,8 +1,10 @@
 extends Node2D
 
+export var enabled = true
+
 var count = 0
 func _physics_process(delta):
-	count += 1
+	if enabled: count += 1
 	if count >= 150:
 		count = 0
 		spawn_random()

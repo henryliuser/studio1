@@ -16,36 +16,6 @@ position = Vector2( 924.293, 1142.56 )
 scale = Vector2( 31.0203, 19.0346 )
 velocity = Vector2( 0, 0 )
 
-[node name="defaultPlat2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 923.112, 212.252 )
-scale = Vector2( 15.0367, 4.98888 )
-velocity = Vector2( 0, 0 )
-
-[node name="defaultPlat3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 257.634, 492.804 )
-scale = Vector2( 12.6611, 4.30955 )
-velocity = Vector2( 0, 0 )
-
-[node name="defaultPlat4" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1634.8, 492.804 )
-scale = Vector2( 12.6611, 4.30955 )
-velocity = Vector2( 0, 0 )
-
-[node name="defaultPlat9" parent="." instance=ExtResource( 1 )]
-position = Vector2( 948.478, 804.686 )
-scale = Vector2( 15.0367, 4.98888 )
-velocity = Vector2( 0, 0 )
-
-[node name="defaultPlat6" parent="." instance=ExtResource( 1 )]
-position = Vector2( 257.634, 492.804 )
-scale = Vector2( 12.6611, 4.30955 )
-velocity = Vector2( 0, 0 )
-
-[node name="defaultPlat5" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1634.8, 492.804 )
-scale = Vector2( 12.6611, 4.30955 )
-velocity = Vector2( 0, 0 )
-
 [node name="defaultPlat7" parent="." instance=ExtResource( 1 )]
 position = Vector2( -71.4337, 660.372 )
 rotation = 1.5708
@@ -74,3 +44,4 @@ position = Vector2( 1166.75, 991.083 )
 position = Vector2( 1308.33, 901.938 )
 
 [node name="Spawner" parent="." instance=ExtResource( 7 )]
+enabled = false

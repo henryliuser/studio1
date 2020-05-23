@@ -18,10 +18,14 @@ _**Content**_
 -clean up player code
 -clean up projectile code
 -endless singleplayer/coop survival 
+-rewrite everything that checks for has_method(“get_hurt”)
 -get to choose a song that plays while u have the lead. 
 	record scratch when lead changes
+-free out of bounds platforms and projectiles and kill players
+
 
 _**Details**_
+-input buffer for wall jumps
 -invincible after hit?
 -super armor
 -fix tembo hitboxes lmfao. can do no knockback (fhit against dummy)
@@ -222,3 +226,4 @@ reduce boomerang end animation radius
 		stop idle hover when attacking
 		inheritance/generalize for melee weapons
 		2 different animations for tembo
+-marginally improved platSpawner
