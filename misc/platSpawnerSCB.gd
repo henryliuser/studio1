@@ -4,7 +4,6 @@ var timer = delay - 1
 var cycle = 1
 onready var folder = get_node("../platforms")
 func _physics_process(delta):
-#	print(get_node("../shade").get_node("player").velocity)
 	timer += 1
 	if timer % delay == 0:
 		if cycle == 1: pattern1()

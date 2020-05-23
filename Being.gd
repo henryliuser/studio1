@@ -13,22 +13,22 @@ var hp = 100
 
 func _physics_process(delta):
 	calcSquish()
+	calcChainHits()
 	
 var chainFrames = -1
 var damaga = 0  # this is to see if two player_hurt calls happen simultaneously
-func _process(_delta):
-	calcChainHits()
-	
+
 func getHurt(dmg, stun:int=10, kb:Vector2=Vector2(), pos:Vector2=Vector2() ):
 	if dmg > 0:
 		modTimer.x = 1  
 		modulate = Color.red  # set up red modulation flash
 	hp -= dmg
 	if hp <= 0: die()
-	yield(get_tree().create_timer(1.0/12), "timeout")
-	modulate = omod
 	damaga += dmg
 	chainFrames = 2
+	yield(get_tree().create_timer(1.0/12), "timeout")
+	modulate = omod
+#	print(str(dmg) + " " + str(damaga) + " " + str(hp) + " " +str(Global.frameCount))
 
 func showText():
 	var txt = load("res://players/tools/DamageText.tscn").instance()
@@ -39,12 +39,15 @@ func showText():
 func die():
 	queue_free()
 	
+var counter = 0
 func calcSquish():
-	var squished = is_on_ceiling()
+	var squished = is_on_ceiling() and velocity == Vector2()
 	if squished and hp > 0:
-		scale.y -= 0.02
-		getHurt(2)
-		if hp <= 0: queue_free()
+		scale.y -= 0.05
+		getHurt(1)
+		if hp <= 0: 
+			showText()
+			queue_free()
 	if not squished and hp > 0: scale.y = og_scale.y
 
 func calcChainHits():

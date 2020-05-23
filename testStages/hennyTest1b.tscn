@@ -1,11 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://blocks/defaultPlat.tscn" type="PackedScene" id=1]
-[ext_resource path="res://players/shade.tscn" type="PackedScene" id=2]
 [ext_resource path="res://misc/platSpawnerSCB.tscn" type="PackedScene" id=3]
 [ext_resource path="res://blocks/boostPlat.tscn" type="PackedScene" id=4]
 [ext_resource path="res://enemies/TestEnemy.tscn" type="PackedScene" id=5]
-[ext_resource path="res://players/walker.tscn" type="PackedScene" id=6]
 [ext_resource path="res://enemies/Spawner.tscn" type="PackedScene" id=7]
 
 [node name="hennyTest1" type="Node2D"]
@@ -15,7 +13,7 @@ position = Vector2( 1.38477, -1.3847 )
 enabled = false
 
 [node name="TestEnemy" parent="Spawner" instance=ExtResource( 5 )]
-position = Vector2( 1225.61, 899.007 )
+position = Vector2( 1275.16, 896.529 )
 velo = Vector2( 0, 0 )
 
 [node name="platSpawnerSCB" parent="." instance=ExtResource( 3 )]
@@ -66,9 +64,3 @@ position = Vector2( 960, 1200 )
 
 [node name="boostPlat2" parent="platforms" instance=ExtResource( 4 )]
 position = Vector2( 960, 1150 )
-
-[node name="shade" parent="." instance=ExtResource( 2 )]
-position = Vector2( 605.642, 878.36 )
-
-[node name="walker" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1322.29, 874.086 )

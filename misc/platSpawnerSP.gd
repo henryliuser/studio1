@@ -32,7 +32,6 @@ func _physics_process(delta):
 			plt.scale = Vector2(scl,scl)
 			plt.global_position = Vector2(pos, -40)
 			add_child(plt)
-			print(plt)
 		print("-------------")
 		
 #		plat.position = Vector2(pos, -40)
