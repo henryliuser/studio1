@@ -16,6 +16,7 @@ func _on_boostTrigger_body_entered(body):
 		body.fuel = 100
 	if timer == 0:
 		b = body
+		moving = true
 		body.velocity.y = v
 		body.position.y -= 20
 		timer = 1

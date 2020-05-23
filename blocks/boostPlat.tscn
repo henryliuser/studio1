@@ -28,6 +28,7 @@ script = ExtResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( -2.5, 0 )
 frames = SubResource( 1 )
+frame = 1
 playing = true
 
 [node name="bodyHitbox" type="CollisionPolygon2D" parent="."]
@@ -38,4 +39,6 @@ polygon = PoolVector2Array( -29.511, 9, -37.5479, 1.46879, -29.494, -6, 30.5, -6
 [node name="boostHitbox" type="CollisionShape2D" parent="boostTrigger"]
 position = Vector2( 0, -7 )
 shape = SubResource( 2 )
+
+[node name="Tween" type="Tween" parent="."]
 [connection signal="body_entered" from="boostTrigger" to="." method="_on_boostTrigger_body_entered"]

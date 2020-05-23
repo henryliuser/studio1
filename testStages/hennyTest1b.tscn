@@ -16,16 +16,31 @@ position = Vector2( 924.293, 1142.56 )
 scale = Vector2( 31.0203, 19.0346 )
 velocity = Vector2( 0, 0 )
 
-[node name="defaultPlat7" parent="." instance=ExtResource( 1 )]
-position = Vector2( -71.4337, 660.372 )
+[node name="defaultPlat2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1570, 700 )
+scale = Vector2( 10, 7 )
+moving = true
+
+[node name="defaultPlat5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 350, 700 )
+scale = Vector2( 10, 7 )
+moving = true
+
+[node name="defaultPlat4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 960, 350 )
+scale = Vector2( 10, 7 )
+moving = true
+
+[node name="q" parent="." instance=ExtResource( 1 )]
+position = Vector2( -80, 660.372 )
 rotation = 1.5708
-scale = Vector2( 31.0203, 19.0346 )
+scale = Vector2( 30, 19.035 )
 velocity = Vector2( 0, 0 )
 
 [node name="defaultPlat8" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1980.46, 549.459 )
-rotation = 1.5708
-scale = Vector2( 31.0203, 19.0346 )
+position = Vector2( 2000, 549.459 )
+rotation = -1.5708
+scale = Vector2( 30, 19.035 )
 velocity = Vector2( 0, 0 )
 
 [node name="shade" parent="." instance=ExtResource( 2 )]

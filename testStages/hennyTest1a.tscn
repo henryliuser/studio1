@@ -34,7 +34,8 @@ velocity = Vector2( 0, 0 )
 [node name="defaultPlat12" parent="." instance=ExtResource( 1 )]
 position = Vector2( -35.4084, -61.3728 )
 rotation = 1.5708
-velocity = Vector2( 5, 5 )
+moving = true
+velocity = Vector2( 10, 10 )
 is_wall = true
 
 [node name="defaultPlat13" parent="." instance=ExtResource( 1 )]
@@ -54,12 +55,14 @@ is_wall = true
 [node name="defaultPlat10" parent="." instance=ExtResource( 1 )]
 position = Vector2( 778.343, 698.667 )
 rotation = 1.5708
+moving = true
 velocity = Vector2( 0, -30 )
 is_wall = true
 
 [node name="defaultPlat11" parent="." instance=ExtResource( 1 )]
 position = Vector2( 927.88, 633.58 )
 rotation = 1.5708
+moving = true
 velocity = Vector2( 0, -30 )
 is_wall = true
 
@@ -94,7 +97,6 @@ position = Vector2( 1335.37, 141.911 )
 
 [node name="dummy" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1195.45, 582.744 )
-localNum = 2
 
 [node name="shade" parent="." instance=ExtResource( 2 )]
 position = Vector2( 112.168, 180.142 )
