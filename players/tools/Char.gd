@@ -60,13 +60,7 @@ puppet func setEverything(vel, pos, sprFlip, scl, mod, currDirec):
 	sprite.flip_h = sprFlip; currentDirection = currDirec
 
 func _physics_process(delta):
-	var squished = is_on_ceiling() and grounded
-	if squished and hp > 0:
-		scale.y -= 0.02
-		getHurt(2)
-		if hp <= 0: squish()
-	if not squished and hp > 0: scale.y = og_scale.y
-	
+	calcSquish()
 #	if is_network_master():
 	rotation_degrees = lerp(rotation_degrees, 0, 0.2)
 	if unactionable.x == 0: sprite.rotation_degrees = lerp(sprite.rotation_degrees, 0, 0.2)
@@ -232,8 +226,13 @@ func reset_unactionable():
 	zero_grav = false
 	melee_velo = Vector2()
 
-func squish():
-	get_parent().queue_free()
+func calcSquish():
+	var squished = is_on_ceiling() and grounded
+	if squished and hp > 0:
+		scale.y -= 0.02
+		getHurt(1)
+		if hp <= 0: get_parent().queue_free()
+	if not squished and hp > 0: scale.y = og_scale.y
 
 
 

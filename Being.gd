@@ -12,7 +12,8 @@ var modTimer = Vector2(0,5)
 var hp = 100
 
 func _physics_process(delta):
-	pass
+	calcSquish()
+	
 func getHurt(dmg, stun:int=10, kb:Vector2=Vector2(), pos:Vector2=Vector2() ):
 	if dmg > 0:
 		modTimer.x = 1  
@@ -24,8 +25,14 @@ func getHurt(dmg, stun:int=10, kb:Vector2=Vector2(), pos:Vector2=Vector2() ):
 
 func die():
 	queue_free()
-func squish():
-	queue_free()
+	
+func calcSquish():
+	var squished = is_on_ceiling()
+	if squished and hp > 0:
+		scale.y -= 0.02
+		getHurt(2)
+		if hp <= 0: queue_free()
+	if not squished and hp > 0: scale.y = og_scale.y
 
 
 
