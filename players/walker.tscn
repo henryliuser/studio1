@@ -82,11 +82,11 @@ frame = 1
 [node name="sprite" type="AnimatedSprite" parent="player"]
 frames = ExtResource( 2 )
 animation = "idle"
-frame = 1
+frame = 4
 playing = true
 
 [node name="hurtbox" type="CollisionPolygon2D" parent="player"]
-polygon = PoolVector2Array( -0.078373, 5.96251, -5.76543, 1.91047, -5.9787, -2.07047, -3.13517, -11.0276, -0.078373, -17.5677, 4.82672, -17.5677, 5.82195, -16.7146, 5.96413, -8.11297, 10.1583, -7.97079, 10.0162, 5.96251 )
+polygon = PoolVector2Array( -0.078373, 5.96251, -5.76543, 1.91047, -5.9787, -2.07047, -3.13517, -11.0276, 0, -17, 10, -17, 10, -7.971, 10, 5.963 )
 
 [node name="jetpack" type="Area2D" parent="player"]
 visible = false

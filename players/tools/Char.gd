@@ -191,6 +191,8 @@ func getHurt(dmg, stun:int=10, kb:Vector2=Vector2(), pos:Vector2=Vector2() ):
 	global_position += velocity/30
 	rotation_degrees = -currentDirection*50 if kb != Vector2() else -currentDirection*10
 	hp -= dmg
+	damaga += dmg
+	chainFrames = 2
 	clearInputs()
 	hpbar.updateBar(hp)
 	if hp <= 0:
@@ -231,19 +233,13 @@ func calcSquish():
 	if squished and hp > 0:
 		scale.y -= 0.02
 		getHurt(1)
-		if hp <= 0: get_parent().queue_free()
+		if hp <= 0: 
+			showText()
+			get_parent().queue_free()
 	if not squished and hp > 0: scale.y = og_scale.y
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	
+func showText():
+	var txt = load("res://players/tools/DamageText.tscn").instance()
+	txt.set_text(str(damaga))
+	txt.global_position = Gauges.get_node("HPBar").global_position
+	get_tree().current_scene.add_child(txt)
