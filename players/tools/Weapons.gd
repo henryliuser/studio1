@@ -37,6 +37,11 @@ func drop(x, pos:Vector2=Vector2(9999,9999)):
 		x.global_position = pos
 		x._on_dropped()  # do what happens when u drop the thing
 
+func delete(slot_num):
+	if slots[slot_num] != null:
+		slots[slot_num].queue_free()
+		slots[slot_num] = null
+
 func die():
 	var count = 0
 	var left; var right;

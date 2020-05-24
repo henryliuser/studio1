@@ -38,7 +38,7 @@ func _on_picked_up(p):
 	s = "p" + str(pnum) + "_"
 	var x = global_position
 #	sprite.material.set_shader_param("width", 0)
-	get_parent().remove_child(self)
+	if get_parent()!=null: get_parent().remove_child(self)
 	p.Weapons.swap(self)
 	global_position = x
 	hover()

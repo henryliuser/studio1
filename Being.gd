@@ -28,32 +28,34 @@ func getHurt(dmg, stun:int=10, kb:Vector2=Vector2(), pos:Vector2=Vector2() ):
 	chainFrames = 2
 	yield(get_tree().create_timer(1.0/12), "timeout")
 	modulate = omod
-#	print(str(dmg) + " " + str(damaga) + " " + str(hp) + " " +str(Global.frameCount))
+	
 
-func showText():
+func showText(dmg):
 	var txt = load("res://players/tools/DamageText.tscn").instance()
-	txt.set_text(str(damaga))
+	txt.set_text(str(dmg))
 	txt.global_position = global_position + Vector2(0, -75)
 	get_tree().current_scene.add_child(txt)
 
 func die():
+	showText(damaga)
 	queue_free()
 	
 var counter = 0
 func calcSquish():
-	var squished = is_on_ceiling() and velocity == Vector2()
+	var squished = is_on_ceiling()
 	if squished and hp > 0:
-		scale.y -= 0.05
+		scale.y -= 0.02
 		getHurt(1)
 		if hp <= 0: 
-			showText()
+			showText(damaga)
 			queue_free()
-	if not squished and hp > 0: scale.y = og_scale.y
+	if not squished and hp > 0: 
+		scale.y = lerp(scale.y, og_scale.y, 0.03)
 
 func calcChainHits():
 	if chainFrames > 0: chainFrames -= 1
 	if chainFrames == 0:
-		showText()
+		showText(damaga)
 		damaga = 0
 		chainFrames = -1
 

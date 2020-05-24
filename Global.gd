@@ -18,6 +18,11 @@ var charSizeRatio = [5, 4]
 var yOffset = [Vector2(0,0),
 			   Vector2(0,-50)]
 
+var weapon_names = ["res://weapons/Tembo.tscn",
+					"res://weapons/boomerangSniper.tscn",
+					"res://weapons/meterstick.tscn",
+					"res://weapons/potassiumCannon.tscn"]
+
 func wrap(curr,theArray,direction):
 	curr += direction 
 	if curr < 0:

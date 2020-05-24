@@ -199,6 +199,7 @@ func getHurt(dmg, stun:int=10, kb:Vector2=Vector2(), pos:Vector2=Vector2() ):
 		die()
 	
 func die():
+	hp = 0
 	sprite.play("death")
 #	for x in get_node("../Gauges").get_children():
 #		x.die()
@@ -231,15 +232,17 @@ func reset_unactionable():
 func calcSquish():
 	var squished = is_on_ceiling() and grounded
 	if squished and hp > 0:
-		scale.y -= 0.02
+		scale.y -= 0.03
 		getHurt(1)
 		if hp <= 0: 
-			showText()
+			showText(damaga)
 			get_parent().queue_free()
-	if not squished and hp > 0: scale.y = og_scale.y
+	if not squished and hp > 0: 
+		scale.y = lerp(scale.y, og_scale.y, 0.03)
+		
 	
-func showText():
+func showText(dmg):
 	var txt = load("res://players/tools/DamageText.tscn").instance()
-	txt.set_text(str(damaga))
+	txt.set_text(str(dmg))
 	txt.global_position = Gauges.get_node("HPBar").global_position
 	get_tree().current_scene.add_child(txt)

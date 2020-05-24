@@ -89,6 +89,8 @@ visible = false
 [node name="projectile2" parent="hitboxes" instance=ExtResource( 2 )]
 position = Vector2( 65, 0 )
 monitoring = false
+collision_layer = 73
+collision_mask = 73
 independent = false
 damage = 10
 duration = -1
@@ -101,6 +103,8 @@ shape = SubResource( 3 )
 [node name="tipper" parent="hitboxes" instance=ExtResource( 2 )]
 position = Vector2( 124.4, 0 )
 monitoring = false
+collision_layer = 73
+collision_mask = 73
 independent = false
 damage = 10
 duration = -1
