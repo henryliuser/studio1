@@ -14,7 +14,7 @@ signal die
 #animation variables
 var hpbar
 var label
-var children = []
+var children = {}
 
 #input variables
 var left; var right; var down; var jump
@@ -52,7 +52,7 @@ onready var Weapons = get_node("../Weapons")
 func _ready(): 
 	set_network_master(0)
 	for c in get_children():
-		children.append(c.position)
+		children[c] = c.position
 	hpbar = get_node("../Gauges/HPBar")
 	
 puppet func setEverything(vel, pos, sprFlip, scl, mod, currDirec):
@@ -77,12 +77,19 @@ func _physics_process(delta):
 	
 func fixFlip(dir):
 	currentDirection = dir
-	var a = 0
-	for c in get_children():
-		c.position.x = children[a].x * currentDirection
-		c.scale.x = abs(c.scale.x) * currentDirection
-		a += 1
 
+	for c in get_children():
+		if c.name == "poisonDart": print(c.position)
+		c.position.x = children[c].x * currentDirection
+		c.scale.x = abs(c.scale.x) * currentDirection
+
+func add_child (node, legible_unique_name=false):
+	.add_child(node,legible_unique_name)
+	children[node] = node.position-global_position
+	
+func remove_child(node):
+	children.remove(node)
+	.remove_child(node)
 
 func _on_physics_process(_delta):
 	calculateJump()
@@ -164,7 +171,7 @@ func calcHitstun():  #AND UNACTIONABLE
 		modTimer.x += 1
 		if modTimer.x >= modTimer.y:
 			modTimer.x = 0
-			modulate = Color.white
+			modulate = omod
 	#calc stun
 	if stunTimer.x > 0: stunTimer.x += 1
 	if stunTimer.x > 0 and stunTimer.x >= stunTimer.y: stunTimer.x = 0
@@ -177,8 +184,10 @@ func calcHitstun():  #AND UNACTIONABLE
 # take 'dmg' damage, get stunned for 'stun' frames, get knocked back by
 # absolute Vector2(kb), in the direction based on Vector2(pos)
 func getHurt(dmg, stun:int=10, kb:Vector2=Vector2(), pos:Vector2=Vector2() ):
-	stunTimer.x = 1
-	stunTimer.y = stun  # set up the hitstun
+	if dead: return
+	if stun > 0:
+		stunTimer.x = 1
+		stunTimer.y = stun  # set up the hitstun
 	if dmg > 0:
 		emit_signal("hurt", self, dmg)
 		modTimer.x = 1  
@@ -187,7 +196,9 @@ func getHurt(dmg, stun:int=10, kb:Vector2=Vector2(), pos:Vector2=Vector2() ):
 	if kb != Vector2():
 		if t < 0: fixFlip(1)
 		else: fixFlip(-1)
-	velocity = Vector2(t/abs(t)*kb.x, kb.y) 
+		velocity = Vector2(t/abs(t)*kb.x, kb.y) 
+	else: velocity /= 3
+
 	global_position += velocity/30
 	rotation_degrees = -currentDirection*50 if kb != Vector2() else -currentDirection*10
 	hp -= dmg
@@ -200,6 +211,8 @@ func getHurt(dmg, stun:int=10, kb:Vector2=Vector2(), pos:Vector2=Vector2() ):
 	
 func die():
 	hp = 0
+	if dead: return
+	dead = true
 	sprite.play("death")
 #	for x in get_node("../Gauges").get_children():
 #		x.die()

@@ -6,7 +6,9 @@ onready var sprite = $sprite
 onready var hurtbox = $hurtbox
 onready var omod = modulate
 onready var og_scale = scale
+onready var correct_mod = modulate
 
+var dead = false
 var velocity = Vector2()
 var modTimer = Vector2(0,5)
 var hp = 100

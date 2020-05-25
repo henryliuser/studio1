@@ -48,11 +48,9 @@ func fixFlip(dir):
 	hurtbox.scale.x = currentDirection
 	for c in get_children():
 		if c.name == "rightWall" or c.name == "leftWall":
-			a+=1
 			continue
-		c.position.x = children[a].x * currentDirection
+		c.position.x = children[c].x * currentDirection
 		c.scale.x = abs(c.scale.x) * currentDirection
-		a += 1
 
 var L; var R
 func calcWalls():

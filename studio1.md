@@ -50,7 +50,7 @@ boomerang angles the correct way, disappears on hitting owner
 -getting hit interrupts attacks? super armor?
 -boomerang comes back to sniper when not visible
 -health tween when taking multiple damage instances per frame only 	shows last instance
--damagetext outline color corresponds with GlobalNum
+-damagetext outline color corresponds with GlobalNum, fill color 	corresponds with type of damage taken
 …
 -can’t reach next level without moving onto burning plat or tembo move
 REFACTOR EVERYTHING WITH SIGNALS LOL

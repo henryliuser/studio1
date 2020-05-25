@@ -51,7 +51,8 @@ func calcJet():
 
 func die():
 	.die()
-	#jetpack hitbox
+	if dead: return
+#	jetpack hitbox
 	jetflame.visible = false
 	$jetpack.queue_free()
 #	rpc_unreliable("syncJet", false)

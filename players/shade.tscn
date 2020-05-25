@@ -38,7 +38,7 @@ posList = {
 "meterstick": Vector2( 0, 0 ),
 "potassiumCannon": Vector2( -9, 15 ),
 "tembo": Vector2( -3, -3 ),
-"toxicRifle": Vector2( 0, 0 )
+"toxicRifle": Vector2( 2, 6 )
 }
 
 [node name="Gauges" parent="." instance=ExtResource( 5 )]
