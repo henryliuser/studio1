@@ -20,9 +20,9 @@ func _on_poisonDart_body_entered(body):
 	if body.has_method("getHurt"):
 		target = body
 		if "maxAirVelocity" in target:
-			target.maxAirVelocity /= slowFactor
+			target.maxAirVelocity.x /= slowFactor
 		if "maxGroundVelocity" in target:
-			target.maxGroundVelocity /= slowFactor
+			target.maxGroundVelocity.x /= slowFactor
 		target.getHurt(5,5)
 		stuck = true
 		visible = false
@@ -45,9 +45,9 @@ func _on_poisonDart_body_entered(body):
 	
 func done():
 	if "maxAirVelocity" in target:
-		target.maxAirVelocity *= slowFactor
+		target.maxAirVelocity.x *= slowFactor
 	if "maxGroundVelocity" in target:
-		target.maxGroundVelocity *= slowFactor
+		target.maxGroundVelocity.x *= slowFactor
 #	target.sprite.material = null
 	queue_free()
 	
