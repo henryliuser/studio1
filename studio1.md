@@ -53,6 +53,7 @@ boomerang angles the correct way, disappears on hitting owner
 -damagetext outline color corresponds with GlobalNum, fill color 	corresponds with type of damage taken
 …
 -can’t reach next level without moving onto burning plat or tembo move
+-dart stick and follow players
 REFACTOR EVERYTHING WITH SIGNALS LOL
 
 _**Networking**_

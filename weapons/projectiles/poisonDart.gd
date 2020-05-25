@@ -4,20 +4,26 @@ var velocity = Vector2(1800,0)
 var target
 var stuck = false
 var count = 0
+var duration = 500
 onready var og_scale = scale
 onready var og_pos = global_position
 
 func _physics_process(delta):
+	if not stuck: duration -= 1
+	if duration <= 0: queue_free()
 	global_position += velocity * delta
 	if stuck:
 		count += 1
-		if count % 40 == 0: 
-			target.getHurt(1,1)
+		if count % 50 == 0: 
+			target.getHurt(1,0)
 			target.modulate = Color.green
-		if count >= 240 or target.dead: done()
+		if count >= 250 or target.dead: done()
 	
 func _on_poisonDart_body_entered(body):
+	$hitbox.queue_free()
+	velocity = Vector2()
 	if body.has_method("getHurt"):
+		global_position = Vector2(-400,400)
 		target = body
 		if "maxAirVelocity" in target:
 			target.maxAirVelocity.x /= slowFactor
@@ -26,8 +32,9 @@ func _on_poisonDart_body_entered(body):
 		target.getHurt(5,5)
 		stuck = true
 		visible = false
+#		yield(get_tree().create_timer(5), "timeout")
+#		done()
 	else: 
-		velocity = Vector2()
 		yield(get_tree().create_timer(3), "timeout")
 		queue_free()
 	
@@ -47,7 +54,9 @@ func done():
 	if "maxAirVelocity" in target:
 		target.maxAirVelocity.x *= slowFactor
 	if "maxGroundVelocity" in target:
+#		print(target.maxGroundVelocity.x)
 		target.maxGroundVelocity.x *= slowFactor
+#		print(target.maxGroundVelocity.x)
 #	target.sprite.material = null
 	queue_free()
 	

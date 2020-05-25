@@ -140,13 +140,13 @@ func calcDash():
 			noDash = true # this places dash on an x frame cooldown cuz spamming it is kinda fast
 			
 func getHurt(dmg, stun:int=10, kb:Vector2=Vector2(), pos:Vector2=Vector2() ):
-	.getHurt(dmg,stun,kb,pos)
-	dashTimer = 0
-	dashing = false
-	predash = false
-	if oneMidAirDashReset and hp > 0 and !is_on_floor(): 
-		grant_dash()
-		oneMidAirDashReset = false
+	if kb != Vector2():
+		dashTimer = 0
+		dashing = false
+		predash = false
+		if oneMidAirDashReset and hp > 0 and !is_on_floor(): 
+			grant_dash()
+			oneMidAirDashReset = false
 	
 func grant_dash():
 	noDash = false
