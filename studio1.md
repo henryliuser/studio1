@@ -107,8 +107,12 @@ radiant apple (glowing apple that burns nearby enemies. light centered, throwabl
 
 0 gravity hammer thing X
 1 boomerang sniper XX
-2 ruler/meterstick with tipper P LEVITATE
+2 ruler/meterstick with tipper P LEVITATE?
 3 grenade launcher banana peel (mine)  X
+poison dart burst rifle
+light shield- blocks on hold, hella kb on bash and rush 
+
+
 thousand island flamethrower
 torch ( DoT around it)
 
