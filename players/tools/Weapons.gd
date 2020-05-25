@@ -10,7 +10,9 @@ export var posList = {
 	"tembo" : Vector2(),
 	"boomerangSniper" : Vector2(),
 	"meterstick" : Vector2(),
-	"potassiumCannon" : Vector2()
+	"potassiumCannon" : Vector2(),
+	"toxicRifle" : Vector2(),
+	"lightShield" : Vector2()
 }
 
 func _process(_delta):

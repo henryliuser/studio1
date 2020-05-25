@@ -17,7 +17,7 @@
 [ext_resource path="res://assets/Weapons/SniperBoomerang/SniperShot:Reload/Sprite10-0006.png" type="Texture" id=17]
 [ext_resource path="res://assets/Weapons/SniperBoomerang/SniperShot:Reload/Sprite10-0011.png" type="Texture" id=18]
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 10 )
 
 [sub_resource type="SpriteFrames" id=2]
@@ -47,7 +47,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="equipRadius"]
 position = Vector2( 0, 1 )
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 
 [node name="sprite" type="AnimatedSprite" parent="."]
 position = Vector2( 41.844, -3.90099 )
