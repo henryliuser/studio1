@@ -21,7 +21,8 @@ var yOffset = [Vector2(0,0),
 var weapon_names = ["res://weapons/Tembo.tscn",
 					"res://weapons/boomerangSniper.tscn",
 					"res://weapons/meterstick.tscn",
-					"res://weapons/potassiumCannon.tscn"]
+					"res://weapons/potassiumCannon.tscn",
+					"res://weapons/toxicRifle.tscn"]
 
 func wrap(curr,theArray,direction):
 	curr += direction 

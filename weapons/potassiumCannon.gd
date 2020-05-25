@@ -7,6 +7,8 @@ func shoot():
 	q.keeper = player  # does half damage if triggered by self
 	q.global_position = $Muzzle.global_position
 	q.direction = player.currentDirection
+	player.rotation_degrees -= player.currentDirection*25
+	player.global_position.x -= player.currentDirection*20
 	if Input.is_action_pressed(s+"down"):
 		q.velocity /= 1.3
 	get_tree().current_scene.add_child(q)

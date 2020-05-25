@@ -36,8 +36,8 @@ posList = {
 "boomerangSniper": Vector2( 0, 0 ),
 "lightShield": Vector2( 0, 0 ),
 "meterstick": Vector2( 0, 0 ),
-"potassiumCannon": Vector2( -9, 15 ),
-"tembo": Vector2( -3, -3 ),
+"potassiumCannon": Vector2( -9, 7 ),
+"tembo": Vector2( -7, 20 ),
 "toxicRifle": Vector2( 2, 6 )
 }
 

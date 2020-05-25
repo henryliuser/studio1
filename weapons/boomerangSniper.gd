@@ -11,7 +11,7 @@ func shoot():
 	q.global_position = $point.global_position
 	q.dontTouch = player  # give it player who produced banana so it knows when to deal half damage
 	bulletList.push_back(q)
-
+	player.rotation_degrees -= player.currentDirection * 20
 	q.target = $target.global_position
 	get_tree().current_scene.add_child(q)
 	rotation_degrees -= 30

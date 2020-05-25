@@ -10,7 +10,7 @@ extents = Vector2( 18.7826, 10 )
 script = ExtResource( 2 )
 type = 1
 itemName = "toxicRifle"
-cdSeconds = 0.8
+cdSeconds = 1.1
 
 [node name="muzzle" type="Position2D" parent="."]
 position = Vector2( 71.2179, -13.2867 )
