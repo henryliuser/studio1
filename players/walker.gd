@@ -57,8 +57,13 @@ func die():
 	$jetpack.queue_free()
 #	rpc_unreliable("syncJet", false)
 
-func _on_jetpack_area_entered(_area):
-	updateFuel(-50)
+#func _on_jetpack_area_entered(_area):
+#	updateFuel(-50)
+
+func getHurt(dmg,stun=10,kb=Vector2(),pos=Vector2()):
+	.getHurt(dmg,stun,kb,pos)
+	jetflame.visible = false
+	
 #	area.queue_free()
 
 #func _on_shoot():

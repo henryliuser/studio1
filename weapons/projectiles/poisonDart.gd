@@ -29,7 +29,7 @@ func _on_poisonDart_body_entered(body):
 			target.maxAirVelocity.x /= slowFactor
 		if "maxGroundVelocity" in target:
 			target.maxGroundVelocity.x /= slowFactor
-		target.getHurt(5,5)
+		target.getHurt(5,5,Vector2(50,0),og_pos)
 		stuck = true
 		visible = false
 #		yield(get_tree().create_timer(5), "timeout")

@@ -181,9 +181,15 @@ func calcHitstun():  #AND UNACTIONABLE
 		velocity += melee_velo
 	if unactionable.x > 0 and unactionable.x >= unactionable.y: reset_unactionable()
 
+
+var shielded = false
 # take 'dmg' damage, get stunned for 'stun' frames, get knocked back by
 # absolute Vector2(kb), in the direction based on Vector2(pos)
 func getHurt(dmg, stun:int=10, kb:Vector2=Vector2(), pos:Vector2=Vector2() ):
+	if shielded: 
+		var dir = pos.x-global_position.x; dir/=abs(dir)
+		if dir == currentDirection and pos != Vector2(): 
+			dmg/=2; stun/=2; kb/=2; 
 	if stun > 0:
 		stunTimer.x = 1
 		stunTimer.y = stun  # set up the hitstun

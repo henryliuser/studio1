@@ -20,6 +20,9 @@ func _ready():
 	hover()
 
 func _physics_process(_delta):  # needs to be physics process cuz order
+	_on_physics_process()
+	
+func _on_physics_process():
 	if equipped: 
 		position = lerp(position, player.Weapons.posList[itemName], 0.3)
 	sprite.material.set_shader_param("width", 0.0)

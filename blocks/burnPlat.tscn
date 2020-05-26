@@ -17,7 +17,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 32, 3 )
+extents = Vector2( 32, 2 )
 
 [node name="burnPlat" type="KinematicBody2D"]
 scale = Vector2( 3, 3 )
@@ -32,7 +32,7 @@ frames = SubResource( 1 )
 [node name="burnTrigger" type="Area2D" parent="."]
 
 [node name="burnHitbox" type="CollisionShape2D" parent="burnTrigger"]
-position = Vector2( 0, -7 )
+position = Vector2( 0, -6.5 )
 shape = SubResource( 2 )
 
 [node name="bodyHitbox" type="CollisionPolygon2D" parent="."]
