@@ -2,6 +2,17 @@
 # [TODO]
 # ————————————————————
 
+Collision 
+Players: L1, M1, M3
+	collide with platforms and each other
+Platforms: L2, L3, M2
+	technically collide w each other but direct position editing, collide 	with players and enemies
+Enemies: 
+Projectiles:  
+Melee Hitboxes: 
+PickUpRadius: 
+
+
 _**Content**_
 -grappling hook 
 -display other weapon (so it doesn’t ‘disappear’ )
