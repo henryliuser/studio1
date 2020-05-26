@@ -2,7 +2,7 @@ extends "res://weapons/projectiles/projectile.gd"
 export var lerpWeight = 0.94
 
 var target = Vector2(1000,0)
-var ogPos
+onready var ogPos = global_position
 var dontTouch  # the player/owner, will be set on creation
 var time = 0
 var speed = 50.0
