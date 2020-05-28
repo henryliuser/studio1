@@ -22,6 +22,8 @@ func _on_hitbox_body_entered(body):
 		body.die()
 
 func die():
+	if dead: return
+	dead = true
 	set_collision_layer(0)
 	set_collision_mask(0)
 	$hitbox.queue_free()

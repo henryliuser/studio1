@@ -63,6 +63,7 @@ boomerang angles the correct way, disappears on hitting owner
 -boomerang comes back to sniper when not visible
 -health tween when taking multiple damage instances per frame only 	shows last instance
 -damagetext outline color corresponds with GlobalNum, fill color 	corresponds with type of damage taken
+-shield bounce on enemy or player should refresh jump/dash shade
 …
 -can’t reach next level without moving onto burning plat or tembo move
 -dart stick and follow players
@@ -134,8 +135,8 @@ pets / turrets
 stuns, other traps
 some disarm shit
 boots with trails / effects
-shield reflects projectiles
-darts with status effects
+shield reflects projectiles X
+darts with status effects X
 slingshot - basic ranged
 boxing gloves - basic melee
 knockback with no damage

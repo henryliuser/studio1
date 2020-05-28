@@ -4,7 +4,7 @@ onready var player_tween = $PlayerTween
 func hit():
 	.hit()
 	var target1_deg = player.currentDirection * 10
-	var target2_deg = player.currentDirection * -20
+	var target2_deg = player.currentDirection * -25
 	
 	player_tween.interpolate_property(player.sprite,"rotation_degrees", player.rotation_degrees,
 		target2_deg, 0.25, Tween.TRANS_CUBIC, Tween.EASE_OUT)

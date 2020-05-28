@@ -39,6 +39,8 @@ func showText(dmg):
 	get_tree().current_scene.add_child(txt)
 
 func die():
+	if dead: return
+	dead = true
 	showText(damaga)
 	queue_free()
 	
