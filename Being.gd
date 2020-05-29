@@ -6,6 +6,7 @@ onready var sprite = $sprite
 onready var hurtbox = $hurtbox
 onready var omod = modulate
 onready var og_scale = scale
+onready var og_sprite_scale = sprite.scale
 onready var correct_mod = modulate
 
 var dead = false

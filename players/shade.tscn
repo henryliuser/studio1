@@ -74,6 +74,26 @@ enabled = true
 cast_to = Vector2( -30, 0 )
 collision_mask = 2
 
+[node name="Trails" type="Node2D" parent="."]
+
+[node name="trail1" type="AnimatedSprite" parent="Trails"]
+position = Vector2( 0.718964, -15.8174 )
+scale = Vector2( 3, 3 )
+frames = SubResource( 2 )
+animation = "forward"
+
+[node name="trail2" type="AnimatedSprite" parent="Trails"]
+position = Vector2( 0.718964, -15.8174 )
+scale = Vector2( 3, 3 )
+frames = SubResource( 2 )
+animation = "forward"
+
+[node name="trail3" type="AnimatedSprite" parent="Trails"]
+position = Vector2( 0.718964, -15.8174 )
+scale = Vector2( 3, 3 )
+frames = SubResource( 2 )
+animation = "forward"
+
 [node name="Gauges" parent="." instance=ExtResource( 5 )]
 position = Vector2( 3.71896, -77.8174 )
 

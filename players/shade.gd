@@ -24,6 +24,10 @@ puppet func syncDash(d):
 puppet func syncJump(d):
 	jumpInd.updateBar(d)
 
+func _process(delta):
+	pass
+	
+
 func _on_physics_process(_delta):
 	if stunTimer.x == 0:
 		calcDash()
@@ -37,7 +41,7 @@ func _on_physics_process(_delta):
 			elif is_on_floor():
 				jumpInd.updateBar(100)
 #				rpc_unreliable("syncJump", 100)
-	
+		calcTrails()
 func imposeGravity():
 	if not (L or R):
 		.imposeGravity()
@@ -97,6 +101,7 @@ func calculateJump():
 
 func calcDash():
 	if skill and dashAvailable and not dashing and not predash and not noDash:
+		dash_origin = global_position
 		dashAvailable = false
 		predash = true
 		storedDirection = currentDirection
@@ -130,8 +135,8 @@ func calcDash():
 	
 	if dashing:
 		sprite.rotation_degrees = currentDirection * 20
-		scale.y = og_scale.y + 0.2
-		scale.x = og_scale.x - 0.2
+#		scale.y = og_scale.y + 0.2
+#		scale.x = og_scale.x - 0.2
 		sprite.modulate.a = 0.3
 		dashTimer += 1
 		modulate = Color.paleturquoise
@@ -162,3 +167,22 @@ func restore():
 	rotation_degrees = lerp(rotation_degrees, 0, 0.2)
 	sprite.modulate.a = lerp(sprite.modulate.a, 1, 0.2)
 	if unactionable.x == 0 and !dashing: sprite.rotation_degrees = lerp(sprite.rotation_degrees, 0, 0.2)
+
+var dash_origin 
+var first_frame_of_dash
+func calcTrails():
+	var trails = get_node("../Trails")
+	var trail_lerp = 1
+	for t in trails.get_children():
+		if dashing:
+			t.global_position = dash_origin
+			t.visible = true
+		else: t.visible = false
+		t.modulate.a = sprite.modulate.a-0.1
+		t.global_position.x = lerp(t.global_position.x, sprite.global_position.x, trail_lerp)
+		t.global_position.y = global_position.y
+		t.scale = Vector2(storedDirection*3,3)
+		trail_lerp -= 0.33
+		
+		
+		

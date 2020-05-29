@@ -227,7 +227,8 @@ func die():
 	yield(get_tree().create_timer(1),"timeout")
 	var tw = Tween.new()
 	get_tree().current_scene.add_child(tw)
-	tw.interpolate_property(self, "modulate:a", modulate.a, 0, 1)
+	tw.interpolate_property(get_parent(), "modulate:a", modulate.a,
+		0, 1, Tween.TRANS_LINEAR, Tween.EASE_OUT)
 	tw.start()
 	yield(get_tree().create_timer(1),"timeout")
 	get_parent().queue_free()
@@ -271,4 +272,5 @@ func showText(dmg):
 
 func restore():
 	rotation_degrees = lerp(rotation_degrees, 0, 0.2)
+	sprite.scale = lerp(sprite.scale, og_sprite_scale, 0.2)
 	if unactionable.x == 0: sprite.rotation_degrees = lerp(sprite.rotation_degrees, 0, 0.2)

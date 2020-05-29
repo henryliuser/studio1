@@ -47,7 +47,7 @@ func _on_physics_process():
 	sprite.material.set_shader_param("width", 0.0)
 	
 func _on_bounceCheck_body_entered(body):  # BOUNCE
-	if equipped and Input.is_action_pressed(s+"down") and body != player:
+	if equipped and Input.is_action_pressed(s+"down") and body != player and !anim.is_playing():
 		if body.has_method("getHurt"): 
 			body.scale.y -= 0.5
 			body.getHurt(15, 20) 
