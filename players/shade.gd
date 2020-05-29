@@ -169,8 +169,8 @@ func restore():
 	if unactionable.x == 0 and !dashing: sprite.rotation_degrees = lerp(sprite.rotation_degrees, 0, 0.2)
 
 var dash_origin 
-var first_frame_of_dash
 func calcTrails():
+
 	var trails = get_node("../Trails")
 	var trail_lerp = 1
 	for t in trails.get_children():
@@ -178,9 +178,12 @@ func calcTrails():
 			t.global_position = dash_origin
 			t.visible = true
 		else: t.visible = false
-		t.modulate.a = sprite.modulate.a-0.1
+#		t.modulate.a = sprite.modulate.a-0.15
+#		t.global_rotation = lerp(0,sprite.rotation,trail_lerp)
+		t.global_rotation = sprite.rotation/1.5
 		t.global_position.x = lerp(t.global_position.x, sprite.global_position.x, trail_lerp)
 		t.global_position.y = global_position.y
+		trails.move_child(t,2)
 		t.scale = Vector2(storedDirection*3,3)
 		trail_lerp -= 0.33
 		
