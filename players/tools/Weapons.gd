@@ -17,6 +17,7 @@ export var posList = {
 
 func _process(_delta):
 	scale.x = player.currentDirection
+	if "storedDirection" in player: scale.x = player.storedDirection
 	
 func _ready():
 	get_node("../player").connect("die", self, "die")

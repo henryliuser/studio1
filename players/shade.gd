@@ -28,7 +28,6 @@ puppet func syncJump(d):
 
 func _process(delta):
 	pass
-	
 
 func _on_physics_process(_delta):
 	if stunTimer.x == 0:
@@ -50,7 +49,7 @@ func imposeGravity():
 
 func fixFlip(dir):
 	currentDirection = dir
-	var a = 0
+	if not dashing: storedDirection = dir
 	hurtbox.scale.x = currentDirection
 	for c in get_children():
 		if c.name == "rightWall" or c.name == "leftWall":
@@ -69,12 +68,12 @@ func movement():
 	if right && not left:
 		fixFlip(1)
 		if trail_overtime <= 0: velocity.x += acceleration 
-		if trail_overtime-5 <= 0: velocity.x = min(velocity.x, maxSpeeds.x)
+		if trail_overtime-8 <= 0: velocity.x = min(velocity.x, maxSpeeds.x)
 		sprite.play("forward")
 	elif left && not right:
 		fixFlip(-1)
 		if trail_overtime <= 0: velocity.x -= acceleration 
-		if trail_overtime-5 <= 0: velocity.x = max(velocity.x, -maxSpeeds.x)
+		if trail_overtime-8 <= 0: velocity.x = max(velocity.x, -maxSpeeds.x)
 		sprite.play("forward")
 	else:
 		sprite.play("idle")
@@ -197,10 +196,9 @@ var dash_origin
 var trail_overtime = 15
 func calcTrails():
 	var trail_lerp = 0.91
-	print(trail_overtime)
 	for t in trails.get_children():
 		if dashing:
-			trail_overtime = 15
+			trail_overtime = 18
 			t.global_position = dash_origin
 			t.visible = true
 		else:
