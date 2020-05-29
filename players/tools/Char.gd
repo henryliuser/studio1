@@ -62,8 +62,7 @@ puppet func setEverything(vel, pos, sprFlip, scl, mod, currDirec):
 func _physics_process(delta):
 	calcSquish()
 #	if is_network_master():
-	rotation_degrees = lerp(rotation_degrees, 0, 0.2)
-	if unactionable.x == 0: sprite.rotation_degrees = lerp(sprite.rotation_degrees, 0, 0.2)
+	restore()
 	calcHitstun()
 	if not zero_grav: imposeGravity() 
 	if hp > 0 and stunTimer.x == 0: 
@@ -264,3 +263,7 @@ func showText(dmg):
 	txt.set_text(str(dmg))
 	txt.global_position = Gauges.get_node("HPBar").global_position
 	get_tree().current_scene.add_child(txt)
+
+func restore():
+	rotation_degrees = lerp(rotation_degrees, 0, 0.2)
+	if unactionable.x == 0: sprite.rotation_degrees = lerp(sprite.rotation_degrees, 0, 0.2)

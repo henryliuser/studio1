@@ -22,6 +22,7 @@ puppet func syncJet(d):
 	jetflame.visible = d
 
 func jet():
+	sprite.rotation_degrees = lerp(sprite.rotation_degrees, currentDirection * 5, 0.1)
 	jetflame.visible = true
 #	rpc_unreliable("syncJet", true) #clean this shit
 	velocity.y -= jetSpeed
@@ -68,3 +69,6 @@ func getHurt(dmg,stun=10,kb=Vector2(),pos=Vector2()):
 
 #func _on_shoot():
 #	rotation_degrees -= currentDirection * 20
+func restore():
+	rotation_degrees = lerp(rotation_degrees, 0, 0.2)
+	if unactionable.x == 0 and !jetflame.visible: sprite.rotation_degrees = lerp(sprite.rotation_degrees, 0, 0.2)

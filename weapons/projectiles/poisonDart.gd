@@ -17,7 +17,7 @@ func _physics_process(delta):
 		if count % 50 == 0: 
 			target.getHurt(1,0)
 			target.modulate = Color.green
-		if count >= 250 or target.dead: done()
+		if count >= 250 or !is_instance_valid(target) or target.dead: done()
 	
 func _on_poisonDart_body_entered(body):
 	$hitbox.queue_free()

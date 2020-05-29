@@ -28,6 +28,7 @@ script = ExtResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( -2.5, 0 )
 frames = SubResource( 1 )
+frame = 3
 playing = true
 
 [node name="bodyHitbox" type="CollisionPolygon2D" parent="."]
@@ -35,7 +36,7 @@ polygon = PoolVector2Array( -29.511, 9, -37.5479, 1.46879, -29.494, -6, 30.5, -6
 
 [node name="boostTrigger" type="Area2D" parent="."]
 position = Vector2( 0.5, 0 )
-collision_layer = 65
+collision_mask = 65
 
 [node name="boostHitbox" type="CollisionShape2D" parent="boostTrigger"]
 position = Vector2( 0, -7 )

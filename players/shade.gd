@@ -129,6 +129,10 @@ func calcDash():
 #				rpc_unreliable("syncDash", 100)
 	
 	if dashing:
+		sprite.rotation_degrees = currentDirection * 20
+		scale.y = og_scale.y + 0.2
+		scale.x = og_scale.x - 0.2
+		sprite.modulate.a = 0.3
 		dashTimer += 1
 		modulate = Color.paleturquoise
 		velocity = Vector2(currentDirection*dashSpeed,0)
@@ -154,3 +158,7 @@ func grant_dash():
 	dashAvailable = true
 	dashInd.updateBar(100)
 	
+func restore():
+	rotation_degrees = lerp(rotation_degrees, 0, 0.2)
+	sprite.modulate.a = lerp(sprite.modulate.a, 1, 0.2)
+	if unactionable.x == 0 and !dashing: sprite.rotation_degrees = lerp(sprite.rotation_degrees, 0, 0.2)
