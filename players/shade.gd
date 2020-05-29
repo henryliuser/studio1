@@ -5,6 +5,7 @@ export var dashLock = 12
 export var dashSpeed = 1300
 export var dashCD = 3
 const predashDuration = 4
+var storedDirection = 1
 var noDash = false
 var dashAvailable = true
 var dashing = false
@@ -17,6 +18,7 @@ onready var trails = get_node("../Trails")
 var oneMidAirDashReset = true
 
 func _ready():
+#	acceleration = 120
 	dashInd = get_node("../Gauges/DashIndic")
 	jumpInd = get_node("../Gauges/JumpIndic")
 	trails.modulate = Color.paleturquoise
@@ -25,9 +27,6 @@ puppet func syncDash(d):
 	dashInd.updateBar(d)
 puppet func syncJump(d):
 	jumpInd.updateBar(d)
-
-func _process(delta):
-	pass
 
 func _on_physics_process(_delta):
 	if stunTimer.x == 0:
@@ -67,13 +66,19 @@ func movement():
 #	if justLeft: fixFlip(-1)
 	if right && not left:
 		fixFlip(1)
-		if trail_overtime <= 0: velocity.x += acceleration 
-		if trail_overtime-8 <= 0: velocity.x = min(velocity.x, maxSpeeds.x)
+		if trail_overtime <= 7: velocity.x += acceleration 
+#		if (trail_overtime >= 0 and trail_overtime <= 13 and velocity.x > 0):
+#			velocity.x = lerp(velocity.x, maxSpeeds.x, 0.5)
+#		else: 
+		if trail_overtime <= 8: velocity.x = min(velocity.x, maxSpeeds.x)
 		sprite.play("forward")
 	elif left && not right:
 		fixFlip(-1)
-		if trail_overtime <= 0: velocity.x -= acceleration 
-		if trail_overtime-8 <= 0: velocity.x = max(velocity.x, -maxSpeeds.x)
+		if trail_overtime <= 7: velocity.x -= acceleration 
+		if trail_overtime <= 8:velocity.x = max(velocity.x, -maxSpeeds.x)
+#		if (trail_overtime >= 0 and trail_overtime <= 13 and velocity.x < 0):
+#			velocity.x = lerp(velocity.x, -maxSpeeds.x, 0.5)
+#		else: velocity.x = max(velocity.x, -maxSpeeds.x)
 		sprite.play("forward")
 	else:
 		sprite.play("idle")
@@ -159,15 +164,12 @@ func calcDash():
 	
 	if dashing:
 		sprite.rotation_degrees = 15 if currentDirection == 1 else -25
-#		scale.y = og_scale.y + 0.2
-#		scale.x = og_scale.x - 0.2
 		sprite.modulate.a = 0.7
 		dashTimer += 1
 		modulate = Color.paleturquoise
 		velocity = Vector2(currentDirection*dashSpeed,0)
 		if dashTimer == dashLock: #at the end of the dash, 
 			currentDirection = storedDirection
-#			modulate = Color.white
 			dashTimer = 0
 			dashing = false
 			noDash = true # this places dash on an x frame cooldown cuz spamming it is kinda fast
@@ -189,14 +191,17 @@ func grant_dash():
 	
 func restore():
 	rotation_degrees = lerp(rotation_degrees, 0, 0.2)
+	if trail_overtime <= 0: modulate = modulate.linear_interpolate(Color.white,0.1)
 	sprite.modulate.a = lerp(sprite.modulate.a, 1, 0.2)
-	if unactionable.x == 0 and trail_overtime <= 0: sprite.rotation_degrees = lerp(sprite.rotation_degrees, 0, 0.2)
+	if unactionable.x == 0 and trail_overtime <= 0: 
+		sprite.rotation_degrees = lerp(sprite.rotation_degrees, 0, 0.2)
 
 var dash_origin 
 var trail_overtime = 15
 func calcTrails():
 	var trail_lerp = 0.91
 	for t in trails.get_children():
+		
 		if dashing:
 			trail_overtime = 18
 			t.global_position = dash_origin
@@ -205,7 +210,7 @@ func calcTrails():
 			if t.visible: trail_overtime -= 1
 			if trail_overtime <= 0: 
 				t.visible = false
-				modulate = Color.white
+#				modulate = Color.white
 		t.modulate.a = lerp(0, sprite.modulate.a-0.3, trail_lerp)
 		if trail_lerp == 0.5: t.modulate.a = 0.15
 #		t.modulate.a = max(sprite.modulate.a*trail_lerp+0.1, sprite.modulate.a-0.1)
@@ -216,6 +221,7 @@ func calcTrails():
 		t.scale = Vector2(storedDirection*3,3)
 		trail_lerp -= 0.25
 		if trail_lerp < 0.5: trail_lerp = 0.5
+#		t.modulate.a = 0
 
 #   ================================================================== THEORY VVVV
 

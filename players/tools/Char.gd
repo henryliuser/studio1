@@ -1,7 +1,6 @@
 extends "res://Being.gd"
 #misc
 export var gravity = 50
-var storedDirection = 1
 export var name_id = ""
 
 var netID = 0
