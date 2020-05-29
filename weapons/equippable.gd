@@ -2,6 +2,7 @@ extends Node2D
 var pnum = 1
 export var type = 0 
 export var itemName = ""
+export var renderOver = false
 signal picked_up
 var equipped = false
 var player
@@ -43,6 +44,8 @@ func _on_picked_up(p):
 #	sprite.material.set_shader_param("width", 0)
 	if get_parent()!=null: get_parent().remove_child(self)
 	p.Weapons.swap(self)
+	if renderOver: get_parent().get_parent().move_child(get_parent(), 1)
+	else: get_parent().get_parent().move_child(get_parent(), 0)
 	global_position = x
 	hover()
 

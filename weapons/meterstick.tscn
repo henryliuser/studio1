@@ -70,6 +70,7 @@ script = ExtResource( 3 )
 itemName = "meterstick"
 
 [node name="equipRadius" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="equipRadius"]
 position = Vector2( 60, 0 )

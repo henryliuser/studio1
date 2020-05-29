@@ -40,6 +40,7 @@ itemName = "boomerangSniper"
 cdSeconds = 0.5
 
 [node name="equipRadius" type="Area2D" parent="."]
+visible = false
 position = Vector2( 41.844, -3.90099 )
 scale = Vector2( 2, 2 )
 collision_layer = 32

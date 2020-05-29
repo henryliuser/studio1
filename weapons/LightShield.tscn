@@ -1,14 +1,31 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://assets/Weapons/shield.png" type="Texture" id=1]
+[ext_resource path="res://assets/Weapons/Shield/ShieldIdle/Sprite15-0002.png" type="Texture" id=1]
 [ext_resource path="res://weapons/LightShield.gd" type="Script" id=2]
 [ext_resource path="res://weapons/projectiles/staticHitbox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/Weapons/Shield/ShieldIdle/Sprite15-0007.png" type="Texture" id=4]
+[ext_resource path="res://assets/Weapons/Shield/ShieldIdle/Sprite15-0001.png" type="Texture" id=5]
+[ext_resource path="res://assets/Weapons/Shield/ShieldIdle/Sprite15-0006.png" type="Texture" id=6]
+[ext_resource path="res://assets/Weapons/Shield/ShieldIdle/Sprite15-0005.png" type="Texture" id=7]
+[ext_resource path="res://assets/Weapons/Shield/ShieldIdle/Sprite15-0004.png" type="Texture" id=9]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 32, 24 )
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 1 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+} ]
 
-[sub_resource type="Animation" id=2]
-resource_name = "hit"
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 32, 32 )
+
+[sub_resource type="Animation" id=3]
 step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
@@ -20,7 +37,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2, 0.25, 0.6, 1 ),
 "transitions": PoolRealArray( 1, 1, 1, 0.482968, 0.233258 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( -5, 0 ), Vector2( 60, 0 ), Vector2( 25, -10 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( -5, 0 ), Vector2( 80, 0 ), Vector2( 25, -10 ), Vector2( 5, 0 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:rotation_degrees")
@@ -32,7 +49,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.2, 0.25, 1 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 0.0, 5.0, -15.0, 0.0 ]
+"values": [ 0.0, 5.0, -25.0, 0.0 ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("passiveBlockArea:monitoring")
@@ -83,30 +100,34 @@ tracks/5/keys = {
 "values": [ false, true, false ]
 }
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=4]
 radius = 19.0929
 
-[sub_resource type="CapsuleShape2D" id=4]
+[sub_resource type="CapsuleShape2D" id=5]
 
-[sub_resource type="RayShape2D" id=5]
-length = 50.0
+[sub_resource type="RayShape2D" id=6]
+length = 45.0
 
 [node name="LightShield" type="Node2D"]
 script = ExtResource( 2 )
 itemName = "lightShield"
+renderOver = true
+
+[node name="sprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 1.4, 1.4 )
+frames = SubResource( 1 )
+animation = "idle"
+playing = true
 
 [node name="equipRadius" type="Area2D" parent="."]
+visible = false
 scale = Vector2( 2, 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="equipRadius"]
-shape = SubResource( 1 )
-
-[node name="sprite" type="Sprite" parent="."]
-scale = Vector2( 2, 2 )
-texture = ExtResource( 1 )
+shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/hit = SubResource( 2 )
+anims/hit = SubResource( 3 )
 
 [node name="Tween" type="Tween" parent="."]
 
@@ -123,17 +144,17 @@ stun = 30
 knockback = Vector2( 700, -700 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitboxes/staticHitbox"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="passiveBlockArea" type="Area2D" parent="."]
 modulate = Color( 0.529412, 1, 0.235294, 1 )
-position = Vector2( 25.4364, 1.08449 )
+position = Vector2( 15, 0 )
 scale = Vector2( 2, 2 )
 collision_layer = 0
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="passiveBlockArea"]
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="bounceCheck" type="Area2D" parent="."]
 collision_layer = 0
@@ -142,5 +163,17 @@ collision_mask = 3
 [node name="asda" type="CollisionShape2D" parent="bounceCheck"]
 rotation = -1.5708
 scale = Vector2( 0.5, 1 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
+
+[node name="asda2" type="CollisionShape2D" parent="bounceCheck"]
+position = Vector2( 0, -35 )
+rotation = -1.5708
+scale = Vector2( 0.5, 1 )
+shape = SubResource( 6 )
+
+[node name="asda3" type="CollisionShape2D" parent="bounceCheck"]
+position = Vector2( 0, 45 )
+rotation = -1.5708
+scale = Vector2( 0.5, 1 )
+shape = SubResource( 6 )
 [connection signal="body_entered" from="bounceCheck" to="." method="_on_bounceCheck_body_entered"]

@@ -26,6 +26,7 @@ texture = ExtResource( 1 )
 [node name="Timer" type="Timer" parent="."]
 
 [node name="equipRadius" type="Area2D" parent="."]
+visible = false
 position = Vector2( 26.3065, -9.84259 )
 scale = Vector2( 3, 3 )
 

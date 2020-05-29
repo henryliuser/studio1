@@ -22,13 +22,13 @@ func _ready():
 	get_node("../player").connect("die", self, "die")
 
 func swap(weapon):  # for use outside of this node, by weapons
-	add_child(weapon)
 	var x; var index
 	if weapon.type == 2: index = active
 	else: index = weapon.type
 	x = slots[index]
 	slots[index] = weapon
 	drop(x)
+	add_child(weapon)
 	update_active(index)
 
 func drop(x, pos:Vector2=Vector2(9999,9999)):
@@ -37,7 +37,7 @@ func drop(x, pos:Vector2=Vector2(9999,9999)):
 		remove_child(x)
 		get_tree().current_scene.add_child(x)
 		x.global_position = pos
-		x._on_dropped()  # do what happens when u drop the thing
+		x._on_dropped()
 
 func delete(slot_num):
 	if slots[slot_num] != null:

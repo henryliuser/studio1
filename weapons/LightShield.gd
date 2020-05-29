@@ -33,7 +33,7 @@ func _physics_process(delta):
 					player.sprite.rotation_degrees = lerp(pRot, -pDirec*50, 0.1)
 					rotation_degrees = lerp(rotation_degrees, -scale.x * 50, 0.1)
 				else:
-					player.sprite.rotation_degrees = lerp(pRot, -pDirec*-120, 0.1)
+					player.sprite.rotation_degrees = lerp(pRot, -pDirec*-150, 0.1)
 					rotation_degrees = lerp(rotation_degrees, -scale.x * -130, 0.2)
 					position = lerp(position, bounce_pos, 0.1)
 		if Input.is_action_just_released(s+"down"): hoverTween.resume_all()

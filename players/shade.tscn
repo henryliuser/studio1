@@ -33,13 +33,46 @@ __meta__ = {
 [node name="Weapons" parent="." instance=ExtResource( 6 )]
 position = Vector2( 30, -15 )
 posList = {
-"boomerangSniper": Vector2( 0, 0 ),
-"lightShield": Vector2( 0, 0 ),
+"boomerangSniper": Vector2( -3, 10 ),
+"lightShield": Vector2( 10, -5 ),
 "meterstick": Vector2( 0, 0 ),
 "potassiumCannon": Vector2( -9, 7 ),
 "tembo": Vector2( -7, 20 ),
 "toxicRifle": Vector2( 2, 6 )
 }
+
+[node name="player" type="KinematicBody2D" parent="."]
+position = Vector2( 0.718964, -15.8174 )
+scale = Vector2( 3, 3 )
+collision_mask = 5
+script = ExtResource( 1 )
+name_id = "shade"
+totalJumps = 2
+
+[node name="PickUpRadius" parent="player" instance=ExtResource( 7 )]
+visible = false
+position = Vector2( 0, -1.984 )
+scale = Vector2( 0.333333, 0.333333 )
+
+[node name="hurtbox" type="CollisionShape2D" parent="player"]
+position = Vector2( 1, 0 )
+shape = SubResource( 1 )
+
+[node name="sprite" type="AnimatedSprite" parent="player"]
+frames = SubResource( 2 )
+animation = "forward"
+
+[node name="rightWall" type="RayCast2D" parent="player"]
+scale = Vector2( 0.333333, 0.333333 )
+enabled = true
+cast_to = Vector2( 30, 0 )
+collision_mask = 2
+
+[node name="leftWall" type="RayCast2D" parent="player"]
+scale = Vector2( 0.333333, 0.333333 )
+enabled = true
+cast_to = Vector2( -30, 0 )
+collision_mask = 2
 
 [node name="Gauges" parent="." instance=ExtResource( 5 )]
 position = Vector2( 3.71896, -77.8174 )
@@ -66,38 +99,6 @@ tint_progress = Color( 0.113725, 0.858824, 0.956863, 1 )
 
 [node name="HPBar" parent="Gauges" instance=ExtResource( 3 )]
 position = Vector2( 0, -2 )
-
-[node name="player" type="KinematicBody2D" parent="."]
-position = Vector2( 0.718964, -15.8174 )
-scale = Vector2( 3, 3 )
-collision_mask = 5
-script = ExtResource( 1 )
-name_id = "shade"
-totalJumps = 2
-
-[node name="PickUpRadius" parent="player" instance=ExtResource( 7 )]
-position = Vector2( 0, -1.984 )
-scale = Vector2( 0.333333, 0.333333 )
-
-[node name="hurtbox" type="CollisionShape2D" parent="player"]
-position = Vector2( 1, 0 )
-shape = SubResource( 1 )
-
-[node name="sprite" type="AnimatedSprite" parent="player"]
-frames = SubResource( 2 )
-animation = "forward"
-
-[node name="rightWall" type="RayCast2D" parent="player"]
-scale = Vector2( 0.333333, 0.333333 )
-enabled = true
-cast_to = Vector2( 30, 0 )
-collision_mask = 2
-
-[node name="leftWall" type="RayCast2D" parent="player"]
-scale = Vector2( 0.333333, 0.333333 )
-enabled = true
-cast_to = Vector2( -30, 0 )
-collision_mask = 2
 
 [editable path="Gauges/JumpIndic"]
 

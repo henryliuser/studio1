@@ -39,6 +39,51 @@ posList = {
 "toxicRifle": Vector2( 0, 0 )
 }
 
+[node name="player" type="KinematicBody2D" parent="."]
+scale = Vector2( 4, 4 )
+collision_mask = 5
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_vertical_guides_": [  ]
+}
+name_id = "walker"
+maxAirVelocity = Vector2( 400, 1500 )
+maxGroundVelocity = Vector2( 500, 1500 )
+lerpWeight = 0.25
+totalJumps = 0
+
+[node name="PickUpRadius" parent="player" instance=ExtResource( 5 )]
+visible = false
+position = Vector2( 2.89005, -7.11653 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="jetflame" type="AnimatedSprite" parent="player"]
+visible = false
+position = Vector2( -8.86257, -1.99328 )
+scale = Vector2( 0.7, 1 )
+frames = SubResource( 1 )
+frame = 1
+
+[node name="sprite" type="AnimatedSprite" parent="player"]
+frames = ExtResource( 2 )
+animation = "idle"
+playing = true
+
+[node name="hurtbox" type="CollisionPolygon2D" parent="player"]
+polygon = PoolVector2Array( -0.078373, 5.96251, -5.76543, 1.91047, -5.9787, -2.07047, -3.13517, -11.0276, 0, -17, 10, -17, 10, -7.971, 10, 5.963 )
+
+[node name="jetpack" type="Area2D" parent="player"]
+visible = false
+position = Vector2( -6, -6.5 )
+monitoring = false
+monitorable = false
+collision_layer = 8
+collision_mask = 0
+
+[node name="jetpack" type="CollisionShape2D" parent="player/jetpack"]
+position = Vector2( -0.00249481, -0.06177 )
+shape = SubResource( 2 )
+
 [node name="Gauges" parent="." instance=ExtResource( 33 )]
 position = Vector2( 10, -100 )
 
@@ -56,51 +101,6 @@ tint_progress = Color( 0.85098, 0.564706, 0.0117647, 1 )
 
 [node name="HPBar" parent="Gauges" instance=ExtResource( 34 )]
 position = Vector2( 0, 7.62939e-06 )
-
-[node name="player" type="KinematicBody2D" parent="."]
-scale = Vector2( 4, 4 )
-collision_mask = 5
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_vertical_guides_": [  ]
-}
-name_id = "walker"
-maxAirVelocity = Vector2( 400, 1500 )
-maxGroundVelocity = Vector2( 500, 1500 )
-lerpWeight = 0.25
-totalJumps = 0
-
-[node name="PickUpRadius" parent="player" instance=ExtResource( 5 )]
-position = Vector2( 2.89005, -7.11653 )
-scale = Vector2( 0.25, 0.25 )
-
-[node name="jetflame" type="AnimatedSprite" parent="player"]
-visible = false
-position = Vector2( -8.86257, -1.99328 )
-scale = Vector2( 0.7, 1 )
-frames = SubResource( 1 )
-frame = 1
-
-[node name="sprite" type="AnimatedSprite" parent="player"]
-frames = ExtResource( 2 )
-animation = "idle"
-frame = 4
-playing = true
-
-[node name="hurtbox" type="CollisionPolygon2D" parent="player"]
-polygon = PoolVector2Array( -0.078373, 5.96251, -5.76543, 1.91047, -5.9787, -2.07047, -3.13517, -11.0276, 0, -17, 10, -17, 10, -7.971, 10, 5.963 )
-
-[node name="jetpack" type="Area2D" parent="player"]
-visible = false
-position = Vector2( -6, -6.5 )
-monitoring = false
-monitorable = false
-collision_layer = 8
-collision_mask = 0
-
-[node name="jetpack" type="CollisionShape2D" parent="player/jetpack"]
-position = Vector2( -0.00249481, -0.06177 )
-shape = SubResource( 2 )
 [connection signal="area_entered" from="player/jetpack" to="player" method="_on_jetpack_area_entered"]
 
 [editable path="Gauges/FuelBar"]
