@@ -34,11 +34,11 @@ __meta__ = {
 position = Vector2( 30, -15 )
 posList = {
 "boomerangSniper": Vector2( -3, 10 ),
-"lightShield": Vector2( 10, -5 ),
+"lightShield": Vector2( 10, -15 ),
 "meterstick": Vector2( 0, 0 ),
 "potassiumCannon": Vector2( -9, 7 ),
 "tembo": Vector2( -7, 20 ),
-"toxicRifle": Vector2( 2, 6 )
+"toxicRifle": Vector2( 0, 6 )
 }
 
 [node name="player" type="KinematicBody2D" parent="."]

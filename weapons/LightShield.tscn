@@ -104,11 +104,13 @@ tracks/5/keys = {
 radius = 19.0929
 
 [sub_resource type="CapsuleShape2D" id=5]
+height = 35.0
 
 [sub_resource type="RayShape2D" id=6]
 length = 45.0
 
 [node name="LightShield" type="Node2D"]
+position = Vector2( 5, 0 )
 script = ExtResource( 2 )
 itemName = "lightShield"
 renderOver = true
