@@ -12,12 +12,14 @@ var predash = false
 var dashTimer = 0
 var dashInd
 var jumpInd
+onready var trails = get_node("../Trails")
 
 var oneMidAirDashReset = true
 
 func _ready():
 	dashInd = get_node("../Gauges/DashIndic")
 	jumpInd = get_node("../Gauges/JumpIndic")
+	trails.modulate = Color.paleturquoise
 
 puppet func syncDash(d):
 	dashInd.updateBar(d)
@@ -55,6 +57,29 @@ func fixFlip(dir):
 			continue
 		c.position.x = children[c].x * currentDirection
 		c.scale.x = abs(c.scale.x) * currentDirection
+
+func movement():
+	var maxSpeeds
+	var lerq = lerpWeight
+	if not is_on_floor(): lerq = lerpWeight/3
+	if grounded: maxSpeeds = maxGroundVelocity
+	else: maxSpeeds = maxAirVelocity
+#	if justRight: fixFlip(1) can't do this Trust me
+#	if justLeft: fixFlip(-1)
+	if right && not left:
+		fixFlip(1)
+		if trail_overtime <= 0: velocity.x += acceleration 
+		if trail_overtime-5 <= 0: velocity.x = min(velocity.x, maxSpeeds.x)
+		sprite.play("forward")
+	elif left && not right:
+		fixFlip(-1)
+		if trail_overtime <= 0: velocity.x -= acceleration 
+		if trail_overtime-5 <= 0: velocity.x = max(velocity.x, -maxSpeeds.x)
+		sprite.play("forward")
+	else:
+		sprite.play("idle")
+		lerp0(lerq)
+	velocity.y = min(velocity.y, maxSpeeds.y)
 
 var L; var R
 func calcWalls():
@@ -134,16 +159,16 @@ func calcDash():
 #				rpc_unreliable("syncDash", 100)
 	
 	if dashing:
-		sprite.rotation_degrees = currentDirection * 20
+		sprite.rotation_degrees = 15 if currentDirection == 1 else -25
 #		scale.y = og_scale.y + 0.2
 #		scale.x = og_scale.x - 0.2
-		sprite.modulate.a = 0.3
+		sprite.modulate.a = 0.7
 		dashTimer += 1
 		modulate = Color.paleturquoise
 		velocity = Vector2(currentDirection*dashSpeed,0)
 		if dashTimer == dashLock: #at the end of the dash, 
 			currentDirection = storedDirection
-			modulate = Color.white
+#			modulate = Color.white
 			dashTimer = 0
 			dashing = false
 			noDash = true # this places dash on an x frame cooldown cuz spamming it is kinda fast
@@ -166,26 +191,63 @@ func grant_dash():
 func restore():
 	rotation_degrees = lerp(rotation_degrees, 0, 0.2)
 	sprite.modulate.a = lerp(sprite.modulate.a, 1, 0.2)
-	if unactionable.x == 0 and !dashing: sprite.rotation_degrees = lerp(sprite.rotation_degrees, 0, 0.2)
+	if unactionable.x == 0 and trail_overtime <= 0: sprite.rotation_degrees = lerp(sprite.rotation_degrees, 0, 0.2)
 
 var dash_origin 
+var trail_overtime = 15
 func calcTrails():
-
-	var trails = get_node("../Trails")
-	var trail_lerp = 1
+	var trail_lerp = 0.91
+	print(trail_overtime)
 	for t in trails.get_children():
 		if dashing:
+			trail_overtime = 15
 			t.global_position = dash_origin
 			t.visible = true
-		else: t.visible = false
-#		t.modulate.a = sprite.modulate.a-0.15
+		else:
+			if t.visible: trail_overtime -= 1
+			if trail_overtime <= 0: 
+				t.visible = false
+				modulate = Color.white
+		t.modulate.a = lerp(0, sprite.modulate.a-0.3, trail_lerp)
+		if trail_lerp == 0.5: t.modulate.a = 0.15
+#		t.modulate.a = max(sprite.modulate.a*trail_lerp+0.1, sprite.modulate.a-0.1)
 #		t.global_rotation = lerp(0,sprite.rotation,trail_lerp)
-		t.global_rotation = sprite.rotation/1.5
+		t.global_rotation = sprite.rotation
 		t.global_position.x = lerp(t.global_position.x, sprite.global_position.x, trail_lerp)
 		t.global_position.y = global_position.y
-		trails.move_child(t,2)
 		t.scale = Vector2(storedDirection*3,3)
-		trail_lerp -= 0.33
+		trail_lerp -= 0.25
+		if trail_lerp < 0.5: trail_lerp = 0.5
+
+#   ================================================================== THEORY VVVV
+
+#	var trail_lerp = 0.91
+#	var t1 = trails.get_node("trail1")
+#	var t2 = trails.get_node("trail2")
+#	var t3 = trails.get_node("trail3")
+#	if dashing:
+#		trail_overtime = 15
+#		t1.global_position = dash_origin
+#		t1.visible = true; t2.visible = true; t3.visible = true
+#	else:
+#		if t1.visible: trail_overtime -= 1
+#		else: 
+#			t1.visible = false; t2.visible = false; t3.visible = false
+#			modulate = Color.white
+#	t1.global_position.x = lerp(t1.global_position.x, sprite.global_position.x, trail_lerp)
+#	var length = global_position.x - t1.global_position.x
+#	t2.global_position.x = t1.global_position.x + length/3
+#	t3.global_position.x = t1.global_position.x + 2*length/3
+#	for t in trails.get_children():
+#		t.modulate.a = lerp(0, sprite.modulate.a-0.3, trail_lerp)
+#		t.global_rotation = sprite.rotation
+#		t.global_position.y = global_position.y
+#		t.scale = Vector2(storedDirection*3,3)
+#		trail_lerp -= 0.27
+##		if trail_lerp < 0.5: trail_lerp = 0.5
+	
+		
+		
 		
 		
 		
