@@ -6,7 +6,7 @@ func _ready():
 	randomize()
 	x = load(Global.weapon_names[randi()%len(Global.weapon_names)]).instance()
 	x.visible = false
-	get_tree().current_scene.add_child(x)
+	get_tree().current_scene.call_deferred("add_child", x)
 	
 func _on_Area2D_body_entered(body):
 	emit_signal("crate")

@@ -36,6 +36,7 @@ func drop(x, pos:Vector2=Vector2(9999,9999)):
 	if x != null:
 		if pos == Vector2(9999,9999): pos = x.global_position
 		remove_child(x)
+#		get_tree().current_scene.call_deferred("add_child", x)
 		get_tree().current_scene.add_child(x)
 		x.global_position = pos
 		x._on_dropped()

@@ -45,7 +45,7 @@ func shoot():
 	
 func _on_picked_up(p):  # connect to player when picked up so we can polish stuff like kickback and rotate
 	._on_picked_up(p)
-	connect("shoot", p,"_on_shoot")
+#	connect("shoot", p,"_on_shoot")
 
 	
 
