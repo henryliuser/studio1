@@ -14,10 +14,10 @@ func _physics_process(delta):
 	global_position += velocity * delta
 	if stuck:
 		count += 1
-		if count % 50 == 0: 
+		if count % 50 == 0 and is_instance_valid(target) and target != null: 
 			target.getHurt(1,0)
 			target.modulate = Color.green
-		if count >= 250 or !is_instance_valid(target) or target.dead: done()
+		if count >= 250 or !is_instance_valid(target) or target.dead or target.dead: done()
 	
 func _on_poisonDart_body_entered(body):
 	$hitbox.queue_free()
@@ -51,12 +51,11 @@ func _on_poisonDart_body_entered(body):
 
 	
 func done():
+	if !is_instance_valid(target) or target == null: return
 	if "maxAirVelocity" in target:
 		target.maxAirVelocity.x *= slowFactor
 	if "maxGroundVelocity" in target:
-#		print(target.maxGroundVelocity.x)
 		target.maxGroundVelocity.x *= slowFactor
-#		print(target.maxGroundVelocity.x)
 #	target.sprite.material = null
 	queue_free()
 	

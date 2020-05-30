@@ -1,6 +1,5 @@
 extends "res://weapons/equippable.gd"
 onready var anim = $AnimationPlayer
-
 var k = 0
 func _physics_process(delta):
 	var playin = anim.is_playing()

@@ -249,7 +249,10 @@ func calcTrails():
 #		t.scale = Vector2(storedDirection*3,3)
 #		trail_lerp -= 0.27
 ##		if trail_lerp < 0.5: trail_lerp = 0.5
-	
+
+func die():
+	trails.queue_free()
+	.die()
 		
 		
 		

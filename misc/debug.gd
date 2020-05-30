@@ -6,6 +6,7 @@ func _process(delta):
 		
 	if Input.is_action_just_pressed("d_reset"):
 		clear()
+		yield(get_tree().create_timer(delta/2), "timeout")  # One of the weirdest engine bugs ever
 		get_tree().reload_current_scene()
 		print("----------------------------")
 	if Input.is_action_pressed("d_reset"):
@@ -27,3 +28,4 @@ func _process(delta):
 func clear():
 	for x in get_tree().current_scene.get_children():
 		x.queue_free()
+

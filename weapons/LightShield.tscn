@@ -37,7 +37,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2, 0.25, 0.6, 1 ),
 "transitions": PoolRealArray( 1, 1, 1, 0.482968, 0.233258 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( -5, 0 ), Vector2( 80, 0 ), Vector2( 25, -10 ), Vector2( 5, 0 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( -5, 0 ), Vector2( 80, 0 ), Vector2( 25, -10 ), Vector2( 0, 0 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:rotation_degrees")
@@ -110,7 +110,6 @@ height = 35.0
 length = 45.0
 
 [node name="LightShield" type="Node2D"]
-position = Vector2( 5, 0 )
 script = ExtResource( 2 )
 itemName = "lightShield"
 renderOver = true

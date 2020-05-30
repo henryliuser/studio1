@@ -1,8 +1,16 @@
 extends "res://weapons/melee.gd"
 onready var player_tween = $PlayerTween
+var og_key_values = []
+
+func _ready():
+	for x in range(5):
+		og_key_values.append(anim.get_animation("hit").track_get_key_value(0,x))
 
 func hit():
 	.hit()
+	var qqq = []
+	for x in range(5):
+		anim.get_animation("hit").track_set_key_value(0, x, position+og_key_values[x])
 	var target1_deg = player.currentDirection * 10
 	var target2_deg = player.currentDirection * -25
 	

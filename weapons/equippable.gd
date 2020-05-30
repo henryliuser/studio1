@@ -7,6 +7,7 @@ signal picked_up
 var equipped = false
 var player
 var s
+var hover_pos = Vector2()
 onready var sprite = $sprite
 onready var hoverTween = $Tween
 onready var spriteInitPos = $sprite.position
@@ -25,7 +26,7 @@ func _physics_process(_delta):  # needs to be physics process cuz order
 	
 func _on_physics_process():
 	if equipped: 
-		position = lerp(position, player.Weapons.posList[itemName], 0.3)
+		position = lerp(position, hover_pos, 0.3)
 	sprite.material.set_shader_param("width", 0.0)
 
 func activate(p):  # is within range to be picked up by a player
@@ -47,6 +48,7 @@ func _on_picked_up(p):
 	if renderOver: get_parent().get_parent().move_child(get_parent(), 1)
 	else: get_parent().get_parent().move_child(get_parent(), 0)
 	global_position = x
+	hover_pos = player.Weapons.posList[itemName]
 	hover()
 
 func _on_dropped():

@@ -75,7 +75,7 @@ func _physics_process(delta):
 	
 func fixFlip(dir):
 	currentDirection = dir
-
+#	print(str(sprite.scale) + " " + str(Global.frameCount))
 	for c in get_children():
 		if c.name == "poisonDart": print(c.position)
 		c.position.x = children[c].x * currentDirection
@@ -199,9 +199,8 @@ func getHurt(dmg, stun:int=10, kb:Vector2=Vector2(), pos:Vector2=Vector2() ):
 	if kb != Vector2() and stun != 0:
 		if t < 0: fixFlip(1)
 		else: fixFlip(-1)
-		velocity = Vector2(t/abs(t)*kb.x, kb.y) 
+		velocity = Vector2(t/abs(t)*kb.x, kb.y)
 	elif stun != 0: velocity /= 3
-	if dead: return
 	global_position += velocity/30
 	rotation_degrees = -currentDirection*50 if kb != Vector2() else -currentDirection*10
 	hp -= dmg
@@ -209,6 +208,7 @@ func getHurt(dmg, stun:int=10, kb:Vector2=Vector2(), pos:Vector2=Vector2() ):
 	chainFrames = 2
 	clearInputs()
 	hpbar.updateBar(hp)
+	if dead: return
 	if hp <= 0:
 		die()
 	
