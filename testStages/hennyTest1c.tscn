@@ -1,13 +1,15 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://blocks/defaultPlat.tscn" type="PackedScene" id=1]
 [ext_resource path="res://players/walker.tscn" type="PackedScene" id=2]
+[ext_resource path="res://weapons/toxicRifle.tscn" type="PackedScene" id=3]
 [ext_resource path="res://players/dummy0.tscn" type="PackedScene" id=4]
 [ext_resource path="res://blocks/boostPlat.tscn" type="PackedScene" id=5]
 [ext_resource path="res://blocks/burnPlat.tscn" type="PackedScene" id=6]
+[ext_resource path="res://weapons/LightShield.tscn" type="PackedScene" id=7]
 [ext_resource path="res://weapons/boomerangSniper.tscn" type="PackedScene" id=8]
 [ext_resource path="res://weapons/potassiumCannon.tscn" type="PackedScene" id=9]
-[ext_resource path="res://weapons/tembo.tscn" type="PackedScene" id=10]
+[ext_resource path="res://weapons/Tembo.tscn" type="PackedScene" id=10]
 [ext_resource path="res://weapons/meterstick.tscn" type="PackedScene" id=11]
 
 [node name="hennyTest1" type="Node2D"]
@@ -46,9 +48,6 @@ velocity = Vector2( 0, 0 )
 position = Vector2( 135.341, 620.838 )
 velocity = Vector2( 0, 0 )
 
-[node name="tembo" parent="." instance=ExtResource( 10 )]
-position = Vector2( 991.658, 221.966 )
-
 [node name="dummy" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1195.45, 582.744 )
 
@@ -63,3 +62,12 @@ position = Vector2( 1282.1, 216.297 )
 
 [node name="walker" parent="." instance=ExtResource( 2 )]
 position = Vector2( 460.472, 305.212 )
+
+[node name="tembo" parent="." instance=ExtResource( 10 )]
+position = Vector2( 983.686, 212.944 )
+
+[node name="LightShield" parent="." instance=ExtResource( 7 )]
+position = Vector2( 979.264, 621.871 )
+
+[node name="toxicRifle" parent="." instance=ExtResource( 3 )]
+position = Vector2( 806.547, 640.715 )

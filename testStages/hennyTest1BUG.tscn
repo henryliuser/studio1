@@ -9,7 +9,7 @@
 [ext_resource path="res://weapons/LightShield.tscn" type="PackedScene" id=7]
 [ext_resource path="res://weapons/boomerangSniper.tscn" type="PackedScene" id=8]
 [ext_resource path="res://weapons/potassiumCannon.tscn" type="PackedScene" id=9]
-[ext_resource path="res://weapons/tembo.tscn" type="PackedScene" id=10]
+[ext_resource path="res://weapons/Tembo.tscn" type="PackedScene" id=10]
 [ext_resource path="res://weapons/meterstick.tscn" type="PackedScene" id=11]
 
 [node name="hennyTest1" type="Node2D"]
@@ -48,9 +48,6 @@ velocity = Vector2( 0, 0 )
 position = Vector2( 135.341, 620.838 )
 velocity = Vector2( 0, 0 )
 
-[node name="tembo" parent="." instance=ExtResource( 10 )]
-position = Vector2( 991.658, 221.966 )
-
 [node name="boomerangSniper" parent="." instance=ExtResource( 8 )]
 position = Vector2( 732.731, 209.274 )
 
@@ -72,3 +69,6 @@ position = Vector2( 702.328, 620.926 )
 
 [node name="LightShield" parent="." instance=ExtResource( 7 )]
 position = Vector2( 896.343, 630.771 )
+
+[node name="tembo" parent="." instance=ExtResource( 10 )]
+position = Vector2( 971.78, 211.981 )

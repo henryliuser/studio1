@@ -67,6 +67,7 @@ boomerang angles the correct way, disappears on hitting owner
 …
 -can’t reach next level without moving onto burning plat or tembo move
 -dart stick and follow players
+-melee movement meterstick dash don’t work on conveyer
 REFACTOR EVERYTHING WITH SIGNALS LOL
 
 _**Networking**_

@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://blocks/defaultPlat.tscn" type="PackedScene" id=1]
 [ext_resource path="res://players/walker.tscn" type="PackedScene" id=2]
 [ext_resource path="res://blocks/conveyerPlat.tscn" type="PackedScene" id=3]
-[ext_resource path="res://players/dummy0.tscn" type="PackedScene" id=4]
 [ext_resource path="res://blocks/boostPlat.tscn" type="PackedScene" id=5]
 [ext_resource path="res://blocks/burnPlat.tscn" type="PackedScene" id=6]
 [ext_resource path="res://weapons/boomerangSniper.tscn" type="PackedScene" id=8]
@@ -58,10 +57,6 @@ position = Vector2( 250.763, 527.779 )
 
 [node name="boomerangSniper" parent="." instance=ExtResource( 8 )]
 position = Vector2( 388.039, 640.458 )
-
-[node name="dummy" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1195.45, 582.744 )
-localNum = 2
 
 [node name="tembo" parent="." instance=ExtResource( 10 )]
 position = Vector2( 595.439, 652.742 )

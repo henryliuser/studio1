@@ -66,3 +66,5 @@ func update_active(type):
 	if slots[0] != null: slots[0].visible = false
 	if slots[1] != null: slots[1].visible = false
 	slots[active].visible = true
+	if slots[active].renderOver: get_parent().move_child(self, 1)
+	else: get_parent().move_child(self, 0)

@@ -10,7 +10,6 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("p" + str(pnum) + "_hit"):
 			hit()
 			
-	
 	if playin: hoverTween.stop_all()
 	else: hoverTween.resume_all()
 

@@ -32,7 +32,7 @@ __meta__ = {
 position = Vector2( 27.1454, -26.1384 )
 posList = {
 "boomerangSniper": Vector2( 2, -7 ),
-"lightShield": Vector2( 0, 0 ),
+"lightShield": Vector2( 20, -20 ),
 "meterstick": Vector2( 0, 4 ),
 "potassiumCannon": Vector2( 13, -5 ),
 "tembo": Vector2( 3, 16 ),
