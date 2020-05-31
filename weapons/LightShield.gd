@@ -8,7 +8,6 @@ func _ready():
 
 func hit():
 	.hit()
-	var qqq = []
 	for x in range(5):
 		anim.get_animation("hit").track_set_key_value(0, x, position+og_key_values[x])
 	var target1_deg = player.currentDirection * 10
@@ -42,6 +41,7 @@ func _physics_process(delta):
 					rotation_degrees = lerp(rotation_degrees, -scale.x * 50, 0.1)
 				else:
 					player.sprite.rotation_degrees = lerp(pRot, -pDirec*-150, 0.1)
+					player.hurtbox.scale.y = lerp(player.hurtbox.scale.y, 0.5, 0.1)
 					rotation_degrees = lerp(rotation_degrees, -scale.x * -130, 0.2)
 					position = lerp(position, bounce_pos, 0.1)
 		if Input.is_action_just_released(s+"down"): hoverTween.resume_all()
@@ -55,8 +55,9 @@ func _on_physics_process():
 	sprite.material.set_shader_param("width", 0.0)
 	
 func _on_bounceCheck_body_entered(body):  # BOUNCE
-	var check = equipped and !anim.is_playing() and !player.is_on_floor()
-	if check and Input.is_action_pressed(s+"down") and body != player:
+	var angle_check = abs(global_rotation_degrees) > 50 and abs(global_rotation_degrees) < 130
+	var check = equipped and !anim.is_playing()
+	if check and angle_check and Input.is_action_pressed(s+"down") and body != player:
 		if body.has_method("getHurt"): 
 			body.scale.y -= 0.5
 			body.getHurt(15, 20) 

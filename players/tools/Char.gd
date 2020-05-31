@@ -269,7 +269,15 @@ func showText(dmg):
 	txt.global_position = Gauges.get_node("HPBar").global_position
 	get_tree().current_scene.add_child(txt)
 
+func heal(amt):
+	hp += amt
+	if hp > 100: hp = 100
+	hpbar.updateBar(hp)
+	# play some animatiion
+	
+
 func restore():
+	hurtbox.scale.y = lerp(hurtbox.scale.y, 1, 0.2)
 	rotation_degrees = lerp(rotation_degrees, 0, 0.2)
 	sprite.scale = lerp(sprite.scale, og_sprite_scale, 0.2)
 	if unactionable.x == 0: sprite.rotation_degrees = lerp(sprite.rotation_degrees, 0, 0.2)
