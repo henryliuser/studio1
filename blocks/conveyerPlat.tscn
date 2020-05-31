@@ -40,7 +40,5 @@ shape = SubResource( 2 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( -27.0555, 7.12193, -33.9413, 3.94386, -34.9628, -0.0665722, -34.9628, -3.92566, -29.9687, -6.8389, 29.9195, -6.92098, 34.8646, -2.99265, 35.0033, 3.84726, 28.0247, 7.03614 )
-
-[node name="Tween" type="Tween" parent="."]
 [connection signal="body_entered" from="trigger" to="." method="_on_trigger_body_entered"]
 [connection signal="body_exited" from="trigger" to="." method="_on_trigger_body_exited"]

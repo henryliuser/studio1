@@ -37,7 +37,5 @@ shape = SubResource( 2 )
 
 [node name="bodyHitbox" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( -27.0248, 8.33311, -34.0103, 5.27278, -34.9417, -2.51112, -29.752, -5, 28.527, -5, 34.9138, -1.91236, 35.1133, 4.54096, 27.7286, 8.33311 )
-
-[node name="Tween" type="Tween" parent="."]
 [connection signal="body_entered" from="burnTrigger" to="." method="_on_burnTrigger_body_entered"]
 [connection signal="body_exited" from="burnTrigger" to="." method="_on_burnTrigger_body_exited"]
