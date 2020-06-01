@@ -19,6 +19,22 @@ velocity = Vector2( 0, 0 )
 [node name="walker" parent="." instance=ExtResource( 3 )]
 position = Vector2( 288.296, 745.167 )
 
+[node name="Weapons" parent="walker" index="0"]
+posList = {
+"boomerangSniper": Vector2( 2, -7 ),
+"lightShield": Vector2( 20, -20 ),
+"meterstick": Vector2( 0, 4 ),
+"potassiumCannon": Vector2( 13, -5 ),
+"tembo": Vector2( 3, 16 ),
+"toxicRifle": Vector2( 0, 0 )
+}
+
+[node name="sprite" parent="walker/player" index="2"]
+frame = 2
+
+[node name="Camera2D" type="Camera2D" parent="walker/player" index="5"]
+current = true
+
 [node name="dummy" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1615.39, 796.708 )
 
@@ -26,3 +42,5 @@ position = Vector2( 1615.39, 796.708 )
 position = Vector2( 261.732, 670.525 )
 
 [node name="platSpawnerSP" parent="." instance=ExtResource( 1 )]
+
+[editable path="walker"]

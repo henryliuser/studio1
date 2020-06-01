@@ -198,7 +198,7 @@ func restore():
 		sprite.rotation_degrees = lerp(sprite.rotation_degrees, 0, 0.2)
 
 var dash_origin 
-var trail_overtime = 15
+var trail_overtime = 18
 func calcTrails():
 	var trail_lerp = 0.91
 	for t in trails.get_children():

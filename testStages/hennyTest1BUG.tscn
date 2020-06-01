@@ -62,8 +62,31 @@ position = Vector2( 1282.1, 216.297 )
 position = Vector2( 1484.2, 193.572 )
 localNum = 2
 
+[node name="Weapons" parent="walker" index="0"]
+posList = {
+"boomerangSniper": Vector2( 2, -7 ),
+"lightShield": Vector2( 20, -20 ),
+"meterstick": Vector2( 0, 4 ),
+"potassiumCannon": Vector2( 13, -5 ),
+"tembo": Vector2( 3, 16 ),
+"toxicRifle": Vector2( 0, 0 )
+}
+
+[node name="sprite" parent="walker/player" index="2"]
+frame = 4
+
 [node name="shade" parent="." instance=ExtResource( 3 )]
 position = Vector2( 404.93, 261.309 )
+
+[node name="Weapons" parent="shade" index="0"]
+posList = {
+"boomerangSniper": Vector2( -3, 10 ),
+"lightShield": Vector2( 10, -15 ),
+"meterstick": Vector2( 0, 0 ),
+"potassiumCannon": Vector2( -9, 7 ),
+"tembo": Vector2( -7, 20 ),
+"toxicRifle": Vector2( 0, 6 )
+}
 
 [node name="toxicRifle" parent="." instance=ExtResource( 4 )]
 position = Vector2( 702.328, 620.926 )
@@ -76,3 +99,7 @@ position = Vector2( 971.78, 211.981 )
 
 [node name="HealthPack" parent="." instance=ExtResource( 12 )]
 position = Vector2( 1089.05, 585.976 )
+
+[editable path="walker"]
+
+[editable path="shade"]
