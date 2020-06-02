@@ -35,6 +35,25 @@ _**Content**_
 -free out of bounds platforms and projectiles and kill players
 
 
+**PLATFORM GENERATION - 50% of difficulty**
+- split prob based on # of plats. only 2 can repeat
+_Vertical - more limited_
+1 big platform in the center
+1 x_patrol platform in the center
+1 big seesaw centered
+2 platforms, 1 is randomly placed and other is symmetrical
+2 seesaws, same as above
+2 x_patrol platforms
+3 platforms, center is slightly bigger
+3 plats, center x_patrol
+3 plats, sides x_patrol
+3 plats, center seesaw, sides x_patrol
+3 plats, center spin
+3 plats, center spin, sides x_patrol
+
+—————
+_Horizontal - more freedom cuz physics trust_
+
 _**Details**_
 -input buffer for wall jumps
 -invincible after hit?
@@ -71,7 +90,7 @@ boomerang angles the correct way, disappears on hitting owner
 -rework all yields so that frame advance works?? maybe. not necessary
 REFACTOR EVERYTHING WITH SIGNALS LOL
 
-_**Networking**_
+_**Networking - other 50% of difficulty**_
 -networking sync playerlists
 -spectators
 -lobbies / dbfz round robin thing?

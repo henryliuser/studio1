@@ -33,6 +33,11 @@ velocity = Vector2( 0, 0 )
 position = Vector2( 475.523, 427.342 )
 velocity = Vector2( 0, 0 )
 
+[node name="defaultPlat10" parent="." instance=ExtResource( 1 )]
+position = Vector2( 595.921, 167.535 )
+velocity = Vector2( 0, 0 )
+rotation_speed_deg = 50
+
 [node name="defaultPlat6" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1178.66, 290 )
 velocity = Vector2( 0, 0 )
@@ -73,7 +78,7 @@ posList = {
 }
 
 [node name="sprite" parent="walker/player" index="2"]
-frame = 4
+frame = 2
 
 [node name="shade" parent="." instance=ExtResource( 3 )]
 position = Vector2( 404.93, 261.309 )

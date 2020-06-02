@@ -20,7 +20,7 @@ func _physics_process(delta):
 		var midRan = randi()%len(L)
 		var scl
 #		var plat = load(L[ran]).instance()
-		var first_random_for_2 = randi()%660+50 if numPlats == 2 else 0
+		var first_random_for_2 = randi()%660+100 if numPlats == 2 else 0
 		for x in range(1,numPlats+1):
 			var pos = 1920/(numPlats+1) * x
 			var mid = (numPlats==3 && x==2)or(numPlats==4 && x==2)or(numPlats==4 && x==3)or(numPlats==1)
