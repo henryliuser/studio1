@@ -66,9 +66,9 @@ position = Vector2( 1477.7, 506.66 )
 position = Vector2( 1576.86, 471.449 )
 
 [node name="defaultPlat2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 599.971, 205.605 )
+position = Vector2( 621.227, 347.309 )
 scale = Vector2( 5, 5 )
-moving = true
+patrol_y = Vector2( -100, 100 )
 is_seesaw = true
 
 [editable path="shade"]

@@ -55,6 +55,7 @@ _Vertical - more limited_
 4 plats
 4 plats with x_patrol centers
 2 walls and 2 centers
+trapezoid shapes (boostplats launch diagonally)
 
 
 —————
@@ -62,6 +63,7 @@ _Horizontal - more freedom cuz physics trust_
 
 _**Details**_
 -input buffer for wall jumps
+-moving platform momentum
 -invincible after hit?
 -super armor
 -fix tembo hitboxes lmfao. can do no knockback (fhit against dummy)
@@ -70,7 +72,6 @@ _**Details**_
 	keep log of players per explosion? 
 -pcannon jitters randomly
 -make gauges stay still on death
--sometimes hammer goes into ground, not a huge deal
 boomerang angles the correct way, disappears on hitting owner
 -bounce boomerang off walls
 -buffering (especially on walljumps)
@@ -94,7 +95,7 @@ boomerang angles the correct way, disappears on hitting owner
 -dart stick and follow players
 -melee movement meterstick dash don’t work on conveyer
 -rework all yields so that frame advance works?? maybe. not necessary
-REFACTOR EVERYTHING WITH SIGNALS LOL
+REFACTOR EVERYTHING WITH SIGNALS
 
 _**Networking - other 50% of difficulty**_
 -networking sync playerlists
@@ -272,3 +273,4 @@ reduce boomerang end animation radius
 		inheritance/generalize for melee weapons
 		2 different animations for tembo
 -marginally improved platSpawner
+-sometimes hammer goes into ground, not a huge deal

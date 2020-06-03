@@ -53,7 +53,7 @@ var left_count = 0; var right_count = 0
 func seesaw(delta):
 	if right_count > left_count: global_rotation_degrees += seesaw_rot_speed_deg * delta 
 	elif left_count > right_count: global_rotation_degrees -= seesaw_rot_speed_deg * delta
-func _on_seesawRight_body_entered(body): right_count += 1
-func _on_seesawRight_body_exited(body): right_count -= 1
-func _on_seesawLeft_body_entered(body): left_count += 1
-func _on_seesawLeft_body_exited(body): left_count -= 1
+func _on_seesawRight_body_entered(_body): right_count += 1
+func _on_seesawRight_body_exited(_body): right_count -= 1
+func _on_seesawLeft_body_entered(_body): left_count += 1
+func _on_seesawLeft_body_exited(_body): left_count -= 1
