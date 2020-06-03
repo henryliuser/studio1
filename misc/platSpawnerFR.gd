@@ -1,6 +1,6 @@
 extends Node2D
 
-export var delay = 100
+export var delay = 150
 var timer = delay - 1
 
 var paths = [
@@ -10,19 +10,16 @@ var paths = [
 	"res://blocks/burnPlat.tscn"
 		]
 
-var num2chance = { 1:3, 2:4, 3:6, 4:10 }
+var num2chance = { 1:4, 2:5, 3:6, 4:10 }
 var last_num = 1
 
 func _physics_process(delta):
 	timer += 1
 	if timer % delay == 0:
-		var num_plats = -1
-#		if last_num != 2:  # don't get same num_plats in a row except for 2
-#			while num_plats != last_num: num_plats = randi()%3+1
-#		else: num_plats = randi()%3+1
-		num_plats = randi()%3+1
+		var num_plats = randi()%len(paths)+1
+		while (num_plats == last_num and last_num != 2): 
+			num_plats = randi()%len(paths)+1
 		last_num = num_plats  # reset last_num
-		print(num_plats)
 		match num_plats:
 			1: _1plat()
 			2: _2plat()
@@ -34,7 +31,8 @@ func _1plat():
 	var rand = randi()%len(paths)
 	var muta_chance = 0.5
 	var plat = load(paths[rand]).instance()
-	plat.global_position = Vector2(1920/2, -50)  # all are centered
+	plat.scale = Vector2(4.5, 4.5)
+	plat.position = Vector2(1920/2, -150)  # all are centered
 	plat.moving = true
 	while randf() < muta_chance:
 #		muta_chance/1.5  # reduce chance of successive mutations
@@ -42,36 +40,40 @@ func _1plat():
 		rand_arr.remove(x)
 		match x:
 			0:  # x patrol
-				var r = randi()%351 + 50; var neg = randi()%2
+				var r = randi()%551 + 50; var neg = randi()%2
 				if neg == 1: r *= -1
 				plat.patrol_x = Vector2(-r, r)
 			1:  # seesaw
-				if paths[rand] == "res://blocks/defaultPlat.tscn": plat.is_seesaw = true
+				if paths[rand] == "res://blocks/defaultPlat.tscn": 
+					plat.is_seesaw = true
 			2:  # incremental
 				plat.incremental_move = true
 				var r = randi()%51 + 25
 				plat.patrol_y = Vector2(-r, r) 
+			3:  # spinning
+				plat.rotation_speed_deg = randi()%101 + 100 
 		if len(rand_arr) == 0: break
 	get_tree().current_scene.add_child(plat)
 
 func _2plat():
-	var rand_arr = create_rand_array(num2chance[1])
+	var rand_arr = create_rand_array(num2chance[2])
 	var muta_chance = 0.5
 	var rand = randi()%len(paths)
 	var plat1 = load(paths[rand]).instance()
 	var plat2 = load(paths[rand]).instance()
 	plat1.moving = true; plat2.moving = true
-	plat1.global_position = Vector2(randi()%961 + 100, -50)
-	plat2.global_position = Vector2(1920 - plat1.global_position.x, -50)
+	plat1.position = Vector2(randi()%691 + 120, -150)
+	plat2.position = Vector2(1920 - plat1.position.x, -150)
 	while randf() < muta_chance:
-		var x = rand_arr[randi()%len(rand_arr)]
-		rand_arr.remove(x)
+		var idx = randi()%len(rand_arr)
+		var x = rand_arr[idx]
+		rand_arr.remove(idx)
 		match x:
 			0:  # x patrol
 				var r = randi()%251 + 50; var neg = randi()%2
 				if neg == 1: r *= -1
-				if plat1.global_position.x < 200:   # so that it doesn't patrol off-screen
-					plat1.global_position.x += 150; plat2.global_position.x -= 150
+				if plat1.position.x < 200:   # so that it doesn't patrol off-screen
+					plat1.position.x += 150; plat2.position.x -= 150
 				plat1.patrol_x = Vector2(-r, r); plat2.patrol_x = Vector2(r, -r) 
 			1:  # seesaw
 				if paths[rand] == "res://blocks/defaultPlat.tscn":
@@ -82,17 +84,37 @@ func _2plat():
 				plat1.patrol_y = Vector2(-r, r); plat2.patrol_y = Vector2(-r, r)
 			3:  # walls
 				plat1.is_wall = true; plat2.is_wall = true
+				plat1.scale.x += 1; plat2.scale.x += 1
 				plat1.rotation_degrees = 90 if randf() < 0.5 else -90
 				plat2.rotation_degrees = -plat1.rotation_degrees
+			4:  # spinning
+				plat1.rotation_speed_deg = randi()%51 + 50
+				plat2.rotation_speed_deg = -plat1.rotation_speed_deg
+		if plat1.is_wall and plat1.is_seesaw:  # incompatible, wall takes precedence
+			plat1.is_seesaw = false; plat2.is_seesaw = false; 
 		if len(rand_arr) == 0: break
+	plat1.scale = Vector2(4,4); plat2.scale = Vector2(4,4);
 	get_tree().current_scene.add_child(plat1)
 	get_tree().current_scene.add_child(plat2)
 
 func _3plat():
-	pass
+#	var rand_arr = create_rand_array(num2chance[3])
+#	var muta_chance = 0.7
+#	var rand_sides = paths[randi()%len(paths)]
+#	var rand_mid = paths[randi()%len(paths)]
+#	while (rand_mid != "res://blocks/defaultPlat.tscn" and rand_mid == rand_sides):
+#		rand_mid = paths[randi()%len(paths)]
+#	var plat_left = load(rand_sides).instance()
+#	var plat_right = load(rand_sides).instance()
+#	var plat_mid = load(rand_mid).instance()
+#	var 
+	_2plat()
+	_1plat()
+		
 
 func _4plat():
-	pass
+	_2plat()
+	_2plat()
 
 func create_rand_array(x):
 	var arr = []; arr.resize(x)

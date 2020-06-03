@@ -10,7 +10,9 @@ export var lerp_y = 0.03
 export var lee = 20
 export var incremental_move = false
 export var is_seesaw = false
-export var seesaw_rot_speed_deg = 75
+export var seesaw_rot_speed_deg = 100
+
+onready var sprite = $sprite
 
 onready var og_pos = global_position
 onready var x_bound = Vector2(og_pos.x + patrol_x.x, og_pos.x + patrol_x.y)

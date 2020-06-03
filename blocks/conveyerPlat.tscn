@@ -25,7 +25,7 @@ collision_layer = 6
 collision_mask = 2
 script = ExtResource( 2 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+[node name="sprite" type="AnimatedSprite" parent="."]
 position = Vector2( -3, -3 )
 frames = SubResource( 1 )
 frame = 2

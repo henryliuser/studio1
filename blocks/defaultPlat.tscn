@@ -7,14 +7,13 @@
 extents = Vector2( 10, 1 )
 
 [node name="defaultPlat" type="KinematicBody2D"]
-position = Vector2( 202.565, 84.3396 )
 scale = Vector2( 3, 3 )
 collision_layer = 6
 collision_mask = 2
 script = ExtResource( 2 )
 moving = true
 
-[node name="Sprite7-0013" type="Sprite" parent="."]
+[node name="sprite" type="Sprite" parent="."]
 position = Vector2( -3, -5 )
 texture = ExtResource( 1 )
 
