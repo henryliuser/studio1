@@ -9,6 +9,8 @@ export var lerp_x = 0.03
 export var lerp_y = 0.03
 export var lee = 20
 export var incremental_move = false
+export var is_seesaw = false
+export var seesaw_rot_speed_deg = 75
 
 onready var og_pos = global_position
 onready var x_bound = Vector2(og_pos.x + patrol_x.x, og_pos.x + patrol_x.y)
@@ -45,3 +47,13 @@ func _physics_process(delta):
 #	if y_target == y_bound.y: $ybound2.modulate = Color.turquoise
 	
 	global_position = actual_pos  # do all the calculation, then fr set it at the end
+	if is_seesaw: seesaw(delta)
+
+var left_count = 0; var right_count = 0
+func seesaw(delta):
+	if right_count > left_count: global_rotation_degrees += seesaw_rot_speed_deg * delta 
+	elif left_count > right_count: global_rotation_degrees -= seesaw_rot_speed_deg * delta
+func _on_seesawRight_body_entered(body): right_count += 1
+func _on_seesawRight_body_exited(body): right_count -= 1
+func _on_seesawLeft_body_entered(body): left_count += 1
+func _on_seesawLeft_body_exited(body): left_count -= 1

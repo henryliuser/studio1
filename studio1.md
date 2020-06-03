@@ -44,12 +44,18 @@ _Vertical - more limited_
 2 platforms, 1 is randomly placed and other is symmetrical
 2 seesaws, same as above
 2 x_patrol platforms
+2 walls
 3 platforms, center is slightly bigger
 3 plats, center x_patrol
 3 plats, sides x_patrol
 3 plats, center seesaw, sides x_patrol
 3 plats, center spin
 3 plats, center spin, sides x_patrol
+2 walls + center variants
+4 plats
+4 plats with x_patrol centers
+2 walls and 2 centers
+
 
 —————
 _Horizontal - more freedom cuz physics trust_

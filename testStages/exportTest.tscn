@@ -24,33 +24,51 @@ velocity = Vector2( 0, 0 )
 [node name="shade" parent="." instance=ExtResource( 2 )]
 position = Vector2( 328.461, 397.892 )
 
+[node name="Weapons" parent="shade" index="0"]
+posList = {
+"boomerangSniper": Vector2( -3, 10 ),
+"lightShield": Vector2( 10, -15 ),
+"meterstick": Vector2( 0, 0 ),
+"potassiumCannon": Vector2( -9, 7 ),
+"tembo": Vector2( -7, 20 ),
+"toxicRifle": Vector2( 0, 6 )
+}
+
 [node name="burnPlat" parent="." instance=ExtResource( 6 )]
-position = Vector2( 959.813, 223.276 )
+position = Vector2( 1506.56, 46.3322 )
 
 [node name="boostPlat" parent="." instance=ExtResource( 5 )]
-position = Vector2( 640.496, 228.105 )
+position = Vector2( 1187.25, 51.1612 )
 
 [node name="conveyerPlat" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1253.56, 231.288 )
+position = Vector2( 1800.31, 54.3442 )
 
 [node name="boomerangSniper" parent="." instance=ExtResource( 8 )]
-position = Vector2( 654.252, 622.207 )
+position = Vector2( 1405.28, 636.377 )
 
 [node name="toxicRifle" parent="." instance=ExtResource( 4 )]
-position = Vector2( 977.373, 635.559 )
+position = Vector2( 1293.86, 645.902 )
 
 [node name="walker" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1602.25, 496.698 )
+position = Vector2( 189.971, 580.94 )
 localNum = 2
 
 [node name="potassiumCannon" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1240.88, 649.41 )
+position = Vector2( 1557.37, 659.753 )
 
 [node name="meterstick" parent="." instance=ExtResource( 11 )]
-position = Vector2( 953.595, 473.176 )
+position = Vector2( 1270.09, 483.519 )
 
 [node name="tembo" parent="." instance=ExtResource( 10 )]
-position = Vector2( 726.664, 492.49 )
+position = Vector2( 1477.7, 506.66 )
 
 [node name="LightShield" parent="." instance=ExtResource( 12 )]
-position = Vector2( 1260.37, 461.106 )
+position = Vector2( 1576.86, 471.449 )
+
+[node name="defaultPlat2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 599.971, 205.605 )
+scale = Vector2( 5, 5 )
+moving = true
+is_seesaw = true
+
+[editable path="shade"]
