@@ -9,7 +9,9 @@ scale = Vector2( 3, 3 )
 collision_layer = 6
 collision_mask = 2
 script = ExtResource( 2 )
-velocity = Vector2( 40, 40 )
+moving = true
+patrol_y = Vector2( -100, 100 )
+incremental_move = true
 
 [node name="Sprite7-0013" type="Sprite" parent="."]
 position = Vector2( -3, -5 )

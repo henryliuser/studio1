@@ -16,10 +16,11 @@ var last_num = 1
 func _physics_process(delta):
 	timer += 1
 	if timer % delay == 0:
-		var num_plats = randi()%len(paths)+1
-		while (num_plats == last_num and last_num != 2): 
-			num_plats = randi()%len(paths)+1
-		last_num = num_plats  # reset last_num
+		var num_plats = 4
+#		var num_plats = randi()%len(paths)+1
+#		while (num_plats == last_num and last_num != 2): 
+#			num_plats = randi()%len(paths)+1
+#		last_num = num_plats  # reset last_num
 		match num_plats:
 			1: _1plat()
 			2: _2plat()
@@ -121,11 +122,18 @@ func _4plat():
 	var outer = _2plat([])
 	outer[0].position.x = randi()%301 + 130
 	outer[1].position.x = 1920 - outer[0].position.x
-	outer[0].scale = Vector2(3, 3); outer[1].scale = Vector2(3, 3)
+	outer[0].scale = Vector2(3.5, 3.5); outer[1].scale = Vector2(3.5, 3.5)
 	var inner = _2plat([])
-	inner[0].position.x = outer[0].position.x + 400
+	inner[0].position.x = outer[0].position.x + randi()%401 + 200
 	inner[1].position.x = 1920 - inner[0].position.x
-	inner[0].scale = Vector2(3.5, 3.5); inner[1].scale = Vector2(3.5, 3.5)
+	inner[0].scale = Vector2(3, 3); inner[1].scale = Vector2(3,3)
+
+#	print(outer[0].name + " " + inner[0].name)
+#	print(str(outer[0].position) + " " + str(inner[0].position))
+#	print(str(outer[0].scale) + " " + str(inner[0].scale))
+#	print(outer[1].name + " " + inner[1].name)
+#	print(str(outer[1].position) + " " + str(inner[1].position))
+#	print("--------------------")
 
 	
 

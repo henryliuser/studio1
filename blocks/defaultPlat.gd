@@ -20,7 +20,7 @@ onready var y_bound = Vector2(og_pos.y + patrol_y.x, og_pos.y + patrol_y.y)
 onready var x_target = x_bound.y
 onready var y_target = y_bound.y
 
-onready var actual_pos = global_position  # godot wtf
+#onready var global_position = global_position  # godot wtf
 onready var velo_only_pos = global_position
 
 func _ready():
@@ -31,7 +31,7 @@ func _ready():
 
 func _physics_process(delta):
 	if moving: 
-		actual_pos += velocity * delta
+		global_position += velocity * delta
 		if incremental_move: velo_only_pos += velocity * delta
 	global_rotation_degrees += rotation_speed_deg * delta
 	
@@ -40,11 +40,11 @@ func _physics_process(delta):
 		y_bound = Vector2(velo_only_pos.y + patrol_y.x, velo_only_pos.y + patrol_y.y)
 	
 	if patrol_x != Vector2(): 
-		actual_pos.x = lerp(actual_pos.x, x_target, lerp_x)
+		global_position.x = lerp(global_position.x, x_target, lerp_x)
 		if abs(global_position.x - x_bound.y) <= lee: x_target = x_bound.x
 		if abs(global_position.x - x_bound.x) <= lee: x_target = x_bound.y
 	if patrol_y != Vector2():
-		actual_pos.y = lerp(actual_pos.y, y_target, lerp_y)
+		global_position.y = lerp(global_position.y, y_target, lerp_y)
 		if abs(global_position.y - y_bound.y) <= lee: y_target = y_bound.x
 		if abs(global_position.y - y_bound.x) <= lee: y_target = y_bound.y
 		
@@ -55,7 +55,7 @@ func _physics_process(delta):
 #	if y_target == y_bound.x: $ybound1.modulate = Color.turquoise
 #	if y_target == y_bound.y: $ybound2.modulate = Color.turquoise
 	
-	global_position = actual_pos  # do all the calculation, then fr set it at the end
+# do all the calculation, then fr set it at the end
 	if is_seesaw: seesaw(delta)
 
 var left_count = 0; var right_count = 0
