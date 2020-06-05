@@ -19,11 +19,14 @@ onready var x_bound = Vector2(og_pos.x + patrol_x.x, og_pos.x + patrol_x.y)
 onready var y_bound = Vector2(og_pos.y + patrol_y.x, og_pos.y + patrol_y.y)
 onready var x_target = x_bound.y
 onready var y_target = y_bound.y
-
-#onready var global_position = global_position  # godot wtf
+onready var actual_rot_deg = global_rotation_degrees  # juan linietsky guys 
+#onready var actual_pos = global_position  # godot wtf
 onready var velo_only_pos = global_position
 
 func _ready():
+
+#	if global_rotation_degrees != 0 and scale.x < 0: 
+#		actual_rot_deg = 180-global_rotation_degrees
 	if is_seesaw:
 		sprite.material = load("res://assets/Shaders/Outline.tres")
 		sprite.material.set_shader_param("outline_color", Color.lavender)
@@ -33,7 +36,11 @@ func _physics_process(delta):
 	if moving: 
 		global_position += velocity * delta
 		if incremental_move: velo_only_pos += velocity * delta
+	
 	global_rotation_degrees += rotation_speed_deg * delta
+###	actual_rot_deg = global_rotation_degrees
+#	actual_rot_deg += rotation_speed_deg * delta
+#	global_rotation_degrees = actual_rot_deg
 	
 	if incremental_move:
 		x_bound = Vector2(velo_only_pos.x + patrol_x.x, velo_only_pos.x + patrol_x.y)

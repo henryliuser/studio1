@@ -1,6 +1,6 @@
 extends Node2D
 
-export var delay = 50
+export var delay = 150
 var timer = delay - 1
 export var horizontal = false
 
@@ -18,16 +18,16 @@ func _physics_process(delta):
 	timer += 1
 	if timer % delay == 0:
 #		var num_plats = 4
-#		var num_plats = randi()%len(paths)+1
-#		while (num_plats == last_num and last_num != 2): 
-#			num_plats = randi()%len(paths)+1
-#		last_num = num_plats  # reset last_num
-#		match num_plats:
-#			1: _1plat()
-#			2: _2plat()
-#			3: _3plat()
-#			4: _4plat()
-		_horizontal_1plat()
+		var num_plats = randi()%len(paths)+1
+		while (num_plats == last_num and last_num != 2): 
+			num_plats = randi()%len(paths)+1
+		last_num = num_plats  # reset last_num
+		match num_plats:
+			1: _1plat()
+			2: _2plat()
+			3: _3plat()
+			4: _4plat()
+#		_horizontal_1plat()
 
 func _1plat(ret = false):
 	var rand_arr = create_rand_array(num2chance[1])
@@ -98,7 +98,7 @@ func _2plat(ret = false):
 		if plat1.is_wall and plat1.is_seesaw:  # incompatible, wall takes precedence
 			plat1.is_seesaw = false; plat2.is_seesaw = false; 
 		if len(rand_arr) == 0: break
-	plat1.scale = Vector2(4,4); plat2.scale = Vector2(4,4);
+	plat1.scale = Vector2(4,4); plat2.scale = Vector2(-4,4);
 	get_tree().current_scene.add_child(plat1)
 	get_tree().current_scene.add_child(plat2)
 	if ret: return [plat1, plat2]
@@ -106,18 +106,18 @@ func _2plat(ret = false):
 func _3plat():
 	var p2 = _2plat(true)
 	var p1 = _1plat(true)
-	p2[0].scale = Vector2(3,3); p2[1].scale = Vector2(3,3)
+	p2[0].scale = Vector2(3,3); p2[1].scale = Vector2(-3,3)
 	p1.scale = Vector2(4,4)
 
 func _4plat():
 	var outer = _2plat(true)
 	outer[0].position.x = randi()%301 + 150
 	outer[1].position.x = 1920 - outer[0].position.x
-	outer[0].scale = Vector2(3.5, 3.5); outer[1].scale = Vector2(3.5, 3.5)
+	outer[0].scale = Vector2(3.5, 3.5); outer[1].scale = Vector2(-3.5, 3.5)
 	var inner = _2plat(true)
 	inner[0].position.x = outer[0].position.x + randi()%401 + 200
 	inner[1].position.x = 1920 - inner[0].position.x
-	inner[0].scale = Vector2(3, 3); inner[1].scale = Vector2(3,3)
+	inner[0].scale = Vector2(3, 3); inner[1].scale = Vector2(-3,3)
 
 func _horizontal_1plat(ret = false):
 	var rand_arr = create_rand_array(num2chance[1])

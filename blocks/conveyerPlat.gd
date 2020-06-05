@@ -1,11 +1,14 @@
 extends "res://blocks/defaultPlat.gd"
 export var direction = 1
 export var speed = 200
+onready var og_scale = scale
 var players = {}
 
 func _ready():
-	sprite.scale.x *= -direction
-	$shape.scale.x *= -direction
+	if scale.x < 0: 
+		direction = -1
+		og_scale = og_scale.abs()
+	scale.x = direction * og_scale.x
 
 func _physics_process(delta):
 	if len(players) > 0:
