@@ -36,8 +36,9 @@ func _1plat(arr = null):
 	plat.moving = true
 	while randf() < muta_chance:
 #		muta_chance/1.5  # reduce chance of successive mutations
-		var x = rand_arr[randi()%len(rand_arr)]
-		rand_arr.remove(x)
+		var idx = randi()%len(rand_arr)
+		var x = rand_arr[idx]
+		rand_arr.remove(idx)
 		match x:
 			0:  # x patrol
 				var r = randi()%551 + 50; var neg = randi()%2
@@ -63,7 +64,7 @@ func _2plat(arr = null):
 	var plat1 = load(paths[rand]).instance()
 	var plat2 = load(paths[rand]).instance()
 	plat1.moving = true; plat2.moving = true
-	plat1.position = Vector2(randi()%691 + 120, -150)
+	plat1.position = Vector2(randi()%691 + 130, -150)
 	plat2.position = Vector2(1920 - plat1.position.x, -150)
 	while randf() < muta_chance:
 		var idx = randi()%len(rand_arr)
@@ -117,8 +118,16 @@ func _3plat():
 		
 
 func _4plat():
-	_2plat()
-	_2plat()
+	var outer = _2plat([])
+	outer[0].position.x = randi()%301 + 130
+	outer[1].position.x = 1920 - outer[0].position.x
+	outer[0].scale = Vector2(3, 3); outer[1].scale = Vector2(3, 3)
+	var inner = _2plat([])
+	inner[0].position.x = outer[0].position.x + 400
+	inner[1].position.x = 1920 - inner[0].position.x
+	inner[0].scale = Vector2(3.5, 3.5); inner[1].scale = Vector2(3.5, 3.5)
+
+	
 
 func create_rand_array(x):
 	var arr = []; arr.resize(x)

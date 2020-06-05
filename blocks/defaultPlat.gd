@@ -22,6 +22,13 @@ onready var y_target = y_bound.y
 
 onready var actual_pos = global_position  # godot wtf
 onready var velo_only_pos = global_position
+
+func _ready():
+	if is_seesaw:
+		sprite.material = load("res://assets/Shaders/Outline.tres")
+		sprite.material.set_shader_param("outline_color", Color.lavender)
+
+
 func _physics_process(delta):
 	if moving: 
 		actual_pos += velocity * delta
