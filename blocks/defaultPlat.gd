@@ -27,6 +27,8 @@ func _ready():
 	if global_rotation_degrees != 0 and scale.x < 0: 
 		actual_rot_deg = 180-global_rotation_degrees
 	if is_seesaw:
+		$seesawLeft.visible = true
+		$seesawRight.visible = true
 		sprite.material = load("res://assets/Shaders/Outline.tres")
 		sprite.material.set_shader_param("outline_color", Color.lavender)
 
@@ -64,8 +66,8 @@ func _physics_process(delta):
 
 var left_count = 0; var right_count = 0
 func seesaw(delta):
-	if right_count > left_count: global_rotation_degrees += seesaw_rot_speed_deg * delta 
-	elif left_count > right_count: global_rotation_degrees -= seesaw_rot_speed_deg * delta
+	if right_count > left_count: actual_rot_deg += seesaw_rot_speed_deg * delta 
+	elif left_count > right_count: actual_rot_deg -= seesaw_rot_speed_deg * delta
 func _on_seesawRight_body_entered(_body): right_count += 1
 func _on_seesawRight_body_exited(_body): right_count -= 1
 func _on_seesawLeft_body_entered(_body): left_count += 1

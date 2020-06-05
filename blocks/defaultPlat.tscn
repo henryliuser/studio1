@@ -20,6 +20,7 @@ texture = ExtResource( 1 )
 polygon = PoolVector2Array( -32, -6, -34, -4, -34, 2, -32, 5, 32, 5, 34, 2, 34, -4, 31, -6 )
 
 [node name="seesawLeft" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="seesawLeft"]
 position = Vector2( -22, -7 )
@@ -30,6 +31,7 @@ position = Vector2( 22, 6 )
 shape = SubResource( 1 )
 
 [node name="seesawRight" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="seesawRight"]
 position = Vector2( 21, -7 )

@@ -115,6 +115,7 @@ _**Interface**_
 -controls
 
 _**Polish**_
+-add bob and slight rot to platforms when u land on them (celeste)
 -chain damage text pops with each chain (Use Separate Tween EZ)
 -italicize character when moving
 -floating damage text (scale in and out)
