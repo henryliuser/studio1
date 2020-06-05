@@ -58,7 +58,13 @@ puppet func setEverything(vel, pos, sprFlip, scl, mod, currDirec):
 	position = pos; velocity = vel; scale = scl; modulate = mod; 
 	sprite.flip_h = sprFlip; currentDirection = currDirec
 
+var environmental_velo = Vector2()
 func _physics_process(delta):
+	environmental_velo = Vector2()
+	for x in range(0, get_slide_count()):
+		var col = get_slide_collision(x)
+		if "velocity" in col.collider: environmental_velo = col.collider.velocity
+	print(is_on_floor())
 	calcSquish()
 #	if is_network_master():
 	restore()
@@ -72,6 +78,7 @@ func _physics_process(delta):
 	if hp <= 0 and stunTimer.x == 0: lerp0(lerpWeight/3)
 #	rpc_unreliable("setEverything", velocity,position,sprite.flip_h,scale,modulate,currentDirection)
 	velocity = move_and_slide(velocity, Vector2(0,-1))
+#	velocity = move_and_slide(velocity + environmental_velo, Vector2(0,-1))
 	
 func fixFlip(dir):
 	currentDirection = dir
@@ -138,7 +145,7 @@ func movement():
 		sprite.play("idle")
 		lerp0(lerq)
 	velocity.y = min(velocity.y, maxSpeeds.y)
-		
+	
 func lerp0(l):
 	velocity.x = lerp(velocity.x, 0, l)
 	#check if |sub-1| movement speed then just stop

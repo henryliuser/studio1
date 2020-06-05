@@ -1,6 +1,6 @@
 extends Node2D
 
-export var delay = 150
+export var delay = 50
 var timer = delay - 1
 export var horizontal = false
 
@@ -18,16 +18,16 @@ func _physics_process(delta):
 	timer += 1
 	if timer % delay == 0:
 #		var num_plats = 4
-		var num_plats = randi()%len(paths)+1
-		while (num_plats == last_num and last_num != 2): 
-			num_plats = randi()%len(paths)+1
-		last_num = num_plats  # reset last_num
-		match num_plats:
-			1: _1plat()
-			2: _2plat()
-			3: _3plat()
-			4: _4plat()
-#		_horizontal_1plat()
+#		var num_plats = randi()%len(paths)+1
+#		while (num_plats == last_num and last_num != 2): 
+#			num_plats = randi()%len(paths)+1
+#		last_num = num_plats  # reset last_num
+#		match num_plats:
+#			1: _1plat()
+#			2: _2plat()
+#			3: _3plat()
+#			4: _4plat()
+		_horizontal_1plat(-1)
 
 func _1plat(ret = false):
 	var rand_arr = create_rand_array(num2chance[1])
@@ -119,15 +119,16 @@ func _4plat():
 	inner[1].position.x = 1920 - inner[0].position.x
 	inner[0].scale = Vector2(3, 3); inner[1].scale = Vector2(-3,3)
 
-func _horizontal_1plat(ret = false):
+func _horizontal_1plat(dir = 1, ret = false):
 	var rand_arr = create_rand_array(num2chance[1])
 	var rand = randi()%len(paths)
 	var muta_chance = 0.4
 	var plat = load(paths[rand]).instance()
 	plat.scale = Vector2(4, 4)
-	plat.position = Vector2(-150, randi()%881 + 100)  # all are centered
+	plat.position = Vector2(-150, randi()%881 + 100)
+	if dir == -1: plat.position.x = 1920+150
 	plat.moving = true
-	plat.velocity = Vector2(200, 0)
+	plat.velocity = Vector2(200*dir, 0)
 	while randf() < muta_chance:
 #		muta_chance/1.5  # reduce chance of successive mutations
 		var idx = randi()%len(rand_arr)
@@ -140,7 +141,7 @@ func _horizontal_1plat(ret = false):
 				plat.patrol_y = Vector2(-r, r)
 			1:  # seesaw
 				if paths[rand] == "res://blocks/defaultPlat.tscn": 
-					plat.is_seesaw = true
+					plat.is_seesaw = true  # let pick scale
 			2:  # incremental
 				plat.incremental_move = true
 				var r = randi()%51 + 60
