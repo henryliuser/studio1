@@ -4,7 +4,8 @@ export var speed = 200
 var players = {}
 
 func _ready():
-	scale.x *= -direction
+	sprite.scale.x *= -direction
+	$shape.scale.x *= -direction
 
 func _physics_process(delta):
 	if len(players) > 0:

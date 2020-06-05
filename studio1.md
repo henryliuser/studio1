@@ -36,6 +36,7 @@ _**Content**_
 
 
 **PLATFORM GENERATION - 50% of difficulty**
+[https://github.com/godotengine/godot/issues/36907](https://github.com/godotengine/godot/issues/36907)
 - split prob based on # of plats. only 2 can repeat
 _Vertical - more limited_
 1 big platform in the center
@@ -62,6 +63,8 @@ trapezoid shapes (boostplats launch diagonally)
 _Horizontal - more freedom cuz physics trust_
 
 _**Details**_
+-lerp seesaw
+-diagonal standing
 -input buffer for wall jumps
 -moving platform momentum
 -invincible after hit?
@@ -77,6 +80,7 @@ boomerang angles the correct way, disappears on hitting owner
 -buffering (especially on walljumps)
 -bananas scale wrong on hitting ceilings
 -use raycast upwards to prevent players from squishing each other
+-smashnifying glass type beat, just colored arrow
 -give hammer an active hitbox
 -boomerang sniper can only have X number out at a time
 -state while attacking melee that means u can’t turn move (only some ig)
