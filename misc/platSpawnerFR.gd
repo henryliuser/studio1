@@ -26,7 +26,7 @@ func _physics_process(delta):
 			3: _3plat()
 			4: _4plat()
 		
-func _1plat():
+func _1plat(arr = null):
 	var rand_arr = create_rand_array(num2chance[1])
 	var rand = randi()%len(paths)
 	var muta_chance = 0.5
@@ -54,8 +54,9 @@ func _1plat():
 				plat.rotation_speed_deg = randi()%101 + 100 
 		if len(rand_arr) == 0: break
 	get_tree().current_scene.add_child(plat)
+	if arr != null: return plat
 
-func _2plat():
+func _2plat(arr = null):
 	var rand_arr = create_rand_array(num2chance[2])
 	var muta_chance = 0.5
 	var rand = randi()%len(paths)
@@ -96,6 +97,7 @@ func _2plat():
 	plat1.scale = Vector2(4,4); plat2.scale = Vector2(4,4);
 	get_tree().current_scene.add_child(plat1)
 	get_tree().current_scene.add_child(plat2)
+	if arr != null: return [plat1, plat2]
 
 func _3plat():
 #	var rand_arr = create_rand_array(num2chance[3])
@@ -108,8 +110,10 @@ func _3plat():
 #	var plat_right = load(rand_sides).instance()
 #	var plat_mid = load(rand_mid).instance()
 #	var 
-	_2plat()
-	_1plat()
+	var p2 = _2plat([])
+	var p1 = _1plat([])
+	p2[0].scale = Vector2(3,3); p2[1].scale = Vector2(3,3)
+	p1.scale = Vector2(4,4)
 		
 
 func _4plat():

@@ -29,9 +29,6 @@ posList = {
 "toxicRifle": Vector2( 0, 0 )
 }
 
-[node name="sprite" parent="walker/player" index="2"]
-frame = 1
-
 [node name="dummy" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1615.39, 796.708 )
 
