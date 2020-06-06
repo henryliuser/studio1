@@ -1,6 +1,6 @@
 extends Node2D
 
-export var delay = 50
+export var delay = 150
 var timer = delay - 1
 export var horizontal = false
 
@@ -18,16 +18,16 @@ func _physics_process(delta):
 	timer += 1
 	if timer % delay == 0:
 #		var num_plats = 4
-#		var num_plats = randi()%len(paths)+1
-#		while (num_plats == last_num and last_num != 2): 
-#			num_plats = randi()%len(paths)+1
-#		last_num = num_plats  # reset last_num
-#		match num_plats:
-#			1: _1plat()
-#			2: _2plat()
-#			3: _3plat()
-#			4: _4plat()
-		_horizontal_1plat(-1)
+		var num_plats = randi()%len(paths)+1
+		while (num_plats == last_num and last_num != 2): 
+			num_plats = randi()%len(paths)+1
+		last_num = num_plats  # reset last_num
+		match num_plats:
+			1: _1plat()
+			2: _2plat()
+			3: _3plat()
+			4: _4plat()
+#		_horizontal_1plat(-1)
 
 func _1plat(ret = false):
 	var rand_arr = create_rand_array(num2chance[1])
@@ -57,7 +57,8 @@ func _1plat(ret = false):
 			3:  # spinning
 				plat.rotation_speed_deg = randi()%101 + 100 
 		if len(rand_arr) == 0: break
-	get_tree().current_scene.add_child(plat)
+#	get_tree().current_scene.add_child(plat)
+	add_child(plat)
 	if ret: return plat
 
 func _2plat(ret = false):
@@ -99,8 +100,10 @@ func _2plat(ret = false):
 			plat1.is_seesaw = false; plat2.is_seesaw = false; 
 		if len(rand_arr) == 0: break
 	plat1.scale = Vector2(4,4); plat2.scale = Vector2(-4,4);
-	get_tree().current_scene.add_child(plat1)
-	get_tree().current_scene.add_child(plat2)
+#	get_tree().current_scene.add_child(plat1)
+#	get_tree().current_scene.add_child(plat2)
+	add_child(plat1)
+	add_child(plat2)
 	if ret: return [plat1, plat2]
 
 func _3plat():
@@ -149,7 +152,8 @@ func _horizontal_1plat(dir = 1, ret = false):
 			3:  # spinning
 				plat.rotation_speed_deg = randi()%51 + 30
 		if len(rand_arr) == 0: break
-	get_tree().current_scene.add_child(plat)
+#	get_tree().current_scene.add_child(plat)
+	add_child(plat)
 	if ret: return plat
 
 func create_rand_array(x):

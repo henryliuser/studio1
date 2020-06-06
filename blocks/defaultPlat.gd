@@ -10,7 +10,8 @@ export var lerp_y = 0.03
 export var lee = 20
 export var incremental_move = false
 export var is_seesaw = false
-export var seesaw_rot_speed_deg = 100
+export var seesaw_rot_speed_deg = 75
+export var seesaw_flip = 1
 
 onready var sprite = $sprite
 
@@ -66,8 +67,10 @@ func _physics_process(delta):
 
 var left_count = 0; var right_count = 0
 func seesaw(delta):
-	if right_count > left_count: actual_rot_deg += seesaw_rot_speed_deg * delta 
-	elif left_count > right_count: actual_rot_deg -= seesaw_rot_speed_deg * delta
+	if right_count > left_count: 
+		actual_rot_deg += seesaw_rot_speed_deg * delta * seesaw_flip * scale.x/abs(scale.x)
+	elif left_count > right_count: 
+		actual_rot_deg -= seesaw_rot_speed_deg * delta * seesaw_flip * scale.x/abs(scale.x)
 func _on_seesawRight_body_entered(_body): right_count += 1
 func _on_seesawRight_body_exited(_body): right_count -= 1
 func _on_seesawLeft_body_entered(_body): left_count += 1

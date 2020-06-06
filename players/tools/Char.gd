@@ -63,8 +63,9 @@ func _physics_process(delta):
 	environmental_velo = Vector2()
 	for x in range(0, get_slide_count()):
 		var col = get_slide_collision(x)
-		if "velocity" in col.collider: environmental_velo = col.collider.velocity
-	print(is_on_floor())
+		if is_instance_valid(col.collider) and "velocity" in col.collider:
+			environmental_velo = col.collider.velocity
+
 	calcSquish()
 #	if is_network_master():
 	restore()
