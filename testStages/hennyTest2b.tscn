@@ -11,22 +11,43 @@
 script = ExtResource( 5 )
 
 [node name="left_start" parent="." instance=ExtResource( 2 )]
+modulate = Color( 0.278431, 0.94902, 0.929412, 1 )
 position = Vector2( 300, 950 )
 velocity = Vector2( 0, 0 )
+seesaw_rot_speed_deg = 40
 
 [node name="right_start" parent="." instance=ExtResource( 2 )]
+modulate = Color( 0.278431, 0.94902, 0.929412, 1 )
 position = Vector2( 1620, 950 )
+scale = Vector2( -3, 3 )
 velocity = Vector2( 0, 0 )
+seesaw_rot_speed_deg = 40
 
 [node name="walker" parent="." instance=ExtResource( 3 )]
-position = Vector2( 300.538, 775.772 )
+position = Vector2( 288.467, 905.775 )
 
 [node name="platSpawnerFR" parent="." instance=ExtResource( 1 )]
+delay = 100
+
+[node name="hori" parent="." instance=ExtResource( 1 )]
+on = false
+delay = 50
+horizontal = true
 
 [node name="killPlane" parent="." instance=ExtResource( 6 )]
 position = Vector2( 960, 1400 )
 scale = Vector2( 100, 3 )
 
+[node name="killPlane2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 2471.55, 418.363 )
+rotation = 1.5708
+scale = Vector2( 100, 3 )
+
+[node name="killPlane3" parent="." instance=ExtResource( 6 )]
+position = Vector2( -590.639, 440.081 )
+rotation = 1.5708
+scale = Vector2( 100, 3 )
+
 [node name="shade" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1607.34, 716.025 )
+position = Vector2( 1619.03, 902.297 )
 localNum = 2

@@ -1,5 +1,6 @@
 extends Node2D
 
+export var on = true
 export var delay = 150
 var timer = delay - 1
 export var horizontal = false
@@ -15,19 +16,20 @@ var num2chance = { 1:4, 2:5, 3:6, 4:10 }
 var last_num = 1
 
 func _physics_process(delta):
-	timer += 1
+	if on: timer += 1
 	if timer % delay == 0:
 #		var num_plats = 4
-		var num_plats = randi()%len(paths)+1
-		while (num_plats == last_num and last_num != 2): 
-			num_plats = randi()%len(paths)+1
-		last_num = num_plats  # reset last_num
-		match num_plats:
-			1: _1plat()
-			2: _2plat()
-			3: _3plat()
-			4: _4plat()
-#		_horizontal_1plat(-1)
+		if !horizontal:
+			var num_plats = randi()%len(paths)+1
+			while (num_plats == last_num and last_num != 2): 
+				num_plats = randi()%len(paths)+1
+			last_num = num_plats  # reset last_num
+			match num_plats:
+				1: _1plat()
+				2: _2plat()
+				3: _3plat()
+				4: _4plat()
+		else: _horizontal_1plat(1)
 
 func _1plat(ret = false):
 	var rand_arr = create_rand_array(num2chance[1])
@@ -131,7 +133,7 @@ func _horizontal_1plat(dir = 1, ret = false):
 	plat.position = Vector2(-150, randi()%881 + 100)
 	if dir == -1: plat.position.x = 1920+150
 	plat.moving = true
-	plat.velocity = Vector2(200*dir, 0)
+	plat.velocity = Vector2(300*dir, 0)
 	while randf() < muta_chance:
 #		muta_chance/1.5  # reduce chance of successive mutations
 		var idx = randi()%len(rand_arr)

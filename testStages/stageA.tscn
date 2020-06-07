@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://blocks/defaultPlat.tscn" type="PackedScene" id=1]
+
+[node name="Stage" type="Node2D"]
+
+[node name="base" parent="." instance=ExtResource( 1 )]
+modulate = Color( 0.737255, 0.368627, 0.964706, 1 )
+position = Vector2( 960, 840 )
+scale = Vector2( 24, 24 )
+lerp_x = 0.005
+
+[node name="plat1" parent="." instance=ExtResource( 1 )]
+modulate = Color( 0.737255, 0.368627, 0.964706, 1 )
+position = Vector2( 1480, 440 )
+scale = Vector2( 5, 5 )
+lerp_y = 0.01
+
+[node name="plat2" parent="." instance=ExtResource( 1 )]
+modulate = Color( 0.737255, 0.368627, 0.964706, 1 )
+position = Vector2( 440, 440 )
+scale = Vector2( 5, 5 )
+lerp_y = 0.01

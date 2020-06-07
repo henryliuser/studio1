@@ -16,9 +16,11 @@
 position = Vector2( 1.38477, -1.3847 )
 
 [node name="defaultPlat" parent="." instance=ExtResource( 1 )]
+modulate = Color( 0.278431, 0.94902, 0.929412, 1 )
 position = Vector2( 960, 861.092 )
 scale = Vector2( 25, 25 )
 velocity = Vector2( 0, 0 )
+seesaw_rot_speed_deg = 30
 
 [node name="burnPlat" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1506.56, 46.3322 )
@@ -50,7 +52,21 @@ position = Vector2( 1576.86, 471.449 )
 [node name="defaultPlat2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 619.024, 382.549 )
 scale = Vector2( -5, 5 )
-is_seesaw = true
 
 [node name="walker" parent="." instance=ExtResource( 7 )]
 position = Vector2( 600.489, 117.921 )
+
+[node name="Weapons" parent="walker" index="0"]
+posList = {
+"boomerangSniper": Vector2( 2, -7 ),
+"lightShield": Vector2( 20, -20 ),
+"meterstick": Vector2( 0, 4 ),
+"potassiumCannon": Vector2( 13, -5 ),
+"tembo": Vector2( 3, 16 ),
+"toxicRifle": Vector2( 0, 0 )
+}
+
+[node name="sprite" parent="walker/player" index="2"]
+frame = 2
+
+[editable path="walker"]
