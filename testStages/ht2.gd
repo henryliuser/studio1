@@ -8,7 +8,6 @@ onready var L = $left_start
 onready var R = $right_start
 
 func _ready():
-
 	yield(get_tree().create_timer(13, false), "timeout")  # activate home plats
 	L.is_seesaw = true; R.is_seesaw = true
 	L.patrol_x = Vector2(-50, 200); R.patrol_x = Vector2(50, -200)
@@ -31,8 +30,7 @@ func _ready():
 	add_child(stage)
 	yield(get_tree().create_timer(10, false), "timeout")
 	prestage = false
-	
-	
+
 func _physics_process(delta):
 	if slowdown:
 		for p in $platSpawnerFR.get_children(): 
@@ -46,8 +44,9 @@ func _physics_process(delta):
 		$right_start.position.y += 120 * delta
 	if prestage:
 		stage.position = lerp(stage.position, Vector2(0,0), 0.01)
-	
-	
+
+
+
 #		if is_instance_valid(L): L.position.x = lerp(L.position.x, -500, 0.01)
 #		if is_instance_valid(R): R.position.x = lerp(R.position.x, 2420, 0.01)
 #		if is_instance_valid(L): L.position.y = lerp(L.position.y, 1500, 0.01)

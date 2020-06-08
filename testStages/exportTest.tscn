@@ -51,7 +51,9 @@ position = Vector2( 1576.86, 471.449 )
 
 [node name="defaultPlat2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 619.024, 382.549 )
-scale = Vector2( -5, 5 )
+scale = Vector2( 5, 5 )
+rotation_speed_deg = 50
+is_seesaw = true
 
 [node name="walker" parent="." instance=ExtResource( 7 )]
 position = Vector2( 600.489, 117.921 )
@@ -67,6 +69,6 @@ posList = {
 }
 
 [node name="sprite" parent="walker/player" index="2"]
-frame = 2
+frame = 1
 
 [editable path="walker"]

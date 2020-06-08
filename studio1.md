@@ -1,16 +1,45 @@
 # ————————————————————
 # [TODO]
 # ————————————————————
+_**TIMELINE:**_
+seesaw lerp rot and outline_width 6/8
+portal gun 6/8
+test new player/enemy models
+develop obstacles
+	-lasers, cobwebs, wind,
+fix melee hitboxes to be more visually consistent
+overhaul Char, movement() - make it consistent across _everything_ plan it
+platform momentum
+	-lerp environment to 0 every frame after move_and_slide(velo + env)
+	-only apply it on the frame that you leave the plat 
+display offhand weapon indicator
+hp numbers, fuel numbers
+basic sound fx, soundtrack
+way more weapons, beams and shit
+stages, backgrounds
+particles
+lights
+networking core
+playtesting
+tutorial, singleplayer
+options
+menus, lobbies
+final audio
+steam integration
 
-Collision 
+
+
+
+_**Collision **_
 Players: L1, M1, M3
 	collide with platforms and each other
 Platforms: L2, L3, M2
 	technically collide w each other but direct position editing, collide 	with players and enemies
 Enemies: 
-Projectiles:  
+Projectiles: 
 Melee Hitboxes: 
 PickUpRadius: 
+
 
 
 _**Content**_
@@ -32,7 +61,7 @@ _**Content**_
 -rewrite everything that checks for has_method(“get_hurt”)
 -get to choose a song that plays while u have the lead. 
 	record scratch when lead changes
--free out of bounds platforms and projectiles and kill players
+
 
 
 **PLATFORM GENERATION - 50% of difficulty**
@@ -279,3 +308,4 @@ reduce boomerang end animation radius
 		2 different animations for tembo
 -marginally improved platSpawner
 -sometimes hammer goes into ground, not a huge deal
+-free out of bounds platforms and projectiles and kill players

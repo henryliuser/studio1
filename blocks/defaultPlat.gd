@@ -12,6 +12,7 @@ export var incremental_move = false
 export var is_seesaw = false
 export var seesaw_rot_speed_deg = 75
 export var seesaw_flip = 1
+var seesaw_velo_deg = 0
 
 onready var sprite = $sprite
 
@@ -39,9 +40,6 @@ func _physics_process(delta):
 		global_position += velocity * delta
 		if incremental_move: velo_only_pos += velocity * delta
 	
-	actual_rot_deg += rotation_speed_deg * delta
-	global_rotation_degrees = actual_rot_deg
-	
 	if incremental_move:
 		x_bound = Vector2(velo_only_pos.x + patrol_x.x, velo_only_pos.x + patrol_x.y)
 		y_bound = Vector2(velo_only_pos.y + patrol_y.x, velo_only_pos.y + patrol_y.y)
@@ -64,13 +62,18 @@ func _physics_process(delta):
 	
 # do all the calculation, then fr set it at the end
 	if is_seesaw: seesaw(delta)
+	actual_rot_deg += rotation_speed_deg * delta
+	actual_rot_deg += seesaw_velo_deg * delta
+	global_rotation_degrees = actual_rot_deg
 
 var left_count = 0; var right_count = 0
 func seesaw(delta):
+	var abs_speed = seesaw_rot_speed_deg * seesaw_flip * scale.x/abs(scale.x)
 	if right_count > left_count: 
-		actual_rot_deg += seesaw_rot_speed_deg * delta * seesaw_flip * scale.x/abs(scale.x)
+		seesaw_velo_deg = abs_speed
 	elif left_count > right_count: 
-		actual_rot_deg -= seesaw_rot_speed_deg * delta * seesaw_flip * scale.x/abs(scale.x)
+		seesaw_velo_deg = -abs_speed
+	else: seesaw_velo_deg = lerp(seesaw_velo_deg, 0, 0.05)
 func _on_seesawRight_body_entered(_body): right_count += 1
 func _on_seesawRight_body_exited(_body): right_count -= 1
 func _on_seesawLeft_body_entered(_body): left_count += 1
