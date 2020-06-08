@@ -6,6 +6,7 @@ var prestage = false
 var stage
 onready var L = $left_start
 onready var R = $right_start
+
 func _ready():
 
 	yield(get_tree().create_timer(13, false), "timeout")  # activate home plats
@@ -23,13 +24,13 @@ func _ready():
 	start_hori = false
 	yield(get_tree().create_timer(18, false), "timeout")  # stage
 	$hori.on = false
+	$hori.timer = $hori.delay - 1
 	prestage = true
 	stage = load("res://testStages/stageA.tscn").instance()
 	stage.position = Vector2(0,1000)
 	add_child(stage)
-	yield(get_tree().create_timer(5, false), "timeout")
+	yield(get_tree().create_timer(10, false), "timeout")
 	prestage = false
-	
 	
 	
 func _physics_process(delta):

@@ -156,6 +156,7 @@ func _horizontal_1plat(dir = 1, ret = false):
 		if len(rand_arr) == 0: break
 #	get_tree().current_scene.add_child(plat)
 	add_child(plat)
+	print(str(plat) + " " + str(Global.frameCount))
 	if ret: return plat
 
 func create_rand_array(x):

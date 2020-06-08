@@ -17,3 +17,5 @@ func _on_enemyTest_pressed():
 	
 func _on_bug2_pressed():
 	get_tree().change_scene("res://testStages/exportTest.tscn")
+	
+
