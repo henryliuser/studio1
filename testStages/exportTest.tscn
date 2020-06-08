@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://blocks/defaultPlat.tscn" type="PackedScene" id=1]
+[ext_resource path="res://weapons/portalGun.tscn" type="PackedScene" id=2]
 [ext_resource path="res://blocks/conveyerPlat.tscn" type="PackedScene" id=3]
 [ext_resource path="res://weapons/toxicRifle.tscn" type="PackedScene" id=4]
 [ext_resource path="res://blocks/boostPlat.tscn" type="PackedScene" id=5]
@@ -52,7 +53,6 @@ position = Vector2( 1576.86, 471.449 )
 [node name="defaultPlat2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 619.024, 382.549 )
 scale = Vector2( 5, 5 )
-rotation_speed_deg = 50
 is_seesaw = true
 
 [node name="walker" parent="." instance=ExtResource( 7 )]
@@ -69,6 +69,9 @@ posList = {
 }
 
 [node name="sprite" parent="walker/player" index="2"]
-frame = 1
+frame = 0
+
+[node name="portalGun" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1130.98, 606.788 )
 
 [editable path="walker"]

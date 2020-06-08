@@ -3,7 +3,7 @@
 # ————————————————————
 _**TIMELINE:**_
 seesaw lerp rot and outline_width 6/8
-portal gun 6/8
+portal gun 6/8 - ender pearl with aoe exit damage
 test new player/enemy models
 develop obstacles
 	-lasers, cobwebs, wind,
@@ -16,12 +16,14 @@ display offhand weapon indicator
 hp numbers, fuel numbers
 basic sound fx, soundtrack
 way more weapons, beams and shit
+catherine climbing, pushing blocks
 stages, backgrounds
-particles
-lights
+basic particles, screenshake
+basic lights
 networking core
 playtesting
 tutorial, singleplayer
+final particles, polish, lighting
 options
 menus, lobbies
 final audio
@@ -92,6 +94,7 @@ trapezoid shapes (boostplats launch diagonally)
 _Horizontal - more freedom cuz physics trust_
 
 _**Details**_
+-muzzle flash
 -lerp seesaw
 -diagonal standing
 -input buffer for wall jumps
