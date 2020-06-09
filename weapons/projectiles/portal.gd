@@ -20,7 +20,7 @@ func _on_exit_body_entered(body):
 	if body.has_method("getHurt") and body != player: 
 		body.getHurt(10, 20, Vector2(500,-500), global_position)
 	
-func _on_portal_body_entered(body):
+func _on_portal_body_entered(_body):
 	exit()
 	
 func _physics_process(delta):
