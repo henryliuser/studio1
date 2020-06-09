@@ -18,7 +18,7 @@ func exit():
 	player.Weapons.lerpWeight = 0.25
 	player.Gauges.lerpWeight = 0.25
 	player.sprite.modulate.a = 0.05
-
+	$CollisionShape2D.queue_free()
 	if player.velocity.y > 0: player.velocity.y = 0  # only reset v.y if falling
 	yield(get_tree().create_timer(0.7, false), "timeout")
 	player.Weapons.lerpWeight = wlw
