@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://misc/platSpawnerFR.tscn" type="PackedScene" id=1]
 [ext_resource path="res://blocks/defaultPlat.tscn" type="PackedScene" id=2]
@@ -6,9 +6,15 @@
 [ext_resource path="res://players/shade.tscn" type="PackedScene" id=4]
 [ext_resource path="res://testStages/ht2.gd" type="Script" id=5]
 [ext_resource path="res://misc/killPlane.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/Sprite21-0001.png" type="Texture" id=7]
 
 [node name="hennyTest2" type="Node2D"]
 script = ExtResource( 5 )
+
+[node name="Sprite21-0001" type="Sprite" parent="."]
+modulate = Color( 0.360784, 1, 0, 0.376471 )
+position = Vector2( 960, 540 )
+texture = ExtResource( 7 )
 
 [node name="left_start" parent="." instance=ExtResource( 2 )]
 modulate = Color( 0.278431, 0.94902, 0.929412, 1 )
@@ -27,7 +33,6 @@ seesaw_rot_speed_deg = 40
 position = Vector2( 288.467, 905.775 )
 
 [node name="platSpawnerFR" parent="." instance=ExtResource( 1 )]
-delay = 100
 
 [node name="hori" parent="." instance=ExtResource( 1 )]
 on = false
@@ -35,7 +40,7 @@ delay = 50
 horizontal = true
 
 [node name="killPlane" parent="." instance=ExtResource( 6 )]
-position = Vector2( 960, 1400 )
+position = Vector2( 966.71, 1628.15 )
 scale = Vector2( 100, 3 )
 
 [node name="killPlane2" parent="." instance=ExtResource( 6 )]

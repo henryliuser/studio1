@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://blocks/defaultPlat.tscn" type="PackedScene" id=1]
 [ext_resource path="res://weapons/portalGun.tscn" type="PackedScene" id=2]
@@ -12,9 +12,15 @@
 [ext_resource path="res://weapons/Tembo.tscn" type="PackedScene" id=10]
 [ext_resource path="res://weapons/meterstick.tscn" type="PackedScene" id=11]
 [ext_resource path="res://weapons/LightShield.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/Sprite21-0001.png" type="Texture" id=13]
 
 [node name="hennyTest1" type="Node2D"]
 position = Vector2( 1.38477, -1.3847 )
+
+[node name="Sprite21-0001" type="Sprite" parent="."]
+modulate = Color( 0.733333, 0.952941, 0.509804, 0.34902 )
+position = Vector2( 960, 540 )
+texture = ExtResource( 13 )
 
 [node name="defaultPlat" parent="." instance=ExtResource( 1 )]
 modulate = Color( 0.278431, 0.94902, 0.929412, 1 )
@@ -58,20 +64,5 @@ is_seesaw = true
 [node name="walker" parent="." instance=ExtResource( 7 )]
 position = Vector2( 600.489, 117.921 )
 
-[node name="Weapons" parent="walker" index="0"]
-posList = {
-"boomerangSniper": Vector2( 2, -7 ),
-"lightShield": Vector2( 20, -20 ),
-"meterstick": Vector2( 0, 4 ),
-"potassiumCannon": Vector2( 13, -5 ),
-"tembo": Vector2( 3, 16 ),
-"toxicRifle": Vector2( 0, 0 )
-}
-
-[node name="sprite" parent="walker/player" index="2"]
-frame = 0
-
 [node name="portalGun" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1130.98, 606.788 )
-
-[editable path="walker"]

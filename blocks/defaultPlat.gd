@@ -10,7 +10,7 @@ export var lerp_y = 0.03
 export var lee = 20
 export var incremental_move = false
 export var is_seesaw = false
-export var seesaw_rot_speed_deg = 75
+export var seesaw_rot_speed_deg = 100
 export var seesaw_flip = 1
 var seesaw_velo_deg = 0
 
@@ -31,7 +31,7 @@ func _ready():
 	if is_seesaw:
 		$seesawLeft.visible = true
 		$seesawRight.visible = true
-		sprite.material = load("res://assets/Shaders/Outline.tres")
+		sprite.material = load("res://assets/Shaders/Outline.tres").duplicate()
 		sprite.material.set_shader_param("outline_color", Color.lavender)
 
 

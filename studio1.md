@@ -12,6 +12,7 @@ overhaul Char, movement() - make it consistent across _everything_ plan it
 platform momentum
 	-lerp environment to 0 every frame after move_and_slide(velo + env)
 	-only apply it on the frame that you leave the plat 
+parallax background + platform variants
 display offhand weapon indicator
 hp numbers, fuel numbers
 basic sound fx, soundtrack
@@ -22,7 +23,7 @@ basic particles, screenshake
 basic lights
 networking core
 playtesting
-tutorial, singleplayer
+tutorial, singleplayer: challenges, time trials, endless scb defense, etc.
 final particles, polish, lighting
 options
 menus, lobbies

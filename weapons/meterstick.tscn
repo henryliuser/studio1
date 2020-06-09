@@ -97,6 +97,7 @@ damage = 10
 duration = -1
 knockback = Vector2( 300, -300 )
 stun = 25
+self_hurt = false
 
 [node name="hitbox" parent="hitboxes/projectile2" index="0"]
 shape = SubResource( 3 )
@@ -111,6 +112,7 @@ damage = 10
 duration = -1
 knockback = Vector2( 0, 0 )
 stun = 5
+self_hurt = false
 
 [node name="hitbox" parent="hitboxes/tipper" index="0"]
 shape = SubResource( 4 )

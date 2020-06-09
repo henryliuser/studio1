@@ -207,6 +207,7 @@ func getHurt(dmg, stun:int=10, kb:Vector2=Vector2(), pos:Vector2=Vector2() ):
 	if kb != Vector2() and stun != 0:
 		if t < 0: fixFlip(1)
 		else: fixFlip(-1)
+		if t == 0: t = currentDirection
 		velocity = Vector2(t/abs(t)*kb.x, kb.y)
 	elif stun != 0: velocity /= 3
 	global_position += velocity/30

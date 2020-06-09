@@ -84,6 +84,7 @@ independent = false
 duration = -1
 knockback = Vector2( 600, -500 )
 stun = 30
+self_hurt = false
 
 [node name="projectile2" parent="hitboxes" instance=ExtResource( 3 )]
 position = Vector2( -25.9853, -40.4524 )
@@ -95,6 +96,7 @@ independent = false
 duration = -1
 knockback = Vector2( 500, -500 )
 stun = 30
+self_hurt = false
 
 [node name="hitbox" parent="hitboxes/projectile2" index="0"]
 shape = SubResource( 2 )

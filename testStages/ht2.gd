@@ -8,7 +8,7 @@ onready var L = $left_start
 onready var R = $right_start
 
 func _ready():
-	yield(get_tree().create_timer(13, false), "timeout")  # activate home plats
+	yield(get_tree().create_timer(20, false), "timeout")  # activate home plats
 	L.is_seesaw = true; R.is_seesaw = true
 	L.patrol_x = Vector2(-50, 200); R.patrol_x = Vector2(50, -200)
 	L._ready(); R._ready()
@@ -19,7 +19,7 @@ func _ready():
 	slowdown = false
 	start_hori = true
 	$hori.on = true
-	yield(get_tree().create_timer(2, false), "timeout")
+	yield(get_tree().create_timer(15, false), "timeout")
 	start_hori = false
 	yield(get_tree().create_timer(18, false), "timeout")  # stage
 	$hori.on = false
