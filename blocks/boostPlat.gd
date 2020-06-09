@@ -21,7 +21,7 @@ func _on_boostTrigger_body_entered(body):
 		body.velocity.y = v
 		body.position.y -= 20
 		timer = 1
-		b.scale.y += 1.5
+		b.scale.y *= 1.5
 		modulate = Color.red
 	
 
