@@ -56,6 +56,7 @@ func stick(body):
 	var y = global_rotation_degrees
 	get_parent().remove_child(self)
 	body.add_child(self)
+	
 	global_rotation_degrees = y
 	global_position = x
 	global_scale = Vector2(1, 1)
