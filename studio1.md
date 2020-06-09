@@ -2,10 +2,10 @@
 # [TODO]
 # ————————————————————
 _**TIMELINE:**_
-seesaw lerp rot and outline_width 6/8
-portal gun 6/8 - ender pearl with aoe exit damage
-test new player/enemy models
-develop obstacles
+portal gun sprites - 6/9
+test new player/enemy models - 6/9
+animate player - 6/9
+develop obstacles - 6/9
 	-lasers, cobwebs, wind,
 fix melee hitboxes to be more visually consistent
 overhaul Char, movement() - make it consistent across _everything_ plan it
@@ -30,8 +30,20 @@ menus, lobbies
 final audio
 steam integration
 
-
-
+_**SUMMER**_
+4 or 5 different areas with looping backgrounds
+4 or 5 sets of platforms
+7 ranged weapons, 7 melee weapons mechanically done
+7 weapons visually almost final
+some obstacles 
+4 characters mechanics done
+enemies mechanically done 
+nice stage transitions
+name
+basic UI
+basic menu - options, singleplayer: endless enemies, tutorial, tests
+local multiplayer: sequence, static stage
+basic sound effects / music
 
 _**Collision **_
 Players: L1, M1, M3
@@ -313,3 +325,5 @@ reduce boomerang end animation radius
 -marginally improved platSpawner
 -sometimes hammer goes into ground, not a huge deal
 -free out of bounds platforms and projectiles and kill players
+seesaw lerp rot and outline_width 6/8
+portal gun 6/8 - ender pearl with aoe exit damage

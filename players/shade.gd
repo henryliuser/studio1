@@ -193,7 +193,7 @@ func restore():
 	hurtbox.scale.y = lerp(hurtbox.scale.y, 1, 0.2)
 	rotation_degrees = lerp(rotation_degrees, 0, 0.2)
 	if trail_overtime <= 0: modulate = modulate.linear_interpolate(Color.white,0.1)
-	sprite.modulate.a = lerp(sprite.modulate.a, 1, 0.2)
+	sprite.modulate.a = lerp(sprite.modulate.a, 1, 0.05)
 	if unactionable.x == 0 and trail_overtime <= 0: 
 		sprite.rotation_degrees = lerp(sprite.rotation_degrees, 0, 0.2)
 

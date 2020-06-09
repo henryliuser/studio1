@@ -1,6 +1,6 @@
 extends Node2D
 onready var hoverPos = position
-export var lerpWeight = 0.4
+export var lerpWeight = 0.45
 var player
 
 func _ready():

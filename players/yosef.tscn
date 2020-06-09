@@ -1,103 +1,306 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://players/shade.gd" type="Script" id=1]
-[ext_resource path="res://assets/Characters/Char3/Char3Idle/Sprite6-0007.png" type="Texture" id=2]
+[ext_resource path="res://players/yosef.gd" type="Script" id=1]
+[ext_resource path="res://assets/Characters/Enemy/Sprite11-0001.png" type="Texture" id=2]
 [ext_resource path="res://players/tools/HPBar.tscn" type="PackedScene" id=3]
-[ext_resource path="res://players/tools/RootPlayer.gd" type="Script" id=4]
+[ext_resource path="res://players/PickUpRadius.tscn" type="PackedScene" id=4]
 [ext_resource path="res://players/tools/Gauges.tscn" type="PackedScene" id=5]
 [ext_resource path="res://players/tools/Weapons.tscn" type="PackedScene" id=6]
-[ext_resource path="res://weapons/meterstick.tscn" type="PackedScene" id=7]
-[ext_resource path="res://assets/Characters/Char3/Char3Idle/Sprite6-0003.png" type="Texture" id=8]
-[ext_resource path="res://assets/Characters/Char3/Char3Idle/Sprite6-0008.png" type="Texture" id=9]
-[ext_resource path="res://assets/Characters/Char3/Char3Idle/Sprite6-0005.png" type="Texture" id=10]
-[ext_resource path="res://assets/Characters/Char3/Char3Idle/Sprite6-0001.png" type="Texture" id=11]
-[ext_resource path="res://assets/Characters/Char3/Char3Idle/Sprite6-0002.png" type="Texture" id=12]
-[ext_resource path="res://assets/Characters/Char3/Char3Idle/Sprite6-0004.png" type="Texture" id=13]
-[ext_resource path="res://assets/Characters/Char3/Char3Idle/Sprite6-0010.png" type="Texture" id=14]
-[ext_resource path="res://assets/Characters/Char3/Char3Idle/Sprite6-0011.png" type="Texture" id=15]
-[ext_resource path="res://assets/Characters/Char3/Char3Idle/Sprite6-0013.png" type="Texture" id=16]
-[ext_resource path="res://assets/Characters/Char3/Char3Idle/Sprite6-0012.png" type="Texture" id=17]
-[ext_resource path="res://assets/Characters/Char3/Char3Idle/Sprite6-0009.png" type="Texture" id=18]
-[ext_resource path="res://assets/Characters/Char3/Char3Idle/Sprite6-0014.png" type="Texture" id=19]
-[ext_resource path="res://assets/Characters/Char3/Char3Idle/Sprite6-0006.png" type="Texture" id=20]
-[ext_resource path="res://weapons/potassiumCannon.tscn" type="PackedScene" id=21]
-[ext_resource path="res://assets/Characters/Char3/Char3Forward/Sprite6-0039.png" type="Texture" id=22]
+[ext_resource path="res://assets/Characters/Enemy/EnemyFeet/Left.png" type="Texture" id=7]
+[ext_resource path="res://assets/Characters/Enemy/EnemyHead/Sprite11-0002.png" type="Texture" id=8]
+[ext_resource path="res://assets/Characters/Enemy/EnemyFists/Right.png" type="Texture" id=9]
+[ext_resource path="res://assets/Characters/Enemy/EnemyFists/Left.png" type="Texture" id=10]
+[ext_resource path="res://assets/Characters/Enemy/EnemyFeet/Right.png" type="Texture" id=11]
 
-[sub_resource type="SpriteFrames" id=1]
-animations = [ {
-"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 13 ), ExtResource( 10 ), ExtResource( 20 ), ExtResource( 2 ), ExtResource( 9 ), ExtResource( 18 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 17 ), ExtResource( 16 ), ExtResource( 19 ) ],
-"loop": true,
-"name": "idle",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 22 ) ],
-"loop": true,
-"name": "forward",
-"speed": 5.0
-} ]
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 37.1343, 54.6715 )
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 8, 16.5 )
-
-[node name="yosef" type="Node2D"]
-script = ExtResource( 4 )
-__meta__ = {
-"_edit_group_": true
+[sub_resource type="Animation" id=5]
+resource_name = "forward"
+length = 1.2
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite/right_foot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.3, 0.57, 0.6, 0.9, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -13, 13 ), Vector2( -1.3, 15.75 ), Vector2( 0, 15.75 ), Vector2( 13, 13 ), Vector2( -2, 15.75 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("sprite/left_foot:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.3, 0.57, 0.6, 0.9, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 14, 14 ), Vector2( 1.4, 16.75 ), Vector2( 0, 16.75 ), Vector2( -14, 14 ), Vector2( 8, 16.75 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("sprite/right_foot:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.3, 0.55, 0.6, 0.65, 0.9, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 20.0, 0.0, 0.0, 0.0, -20.0, 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("sprite/left_foot:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.3, 0.55, 0.6, 0.65, 0.9, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -25.0, 0.0, 0.0, 0.0, 25.0, 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("sprite/head:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.53 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
 }
 
+[sub_resource type="Animation" id=7]
+resource_name = "idle_feet"
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite/left_foot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 8, 16.75 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("sprite/left_foot:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("sprite/right_foot:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -2, 15.75 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("sprite/right_foot:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("sprite/head:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "idle_head"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite/head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1.24193, 1.87206 ), Vector2( -1.242, 3 ), Vector2( -1.242, -1 ), Vector2( -1.24193, 1.87206 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "jump"
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite/left_foot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2.33445, 18.4965 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("sprite/left_foot:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 41.4942 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("sprite/right_foot:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -2.83068, 20.2802 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("sprite/right_foot:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 51.3578 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("sprite/head:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -20.0 ]
+}
+
+[node name="yosef" type="Node2D"]
+
 [node name="Weapons" parent="." instance=ExtResource( 6 )]
-position = Vector2( 7.47205, 8.79065 )
-hoverPos = Vector2( 30, 0 )
-
-[node name="meterstick" parent="Weapons" instance=ExtResource( 7 )]
-position = Vector2( -4.38347, 8.21899 )
-
-[node name="BananaLauncher" parent="Weapons" instance=ExtResource( 21 )]
-position = Vector2( 3.95869, 0.2751 )
-
-[node name="Gauges" parent="." instance=ExtResource( 5 )]
-position = Vector2( 3, -62 )
-hoverPos = Vector2( 3, -62 )
-
-[node name="JumpIndic" parent="Gauges" instance=ExtResource( 3 )]
-position = Vector2( -19.5, 8 )
-scale = Vector2( 0.65, 0.65 )
-is_for_hp = false
-
-[node name="polish" parent="Gauges/JumpIndic" index="0"]
-fill_mode = 1
-
-[node name="texture" parent="Gauges/JumpIndic" index="1"]
-fill_mode = 1
-tint_progress = Color( 0.898039, 0.933333, 0.25098, 1 )
-
-[node name="DashIndic" parent="Gauges" instance=ExtResource( 3 )]
-position = Vector2( 19.5, 8 )
-scale = Vector2( 0.65, 0.65 )
-is_for_hp = false
-
-[node name="texture" parent="Gauges/DashIndic" index="1"]
-tint_progress = Color( 0.113725, 0.858824, 0.956863, 1 )
-
-[node name="HPBar" parent="Gauges" instance=ExtResource( 3 )]
-position = Vector2( 0, -2 )
+posList = {
+"boomerangSniper": Vector2( 0, 0 ),
+"lightShield": Vector2( 6, -15 ),
+"meterstick": Vector2( 0, 0 ),
+"portalGun": Vector2( 0, 0 ),
+"potassiumCannon": Vector2( 0, 0 ),
+"tembo": Vector2( 0, 0 ),
+"toxicRifle": Vector2( 0, 0 )
+}
 
 [node name="player" type="KinematicBody2D" parent="."]
-scale = Vector2( 3, 3 )
 collision_mask = 5
 script = ExtResource( 1 )
-totalJumps = 2
+maxAirVelocity = Vector2( 550, 1500 )
+maxGroundVelocity = Vector2( 500, 1500 )
+totalJumps = 3
+
+[node name="PickUpRadius" parent="player" instance=ExtResource( 4 )]
+visible = false
 
 [node name="sprite" type="AnimatedSprite" parent="player"]
-scale = Vector2( 1.5, 1.5 )
-frames = SubResource( 1 )
-animation = "forward"
-playing = true
+scale = Vector2( 3, 3 )
+
+[node name="left_foot" type="Sprite" parent="player/sprite"]
+position = Vector2( 3.26667, 16.3426 )
+rotation = -0.0349067
+scale = Vector2( 0.333333, 0.333333 )
+texture = ExtResource( 7 )
+
+[node name="right_foot" type="Sprite" parent="player/sprite"]
+position = Vector2( -3.03333, 15.3426 )
+rotation = 0.0279253
+scale = Vector2( 0.333333, 0.333333 )
+texture = ExtResource( 11 )
+
+[node name="left_fist" type="Sprite" parent="player/sprite"]
+visible = false
+position = Vector2( 11.7506, -0.925693 )
+scale = Vector2( 0.333333, 0.333333 )
+texture = ExtResource( 10 )
+
+[node name="head" type="Sprite" parent="player/sprite"]
+position = Vector2( -1.242, 1.25 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 8 )
+
+[node name="right_fist" type="Sprite" parent="player/sprite"]
+visible = false
+position = Vector2( -5.4988, 4.2251 )
+scale = Vector2( 0.266667, 0.266667 )
+texture = ExtResource( 9 )
+
+[node name="Tween" type="Tween" parent="player/sprite"]
+
+[node name="reference" type="Sprite" parent="player"]
+visible = false
+position = Vector2( 66.716, -10.8597 )
+scale = Vector2( 0.333333, 0.333333 )
+texture = ExtResource( 2 )
 
 [node name="hurtbox" type="CollisionShape2D" parent="player"]
-position = Vector2( 2.5, 3 )
-shape = SubResource( 2 )
+position = Vector2( 0, 2.5 )
+shape = SubResource( 3 )
 
-[editable path="Gauges/JumpIndic"]
+[node name="Gauges" parent="." instance=ExtResource( 5 )]
+position = Vector2( 0, -80 )
 
-[editable path="Gauges/DashIndic"]
+[node name="HPBar" parent="Gauges" instance=ExtResource( 3 )]
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+root_node = NodePath("../player")
+playback_default_blend_time = 0.2
+playback_speed = 2.0
+anims/forward = SubResource( 5 )
+anims/idle_feet = SubResource( 7 )
+anims/idle_head = SubResource( 6 )
+anims/jump = SubResource( 8 )

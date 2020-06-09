@@ -33,6 +33,7 @@ seesaw_rot_speed_deg = 40
 position = Vector2( 288.467, 905.775 )
 
 [node name="platSpawnerFR" parent="." instance=ExtResource( 1 )]
+delay = 100
 
 [node name="hori" parent="." instance=ExtResource( 1 )]
 on = false

@@ -6,14 +6,14 @@
 [ext_resource path="res://weapons/toxicRifle.tscn" type="PackedScene" id=4]
 [ext_resource path="res://blocks/boostPlat.tscn" type="PackedScene" id=5]
 [ext_resource path="res://blocks/burnPlat.tscn" type="PackedScene" id=6]
-[ext_resource path="res://players/walker.tscn" type="PackedScene" id=7]
+[ext_resource path="res://players/yosef.tscn" type="PackedScene" id=7]
 [ext_resource path="res://weapons/boomerangSniper.tscn" type="PackedScene" id=8]
 [ext_resource path="res://weapons/potassiumCannon.tscn" type="PackedScene" id=9]
 [ext_resource path="res://weapons/Tembo.tscn" type="PackedScene" id=10]
 [ext_resource path="res://weapons/meterstick.tscn" type="PackedScene" id=11]
 [ext_resource path="res://weapons/LightShield.tscn" type="PackedScene" id=12]
 [ext_resource path="res://assets/Sprite21-0001.png" type="Texture" id=13]
-[ext_resource path="res://players/shade.tscn" type="PackedScene" id=14]
+[ext_resource path="res://players/walker.tscn" type="PackedScene" id=14]
 
 [node name="hennyTest1" type="Node2D"]
 position = Vector2( 1.38477, -1.3847 )
@@ -31,13 +31,13 @@ velocity = Vector2( 0, 0 )
 seesaw_rot_speed_deg = 30
 
 [node name="burnPlat" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1506.56, 46.3322 )
+position = Vector2( 1475.82, 248.335 )
 
 [node name="boostPlat" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1187.25, 51.1612 )
+position = Vector2( 1196.03, 244.381 )
 
 [node name="conveyerPlat" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1800.31, 54.3442 )
+position = Vector2( 1760.79, 260.738 )
 
 [node name="boomerangSniper" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1405.28, 636.377 )
@@ -57,17 +57,17 @@ position = Vector2( 1477.7, 506.66 )
 [node name="LightShield" parent="." instance=ExtResource( 12 )]
 position = Vector2( 1576.86, 471.449 )
 
+[node name="portalGun" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1130.98, 606.788 )
+
 [node name="defaultPlat2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 619.024, 382.549 )
 scale = Vector2( 5, 5 )
 is_seesaw = true
 
-[node name="walker" parent="." instance=ExtResource( 7 )]
-position = Vector2( 600.489, 117.921 )
+[node name="yosef" parent="." instance=ExtResource( 7 )]
+position = Vector2( 613.432, 252.054 )
 
-[node name="portalGun" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1130.98, 606.788 )
-
-[node name="shade" parent="." instance=ExtResource( 14 )]
-position = Vector2( 480.468, 594.865 )
+[node name="walker" parent="." instance=ExtResource( 14 )]
+position = Vector2( 280.615, 613.195 )
 localNum = 2

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Left.png-d60c468e656cbe787eb87cfec6732c50.stex"
+path="res://.import/Sprite16-0002.png-c17b931db83db1f8023b851b37eff83d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Characters/Enemy/EnemyFists/Left.png"
-dest_files=[ "res://.import/Left.png-d60c468e656cbe787eb87cfec6732c50.stex" ]
+source_file="res://assets/Weapons/PortalGun/PGIdle/Sprite16-0002.png"
+dest_files=[ "res://.import/Sprite16-0002.png-c17b931db83db1f8023b851b37eff83d.stex" ]
 
 [params]
 

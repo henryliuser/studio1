@@ -51,7 +51,7 @@ onready var Weapons = get_node("../Weapons")
 func _ready(): 
 	set_network_master(0)
 	for c in get_children():
-		if "position" in c: children[c] = c.position
+		children[c] = c.position
 	hpbar = get_node("../Gauges/HPBar")
 	
 puppet func setEverything(vel, pos, sprFlip, scl, mod, currDirec):
@@ -85,10 +85,9 @@ func fixFlip(dir):
 	currentDirection = dir
 #	print(str(sprite.scale) + " " + str(Global.frameCount))
 	for c in get_children():
-#		if c.name == "poisonDart": print(c.position)
-		if "position" in c:
-			c.position.x = children[c].x * currentDirection
-			c.scale.x = abs(c.scale.x) * currentDirection
+		if c.name == "poisonDart": print(c.position)
+		c.position.x = children[c].x * currentDirection
+		c.scale.x = abs(c.scale.x) * currentDirection
 
 func add_child (node, legible_unique_name=false):
 	.add_child(node,legible_unique_name)
@@ -287,7 +286,8 @@ func heal(amt):
 	
 
 func restore():
-	sprite.modulate.a = lerp(sprite.modulate.a, 1, 0.05)
+	sprite.modulate.a = lerp(sprite.modulate.a, 1, 0.2)
 	hurtbox.scale.y = lerp(hurtbox.scale.y, 1, 0.2)
 	rotation_degrees = lerp(rotation_degrees, 0, 0.2)
+	sprite.scale = lerp(sprite.scale, og_sprite_scale, 0.2)
 	if unactionable.x == 0: sprite.rotation_degrees = lerp(sprite.rotation_degrees, 0, 0.2)

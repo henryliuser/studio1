@@ -6,14 +6,24 @@ var rot_speed_deg = 300
 func exit():
 	$exit.visible = true
 	$exit.monitoring = true
-	$Tween.interpolate_property($sprite, "scale", $sprite.scale, Vector2(6,6),
+	$Tween.interpolate_property($sprite, "scale", $sprite.scale, Vector2(8,8),
 		1, Tween.TRANS_BOUNCE, Tween.EASE_OUT_IN)
 	$Tween.start()
 	velocity = Vector2()
 	rot_speed_deg = 700
 	player.global_position = global_position
+	var wlw = player.Weapons.lerpWeight
+	var glw = player.Gauges.lerpWeight
+	get_parent().move_child(self, 1)
+	player.Weapons.lerpWeight = 0.25
+	player.Gauges.lerpWeight = 0.25
+	player.sprite.modulate.a = 0.05
+
 	if player.velocity.y > 0: player.velocity.y = 0  # only reset v.y if falling
 	yield(get_tree().create_timer(0.7, false), "timeout")
+	player.Weapons.lerpWeight = wlw
+	player.Gauges.lerpWeight = glw
+#	player.modulate.a = ma
 	queue_free()
 
 func _on_exit_body_entered(body):
