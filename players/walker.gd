@@ -25,8 +25,11 @@ func jet():
 	sprite.rotation_degrees = lerp(sprite.rotation_degrees, currentDirection * 5, 0.1)
 	jetflame.visible = true
 #	rpc_unreliable("syncJet", true) #clean this shit
-	if velocity.y <= 0: velocity.y -= jetSpeed
+	if velocity.y <= 0: 
+		velocity.y -= jetSpeed
+		velocity.y = min(velocity.y, maxAirVelocity.y)
 	else: velocity.y -= jetSpeed * 1.5
+
 		
 #	if velocity.y < 0: velocity.y = max(velocity.y, -500)
 	updateFuel(-1.3)
