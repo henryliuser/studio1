@@ -2,31 +2,69 @@
 # [TODO]
 # ————————————————————
 _**TIMELINE:**_
-portal gun sprites - 6/9
-test new player/enemy models - 6/9
-animate player - 6/9
-develop obstacles - 6/9
-	-lasers, cobwebs, wind,
-fix melee hitboxes to be more visually consistent
+portal gun sprites - 6/10
+fix melee hitboxes to be more visually consistent - 6/10
+falling spike and celeste bumper obstacle 6/10
+obstacle spawns on random sequence - 6/10
+quick fix yield pause mode - 6/10
 overhaul Char, movement() - make it consistent across _everything_ plan it
 platform momentum
 	-lerp environment to 0 every frame after move_and_slide(velo + env)
 	-only apply it on the frame that you leave the plat 
+jump height / reduced grav and lava trail powerups 
+new shade 
+new walker
+superarmor
+pillar / groundpound char
+floaty char - brock lee umbrella ??????
+glue gun *
+eraser staff or IK/physics/that one mace game from that one jam, mace *
+flaming bow/arrows combust on contact making hazard and DoT *
+thousand island flamethrower **
+torch 
+basic audio haul
+flaming whip
+tryndamere slash sword but like vertical *
+beam cannon (phoenix sun ray, can’t change direction, move slow) **
+beam daggers akimbo (clairen hitstun effects)
+trap weapon (makes u stop, u can lol wukong fake) remote detonate?
+frost scythe (cold feet?) 
+snowball mg with heat lol and kb
+ice cream
+block spawn weapon to crush people *
+magnifying glass lol burn people
+trumpet shotgun (note scatter) random dissonant chord  **
+cymbals (clap someone in front of you) **
+industrial / fire sector
+ice sector
+void / light sector
+catherine climbing, pushing blocks
 parallax background + platform variants
 display offhand weapon indicator
 hp numbers, fuel numbers
+ammo system
+weapon, pickup spawns on random sequence
 basic sound fx, soundtrack
-way more weapons, beams and shit
-catherine climbing, pushing blocks
-stages, backgrounds
-basic particles, screenshake
+anthems
+darts stick and follow players and plats
+make render order consistent
+UI + off-hand indicator
+menus
+lobby / char select
+basic options
+basic particles
+screenshake
+camera balancing
 basic lights
+**—==—_Summer Cut—_==_—**_
 networking core
 playtesting
+visual ambience (background creatures)
 tutorial, singleplayer: challenges, time trials, endless scb defense, etc.
 final particles, polish, lighting
-options
-menus, lobbies
+bonus modes like tag, hot potato stuff
+advanced options
+final menus, lobbies
 final audio
 steam integration
 
@@ -68,7 +106,7 @@ _**Content**_
 -figure out incentive to make players fight for positioning more fiercely
 		maybe just hella health pickups to make lives longer
 		don’t want down time, no respawn / rounds stuff. non-stop
-		add catherine style shit for the climbing part :ok_hand:
+		add catherine style shit for the climbing part
 -make render order consistent
 -clean up player code
 -clean up projectile code
@@ -107,8 +145,8 @@ trapezoid shapes (boostplats launch diagonally)
 _Horizontal - more freedom cuz physics trust_
 
 _**Details**_
+-gooey splat on banana detonate
 -muzzle flash
--lerp seesaw
 -diagonal standing
 -input buffer for wall jumps
 -moving platform momentum
@@ -128,22 +166,16 @@ boomerang angles the correct way, disappears on hitting owner
 -smashnifying glass type beat, just colored arrow
 -give hammer an active hitbox
 -boomerang sniper can only have X number out at a time
--state while attacking melee that means u can’t turn move (only some ig)
 -decide whether u can pass through enemies or not
 -dedicated flip for weapons to make it smoother
 -sometimes boomerang when going fast doesn’t flip the player
--weapons flip with storedDirection instead of currentDirection
--animate weapon idle bobbing through script, leave idle effects to kethan
 -getting hit interrupts attacks? super armor?
 -boomerang comes back to sniper when not visible
--health tween when taking multiple damage instances per frame only 	shows last instance
 -damagetext outline color corresponds with GlobalNum, fill color 	corresponds with type of damage taken
 -shield bounce on enemy or player should refresh jump/dash shade
 …
 -can’t reach next level without moving onto burning plat or tembo move
--dart stick and follow players
 -melee movement meterstick dash don’t work on conveyer
--rework all yields so that frame advance works?? maybe. not necessary
 REFACTOR EVERYTHING WITH SIGNALS
 
 _**Networking - other 50% of difficulty**_
@@ -161,9 +193,7 @@ _**Interface**_
 
 _**Polish**_
 -add bob and slight rot to platforms when u land on them (celeste)
--chain damage text pops with each chain (Use Separate Tween EZ)
 -italicize character when moving
--floating damage text (scale in and out)
 -floating item pickup text 
 -hitstop
 -hit effects (rivals, slo-mo)
@@ -287,6 +317,7 @@ inheritance X
 walker separate jet hurtbox X
 -big damage gets shader effect yo
 -floating damage text
+-health tween when taking multiple damage instances per frame only 	shows last instance
 -potassium cannon
 -death gravity/ragdoll
 -shade getting hit resets dash
@@ -308,6 +339,7 @@ reduce boomerang end animation radius
 -angle ranged weapons
 	have a position2d at the target that rotates with the
 -tween hover weapons
+-animate weapon idle bobbing through script, leave idle effects to kethan
 -drop items on death
 -spam E bug
 -weapons pick up at different heights !!!
@@ -327,3 +359,10 @@ reduce boomerang end animation radius
 -free out of bounds platforms and projectiles and kill players
 seesaw lerp rot and outline_width 6/8
 portal gun 6/8 - ender pearl with aoe exit damage
+develop obstacles - 6/9
+	-lasers, cobwebs, wind 6/9
+test new player/enemy models - 6/9
+animate player - 6/9
+-lerp seesaw
+-weapons flip with storedDirection instead of currentDirection
+forest area platforms - 6/10

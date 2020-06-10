@@ -1,0 +1,46 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/Bases/WoodPlat/WoodOnFire/Sprite24-0008.png" type="Texture" id=1]
+[ext_resource path="res://blocks/burnPlat.gd" type="Script" id=2]
+[ext_resource path="res://assets/Bases/WoodPlat/WoodOnFire/Sprite24-0004.png" type="Texture" id=3]
+[ext_resource path="res://assets/Bases/WoodPlat/WoodOnFire/Sprite24-0005.png" type="Texture" id=4]
+[ext_resource path="res://assets/Bases/WoodPlat/WoodOnFire/Sprite24-0006.png" type="Texture" id=5]
+[ext_resource path="res://assets/Bases/WoodPlat/WoodOnFire/Sprite24-0007.png" type="Texture" id=6]
+[ext_resource path="res://assets/Bases/WoodPlat/WoodOnFire/Sprite24-0009.png" type="Texture" id=7]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 1 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 6.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 32, 2 )
+
+[node name="forestBurnPlat" type="KinematicBody2D"]
+scale = Vector2( 3, 3 )
+collision_layer = 6
+collision_mask = 2
+script = ExtResource( 2 )
+
+[node name="sprite" type="AnimatedSprite" parent="."]
+position = Vector2( -3, -1.811 )
+scale = Vector2( 1.2, 1.2 )
+frames = SubResource( 1 )
+playing = true
+
+[node name="burnTrigger" type="Area2D" parent="."]
+scale = Vector2( 1.2, 1.2 )
+
+[node name="burnHitbox" type="CollisionShape2D" parent="burnTrigger"]
+position = Vector2( 0, -4.75 )
+shape = SubResource( 2 )
+
+[node name="bodyHitbox" type="CollisionPolygon2D" parent="."]
+position = Vector2( 0.511775, 0.895615 )
+scale = Vector2( 1.2, 1.2 )
+polygon = PoolVector2Array( -32.418, 7, -34.4777, 4.47223, -34.3925, -1.66005, -32, -3.5, 30, -3.5, 33.9143, -1.48971, 33.9143, 5.32393, 31.555, 7 )
+[connection signal="body_entered" from="burnTrigger" to="." method="_on_burnTrigger_body_entered"]
+[connection signal="body_exited" from="burnTrigger" to="." method="_on_burnTrigger_body_exited"]

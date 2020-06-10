@@ -14,7 +14,7 @@ func _on_boostTrigger_body_entered(body):
 	var v = -1580
 	if body.has_method("jet"):
 		v /= 1.5
-		body.fuel = 100
+		body.updateFuel(100)
 	if timer == 0:
 		b = body
 		moving = true

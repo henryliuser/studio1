@@ -1,0 +1,53 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://assets/Bases/WoodPlat/Hammock/Sprite24-0011.png" type="Texture" id=1]
+[ext_resource path="res://blocks/forestBoostPlat.gd" type="Script" id=2]
+[ext_resource path="res://assets/Bases/WoodPlat/Hammock/Sprite24-0012.png" type="Texture" id=3]
+[ext_resource path="res://assets/Bases/WoodPlat/Hammock/Sprite24-0013.png" type="Texture" id=4]
+[ext_resource path="res://assets/Bases/WoodPlat/Hammock/Sprite24-0014.png" type="Texture" id=5]
+[ext_resource path="res://assets/Bases/WoodPlat/Hammock/Sprite24-0015.png" type="Texture" id=6]
+[ext_resource path="res://assets/Bases/WoodPlat/Hammock/Sprite24-0016.png" type="Texture" id=7]
+[ext_resource path="res://assets/Bases/WoodPlat/Hammock/Sprite24-0017.png" type="Texture" id=8]
+[ext_resource path="res://assets/Bases/WoodPlat/Hammock/Sprite24-0010.png" type="Texture" id=9]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 9 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 6 ) ],
+"loop": false,
+"name": "default",
+"speed": 8.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 24, 6 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 5.5, 7 )
+
+[node name="boostPlat" type="KinematicBody2D"]
+scale = Vector2( 3, 3 )
+collision_layer = 6
+collision_mask = 2
+script = ExtResource( 2 )
+
+[node name="sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+frame = 7
+playing = true
+
+[node name="boostTrigger" type="Area2D" parent="."]
+position = Vector2( 0, 3 )
+collision_mask = 65
+
+[node name="boostHitbox" type="CollisionShape2D" parent="boostTrigger"]
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -29.5, 3 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( 29.5, 3 )
+shape = SubResource( 3 )
+[connection signal="body_entered" from="boostTrigger" to="." method="_on_boostTrigger_body_entered"]
+[connection signal="body_exited" from="boostTrigger" to="." method="_on_boostTrigger_body_exited"]

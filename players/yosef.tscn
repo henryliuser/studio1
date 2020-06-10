@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://players/yosef.gd" type="Script" id=1]
 [ext_resource path="res://assets/Characters/Enemy/Sprite11-0001.png" type="Texture" id=2]
@@ -11,11 +11,12 @@
 [ext_resource path="res://assets/Characters/Enemy/EnemyFists/Right.png" type="Texture" id=9]
 [ext_resource path="res://assets/Characters/Enemy/EnemyFists/Left.png" type="Texture" id=10]
 [ext_resource path="res://assets/Characters/Enemy/EnemyFeet/Right.png" type="Texture" id=11]
+[ext_resource path="res://players/tools/RootPlayer.gd" type="Script" id=12]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 36, 50 )
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=2]
 resource_name = "forward"
 length = 1.2
 loop = true
@@ -81,7 +82,7 @@ tracks/4/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=3]
 resource_name = "idle_feet"
 tracks/0/type = "value"
 tracks/0/path = NodePath("sprite/left_foot:position")
@@ -144,7 +145,7 @@ tracks/4/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=4]
 resource_name = "idle_head"
 length = 1.2
 loop = true
@@ -161,7 +162,7 @@ tracks/0/keys = {
 "values": [ Vector2( -1.24193, 1.87206 ), Vector2( -1.242, 3 ), Vector2( -1.242, -1 ), Vector2( -1.24193, 1.87206 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=5]
 resource_name = "jump"
 tracks/0/type = "value"
 tracks/0/path = NodePath("sprite/left_foot:position")
@@ -225,6 +226,7 @@ tracks/4/keys = {
 }
 
 [node name="yosef" type="Node2D"]
+script = ExtResource( 12 )
 
 [node name="Weapons" parent="." instance=ExtResource( 6 )]
 posList = {
@@ -287,7 +289,7 @@ texture = ExtResource( 2 )
 
 [node name="hurtbox" type="CollisionShape2D" parent="player"]
 position = Vector2( 0, 2.5 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="Gauges" parent="." instance=ExtResource( 5 )]
 position = Vector2( 0, -80 )
@@ -298,7 +300,7 @@ position = Vector2( 0, -80 )
 root_node = NodePath("../player")
 playback_default_blend_time = 0.2
 playback_speed = 2.0
-anims/forward = SubResource( 5 )
-anims/idle_feet = SubResource( 7 )
-anims/idle_head = SubResource( 6 )
-anims/jump = SubResource( 8 )
+anims/forward = SubResource( 2 )
+anims/idle_feet = SubResource( 3 )
+anims/idle_head = SubResource( 4 )
+anims/jump = SubResource( 5 )

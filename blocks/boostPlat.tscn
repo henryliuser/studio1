@@ -28,7 +28,7 @@ script = ExtResource( 2 )
 [node name="sprite" type="AnimatedSprite" parent="."]
 position = Vector2( -2.5, 0 )
 frames = SubResource( 1 )
-frame = 4
+frame = 5
 playing = true
 
 [node name="bodyHitbox" type="CollisionPolygon2D" parent="."]

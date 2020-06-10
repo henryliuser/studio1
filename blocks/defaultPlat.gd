@@ -1,4 +1,5 @@
 extends KinematicBody2D
+
 export var moving = false
 export var velocity = Vector2(0,75)
 export var rotation_speed_deg = 0

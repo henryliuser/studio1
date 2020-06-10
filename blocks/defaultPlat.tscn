@@ -11,6 +11,9 @@ scale = Vector2( 3, 3 )
 collision_layer = 6
 collision_mask = 2
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="sprite" type="Sprite" parent="."]
 position = Vector2( -3, -5 )
