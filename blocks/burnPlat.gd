@@ -8,8 +8,10 @@ func _physics_process(_delta):
 			b.getHurt(5, stun)
 
 func _on_burnTrigger_body_entered(body):
-	players[body] = 1
-	body.getHurt(5, stun)
+	if body.has_method("getHurt"):
+		players[body] = 1
+		body.getHurt(5, stun)
 
 func _on_burnTrigger_body_exited(body):
-	players.erase(body)
+	if body.has_method("getHurt"):
+		players.erase(body)

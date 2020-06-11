@@ -34,3 +34,10 @@ func wrap(curr,theArray,direction):
 
 func _ready():
 	randomize()
+
+func attach(object, target):
+	var stuff = [object.global_position, object.global_rotation, object.global_scale, object.modulate]
+	object.get_parent().remove_child(object)
+	target.add_child(object)
+	object.global_position = stuff[0]; object.global_rotation = stuff[1]
+	object.global_scale = stuff[2]; object.self_modulate = stuff[3]

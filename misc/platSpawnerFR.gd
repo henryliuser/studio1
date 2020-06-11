@@ -1,7 +1,7 @@
 extends Node2D
 
 export var on = true
-export var delay = 150
+export var delay = 100
 var timer = delay - 1
 export var horizontal = false
 
@@ -12,30 +12,32 @@ var paths = [
 	"res://blocks/burnPlat.tscn"
 		]
 
-var num2chance = { 1:4, 2:5, 3:6, 4:10 }
+var num2chance = { 1:5, 2:5, 3:6, 4:10 }
 var last_num = 1
 
 func _physics_process(delta):
 	if on: timer += 1
 	if timer % delay == 0:
 #		var num_plats = 4
-		if !horizontal:
-			var num_plats = randi()%len(paths)+1
-			while (num_plats == last_num and last_num != 2): 
-				num_plats = randi()%len(paths)+1
-			last_num = num_plats  # reset last_num
-			match num_plats:
-				1: _1plat()
-				2: _2plat()
-				3: _3plat()
-				4: _4plat()
-		else: _horizontal_1plat(1)
+		_1plat()
+#		if !horizontal:
+#			var num_plats = randi()%len(paths)+1
+#			while (num_plats == last_num and last_num != 2): 
+#				num_plats = randi()%len(paths)+1
+#			last_num = num_plats  # reset last_num
+#			match num_plats:
+#				1: _1plat()
+#				2: _2plat()
+#				3: _3plat()
+#				4: _4plat()
+#		else: _horizontal_1plat(1)
 
 func _1plat(ret = false):
 	var rand_arr = create_rand_array(num2chance[1])
 	var rand = randi()%len(paths)
 	var muta_chance = 0.6
 	var plat = load(paths[rand]).instance()
+	var render_under = false
 	plat.scale = Vector2(4.5, 4.5)
 	plat.position = Vector2(1920/2, -150)  # all are centered
 	plat.moving = true
@@ -58,9 +60,20 @@ func _1plat(ret = false):
 				plat.patrol_y = Vector2(-r, r) 
 			3:  # spinning
 				plat.rotation_speed_deg = randi()%101 + 100 
+			4:  # falling spike
+				var spk = load("res://obstacles/Spike.tscn").instance()
+				render_under = true
+				spk.is_falling = true
+				spk.is_missile = true
+				spk.position = Vector2(0,10)
+				var ogscl = spk.scale
+				plat.add_child(spk)
+				spk.global_scale = ogscl
+				
 		if len(rand_arr) == 0: break
 #	get_tree().current_scene.add_child(plat)
 	add_child(plat)
+	if render_under: move_child(plat, 0)
 	if ret: return plat
 
 func _2plat(ret = false):

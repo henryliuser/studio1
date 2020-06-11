@@ -2,11 +2,10 @@
 # [TODO]
 # ————————————————————
 _**TIMELINE:**_
-portal gun sprites - 6/10
-fix melee hitboxes to be more visually consistent - 6/10
-obstacle spawns on random sequence - 6/10
-overhaul Char, movement() - make it consistent across _everything_ plan it
-platform momentum
+portal gun sprites - 6/11
+obstacle spawns on random sequence - 6/11
+overhaul Char, movement() - make it consistent across _everything_ plan it - 6/11
+platform momentum - 6/11
 	-lerp environment to 0 every frame after move_and_slide(velo + env)
 	-only apply it on the frame that you leave the plat 
 jump height / reduced grav and lava trail powerups 
@@ -369,3 +368,4 @@ forest area platforms - 6/10
 falling spike - 6/10
 celeste bumper 6/10
 claw trap obstacle 6/10
+fix melee hitboxes to be more visually consistent - 6/10

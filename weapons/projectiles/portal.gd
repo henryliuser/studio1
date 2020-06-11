@@ -12,17 +12,17 @@ func exit():
 	velocity = Vector2()
 	rot_speed_deg = 700
 	player.global_position = global_position
-	var wlw = player.Weapons.lerpWeight
-	var glw = player.Gauges.lerpWeight
+#	var wlw = player.Weapons.lerpWeight
+#	var glw = player.Gauges.lerpWeight
 	get_parent().move_child(self, 1)
-	player.Weapons.lerpWeight = 0.25
-	player.Gauges.lerpWeight = 0.25
+	player.Weapons.lerpWeight /= 2
+	player.Gauges.lerpWeight /= 2
 	player.sprite.modulate.a = 0.05
 	$CollisionShape2D.queue_free()
 	if player.velocity.y > 0: player.velocity.y = 0  # only reset v.y if falling
 	yield(get_tree().create_timer(0.7, false), "timeout")
-	player.Weapons.lerpWeight = wlw
-	player.Gauges.lerpWeight = glw
+	player.Weapons.lerpWeight *= 2
+	player.Gauges.lerpWeight *= 2
 #	player.modulate.a = ma
 	queue_free()
 

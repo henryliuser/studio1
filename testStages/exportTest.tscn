@@ -31,6 +31,7 @@ position = Vector2( 1.38477, -1.3847 )
 script = ExtResource( 24 )
 
 [node name="Sprite21-0001" type="Sprite" parent="."]
+visible = false
 modulate = Color( 0.733333, 0.952941, 0.509804, 0.34902 )
 position = Vector2( 1825.61, 477.907 )
 scale = Vector2( 4, 4 )
@@ -65,7 +66,7 @@ script = ExtResource( 21 )
 [node name="Players" type="Node2D" parent="."]
 
 [node name="walker" parent="Players" instance=ExtResource( 14 )]
-position = Vector2( 689.441, 587.627 )
+position = Vector2( 4252.29, -6.1817 )
 
 [node name="yosef" parent="Players" instance=ExtResource( 7 )]
 position = Vector2( 214.528, 559.235 )
@@ -91,25 +92,6 @@ position = Vector2( 601.054, 271.173 )
 [node name="Spike" parent="Obstacles" instance=ExtResource( 18 )]
 position = Vector2( 2405.04, 342.165 )
 is_falling = true
-
-[node name="Spike4" parent="Obstacles" instance=ExtResource( 18 )]
-position = Vector2( 4009.7, 342.165 )
-is_falling = true
-
-[node name="Spike5" parent="Obstacles" instance=ExtResource( 18 )]
-position = Vector2( 4132.17, 342.891 )
-is_falling = true
-
-[node name="Spike6" parent="Obstacles" instance=ExtResource( 18 )]
-position = Vector2( 4256.1, 342.165 )
-is_falling = true
-
-[node name="Spike7" parent="Obstacles" instance=ExtResource( 18 )]
-position = Vector2( 4379.29, 342.165 )
-is_falling = true
-
-[node name="Spike8" parent="Obstacles" instance=ExtResource( 18 )]
-position = Vector2( 4502.49, 339.085 )
 
 [node name="Spike2" parent="Obstacles" instance=ExtResource( 18 )]
 position = Vector2( 3076.76, 688.317 )
@@ -211,10 +193,51 @@ scale = Vector2( 5, 5 )
 position = Vector2( 2408.95, 268.255 )
 scale = Vector2( 5, 5 )
 
-[node name="defaultPlat12" parent="Platforms" instance=ExtResource( 1 )]
-position = Vector2( 4246.08, 236.676 )
+[node name="spiketop" parent="Platforms" instance=ExtResource( 1 )]
+position = Vector2( 4246.08, 237.785 )
 rotation = 3.14159
 scale = Vector2( 10, 10 )
+patrol_x = Vector2( -100, 100 )
+
+[node name="Spike4" parent="Platforms/spiketop" instance=ExtResource( 18 )]
+position = Vector2( 23.6381, -10.6598 )
+rotation = -3.14159
+scale = Vector2( 0.1, 0.1 )
+is_falling = true
+
+[node name="Spike5" parent="Platforms/spiketop" instance=ExtResource( 18 )]
+position = Vector2( 11.3911, -10.6215 )
+rotation = -3.14159
+scale = Vector2( 0.1, 0.1 )
+is_falling = true
+
+[node name="Spike6" parent="Platforms/spiketop" instance=ExtResource( 18 )]
+position = Vector2( -1.00192, -10.5489 )
+rotation = -3.14159
+scale = Vector2( 0.1, 0.1 )
+is_falling = true
+
+[node name="Spike7" parent="Platforms/spiketop" instance=ExtResource( 18 )]
+position = Vector2( -13.3209, -10.6599 )
+rotation = -3.14159
+scale = Vector2( 0.1, 0.1 )
+is_falling = true
+
+[node name="Spike8" parent="Platforms/spiketop" instance=ExtResource( 18 )]
+position = Vector2( -25.6409, -10.3519 )
+rotation = -3.14159
+scale = Vector2( 0.1, 0.1 )
+
+[node name="yasiugig" parent="Platforms" instance=ExtResource( 1 )]
+position = Vector2( 3729.41, -146.415 )
+scale = Vector2( 4, 4 )
+rotation_speed_deg = 200
+
+[node name="Spike" parent="Platforms/yasiugig" instance=ExtResource( 18 )]
+position = Vector2( 0, 20.5 )
+scale = Vector2( 0.333, 0.333 )
+is_falling = true
+is_missile = true
 
 [node name="defaultPlat7" parent="Platforms" instance=ExtResource( 1 )]
 position = Vector2( -170.973, 443.33 )
