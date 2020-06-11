@@ -16,7 +16,7 @@ func _physics_process(_delta):
 func _on_boostTrigger_body_entered(body):
 	if "velocity" in body:
 		if timer == 0: timer = 1
-		bodies[body] = abs(body.velocity.y * 1.2)
+		bodies[body] = abs(body.velocity.y * 1.3)
 		body.velocity /= 4
 		$sprite.frame = 1
 

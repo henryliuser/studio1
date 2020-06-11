@@ -4,7 +4,7 @@
 _**TIMELINE:**_
 portal gun sprites - 6/10
 fix melee hitboxes to be more visually consistent - 6/10
-falling spike and celeste bumper obstacle 6/10
+falling spike and celeste bumper and claw trap obstacle 6/10
 obstacle spawns on random sequence - 6/10
 quick fix yield pause mode - 6/10
 overhaul Char, movement() - make it consistent across _everything_ plan it
