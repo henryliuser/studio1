@@ -4,7 +4,7 @@
 [ext_resource path="res://obstacles/Fan.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 15.5, 15 )
+extents = Vector2( 11.0565, 11.1827 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 30, 10 )
@@ -20,7 +20,7 @@ texture = ExtResource( 1 )
 scale = Vector2( 5, 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
-position = Vector2( 0.540165, 0.990307 )
+position = Vector2( 4.92831, 4.86967 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

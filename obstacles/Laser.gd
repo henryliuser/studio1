@@ -1,5 +1,6 @@
 extends Node2D
 onready var line = $Line2D
+onready var hitbox = $hitbox
 onready var points = line.points
 var bodies = {}
 
@@ -20,5 +21,5 @@ func _on_hitbox_body_exited(body):
 		bodies.erase(body)
 
 func _on_hurtbox_area_entered(area):
-	if is_instance_valid($hitbox): $hitbox.queue_free()
-	if is_instance_valid($Line2D): $Line2D.queue_free()
+	if is_instance_valid(hitbox): hitbox.queue_free()
+	if is_instance_valid(line): line.queue_free()

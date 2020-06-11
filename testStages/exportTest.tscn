@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://blocks/defaultPlat.tscn" type="PackedScene" id=1]
 [ext_resource path="res://weapons/portalGun.tscn" type="PackedScene" id=2]
@@ -23,9 +23,11 @@
 [ext_resource path="res://players/tools/Gauges.gd" type="Script" id=21]
 [ext_resource path="res://obstacles/Bumper.tscn" type="PackedScene" id=22]
 [ext_resource path="res://obstacles/ClawTrap.tscn" type="PackedScene" id=23]
+[ext_resource path="res://testStages/exportTest.gd" type="Script" id=24]
 
 [node name="hennyTest1" type="Node2D"]
 position = Vector2( 1.38477, -1.3847 )
+script = ExtResource( 24 )
 
 [node name="Sprite21-0001" type="Sprite" parent="."]
 modulate = Color( 0.733333, 0.952941, 0.509804, 0.34902 )
@@ -34,25 +36,25 @@ scale = Vector2( 4, 4 )
 texture = ExtResource( 13 )
 
 [node name="boomerangSniper" parent="." instance=ExtResource( 8 )]
-position = Vector2( 1405.28, 636.377 )
+position = Vector2( 1420.67, 633.298 )
 
 [node name="toxicRifle" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1293.86, 645.902 )
+position = Vector2( 1210.74, 644.363 )
 
 [node name="potassiumCannon" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1557.37, 659.753 )
+position = Vector2( 1676.97, 642.669 )
 
 [node name="meterstick" parent="." instance=ExtResource( 11 )]
 position = Vector2( 1270.09, 483.519 )
 
 [node name="tembo" parent="." instance=ExtResource( 10 )]
-position = Vector2( 1477.7, 506.66 )
+position = Vector2( 1519.26, 498.963 )
 
 [node name="LightShield" parent="." instance=ExtResource( 12 )]
-position = Vector2( 1576.86, 471.449 )
+position = Vector2( 1641.51, 448.359 )
 
 [node name="portalGun" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1130.98, 606.788 )
+position = Vector2( 1021.69, 629.878 )
 
 [node name="Players" type="Node2D" parent="."]
 
@@ -60,12 +62,8 @@ position = Vector2( 1130.98, 606.788 )
 position = Vector2( -642.786, 118.993 )
 localNum = 2
 
-[node name="Camera2D" type="Camera2D" parent="Players/yosef"]
-script = ExtResource( 21 )
-lerpWeight = 0.2
-
 [node name="walker" parent="Players" instance=ExtResource( 14 )]
-position = Vector2( 725.191, 597.042 )
+position = Vector2( 3446.12, 428.261 )
 
 [node name="Camera2D" type="Camera2D" parent="Players/walker"]
 current = true
@@ -94,7 +92,7 @@ position = Vector2( 4009.7, 342.165 )
 is_falling = true
 
 [node name="Spike5" parent="Obstacles" instance=ExtResource( 18 )]
-position = Vector2( 4132.9, 342.165 )
+position = Vector2( 4132.17, 342.891 )
 is_falling = true
 
 [node name="Spike6" parent="Obstacles" instance=ExtResource( 18 )]
@@ -209,8 +207,9 @@ position = Vector2( 2408.95, 268.255 )
 scale = Vector2( 5, 5 )
 
 [node name="defaultPlat12" parent="Platforms" instance=ExtResource( 1 )]
-position = Vector2( 4257.98, 269.724 )
-scale = Vector2( 10.6, 5 )
+position = Vector2( 4246.08, 236.676 )
+rotation = 3.14159
+scale = Vector2( 10, 10 )
 
 [node name="defaultPlat7" parent="Platforms" instance=ExtResource( 1 )]
 position = Vector2( -170.973, 443.33 )

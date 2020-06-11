@@ -21,12 +21,12 @@ floaty char - brock lee umbrella ??????
 glue gun *
 eraser staff or IK/physics/that one mace game from that one jam, mace *
 flaming bow/arrows combust on contact making hazard and DoT *
-thousand island flamethrower **
+thousand island flamethrower 
 torch 
 basic audio haul
 flaming whip
 tryndamere slash sword but like vertical *
-beam cannon (phoenix sun ray, can’t change direction, move slow) **
+beam cannon (phoenix sun ray, can’t change direction, move slow) 
 beam daggers akimbo (clairen hitstun effects)
 trap weapon (makes u stop, u can lol wukong fake) remote detonate?
 frost scythe (cold feet?) 
@@ -34,8 +34,8 @@ snowball mg with heat lol and kb
 ice cream
 block spawn weapon to crush people *
 magnifying glass lol burn people
-trumpet shotgun (note scatter) random dissonant chord  **
-cymbals (clap someone in front of you) **
+trumpet shotgun (note scatter) random dissonant chord  
+cymbals (clap someone in front of you) 
 industrial / fire sector
 ice sector
 void / light sector
