@@ -24,6 +24,18 @@ func _process(delta):
 		get_tree().paused = false
 		yield(get_tree().create_timer(delta),"timeout")
 		get_tree().paused = true
+	if Input.is_action_just_pressed("debug_change_camera"):
+		var ps = get_tree().current_scene.get_node("Players").get_children()
+		for x in ps:
+			var p = x.get_node("player")
+			print(p.name)
+			print(p.localNum)
+			if p.localNum == 1: 
+				p.localNum = 2
+				x.get_node("Camera2D").current = false
+			elif p.localNum == 2: 
+				p.localNum = 1
+				x.get_node("Camera2D").current = true
 
 func clear():
 	for x in get_tree().current_scene.get_children():

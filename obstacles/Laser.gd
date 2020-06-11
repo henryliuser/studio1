@@ -11,12 +11,12 @@ func _physics_process(delta):
 func _on_hitbox_body_entered(body):
 	if "maxAirVelocity" in body and body.has_method("getHurt"): 
 		body.getHurt(2, 0)
-		bodies[body] = [0, body.maxAirVelocity]
+		bodies[body] = [0, body.maxAirVelocity - Vector2(300,250)]
 		body.maxAirVelocity = Vector2(300, 250)
 
 func _on_hitbox_body_exited(body):
 	if "maxAirVelocity" in body and body.has_method("getHurt"): 
-		body.maxAirVelocity = bodies[body][1]
+		body.maxAirVelocity += bodies[body][1]
 		bodies.erase(body)
 
 func _on_hurtbox_area_entered(area):

@@ -4,9 +4,10 @@
 _**TIMELINE:**_
 portal gun sprites - 6/10
 fix melee hitboxes to be more visually consistent - 6/10
-falling spike and celeste bumper and claw trap obstacle 6/10
+claw trap obstacle 6/10
 obstacle spawns on random sequence - 6/10
 quick fix yield pause mode - 6/10
+fix two slowing obstacles will overwrite each other 6/10
 overhaul Char, movement() - make it consistent across _everything_ plan it
 platform momentum
 	-lerp environment to 0 every frame after move_and_slide(velo + env)
@@ -366,3 +367,5 @@ animate player - 6/9
 -lerp seesaw
 -weapons flip with storedDirection instead of currentDirection
 forest area platforms - 6/10
+falling spike - 6/10
+celeste bumper 6/10

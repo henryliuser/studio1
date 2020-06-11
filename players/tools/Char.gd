@@ -214,9 +214,10 @@ func getHurt(dmg, stun:int=10, kb:Vector2=Vector2(), pos:Vector2=Vector2() ):
 	global_position += velocity/30
 	rotation_degrees = -currentDirection*50 if kb != Vector2() else -currentDirection*10
 	hp -= dmg
-	damaga += dmg
-	chainFrames = 2
-	clearInputs()
+	if dmg > 0:
+		damaga += dmg
+		chainFrames = 2
+		clearInputs()
 	hpbar.updateBar(hp)
 	if dead: return
 	if hp <= 0:

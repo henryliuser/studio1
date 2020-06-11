@@ -68,7 +68,7 @@ margin_right = 1678.12
 margin_bottom = 264.321
 rect_scale = Vector2( 1.67362, 1.40413 )
 custom_fonts/font = ExtResource( 1 )
-text = "idk was testing smth"
+text = "FULL PLAYGROUND"
 __meta__ = {
 "_edit_use_anchors_": false
 }
