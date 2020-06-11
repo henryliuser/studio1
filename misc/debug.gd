@@ -22,7 +22,7 @@ func _process(delta):
 		get_tree().paused = false if get_tree().paused else true
 	if get_tree().paused and Input.is_action_just_pressed("debug_frame_advance"):
 		get_tree().paused = false
-		yield(get_tree().create_timer(delta),"timeout")
+		yield(get_tree().create_timer(delta, false),"timeout")  # weird fukin engine bug
 		get_tree().paused = true
 
 func clear():

@@ -5,7 +5,6 @@ _**TIMELINE:**_
 portal gun sprites - 6/10
 fix melee hitboxes to be more visually consistent - 6/10
 obstacle spawns on random sequence - 6/10
-quick fix yield pause mode - 6/10
 overhaul Char, movement() - make it consistent across _everything_ plan it
 platform momentum
 	-lerp environment to 0 every frame after move_and_slide(velo + env)
@@ -44,6 +43,7 @@ display offhand weapon indicator
 hp numbers, fuel numbers
 ammo system
 weapon, pickup spawns on random sequence
+quick fix yield pause mode - lmao what
 basic sound fx, soundtrack
 anthems
 darts stick and follow players and plats

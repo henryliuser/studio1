@@ -19,9 +19,11 @@ func _physics_process(delta):
 
 func _on_hitbox_body_entered(body):
 	if body.has_method("getHurt") and !bodies.has(body):
-		if falling: damage *= 2
+		if falling: 
+			damage *= 2
+			bodies[body] = true
 		body.getHurt(damage, 15, Vector2(400, -300), global_position)
-		bodies[body] = true
+
 
 func _on_fallDetection_body_entered(body):
 	if body.has_method("getHurt"):
