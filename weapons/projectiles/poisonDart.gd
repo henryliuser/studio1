@@ -35,7 +35,7 @@ func _on_poisonDart_body_entered(body):
 #		yield(get_tree().create_timer(5), "timeout")
 #		done()
 	else: 
-		yield(get_tree().create_timer(3), "timeout")
+		yield(get_tree().create_timer(3, false), "timeout")
 		queue_free()
 	
 #	target.modulate = Color.green

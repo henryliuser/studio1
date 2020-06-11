@@ -29,7 +29,7 @@ func getHurt(dmg, stun:int=10, kb:Vector2=Vector2(), pos:Vector2=Vector2() ):
 	if hp <= 0: die()
 	damaga += dmg
 	chainFrames = 2
-	yield(get_tree().create_timer(1.0/12), "timeout")
+	yield(get_tree().create_timer(1.0/12, false), "timeout")
 	modulate = omod
 	
 

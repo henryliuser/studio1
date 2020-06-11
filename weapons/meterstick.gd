@@ -10,6 +10,6 @@ func hit():
 	player.velocity.x = player.currentDirection * 1700
 	player.velocity.y = 0
 	player.melee_movement(10)
-	yield(get_tree().create_timer(1.0/6), "timeout")
+	yield(get_tree().create_timer(1.0/6, false), "timeout")
 	player.velocity.y = walkerVelo/3
 

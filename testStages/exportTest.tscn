@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://blocks/defaultPlat.tscn" type="PackedScene" id=1]
 [ext_resource path="res://weapons/portalGun.tscn" type="PackedScene" id=2]
@@ -20,10 +20,11 @@
 [ext_resource path="res://obstacles/Spike.tscn" type="PackedScene" id=18]
 [ext_resource path="res://blocks/forestBurnPlat.tscn" type="PackedScene" id=19]
 [ext_resource path="res://blocks/forestBoostPlat.tscn" type="PackedScene" id=20]
-[ext_resource path="res://players/tools/Gauges.gd" type="Script" id=21]
+[ext_resource path="res://misc/Camera.gd" type="Script" id=21]
 [ext_resource path="res://obstacles/Bumper.tscn" type="PackedScene" id=22]
 [ext_resource path="res://obstacles/ClawTrap.tscn" type="PackedScene" id=23]
 [ext_resource path="res://testStages/exportTest.gd" type="Script" id=24]
+[ext_resource path="res://players/shade.tscn" type="PackedScene" id=25]
 
 [node name="hennyTest1" type="Node2D"]
 position = Vector2( 1.38477, -1.3847 )
@@ -56,19 +57,23 @@ position = Vector2( 1641.51, 448.359 )
 [node name="portalGun" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1021.69, 629.878 )
 
-[node name="Players" type="Node2D" parent="."]
-
-[node name="yosef" parent="Players" instance=ExtResource( 7 )]
-position = Vector2( -642.786, 118.993 )
-localNum = 2
-
-[node name="walker" parent="Players" instance=ExtResource( 14 )]
-position = Vector2( 3446.12, 428.261 )
-
-[node name="Camera2D" type="Camera2D" parent="Players/walker"]
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 689.441, 587.627 )
 current = true
 script = ExtResource( 21 )
-lerpWeight = 0.2
+
+[node name="Players" type="Node2D" parent="."]
+
+[node name="walker" parent="Players" instance=ExtResource( 14 )]
+position = Vector2( 689.441, 587.627 )
+
+[node name="yosef" parent="Players" instance=ExtResource( 7 )]
+position = Vector2( 214.528, 559.235 )
+localNum = 2
+
+[node name="shade" parent="Players" instance=ExtResource( 25 )]
+position = Vector2( 538.603, 33.0432 )
+localNum = 2
 
 [node name="Obstacles" type="Node2D" parent="."]
 
@@ -230,7 +235,6 @@ patrol_y = Vector2( -200, 200 )
 position = Vector2( -633.688, 239.988 )
 scale = Vector2( 5, 5 )
 patrol_x = Vector2( -200, 200 )
-is_seesaw = true
 
 [node name="defaultPlat5" parent="Platforms" instance=ExtResource( 1 )]
 position = Vector2( -28.8097, 144.408 )

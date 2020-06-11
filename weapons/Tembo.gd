@@ -23,7 +23,7 @@ func hit():
 		player.melee_movement(55, true, false, Vector2(0,30))
 		
 #		player.melee_movement(60, true, false, Vector2(70*player.currentDirection, 0))  #parabola too slow lookin
-		yield(get_tree().create_timer(0.03),"timeout")
+		yield(get_tree().create_timer(0.03, false),"timeout")
 #		player.melee_velo = Vector2()  # play around with idea that u do fast launch and then stop?
 		player.velocity.x = 750 * player.currentDirection
 #		yield(get_tree().create_timer(0.25),"timeout")
@@ -36,7 +36,7 @@ func hit():
 		player.melee_movement(50, true, false)
 	else:
 		player.melee_movement(50, true, false)
-		yield(get_tree().create_timer(0.5), "timeout") 
+		yield(get_tree().create_timer(0.5, false), "timeout") 
 		player.velocity.y = -600
 		player.velocity.x = -600 * player.currentDirection
 		

@@ -32,6 +32,6 @@ func die():
 	$left.enabled = false
 	$right.enabled = false
 	
-	yield(get_tree().create_timer(5), "timeout")
+	yield(get_tree().create_timer(5, false), "timeout")
 	queue_free()
 	

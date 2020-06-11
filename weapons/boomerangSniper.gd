@@ -4,7 +4,7 @@ var bulletList = []
 func shoot():
 	available = false  # this is a bugfix, trust
 	$sprite.play("fire")
-	yield(get_tree().create_timer(.3), "timeout")  # lined this shit first try
+	yield(get_tree().create_timer(.3, false), "timeout")  # lined this shit first try
 	.shoot()
 	var q = load("res://weapons/projectiles/boomerang.tscn").instance()
 	player.velocity.x -= player.currentDirection * recoil  # kick player back

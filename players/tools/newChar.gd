@@ -232,13 +232,13 @@ func die():
 	set_collision_layer(0)
 	emit_signal("die")
 	$PickUpRadius.queue_free()
-	yield(get_tree().create_timer(1),"timeout")
+	yield(get_tree().create_timer(1, false),"timeout")
 	var tw = Tween.new()
 	get_tree().current_scene.add_child(tw)
 	tw.interpolate_property(get_parent(), "modulate:a", modulate.a,
 		0, 1, Tween.TRANS_LINEAR, Tween.EASE_OUT)
 	tw.start()
-	yield(get_tree().create_timer(1),"timeout")
+	yield(get_tree().create_timer(1, false),"timeout")
 	get_parent().queue_free()
 	
 func _on_shoot():

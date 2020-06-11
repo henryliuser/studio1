@@ -4,10 +4,8 @@
 _**TIMELINE:**_
 portal gun sprites - 6/10
 fix melee hitboxes to be more visually consistent - 6/10
-claw trap obstacle 6/10
 obstacle spawns on random sequence - 6/10
 quick fix yield pause mode - 6/10
-fix two slowing obstacles will overwrite each other 6/10
 overhaul Char, movement() - make it consistent across _everything_ plan it
 platform momentum
 	-lerp environment to 0 every frame after move_and_slide(velo + env)
@@ -23,6 +21,7 @@ eraser staff or IK/physics/that one mace game from that one jam, mace *
 flaming bow/arrows combust on contact making hazard and DoT *
 thousand island flamethrower 
 torch 
+fix two slowing obstacles will overwrite each other
 basic audio haul
 flaming whip
 tryndamere slash sword but like vertical *
@@ -369,3 +368,4 @@ animate player - 6/9
 forest area platforms - 6/10
 falling spike - 6/10
 celeste bumper 6/10
+claw trap obstacle 6/10

@@ -14,7 +14,7 @@ func shoot():
 		player.rotation_degrees -= player.currentDirection*5
 		player.global_position.x -= player.currentDirection*5
 		position.x += -player.currentDirection*10
-		yield(get_tree().create_timer(0.1), "timeout")
+		yield(get_tree().create_timer(0.1, false), "timeout")
 	
 
 

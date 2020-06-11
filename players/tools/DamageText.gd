@@ -13,7 +13,7 @@ func _ready():
 
 func _on_Tween_tween_completed(_object, _key):
 	if halfWay == false:
-		yield(get_tree().create_timer(haltDuration), "timeout") 
+		yield(get_tree().create_timer(haltDuration, false), "timeout") 
 		tween.interpolate_property(self, "scale", scale,
 			Vector2(0.1,0.1), 0.2, Tween.TRANS_SINE)
 		tween.start()
