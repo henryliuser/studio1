@@ -66,7 +66,7 @@ script = ExtResource( 21 )
 [node name="Players" type="Node2D" parent="."]
 
 [node name="walker" parent="Players" instance=ExtResource( 14 )]
-position = Vector2( 4252.29, -6.1817 )
+position = Vector2( 841.306, 511.349 )
 
 [node name="yosef" parent="Players" instance=ExtResource( 7 )]
 position = Vector2( 214.528, 559.235 )
@@ -105,7 +105,7 @@ rotation = 3.14159
 position = Vector2( 2667.64, 328.75 )
 
 [node name="Bumper2" parent="Obstacles" instance=ExtResource( 22 )]
-position = Vector2( 2072.94, 26.6432 )
+position = Vector2( 1994.56, 31.5422 )
 
 [node name="Bumper3" parent="Obstacles" instance=ExtResource( 22 )]
 position = Vector2( 2748.52, -194.585 )
@@ -140,28 +140,24 @@ position = Vector2( 2408.6, 207.707 )
 [node name="Platforms" type="Node2D" parent="."]
 
 [node name="defaultPlat" parent="Platforms" instance=ExtResource( 1 )]
-modulate = Color( 0.278431, 0.94902, 0.929412, 1 )
 position = Vector2( 960, 859.041 )
 scale = Vector2( 25, 25 )
 velocity = Vector2( 0, 0 )
 seesaw_rot_speed_deg = 30
 
 [node name="defaultPlat3" parent="Platforms" instance=ExtResource( 1 )]
-modulate = Color( 0.278431, 0.94902, 0.929412, 1 )
 position = Vector2( -775.52, 870.84 )
 scale = Vector2( 25, 25 )
 velocity = Vector2( 0, 0 )
 seesaw_rot_speed_deg = 30
 
 [node name="defaultPlat4" parent="Platforms" instance=ExtResource( 1 )]
-modulate = Color( 0.278431, 0.94902, 0.929412, 1 )
 position = Vector2( 2706.12, 870.001 )
 scale = Vector2( 25, 25 )
 velocity = Vector2( 0, 0 )
 seesaw_rot_speed_deg = 30
 
 [node name="defaultPlat13" parent="Platforms" instance=ExtResource( 1 )]
-modulate = Color( 0.278431, 0.94902, 0.929412, 1 )
 position = Vector2( 4434.12, 866.186 )
 scale = Vector2( 25, 25 )
 velocity = Vector2( 0, 0 )

@@ -16,6 +16,7 @@ func _ready():
 	slowdown = true
 	yield(get_tree().create_timer(3, false), "timeout")
 	$platSpawnerFR.on = false
+	$platSpawnerFR.timer = $platSpawnerFR.delay - 1
 	slowdown = false
 	start_hori = true
 	$hori.on = true

@@ -1,7 +1,7 @@
 extends Node2D
 
 export var on = true
-export var delay = 100
+export var delay = 150
 var timer = delay - 1
 export var horizontal = false
 
@@ -12,32 +12,31 @@ var paths = [
 	"res://blocks/burnPlat.tscn"
 		]
 
-var num2chance = { 1:5, 2:5, 3:6, 4:10 }
+var num2chance = { 1:6, 2:5, 3:6, 4:10 }
 var last_num = 1
 
 func _physics_process(delta):
 	if on: timer += 1
 	if timer % delay == 0:
 #		var num_plats = 4
-		_1plat()
-#		if !horizontal:
-#			var num_plats = randi()%len(paths)+1
-#			while (num_plats == last_num and last_num != 2): 
-#				num_plats = randi()%len(paths)+1
-#			last_num = num_plats  # reset last_num
-#			match num_plats:
-#				1: _1plat()
-#				2: _2plat()
-#				3: _3plat()
-#				4: _4plat()
-#		else: _horizontal_1plat(1)
+		if !horizontal:
+			var num_plats = randi()%len(paths)+1
+			while (num_plats == last_num and last_num != 2): 
+				num_plats = randi()%len(paths)+1
+			last_num = num_plats  # reset last_num
+			match num_plats:
+				1: _1plat()
+				2: _2plat()
+				3: _3plat()
+				4: _4plat()
+		else: _horizontal_1plat(1)
 
 func _1plat(ret = false):
 	var rand_arr = create_rand_array(num2chance[1])
 	var rand = randi()%len(paths)
+	var muta_list = {}
 	var muta_chance = 0.6
 	var plat = load(paths[rand]).instance()
-	var render_under = false
 	plat.scale = Vector2(4.5, 4.5)
 	plat.position = Vector2(1920/2, -150)  # all are centered
 	plat.moving = true
@@ -46,6 +45,7 @@ func _1plat(ret = false):
 		var idx = randi()%len(rand_arr)
 		var x = rand_arr[idx]
 		rand_arr.remove(idx)
+		muta_list[x] = true
 		match x:
 			0:  # x patrol
 				var r = randi()%551 + 50; var neg = randi()%2
@@ -62,22 +62,27 @@ func _1plat(ret = false):
 				plat.rotation_speed_deg = randi()%101 + 100 
 			4:  # falling spike
 				var spk = load("res://obstacles/Spike.tscn").instance()
-				render_under = true
-				spk.is_falling = true
-				spk.is_missile = true
-				spk.position = Vector2(0,10)
-				var ogscl = spk.scale
+				var rando = randi()%2
+				if rando == 1: spk.rotation_degrees = 180
+				spk.position = Vector2(0,15) if rando == 0 else Vector2(0,-15)
 				plat.add_child(spk)
-				spk.global_scale = ogscl
+				spk.scale = Vector2(0.25, 0.25)
+			5:  # claw trap
+				var trp = load("res://obstacles/ClawTrap.tscn").instance()
+				plat.add_child(trp)
+				trp.position = Vector2(0,-8)
+				trp.scale = Vector2(0.25, 0.25)
 				
 		if len(rand_arr) == 0: break
+	if muta_list.has(3) and muta_list.has(5): plat.rotation_speed_deg = 0
+	
 #	get_tree().current_scene.add_child(plat)
 	add_child(plat)
-	if render_under: move_child(plat, 0)
 	if ret: return plat
 
 func _2plat(ret = false):
 	var rand_arr = create_rand_array(num2chance[2])
+	var muta_list = {}
 	var muta_chance = 0.6
 	var rand = randi()%len(paths)
 	var plat1 = load(paths[rand]).instance()
@@ -89,6 +94,7 @@ func _2plat(ret = false):
 		var idx = randi()%len(rand_arr)
 		var x = rand_arr[idx]
 		rand_arr.remove(idx)
+		muta_list[x] = true
 		match x:
 			0:  # x patrol
 				var r = randi()%251 + 50; var neg = randi()%2
@@ -111,8 +117,8 @@ func _2plat(ret = false):
 			4:  # spinning
 				plat1.rotation_speed_deg = randi()%51 + 50
 				plat2.rotation_speed_deg = -plat1.rotation_speed_deg
-		if plat1.is_wall and plat1.is_seesaw:  # incompatible, wall takes precedence
-			plat1.is_seesaw = false; plat2.is_seesaw = false; 
+#		if plat1.is_wall and plat1.is_seesaw:  # incompatible, wall takes precedence
+#			plat1.is_seesaw = false; plat2.is_seesaw = false; 
 		if len(rand_arr) == 0: break
 	plat1.scale = Vector2(4,4); plat2.scale = Vector2(-4,4);
 #	get_tree().current_scene.add_child(plat1)
@@ -140,6 +146,7 @@ func _4plat():
 func _horizontal_1plat(dir = 1, ret = false):
 	var rand_arr = create_rand_array(num2chance[1])
 	var rand = randi()%len(paths)
+	var muta_list = {}
 	var muta_chance = 0.4
 	var plat = load(paths[rand]).instance()
 	plat.scale = Vector2(4, 4)
@@ -152,6 +159,7 @@ func _horizontal_1plat(dir = 1, ret = false):
 		var idx = randi()%len(rand_arr)
 		var x = rand_arr[idx]
 		rand_arr.remove(idx)
+		muta_list[x] = true
 		match x:
 			0:  # x patrol
 				var r = randi()%351 + 50; var neg = randi()%2
@@ -166,6 +174,19 @@ func _horizontal_1plat(dir = 1, ret = false):
 				plat.patrol_x = Vector2(-r, r) 
 			3:  # spinning
 				plat.rotation_speed_deg = randi()%51 + 30
+			4:  # falling spike
+				var spk = load("res://obstacles/Spike.tscn").instance()
+				var rando = randi()%2
+				spk.position = Vector2(0,20) if rando == 0 else Vector2(0,-15)
+				if rando == 1: spk.rotation_degrees = 180
+				spk.is_falling = true if rando == 0 else false
+				plat.add_child(spk)
+				spk.scale = Vector2(0.25, 0.25)
+			5:  # claw trap
+				var trp = load("res://obstacles/ClawTrap.tscn").instance()
+				plat.add_child(trp)
+				trp.position = Vector2(0,-8)
+				trp.scale = Vector2(0.25, 0.25)
 		if len(rand_arr) == 0: break
 #	get_tree().current_scene.add_child(plat)
 	add_child(plat)
