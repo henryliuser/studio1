@@ -33,6 +33,7 @@ __meta__ = {
 [node name="Weapons" parent="." instance=ExtResource( 6 )]
 position = Vector2( 30, -15 )
 posList = {
+"bigAssPopsicle": Vector2( 0, 0 ),
 "boomerangSniper": Vector2( -3, 10 ),
 "lightShield": Vector2( 10, -15 ),
 "meterstick": Vector2( 0, 0 ),

@@ -31,6 +31,7 @@ __meta__ = {
 [node name="Weapons" parent="." instance=ExtResource( 4 )]
 position = Vector2( 27.1454, -26.1384 )
 posList = {
+"bigAssPopsicle": Vector2( 0, 0 ),
 "boomerangSniper": Vector2( 2, -7 ),
 "lightShield": Vector2( 20, -20 ),
 "meterstick": Vector2( 0, 4 ),
@@ -69,7 +70,7 @@ frame = 1
 [node name="sprite" type="AnimatedSprite" parent="player"]
 frames = ExtResource( 2 )
 animation = "idle"
-frame = 2
+frame = 4
 playing = true
 
 [node name="hurtbox" type="CollisionPolygon2D" parent="player"]

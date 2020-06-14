@@ -1,0 +1,137 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/Weapons/bigasspopsicle.png" type="Texture" id=1]
+[ext_resource path="res://weapons/BigAssPopsicle.gd" type="Script" id=2]
+[ext_resource path="res://weapons/projectiles/staticHitbox.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 55.7902, 91.7305 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "hit"
+length = 1.2
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.42, 0.5, 0.63, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -15.0, 140.0, 140.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("hitboxes/hitbox:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.01, 0.43, 0.51 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("hitboxes/hitbox:monitorable")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.43, 0.51 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.42, 0.45, 0.5, 0.63, 1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 20, 0 ), Vector2( -25, 0 ), Vector2( -15, 0 ), Vector2( 15, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("hitboxes/hitbox:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.43, 0.51 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.47, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ true ],
+"method": "resetRender"
+}, {
+"args": [ false ],
+"method": "resetRender"
+} ]
+}
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 15, 57 )
+
+[node name="BigAssPopsicle" type="Node2D"]
+position = Vector2( 11.7568, 0 )
+rotation = 1.02883
+script = ExtResource( 2 )
+itemName = "bigAssPopsicle"
+
+[node name="equipRadius" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="equipRadius"]
+position = Vector2( -21.9752, -56.8488 )
+shape = SubResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_default_blend_time = 0.1
+anims/hit = SubResource( 2 )
+
+[node name="sprite" type="Sprite" parent="."]
+position = Vector2( -23.378, -62.0433 )
+rotation = -0.349066
+scale = Vector2( 3, 3 )
+texture = ExtResource( 1 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="hitboxes" type="Node2D" parent="."]
+
+[node name="hitbox" type="Area2D" parent="hitboxes"]
+visible = false
+position = Vector2( -23.378, -62.0433 )
+rotation = -0.349066
+scale = Vector2( 1, 1 )
+monitoring = false
+monitorable = false
+script = ExtResource( 3 )
+damage = 20
+stun = 30
+knockback = Vector2( 800, -800 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitboxes/hitbox"]
+position = Vector2( 0, -15 )
+shape = SubResource( 1 )
+[connection signal="body_entered" from="hitboxes/hitbox" to="hitboxes/hitbox" method="_on_hitbox_body_entered"]

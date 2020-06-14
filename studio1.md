@@ -54,6 +54,7 @@ basic particles
 screenshake
 camera balancing
 basic lights
+singleplayer stuff
 **—==—_Summer Cut—_==_—**_
 networking core
 playtesting

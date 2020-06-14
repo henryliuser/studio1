@@ -45,8 +45,7 @@ func _on_picked_up(p):
 #	sprite.material.set_shader_param("width", 0)
 	if get_parent()!=null: get_parent().remove_child(self)
 	p.Weapons.swap(self)
-	if renderOver: get_parent().get_parent().move_child(get_parent(), 1)
-	else: get_parent().get_parent().move_child(get_parent(), 0)
+	resetRender(renderOver)
 	global_position = x
 	hover_pos = player.Weapons.posList[itemName]
 	hover()
@@ -56,6 +55,10 @@ func _on_dropped():
 	equipped = false
 	sprite.position = spriteInitPos
 	hover()
+	
+func resetRender(b):
+	if b: get_parent().get_parent().move_child(get_parent(), 1)
+	else: get_parent().get_parent().move_child(get_parent(), 0)
 	
 func hover():
 	hoverTween.remove_all()

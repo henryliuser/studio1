@@ -33,7 +33,6 @@ func _on_fallDetection_body_entered(body):
 		if is_falling: falling = true
 		if is_missile: 
 			missile_unitvec = Vector2(cos(global_rotation+PI/2), sin(global_rotation+PI/2))
-			print(missile_unitvec)
 		fallDetection.queue_free()
 		$sprite2.material = load("res://assets/Shaders/Outline.tres").duplicate()
 		$sprite2.material.set_shader_param("outline_color", Color.red)

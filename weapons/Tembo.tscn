@@ -85,7 +85,6 @@ tracks/5/keys = {
 extents = Vector2( 28.3495, 27.2034 )
 
 [node name="tembo" type="Node2D"]
-rotation = 2.35619
 script = ExtResource( 2 )
 itemName = "tembo"
 
