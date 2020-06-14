@@ -37,7 +37,7 @@ func _on_fallDetection_body_entered(body):
 		fallDetection.queue_free()
 		$sprite2.material = load("res://assets/Shaders/Outline.tres").duplicate()
 		$sprite2.material.set_shader_param("outline_color", Color.red)
-		Global.call_deferred("attach", self, get_tree().current_scene)
+		Global.call_deferred("attach", self, get_tree().current_scene.get_node("Obstacles"))
 
 func fall():
 	if not is_missile:

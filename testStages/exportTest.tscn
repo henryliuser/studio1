@@ -31,7 +31,6 @@ position = Vector2( 1.38477, -1.3847 )
 script = ExtResource( 24 )
 
 [node name="Sprite21-0001" type="Sprite" parent="."]
-visible = false
 modulate = Color( 0.733333, 0.952941, 0.509804, 0.34902 )
 position = Vector2( 1825.61, 477.907 )
 scale = Vector2( 4, 4 )
