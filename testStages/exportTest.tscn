@@ -66,6 +66,7 @@ script = ExtResource( 21 )
 [node name="Players" type="Node2D" parent="."]
 
 [node name="walker" parent="Players" instance=ExtResource( 14 )]
+position = Vector2( 724.555, 642.1 )
 
 [node name="shade" parent="Players" instance=ExtResource( 25 )]
 position = Vector2( 408.01, 634.137 )
