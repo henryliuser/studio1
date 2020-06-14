@@ -4,8 +4,8 @@
 _**TIMELINE:**_
 portal gun sprites - 6/11
 obstacle spawns on random sequence - 6/11
-overhaul Char, movement() - make it consistent across _everything_ plan it - 6/11
-platform momentum - 6/11
+overhaul Char, movement() - make it consistent across _everything_ plan it 
+platform momentum 
 	-lerp environment to 0 every frame after move_and_slide(velo + env)
 	-only apply it on the frame that you leave the plat 
 jump height / reduced grav and lava trail powerups 
@@ -31,7 +31,6 @@ snowball mg with heat lol and kb
 ice cream
 block spawn weapon to crush people *
 magnifying glass lol burn people
-trumpet shotgun (note scatter) random dissonant chord  
 cymbals (clap someone in front of you) 
 industrial / fire sector
 ice sector
@@ -369,3 +368,4 @@ falling spike - 6/10
 celeste bumper 6/10
 claw trap obstacle 6/10
 fix melee hitboxes to be more visually consistent - 6/10
+trumpet shotgun (note scatter) random dissonant chord - 6/14
