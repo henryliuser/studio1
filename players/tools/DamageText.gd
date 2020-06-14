@@ -32,7 +32,7 @@ func big_damage():
 	using = $BigDamage
 	using.visible = true
 	$DamageText.visible = false
-	haltDuration = 0.6
+	haltDuration = 0.8
 	
 #func chain(dmg):
 #	set_text(str(int($DamageText.text)+dmg))

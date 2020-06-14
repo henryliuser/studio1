@@ -236,7 +236,8 @@ posList = {
 "portalGun": Vector2( 0, 0 ),
 "potassiumCannon": Vector2( 0, 0 ),
 "tembo": Vector2( 0, 0 ),
-"toxicRifle": Vector2( 0, 0 )
+"toxicRifle": Vector2( 0, 0 ),
+"trumpetShotgun": Vector2( 0, 0 )
 }
 
 [node name="player" type="KinematicBody2D" parent="."]

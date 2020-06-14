@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://blocks/defaultPlat.tscn" type="PackedScene" id=1]
 [ext_resource path="res://weapons/portalGun.tscn" type="PackedScene" id=2]
@@ -25,6 +25,7 @@
 [ext_resource path="res://obstacles/ClawTrap.tscn" type="PackedScene" id=23]
 [ext_resource path="res://testStages/exportTest.gd" type="Script" id=24]
 [ext_resource path="res://players/shade.tscn" type="PackedScene" id=25]
+[ext_resource path="res://weapons/trumpetShotgun.tscn" type="PackedScene" id=26]
 
 [node name="hennyTest1" type="Node2D"]
 position = Vector2( 1.38477, -1.3847 )
@@ -65,14 +66,13 @@ script = ExtResource( 21 )
 [node name="Players" type="Node2D" parent="."]
 
 [node name="walker" parent="Players" instance=ExtResource( 14 )]
-position = Vector2( 841.306, 511.349 )
-
-[node name="yosef" parent="Players" instance=ExtResource( 7 )]
-position = Vector2( 214.528, 559.235 )
-localNum = 2
 
 [node name="shade" parent="Players" instance=ExtResource( 25 )]
-position = Vector2( 538.603, 33.0432 )
+position = Vector2( 408.01, 634.137 )
+localNum = 2
+
+[node name="yosef" parent="Players" instance=ExtResource( 7 )]
+position = Vector2( 548.11, 44.2421 )
 localNum = 2
 
 [node name="Obstacles" type="Node2D" parent="."]
@@ -260,3 +260,6 @@ position = Vector2( -28.8097, 144.408 )
 [node name="defaultPlat6" parent="Platforms" instance=ExtResource( 1 )]
 position = Vector2( 564.408, 147.174 )
 scale = Vector2( -3, 3 )
+
+[node name="trumpetShotgun" parent="." instance=ExtResource( 26 )]
+position = Vector2( 1074.62, 466.823 )
