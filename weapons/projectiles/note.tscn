@@ -28,7 +28,7 @@ frame = 3
 playing = true
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.7
 
 [node name="Tween" type="Tween" parent="."]
 [connection signal="body_entered" from="." to="." method="_on_note_body_entered"]

@@ -4,7 +4,7 @@
 [ext_resource path="res://weapons/BigAssPopsicle.gd" type="Script" id=2]
 [ext_resource path="res://weapons/projectiles/staticHitbox.gd" type="Script" id=3]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 55.7902, 91.7305 )
 
 [sub_resource type="Animation" id=2]
@@ -57,7 +57,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 0.42, 0.45, 0.5, 0.63, 1, 1.2 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 20, 0 ), Vector2( -25, 0 ), Vector2( -15, 0 ), Vector2( 15, 0 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 25, 0 ), Vector2( -25, 0 ), Vector2( -15, 0 ), Vector2( 15, 0 ), Vector2( 0, 0 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("hitboxes/hitbox:visible")
@@ -89,12 +89,10 @@ tracks/5/keys = {
 } ]
 }
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 15, 57 )
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 17, 65 )
 
 [node name="BigAssPopsicle" type="Node2D"]
-position = Vector2( 11.7568, 0 )
-rotation = 1.02883
 script = ExtResource( 2 )
 itemName = "bigAssPopsicle"
 
@@ -103,7 +101,7 @@ visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="equipRadius"]
 position = Vector2( -21.9752, -56.8488 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_default_blend_time = 0.1
@@ -123,7 +121,6 @@ texture = ExtResource( 1 )
 visible = false
 position = Vector2( -23.378, -62.0433 )
 rotation = -0.349066
-scale = Vector2( 1, 1 )
 monitoring = false
 monitorable = false
 script = ExtResource( 3 )
@@ -133,5 +130,5 @@ knockback = Vector2( 800, -800 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitboxes/hitbox"]
 position = Vector2( 0, -15 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 [connection signal="body_entered" from="hitboxes/hitbox" to="hitboxes/hitbox" method="_on_hitbox_body_entered"]

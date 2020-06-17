@@ -5,7 +5,7 @@ func shoot():
 	
 	for x in range(8):
 		var n = load("res://weapons/projectiles/note.tscn").instance()
-		var velo = Vector2(player.currentDirection*(randi()%251+450), randi()%201-100)
+		var velo = Vector2(player.currentDirection*(randi()%251+350), randi()%201-100)
 		if Input.is_action_pressed(s+"down"):
 			velo.x /= 1.5
 			if player.is_on_floor(): velo.y = -(randi()%251 + 60)

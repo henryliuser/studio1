@@ -8,7 +8,7 @@ var rot_speed_deg = 0
 
 func _ready():
 	sprite.material = load("res://assets/Shaders/Outline.tres").duplicate()
-	sprite.material.set_shader_param("width", 0.5)
+	sprite.material.set_shader_param("width", 1)
 	var c = Color(randf(), randf(), randf())
 	sprite.material.set_shader_param("outline_color", c)
 	tween.interpolate_property(sprite, "modulate:a", sprite.modulate.a, 
