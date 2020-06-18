@@ -18,5 +18,7 @@ func shoot():
 	player.velocity = Vector2(player.currentDirection * -900, -500)
 	player.sprite.rotation_degrees += player.currentDirection * 30
 	rotation_degrees += 15
-		
+#	I could not help laughing at the ease with which he explained his process of deduction.
+
+
 		

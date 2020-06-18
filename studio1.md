@@ -10,9 +10,9 @@ platform momentum
 	-only apply it on the frame that you leave the plat 
 jump height / reduced grav and lava trail powerups 
 new shade 
-new walker
-superarmor
-pillar / groundpound char
+new walker 
+superarmor 
+pillar / groundpound char 
 floaty char - brock lee umbrella ??????
 glue gun *
 eraser staff or IK/physics/that one mace game from that one jam, mace *
