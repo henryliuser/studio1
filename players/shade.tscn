@@ -126,6 +126,8 @@ tint_progress = Color( 0.113725, 0.858824, 0.956863, 1 )
 [node name="HPBar" parent="Gauges" instance=ExtResource( 3 )]
 position = Vector2( 0, -2 )
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
 [editable path="Gauges/JumpIndic"]
 
 [editable path="Gauges/DashIndic"]

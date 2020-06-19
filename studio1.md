@@ -14,7 +14,6 @@ new walker
 superarmor 
 pillar / groundpound char 
 floaty char - brock lee umbrella ??????
-glue gun *
 eraser staff or IK/physics/that one mace game from that one jam, mace *
 flaming bow/arrows combust on contact making hazard and DoT *
 thousand island flamethrower 
@@ -370,3 +369,4 @@ celeste bumper 6/10
 claw trap obstacle 6/10
 fix melee hitboxes to be more visually consistent - 6/10
 trumpet shotgun (note scatter) random dissonant chord - 6/14
+glue gun *

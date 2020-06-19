@@ -264,7 +264,7 @@ position = Vector2( 564.408, 147.174 )
 scale = Vector2( -3, 3 )
 
 [node name="trumpetShotgun" parent="." instance=ExtResource( 26 )]
-position = Vector2( 1074.62, 466.823 )
+position = Vector2( -1578.67, -43.7753 )
 
 [node name="BigAssPopsicle" parent="." instance=ExtResource( 27 )]
 position = Vector2( 896.9, 512.135 )
