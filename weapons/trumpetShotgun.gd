@@ -15,8 +15,9 @@ func shoot():
 		get_tree().current_scene.add_child(n)
 #		get_tree().current_scene.move_child(n, 1)
 		n.global_position = $Muzzle.global_position
-	player.velocity = Vector2(player.currentDirection * -900, -500)
-	player.sprite.rotation_degrees += player.currentDirection * 30
+	var dir = player.currentDirection if !("storedDirection" in player) else player.storedDirection
+	player.velocity = Vector2(dir * -900, -500)
+	player.sprite.rotation_degrees += dir * 30
 	rotation_degrees += 15
 #	I could not help laughing at the ease with which he explained his process of deduction.
 

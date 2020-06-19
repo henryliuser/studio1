@@ -33,6 +33,7 @@ position = Vector2( 27.1454, -26.1384 )
 posList = {
 "bigAssPopsicle": Vector2( 0, 0 ),
 "boomerangSniper": Vector2( 2, -7 ),
+"hotGlueGun": Vector2( 0, 0 ),
 "lightShield": Vector2( 20, -20 ),
 "meterstick": Vector2( 0, 4 ),
 "portalGun": Vector2( 5, 10 ),
@@ -70,7 +71,7 @@ frame = 1
 [node name="sprite" type="AnimatedSprite" parent="player"]
 frames = ExtResource( 2 )
 animation = "idle"
-frame = 4
+frame = 2
 playing = true
 
 [node name="hurtbox" type="CollisionPolygon2D" parent="player"]

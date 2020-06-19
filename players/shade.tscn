@@ -35,6 +35,7 @@ position = Vector2( 30, -15 )
 posList = {
 "bigAssPopsicle": Vector2( 0, 0 ),
 "boomerangSniper": Vector2( -3, 10 ),
+"hotGlueGun": Vector2( 0, 0 ),
 "lightShield": Vector2( 10, -15 ),
 "meterstick": Vector2( 0, 0 ),
 "portalGun": Vector2( 0, 0 ),

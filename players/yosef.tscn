@@ -232,6 +232,7 @@ script = ExtResource( 12 )
 posList = {
 "bigAssPopsicle": Vector2( 0, 0 ),
 "boomerangSniper": Vector2( 0, 0 ),
+"hotGlueGun": Vector2( 0, 0 ),
 "lightShield": Vector2( 6, -15 ),
 "meterstick": Vector2( 0, 0 ),
 "portalGun": Vector2( 0, 0 ),

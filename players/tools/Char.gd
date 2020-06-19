@@ -285,7 +285,30 @@ func heal(amt):
 	if hp > 100: hp = 100
 	hpbar.updateBar(hp)
 	# play some animatiion
-	
+
+var slow_sources = 0
+func get_slowed(amt, duration = 0, bright = null):
+	if amt < 1: slow_sources -= 1
+	else: slow_sources += 1
+	maxAirVelocity.x /= amt
+	maxGroundVelocity /= amt
+	if bright != null and bright: 
+		sprite.material = load("res://assets/Shaders/brightness.tres").duplicate()
+		sprite.material.set_shader_param("bright_amount", 0.2)
+	if duration != 0:
+		yield(get_tree().create_timer(duration, false), "timeout")
+		slow_sources -= 1
+		maxAirVelocity.x *= amt
+		maxGroundVelocity *= amt
+		if sprite.material != null and slow_sources == 0:
+			var tw = Tween.new()
+			get_tree().get_root().add_child(tw)
+			tw.interpolate_property(sprite.material, "shader_param/bright_amount",
+				sprite.material.get_shader_param("bright_amount"), 0, 0.5)
+			tw.start()
+			yield(get_tree().create_timer(0.5, false), "timeout")
+			sprite.material = null
+			tw.queue_free()
 
 func restore():
 	sprite.modulate.a = lerp(sprite.modulate.a, 1, 0.05)
