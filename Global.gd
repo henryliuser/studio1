@@ -41,3 +41,11 @@ func attach(object, target):
 	target.add_child(object)
 	object.global_position = stuff[0]; object.global_rotation = stuff[1]
 	object.global_scale = stuff[2]; object.self_modulate = stuff[3]
+
+func inter_prop(obj, path, init, final, dur, t=0, e=2, delay=0):
+	var tw = Tween.new()
+	get_tree().get_root().add_child(tw)
+	tw.interpolate_property(obj,path,init,final,dur,t,e,delay)
+	tw.start()
+	yield(get_tree().create_timer(delay+dur, false), "timeout")
+	tw.queue_free()

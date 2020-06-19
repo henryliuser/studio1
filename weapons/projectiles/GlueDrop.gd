@@ -1,5 +1,5 @@
 extends Area2D
-var velocity = Vector2()
+var velocity = Vector2(1,1)
 
 func _on_GlueDrop_body_entered(body):
 	if body.has_method("getHurt"):

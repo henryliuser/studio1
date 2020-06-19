@@ -301,14 +301,10 @@ func get_slowed(amt, duration = 0, bright = null):
 		maxAirVelocity.x *= amt
 		maxGroundVelocity *= amt
 		if sprite.material != null and slow_sources == 0:
-			var tw = Tween.new()
-			get_tree().get_root().add_child(tw)
-			tw.interpolate_property(sprite.material, "shader_param/bright_amount",
+			Global.inter_prop(sprite.material, "shader_param/bright_amount",
 				sprite.material.get_shader_param("bright_amount"), 0, 0.5)
-			tw.start()
 			yield(get_tree().create_timer(0.5, false), "timeout")
 			sprite.material = null
-			tw.queue_free()
 
 func restore():
 	sprite.modulate.a = lerp(sprite.modulate.a, 1, 0.05)
