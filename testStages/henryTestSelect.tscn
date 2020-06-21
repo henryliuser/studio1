@@ -35,7 +35,7 @@ position = Vector2( 254.779, 59.3672 )
 scale = Vector2( 2.98754, 3.56092 )
 frames = ExtResource( 2 )
 animation = "idle"
-frame = 3
+frame = 1
 playing = true
 
 [node name="walkerDesc" type="Label" parent="walkerTest"]
@@ -148,13 +148,25 @@ __meta__ = {
 }
 
 [node name="random2" type="Button" parent="."]
-margin_left = 1525.94
-margin_top = 553.042
-margin_right = 1713.94
-margin_bottom = 635.042
+margin_left = 48.5803
+margin_top = 938.707
+margin_right = 207.58
+margin_bottom = 1010.71
 rect_scale = Vector2( 1.67362, 1.40413 )
 custom_fonts/font = ExtResource( 1 )
 text = "random2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="newShadeTex" type="Button" parent="."]
+margin_left = 1534.93
+margin_top = 559.115
+margin_right = 1715.93
+margin_bottom = 631.115
+rect_scale = Vector2( 1.67362, 1.40413 )
+custom_fonts/font = ExtResource( 1 )
+text = "new shade tex"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -173,12 +185,24 @@ __meta__ = {
 
 [node name="enemyTest" type="Button" parent="."]
 margin_left = 1525.94
-margin_top = 717.372
+margin_top = 877.441
 margin_right = 1713.94
-margin_bottom = 799.372
+margin_bottom = 959.441
 rect_scale = Vector2( 1.67362, 1.40413 )
 custom_fonts/font = ExtResource( 1 )
 text = "Enemy Test"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="demo" type="Button" parent="."]
+margin_left = 1530.51
+margin_top = 699.079
+margin_right = 1718.51
+margin_bottom = 781.079
+rect_scale = Vector2( 1.67362, 1.40413 )
+custom_fonts/font = ExtResource( 1 )
+text = "glue gun demo"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -187,5 +211,7 @@ __meta__ = {
 [connection signal="pressed" from="bug2" to="." method="_on_bug2_pressed"]
 [connection signal="pressed" from="shadeTest" to="." method="_on_boomer2_pressed"]
 [connection signal="pressed" from="random2" to="." method="_on_random2_pressed"]
+[connection signal="pressed" from="newShadeTex" to="." method="_on_newShadeTex_pressed"]
 [connection signal="pressed" from="random3" to="." method="_on_random3_pressed"]
 [connection signal="pressed" from="enemyTest" to="." method="_on_enemyTest_pressed"]
+[connection signal="pressed" from="demo" to="." method="_on_demo_pressed"]

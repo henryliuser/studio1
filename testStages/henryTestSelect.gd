@@ -20,3 +20,9 @@ func _on_bug2_pressed():
 	
 func _on_random3_pressed():
 	get_tree().change_scene("res://testStages/hennyTest2b.tscn")
+
+func _on_newShadeTex_pressed():
+	get_tree().change_scene("res://testStages/Demo2.tscn")
+
+func _on_demo_pressed():
+	get_tree().change_scene("res://testStages/Demo.tscn")

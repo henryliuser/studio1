@@ -28,6 +28,8 @@ trap weapon (makes u stop, u can lol wukong fake) remote detonate?
 frost scythe (cold feet?) 
 snowball mg with heat lol and kb
 ice cream
+bap, meterstick, hammer, shield, 
+glue, sniper, banana, portal, dart
 block spawn weapon to crush people *
 magnifying glass lol burn people
 cymbals (clap someone in front of you) 

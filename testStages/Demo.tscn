@@ -1,22 +1,22 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://players/shade2.tscn" type="PackedScene" id=1]
+[ext_resource path="res://players/shade.tscn" type="PackedScene" id=1]
 [ext_resource path="res://weapons/HotGlueGun.tscn" type="PackedScene" id=2]
 [ext_resource path="res://blocks/defaultPlat.tscn" type="PackedScene" id=3]
 [ext_resource path="res://players/walker.tscn" type="PackedScene" id=4]
-[ext_resource path="res://players/yosef.tscn" type="PackedScene" id=5]
+[ext_resource path="res://weapons/potassiumCannon.tscn" type="PackedScene" id=6]
 
 [node name="Demo" type="Node2D"]
+
+[node name="defaultPlat2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1343.33, 608.156 )
+rotation = 1.5708
+scale = Vector2( 10, 10 )
+is_wall = true
 
 [node name="defaultPlat" parent="." instance=ExtResource( 3 )]
 position = Vector2( 960, 850 )
 scale = Vector2( 20, 20 )
-
-[node name="defaultPlat2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1428.5, 433.559 )
-rotation = 1.5708
-scale = Vector2( 10, 10 )
-is_wall = true
 
 [node name="HotGlueGun" parent="." instance=ExtResource( 2 )]
 position = Vector2( 661.572, 609.028 )
@@ -25,8 +25,8 @@ position = Vector2( 661.572, 609.028 )
 position = Vector2( 1075.1, 576.206 )
 localNum = 2
 
-[node name="shade" parent="." instance=ExtResource( 1 )]
-position = Vector2( 480.639, 604.477 )
+[node name="potassiumCannon" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1524.77, 577.024 )
 
-[node name="yosef" parent="." instance=ExtResource( 5 )]
-position = Vector2( 344.997, 592.917 )
+[node name="shade" parent="." instance=ExtResource( 1 )]
+position = Vector2( 455.655, 589.796 )

@@ -119,7 +119,7 @@ func calculateJump():
 	if is_on_ceiling():
 		velocity.y = 10
 	if (L or R) and jump:  # walljump
-		velocity.y += -jumpSpeed / 1.4
+		velocity.y += -jumpSpeed / 1.1
 		velocity.x = currentDirection * 800
 	elif jump:
 		if midairJumpsLeft > 0 && not grounded:
