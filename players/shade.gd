@@ -47,8 +47,8 @@ func imposeGravity():
 		.imposeGravity()
 
 func fixFlip(dir):
-	currentDirection = dir
-	if not dashing: storedDirection = dir
+	if not dashing: currentDirection = dir
+#	if not dashing: storedDirection = dir
 	hurtbox.scale.x = currentDirection
 	for c in get_children():
 		if c.name == "rightWall" or c.name == "leftWall":
@@ -145,9 +145,11 @@ func calcDash():
 #			rpc_unreliable("syncDash", 100)
 	if predash:
 		if left and not right:
-			currentDirection = -1
+			pass
+			storedDirection = -1
 		if right and not left:
-			currentDirection = 1
+			pass
+			storedDirection = 1
 		dashTimer = dashTimer + 1
 		if dashTimer == predashDuration:
 			predash = false
@@ -163,13 +165,13 @@ func calcDash():
 #				rpc_unreliable("syncDash", 100)
 	
 	if dashing:
-		sprite.rotation_degrees = 15 if currentDirection == 1 else -25
+		sprite.rotation_degrees = 15 if  storedDirection == 1 else -25
 		sprite.modulate.a = 0.7
 		dashTimer += 1
 		modulate = Color.paleturquoise
-		velocity = Vector2(currentDirection*dashSpeed,0)
+		velocity = Vector2(storedDirection*dashSpeed,0)
 		if dashTimer == dashLock: #at the end of the dash, 
-			currentDirection = storedDirection
+#			currentDirection = storedDirection
 			dashTimer = 0
 			dashing = false
 			noDash = true # this places dash on an x frame cooldown cuz spamming it is kinda fast
@@ -219,7 +221,7 @@ func calcTrails():
 		t.global_rotation = sprite.rotation
 		t.global_position.x = lerp(t.global_position.x, sprite.global_position.x, trail_lerp)
 		t.global_position.y = global_position.y
-		t.scale = Vector2(storedDirection*3,3)
+		t.scale = Vector2(currentDirection*3,3)
 		trail_lerp -= 0.25
 		if trail_lerp < 0.5: trail_lerp = 0.5
 #		t.modulate.a = 0
