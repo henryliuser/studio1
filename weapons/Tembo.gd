@@ -37,6 +37,6 @@ func hit():
 	else:
 		player.melee_movement(50, true, false)
 		yield(get_tree().create_timer(0.5, false), "timeout") 
-		player.velocity.y = -600
-		player.velocity.x = -600 * player.currentDirection
+		player.velocity.y = -700
+		player.velocity.x = -700 * player.currentDirection
 		

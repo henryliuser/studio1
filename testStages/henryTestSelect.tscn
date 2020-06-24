@@ -35,7 +35,6 @@ position = Vector2( 254.779, 59.3672 )
 scale = Vector2( 2.98754, 3.56092 )
 frames = ExtResource( 2 )
 animation = "idle"
-frame = 2
 playing = true
 
 [node name="walkerDesc" type="Label" parent="walkerTest"]

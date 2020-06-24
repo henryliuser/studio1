@@ -54,7 +54,8 @@ func _on_sprite_animation_finished():
 
 func _on_projectile_body_entered(body):
 	if body == dontTouch:
-		damage += 10
+		damage -= 5
+		knockback *= 3
 		._on_projectile_body_entered(body)
 		queue_free()
 	else: ._on_projectile_body_entered(body)
