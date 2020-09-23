@@ -30,7 +30,7 @@ position = Vector2( 792.131, 290 )
 velocity = Vector2( 0, 0 )
 
 [node name="defaultPlat8" parent="." instance=ExtResource( 1 )]
-position = Vector2( 475.523, 427.342 )
+position = Vector2( 214.048, 423.856 )
 velocity = Vector2( 0, 0 )
 
 [node name="defaultPlat6" parent="." instance=ExtResource( 1 )]
@@ -42,7 +42,7 @@ position = Vector2( 1380.85, 290 )
 velocity = Vector2( 0, 0 )
 
 [node name="burnPlat" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1388.3, 575.472 )
+position = Vector2( 1743.91, 327.942 )
 velocity = Vector2( 0, 0 )
 
 [node name="boostPlat" parent="." instance=ExtResource( 5 )]
@@ -73,10 +73,10 @@ posList = {
 }
 
 [node name="sprite" parent="walker/player" index="2"]
-frame = 1
+frame = 4
 
 [node name="shade" parent="." instance=ExtResource( 3 )]
-position = Vector2( 404.93, 261.309 )
+position = Vector2( 879.072, 156.719 )
 
 [node name="Weapons" parent="shade" index="0"]
 posList = {
@@ -89,16 +89,16 @@ posList = {
 }
 
 [node name="toxicRifle" parent="." instance=ExtResource( 4 )]
-position = Vector2( 702.328, 620.926 )
+position = Vector2( 712.691, -83.7639 )
 
 [node name="LightShield" parent="." instance=ExtResource( 7 )]
-position = Vector2( 896.343, 630.771 )
+position = Vector2( 1033.65, -32.4666 )
 
 [node name="tembo" parent="." instance=ExtResource( 10 )]
-position = Vector2( 971.78, 211.981 )
+position = Vector2( 1212.78, 656.901 )
 
 [node name="HealthPack" parent="." instance=ExtResource( 12 )]
-position = Vector2( 1089.05, 585.976 )
+position = Vector2( 1298.9, 0.461609 )
 
 [editable path="walker"]
 
